@@ -56,13 +56,14 @@ Assuming x is bound to a global variable, does this Impcore test pass? Again, pl
 
 Next read Section 1.2, which starts on page 16, about abstract syntax.
 
-4. After reading about abstract syntax, look at this picture of an abstract-syntax tree for a “calculator expression”:
+4. After reading about abstract syntax, look at this picture of an abstract-syntax tree for a "calculator expression":
 
-  [FIXME: Picture of an abstract-syntax tree]
+  ![Picture of an abstract-syntax tree](hw1-ast.png)
+
 
 Answer these questions:
 
-a. What concrete syntax could you write in C for this expression?
+a. What concrete syntax could you write in C for this expression (don't forget operator precedence)?
 
 b. What concrete syntax could you write in Impcore for this expression?
 
