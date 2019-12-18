@@ -57,8 +57,8 @@ Assuming x is bound to a global variable, does this Impcore test pass? Again, pl
 Next read Section 1.2, which starts on page 16, about abstract syntax.
 
 4. After reading about abstract syntax, look at this picture of an abstract-syntax tree for a "calculator expression":
-
-  ![Picture of an abstract-syntax tree](hw1-ast.JPG)
+  
+  <img alt="Picture of an abstract-syntax tree" src="hw1-ast.JPG" width="300">
 
 
 Answer these questions:
