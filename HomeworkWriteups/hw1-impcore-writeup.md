@@ -2,7 +2,9 @@
 
 CSc 520 Spring 2020 Assignment
 
-[TOC]
+[Getting Started](#start)
+
+[Reading Comprehension](#read)
 
 Due Friday, January 24, 2020 at 11:59PM
 
@@ -12,6 +14,7 @@ This first assignment is divided into two parts:
 
 ALERT: This assignment is three or four times easier than a typical CSc 520 assignment. Its role is to get you acclimated and to help you start thinking systematically about how recursion works. Later assignments get much harder and more time-consuming, so don’t use this one to gauge the difficulty of the course.
 
+<a name="start"/>
 # Getting Started
 
 FIXME: see how I did 210
@@ -23,6 +26,9 @@ FIXME: see how I did 210
     * clone your HW1 repository
     * edit the starter files in that repository
     * git commit and push FREQUENTLY
+
+<a name="read"/>
+# Reading-Comprehension Questions (10%)
 
 Please read pages 6–15, but not page 14, in the book by Ramsey. Then place the answers to the following questions in the text file called cqs.impcore.txt in your HW1-impcore repository:
 
@@ -61,7 +67,6 @@ a. What concrete syntax could you write in C for this expression?
 b. What concrete syntax could you write in Impcore for this expression?
 
 
-# Reading-Comprehension Questions (10%)
 
 
 # Programming in Impcore (90%)
