@@ -58,7 +58,7 @@ Next read Section 1.2, which starts on page 16, about abstract syntax.
 
 4. After reading about abstract syntax, look at this picture of an abstract-syntax tree for a "calculator expression":
 
-  ![Picture of an abstract-syntax tree](hw1-ast.png)
+  ![Picture of an abstract-syntax tree](hw1-ast.JPG)
 
 
 Answer these questions:
