@@ -39,9 +39,9 @@ FIXME: see how I did 210
     * edit the starter files in that repository
     * git commit and push FREQUENTLY
 
-<a name="read"/>
 
 # Reading-Comprehension Questions (10%)
+<a name="read"/>
 
 Please read pages 6–15, but not page 14, in the book by Ramsey. Then place the 
 answers to the following questions in the text file called cqs.impcore.txt in 
