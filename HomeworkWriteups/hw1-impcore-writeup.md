@@ -10,10 +10,10 @@ CSc 520 Spring 2020 Assignment
 
 * [What to submit and how to submit it](#submit)
 
-[How your work will be evaluated](#eval)
+* [How your work will be evaluated](#eval)
 
 
-Due Friday, January 24, 2020 at 11:59PM
+**Due Friday, January 24, 2020 at 11:59PM**
 
 This first assignment is divided into two parts:
  * Comprehension questions that help you focus your reading
@@ -26,6 +26,7 @@ more time-consuming, so don’t use this one to gauge the difficulty of the
 course.
 
 <a name="start"/>
+
 # Getting Started
 
 FIXME: see how I did 210
@@ -39,6 +40,7 @@ FIXME: see how I did 210
     * git commit and push FREQUENTLY
 
 <a name="read"/>
+
 # Reading-Comprehension Questions (10%)
 
 Please read pages 6–15, but not page 14, in the book by Ramsey. Then place the 
