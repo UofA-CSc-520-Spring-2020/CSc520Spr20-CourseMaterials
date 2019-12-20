@@ -44,12 +44,12 @@ FIXME: see how I did 210
 <a name="read"/>
 
 Please read pages 6–15, but not page 14, in the book by Ramsey. Then place the 
-answers to the following questions in the text file called cqs.impcore.txt in 
+answers to the following questions in the text file called `cqs.impcore.txt` in 
 your HW1-impcore repository:
 
 1. What is the value of the following Impcore expression?
 
-  (if (> 3 5) 17 99)
+  `(if (> 3 5) 17 99)`
 
 
 2. Which of the following best describes the syntactic structure of Impcore?
@@ -62,12 +62,12 @@ your HW1-impcore repository:
 
 3. Does this Impcore test pass? Please answer “yes” or “no.”
 
-  (check-expect (+ 1 2 3) 6)
+  `(check-expect (+ 1 2 3) 6)`
 
 Assuming x is bound to a global variable, does this Impcore test pass? Again, 
 please answer “yes” or “no.”
 
-  (check-expect (set x 1) 1)
+  `(check-expect (set x 1) 1)`
 
 
 Next read Section 1.2, which starts on page 16, about abstract syntax.
@@ -119,8 +119,162 @@ feel compelled to do so.
 **Do not share your solutions with anyone.** We encourage you to discuss ideas, 
 but **no one other than the instructor may see your code**.
 
+## Using the software
+
+If you are in the docker container and your code and unit tests are in file 
+`solution.imp`, you can load and run them by typing
+
+    `impcore -q < solution.imp`
+
+## Unit testing
+
+The special "extended-definition forms" `check-expect` and `check-error` 
+are part of every language in the book. For example, as described in Section 
+1.1.1 of the book, they are part of the Impcore language. These forms serve both 
+as unit tests and as documentation. Every function you write must be tested and 
+documented using check-expect, and possibly also `check-error`. The number of 
+unit tests must be appropriate to the function's contract and to the structure 
+of its input. In this first assignment, you should briefly explain the purpose 
+of each `check-expect` definition, and you should explain why those 
+`check-expects` are necessary and sufficient to test the code.
+
+## Documentation
+
+In addition to its unit tests, each function should be documented by a contract, 
+which explains what the function does. Here’s an example:
+```
+;; (occurs-in? d n) returns 1 if and only if decimal digit `d`
+;; occurs in the decimal representation of the positive integer
+;; `n`; it returns 0 otherwise.
+```
+The coding guidelines explain contracts at length; read them. The contract is 
+typically supplemented by unit tests, which can serve to clarify the contract:
+```
+(check-expect (occurs-in? 7 123) 0)
+(check-expect (occurs-in? 2 123) 1)
+```
+For this assignment, I am also asking you to explain your inductive reasoning. 
+Below each function, not as part of that function’s regular documentation, 
+please put a comment that explains what inductive structure that function is 
+imposing on the integers or the natural numbers. For example, I could write the 
+`even? ` function this way:
+
+```
+;; (even? n) is given a natural number n; it returns 1 if n is
+;; even and 0 otherwise
+;;
+(define even? (n)
+  (if (= n 0) 1
+    (if (= n 1) 0
+        (even? (- n 2)))))
+
+  ;; Breaks down the natural numbers into three cases:
+  ;;    0
+  ;;    1
+  ;;    n+2, where n is a natural number
+```
+
+## A jumping-off point for your solution
+
+You will put your solutions in a file solution.imp, and you will write up your 
+whole assignment in a README file. Templates for solution.imp and README are
+included when you create your github repository.
+
+  * To turn the solution template into a real solution, follow these steps 
+    for each function:
+
+  * In a comment, you will find a template for the function’s contract. Edit the 
+   contract to make it specific and accurate. Use the coding guidelines.
+
+  * You will find one unit test that uses check-error. The test is a 
+    placeholder. Remove the check-error and replace it with check-expect unit 
+    tests, which you will write yourself. (You will need multiple unit tests: at 
+    least one per base case and per induction step.)
+
+  * You will find a function definition with the body (/ 1 0). Evaluating this 
+    code divides 1 by 0, which causes an error. Replace this code with your 
+    implementation of the function.
+
+  * Below the function definition you will find a block comment containing a 
+    placeholder for your analysis of the induction in the function. Replace the 
+    placeholder with your actual analysis.
+
+  * If you write any helper functions, supply each helper function with a 
+    contract and with unit tests.
+
+## The problems you must solve
+
+Do Exercises 4, 5, 7, 8, and 10 on pages 76–78 of Ramsey’s textbook. Also do 
+problem DD below.
+
+DD. Function double-digit accepts a positive integer less than 20,000, and it 
+returns a positive integer whose decimal representation is the same as the 
+decimal representation of the input, except each digit appears twice. For 
+example, (double-digit 123) is 112233. Implement double-digit.
+
+These problems stress induction and recursion, which is the topic of the first 
+class. And your recitation will address these kinds of problems. But a couple of 
+them may still be challenging; if you have difficulty, come to office hours or 
+ask questions on Piazza.
+
+My solutions total 50–60 lines of Impcore. (FIXME)
+
+## Expectations for your solutions
+
+This assignment lays the foundations for much that is to come. Here’s what we 
+expect:
+
+  * Your solutions must be valid Impcore; in particular, they must pass the 
+    following test:
+
+        `impcore -q < solution.imp > /dev/null`
+
+with no error messages and no unit-test failures. If your file produces error 
+messages, we won't test your solution and you will earn No Credit for functional 
+correctness (you can still earn credit for readability).
+
+Your solutions must load and complete within 250 CPU milliseconds. If you write 
+any long-running test, don't include them in `solution.imp`; instead, create a 
+file `extra-tests.imp`.
+
+On this assignment, as on several assignments to come, **you must use recursion**.  Code using while loops will receive No Credit.
+
+You may use helper functions where appropriate, but **you must not use global 
+variables**.
+
+Your code must be your own work. **Do not share your solutions with anyone. We 
+encourage you to discuss ideas, but no one else may see your code**.
+
+
+
+
 # What to submit and how to submit it
 <a name="submit"/>
+
+You will submit the following files from your github repository to Gradescope:
+
+* `cqs.impcore.txt` will contain the comprehension questions and your answers
+
+* `solution.imp` will contain your code, with its documentation and unit tests. 
+  Problems will appear in order by number, with problem DD last.
+
+* README or README.md will
+
+  * Give your name and explain how to pronounce it, as in "kaeth-lEEn FI-shur"
+    or "NORE-muhn RAM-zee" or "mih-shEHl strout". [www.pronouncenames.com]
+
+  * Identify anyone with whom you have collaborated or discussed the assignment
+
+  * Say approximately how many hours you have spent completing the assignment.
+
+Keep submitting until your work is complete; we grade only the last submission.
+**Each time you submit you have to submit ALL the files in gradescope.**
+
+You may also submit extra-tests.imp, which should contain only test code and 
+unit tests (check-expect or check-error). You can run the tests using the Unix 
+command
+
+   `cat solution.imp extra-tests.imp | impcore -q`
 
 
 # How your work will be evaluated
