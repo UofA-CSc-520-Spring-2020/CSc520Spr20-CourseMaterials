@@ -227,7 +227,7 @@ expect:
   * Your solutions must be valid Impcore; in particular, they must pass the 
     following test:
 
-        `impcore -q < solution.imp > /dev/null`
+        impcore -q < solution.imp > /dev/null
 
 with no error messages and no unit-test failures. If your file produces error 
 messages, we won't test your solution and you will earn No Credit for functional 
@@ -261,7 +261,7 @@ You will submit the following files from your github repository to Gradescope:
 * README or README.md will
 
   * Give your name and explain how to pronounce it, as in "kaeth-lEEn FI-shur"
-    or "NORE-muhn RAM-zee" or "mih-shEHl strout". [www.pronouncenames.com]
+    or "NORE-muhn RAM-zee" or "mih-shEHl strout". (www.pronouncenames.com)
 
   * Identify anyone with whom you have collaborated or discussed the assignment
 
@@ -274,7 +274,7 @@ You may also submit extra-tests.imp, which should contain only test code and
 unit tests (check-expect or check-error). You can run the tests using the Unix 
 command
 
-   `cat solution.imp extra-tests.imp | impcore -q`
+    cat solution.imp extra-tests.imp | impcore -q
 
 
 # How your work will be evaluated
