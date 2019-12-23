@@ -124,7 +124,7 @@ but **no one other than the instructor may see your code**.
 If you are in the docker container and your code and unit tests are in file 
 `solution.imp`, you can load and run them by typing
 
-    `impcore -q < solution.imp`
+    impcore -q < solution.imp
 
 ## Unit testing
 
