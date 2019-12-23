@@ -33,6 +33,8 @@ FIXME: see how I did 210
 
 * download docker app
 * download the docker container for this class and run some tests
+  * You can start the impcore REPL by typing `impcore`.  Note that to send
+    an end-of-file in the REPL and quit the REPL, use Ctrl-D.
 * create your repository by accepting repository invite?
 * within your running docker container
     * clone your HW1 repository
