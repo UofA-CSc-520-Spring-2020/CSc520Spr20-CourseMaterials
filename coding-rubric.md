@@ -1,9 +1,10 @@
 # Coding Rubric
 
+
 |               | Exemplary     |Satisfactory       | Must improve  |
-| Documentation	|
-• The contract of each function is clear from the function’s name, the names of its parameters, and the documentation.
-|||
+| Documentation	| The contract of each function is clear from the function’s name, the names of its parameters, and the documentation. |||
+
+
 
 • Each function is documented with a contract that explains what the function returns, in terms of the parameters, which are mentioned by name.
 
