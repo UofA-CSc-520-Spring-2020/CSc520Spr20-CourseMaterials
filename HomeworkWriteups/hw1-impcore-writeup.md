@@ -90,7 +90,7 @@ b. What concrete syntax could you write in Impcore for this expression?
 
 
 5. Read the expectations about contracts in the 
-   [course coding guidelines](FIXME).
+   [course coding guidelines](../../coding-style.md#contract).
 
 Suppose I write a contract for a power function that says, "this function 
 multiplies x by itself n times." According to our expectations, is this a good 

@@ -202,6 +202,7 @@ static Valuelist evallist(Explist el, Valenv globals, Funenv functions,
 which respects the offside rule.
 
 ### What is a contract?
+<a name="contract"/>
 
 A contract is a form of documentation for functions. A function's contract 
 relates the values of variables and other machine state at exactly two points in 

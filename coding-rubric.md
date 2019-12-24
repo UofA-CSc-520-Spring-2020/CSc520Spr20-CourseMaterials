@@ -1,6 +1,6 @@
 # Coding Rubric
 
-See [[https://www.cs.tufts.edu/comp/105-2019s/coding-rubric.html]] for
+See https://www.cs.tufts.edu/comp/105-2019s/coding-rubric.html for
 the same coding rubric in a different format.
 
 ## Documentation
