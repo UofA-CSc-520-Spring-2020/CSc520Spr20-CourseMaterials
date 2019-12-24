@@ -29,7 +29,7 @@ course.
 # Getting Started
 <a name="start"/>
 
-FIXME: see how I did 210
+**FIXME: see how I did 210**
 
 * download docker app
 * download the docker container for this class and run some tests
@@ -149,8 +149,9 @@ which explains what the function does. Here’s an example:
 ;; occurs in the decimal representation of the positive integer
 ;; `n`; it returns 0 otherwise.
 ```
-The coding guidelines explain contracts at length; read them. The contract is 
-typically supplemented by unit tests, which can serve to clarify the contract:
+The [course coding guidelines](../coding-style.md#contract) explain contracts 
+at length; read them. The contract is typically supplemented by unit tests, 
+which can serve to clarify the contract:
 ```
 (check-expect (occurs-in? 7 123) 0)
 (check-expect (occurs-in? 2 123) 1)
@@ -178,9 +179,9 @@ imposing on the integers or the natural numbers. For example, I could write the
 
 ## A jumping-off point for your solution
 
-You will put your solutions in a file solution.imp, and you will write up your 
-whole assignment in a README file. Templates for solution.imp and README are
-included when you create your github repository.
+You will put your solutions in a file solution.imp, and you will write an 
+overview for the whole assignment in a README.md file. Templates for 
+solution.imp and README.md are included when you create your github repository.
 
   * To turn the solution template into a real solution, follow these steps 
     for each function:
@@ -260,7 +261,7 @@ You will submit the following files from your github repository to Gradescope:
 * `solution.imp` will contain your code, with its documentation and unit tests. 
   Problems will appear in order by number, with problem DD last.
 
-* README or README.md will
+* `README.md` will
 
   * Give your name and explain how to pronounce it, as in "kaeth-lEEn FI-shur"
     or "NORE-muhn RAM-zee" or "mih-shEHl strout". (www.pronouncenames.com)
@@ -272,7 +273,7 @@ You will submit the following files from your github repository to Gradescope:
 Keep submitting until your work is complete; we grade only the last submission.
 **Each time you submit you have to submit ALL the files in gradescope.**
 
-You may also submit extra-tests.imp, which should contain only test code and 
+You may also submit `extra-tests.imp`, which should contain only test code and 
 unit tests (check-expect or check-error). You can run the tests using the Unix 
 command
 
@@ -285,7 +286,8 @@ command
 ## How your code will be evaluated
 A big part of this assignment is for you to be sure you understand how we 
 expect your code to be structured and organized. There is some material 
-about this on the [coding style page](FIXME). When we get 
+about this on the [coding style page](../coding-style.md) and the 
+[coding rubric page](../coding-rubric.md). When we get 
 your work, we will evaluate it in two ways:
 
 * About 50% of your grade for the assignment will be based on our judgement 
@@ -326,7 +328,7 @@ your work, we will evaluate it in two ways:
     We give you a hand here by providing a template in which the names of 
     top-level functions and their arguments are already chosen for you. For 
     helper functions, you will choose your own names. Look at the 
-    [coding rubric](FIXME) and choose wisely.
+    [coding rubric](../coding-rubric.md) and choose wisely.
 
   * *Structure* assesses the underlying structure of your solution, not just how 
     its elements are documented, formatted, and named.
@@ -343,10 +345,11 @@ your work, we will evaluate it in two ways:
   to the other homeworks in 520, the problems on this assignment are easy, so 
   they carry less weight.
 
-The [detailed criteria](FIXME:coding rubric) we will use to assess your code are 
-found at [FIXME: coding rubric](). They make explicit what we mean by "good 
-programming practice." But as you might imagine, there is a lot of information 
-there—probably more than you can assimilate in one reading. The highlights are
+The detailed criteria we will use to assess your code are found in the 
+[coding rubric](../coding-rubric.md). The coding rubric makes explicit what we 
+mean by "good programming practice." But as you might imagine, there is a lot of 
+information there—probably more than you can assimilate in one reading. The 
+highlights are
 
 * Documentation
 
