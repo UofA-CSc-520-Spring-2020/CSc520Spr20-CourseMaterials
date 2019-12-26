@@ -207,7 +207,7 @@ solution.imp and README.md are included when you create your github repository.
 
 ## The problems you must solve
 
-Do Exercises 4, 5, 7, 8, and 10 on pages 76–78 of Ramsey’s textbook. Also do 
+Do Exercises 4, 5, 7, 8, and 10 on pages 79–82 of Ramsey’s textbook. Also do 
 problem DD below.
 
 DD. Function double-digit accepts a positive integer less than 20,000, and it 
@@ -216,11 +216,10 @@ decimal representation of the input, except each digit appears twice. For
 example, (double-digit 123) is 112233. Implement double-digit.
 
 These problems stress induction and recursion, which is the topic of the first 
-class. And your recitation will address these kinds of problems. But a couple of 
-them may still be challenging; if you have difficulty, come to office hours or 
-ask questions on Piazza.
+class. A couple of them may still be challenging; if you have difficulty, come 
+to office hours or ask questions on Piazza.
 
-My solutions total 50–60 lines of Impcore. (FIXME)
+My solutions total 50–60 lines of Impcore. **FIXME**
 
 ## Expectations for your solutions
 
