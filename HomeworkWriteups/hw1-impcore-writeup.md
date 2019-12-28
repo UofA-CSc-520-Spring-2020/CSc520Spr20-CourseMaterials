@@ -43,7 +43,7 @@ do everything on your own command line.
 * (docker) download the docker image for this class and create a file
   * start docker desktop and use a terminal as it suggests
   * `docker pull mstrout/cs520spring2020` fetches the container from docker hub`
-  * `docker run -it —rm —name cs520name -h cs520host mstrout/cs520spring2020`
+  * `docker run -it —rm --name cs520name -h cs520host mstrout/cs520spring2020`
     runs the container image interactively and should bring up a prompt
   * `appuser@cs520host:/cs520$ nano test.txt` edit a `test.txt` file in the 
      container
