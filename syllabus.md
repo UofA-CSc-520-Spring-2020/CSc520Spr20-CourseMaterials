@@ -51,13 +51,22 @@ undergraduate algorithms or theory course.
 
 
 ## Course Format and Teaching Methods
+
+FIXME
+
 The course will consist of instructor and student-led discussions of research papers.  Students will also do a semester-long research project.  The course will also include writing reviews for each of the papers read and presenting papers to the class. This course does not involve a textbook or any exams, but there will be reading quizzes.
 
-## Course Objectives 
+## Course Objectives
+
+FIXME
+
 Students will learn how to synthesize a number of papers that attempt to solve similar research problems, make comparisons between such papers, and identify remaining limitations that could lead to future research.  Additional research skills students will learn include effectively communicating research verbally and in writing and executing their own, related, semester-long research projects.  For this offering of 620, students will learn what aspects affect the design and implementation of embedded domain specific languages (EDSL) in a number of contexts.  
 
 
 ## Expected Learning Outcomes
+
+FIXME
+
 Identify and summarize the research problem, context, proposed approach, evaluation, and limitations in research papers.
 Organize and plan the execution of a research project.
 Effectively communicate the problem being solved, context, proposed approach, evaluation, and limitations of their own research project.
@@ -146,102 +155,115 @@ Feedback and individual assignment and exam grades will be provided on Gradescop
 | Final                | 20%                        |
 | Piazza participation | 10%                        |
 
-There late policy is that assignments will not be accepted after the due date.
+The late policy is that assignments will not be accepted after the due date and a
+zero will be given.  Submit everything you have managed to do so far on the due
+date for partial credit.
+
 Assignments will be graded within one week of the due date.
-Requests for incomplete (I) or withdrawal (W) must be made in accordance with University policies, which are available at http://catalog.arizona.edu/policy/grades-and-grading-system#incomplete and http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal, respectively.
 
-Scheduled Topics/Activities
-Week
-Events
-1: Aug 26-30
-Why embedded domain-specific languages? (3-week module)
-Intro to EDSLs, and how to write reviews and present papers
-Monday Sept 2
-Labor Day, University Holiday
-2: Sept 3-6
-EDSL tutorial presentation; EDSL tutorial proposal due Friday (first come first serve)
-3: Sept 9-13
-EDSL tutorial presentations; Preliminary project proposals due Friday
-4: Sept 16-20
-Mechanisms for implementing EDSLs (4-week module)
-Intro to EDSL implementation and an EDSL tutorial; Paper presentation proposal due Friday (first come first serve)
-Saturday Sept 22
-Last day to drop without a W grade
-5: Sept 23-27
-Paper presentations and EDSL tutorial presentation
-6: Sept 30-Oct 4
-Paper presentations and EDSL tutorial presentation; Written project proposals due Friday
-7: Oct 7-11
-Paper presentations and EDSL tutorial presentation
-8: Oct 14-18
-EDSLs for Machine Learning (2-week module)
-Paper presentations and EDSL tutorial presentation
-9: Oct 21-25
-Paper presentations and EDSL tutorial presentation
-10: Oct 28-Nov 1
-EDSLs for Simulation (2-week module)
-Paper presentations; Project status elevator pitches in class Thurs
-Sunday Nov 3
-Last day to drop with a W grade
-11: Nov 4-8
-Paper presentations
-Monday Nov 11
-Veterans Day, University Holiday
-12: Nov 12-15
-EDSLs for High Performance Computing/Parallelism (2-week module)
-Tuesday 1-minute project videos and paper presentation; Thursday paper presentation
-13: Nov 18-22
-(SC19) Paper presentations
-14: Nov 25-27
-Paper presentation; 11/28 Thanksgiving -- no class on Thursday
-15: Dec 2-6
-Project presentations both days
-16: Dec 9-11
-Project presentations; class only on Tuesday this week
-Wed Dec 11
-Project final report due AOE
+Requests for incomplete (I) or withdrawal (W) must be made in accordance with 
+University policies, which are available at http://catalog.arizona.edu/policy/grades-and-grading-system#incomplete 
+and http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal, respectively.
 
+## Scheduled Topics/Activities
 
-Department of Computer Science Code of Conduct
-The Department of Computer Science is committed to providing and maintaining a supportive educational environment for all.  We strive to be welcoming and inclusive, respect privacy and confidentiality, behave respectfully and courteously, and practice intellectual honesty.  Disruptive behaviors (such as physical or emotional harassment, dismissive attitudes, and abuse of department resources) will not be tolerated.  The complete Code of Conduct is available on our department web site.  We expect that you will adhere to this code, as well as the UA Student Code of Conduct, while you are a member of this class.
-Classroom Behavior Policy
-To foster a positive learning environment, students and instructors have a shared responsibility. We want a safe, welcoming, and inclusive environment where all of us feel comfortable with each other and where we can challenge ourselves to succeed. To that end, our focus is on the tasks at hand and not on extraneous activities (e.g., texting, chatting, reading a newspaper, making phone calls, web surfing, etc.).
-The use of personal electronics such as laptops, iPads, and other such mobile devices is distracting to the other students and the instructor. Their use can degrade the learning environment. Therefore, students are not permitted to use these devices during the class period unless they are specifically taking notes.  Taking notes means students are typing down ideas in some text format.  Any web searches will need to be done outside of class.
+FIXME
 
-Pronoun Preference
-All people have the right to be addressed and referred to in accordance with their personal identity. In this class, we will have the chance to indicate the name that we prefer to be called and, if we choose, to identify pronouns with which we would like to be addressed. I will do my best to address and refer to all students accordingly and support classmates in doing so as well.
+## Department of Computer Science Code of Conduct
 
-My preferred pronouns are she/her/hers.
+The Department of Computer Science is committed to providing and maintaining a supportive 
+educational environment for all.  We strive to be welcoming and inclusive, respect privacy 
+and confidentiality, behave respectfully and courteously, and practice intellectual honesty.  
+Disruptive behaviors (such as physical or emotional harassment, dismissive attitudes, and 
+abuse of department resources) will not be tolerated.  The complete Code of Conduct is available 
+on our department web site.  We expect that you will adhere to this code, as well as the UA 
+Student Code of Conduct, while you are a member of this class.
 
-In a graduate course, students are free to call me “Michelle” instead of “Dr. Strout”.  Please respect that all students will pick whichever of these they are most comfortable with.
+## Classroom Behavior Policy
 
-Threatening Behavior Policy 
-The UA Threatening Behavior by Students Policy prohibits threats of physical harm to any member of the University community, including to oneself. See http://policy.arizona.edu/education-and-student-affairs/threatening-behavior-students. 
+To foster a positive learning environment, students and instructors have a shared 
+responsibility.  We want a safe, welcoming, and inclusive environment where all of us feel 
+comfortable with each other and where we can challenge ourselves to succeed. To that end, 
+our focus is on the tasks at hand and not on extraneous activities (e.g., texting, chatting, 
+reading a newspaper, making phone calls, web surfing, etc.).
 
-Accessibility and Accommodations
-The Disability Resources Offices provides guidelines regarding accessibility and accommodations:  http://drc.arizona.edu/instructors/syllabus-statement.
+The use of personal electronics such as laptops, iPads, and other such mobile devices is 
+distracting to the other students and the instructor. Their use can degrade the learning 
+environment. Therefore, students are not permitted to use these devices during the class 
+period unless they are specifically taking notes.  Taking notes means students are typing 
+down ideas in some text format.  Any web searches will need to be done outside of class.
 
-Code of Academic Integrity
-Students are encouraged to share intellectual views and discuss freely the principles and applications of course materials. However, graded work/exercises must be the product of independent effort unless otherwise instructed. Students are expected to adhere to the UA Code of Academic Integrity as described in the UA General Catalog. See http://deanofstudents.arizona.edu/academic-integrity/students/academic-integrity.
-The University Libraries have some excellent tips for avoiding plagiarism, available at http://new.library.arizona.edu/research/citing/plagiarism.
-Selling class notes and/or other course materials to other students or to a third party for resale is not permitted without the instructor’s express written consent. Violations to this and other course rules are subject to the Code of Academic Integrity and may result in course sanctions. Additionally, students who use D2L or UA e-mail to sell or buy these copyrighted materials are subject to Code of Conduct Violations for misuse of student e-mail addresses. This conduct may also constitute copyright infringement.
+## Pronoun Preference
+All people have the right to be addressed and referred to in accordance with their personal 
+identity.  In this class, we will have the chance to indicate the name that we prefer to be 
+called and, if we choose, to identify pronouns with which we would like to be addressed. I 
+will do my best to address and refer to all students accordingly and support classmates in 
+doing so as well.
 
-UA Nondiscrimination and Anti-harassment Policy 
-The University is committed to creating and maintaining an environment free of discrimination; see http://policy.arizona.edu/human-resources/nondiscrimination-and-anti-harassment-policy
-Our classroom is a place where everyone is encouraged to express well-formed opinions and their reasons for those opinions. We also want to create a tolerant and open environment where such opinions can be expressed without resorting to bullying or discrimination of others.
+## My preferred pronouns are she/her/hers.
 
-Additional Resources for Students 
+In a graduate course, students are free to call me “Michelle” instead of “Dr. Strout”.  
+Please respect that all students will pick whichever of these they are most comfortable with.
+
+## Threatening Behavior Policy
+
+The UA Threatening Behavior by Students Policy prohibits threats of physical harm to any 
+member of the University community, including to oneself. See 
+http://policy.arizona.edu/education-and-student-affairs/threatening-behavior-students. 
+
+## Accessibility and Accommodations
+
+The Disability Resources Offices provides guidelines regarding accessibility and 
+accommodations:  http://drc.arizona.edu/instructors/syllabus-statement.
+
+## Code of Academic Integrity
+
+Students are encouraged to share intellectual views and discuss freely the principles and 
+applications of course materials. However, graded work/exercises must be the product of 
+independent effort unless otherwise instructed. Students are expected to adhere to the UA 
+Code of Academic Integrity as described in the UA General Catalog. See 
+http://deanofstudents.arizona.edu/academic-integrity/students/academic-integrity.
+
+The University Libraries have some excellent tips for avoiding plagiarism, available at 
+http://new.library.arizona.edu/research/citing/plagiarism.
+
+Selling class notes and/or other course materials to other students or to a third party 
+for resale is not permitted without the instructor’s express written consent. Violations 
+to this and other course rules are subject to the Code of Academic Integrity and may result 
+in course sanctions. Additionally, students who use D2L or UA e-mail to sell or buy these 
+copyrighted materials are subject to Code of Conduct Violations for misuse of student 
+e-mail addresses. This conduct may also constitute copyright infringement.
+
+## UA Nondiscrimination and Anti-harassment Policy 
+
+The University is committed to creating and maintaining an environment free of discrimination; 
+see http://policy.arizona.edu/human-resources/nondiscrimination-and-anti-harassment-policy
+
+Our classroom is a place where everyone is encouraged to express well-formed opinions and 
+their reasons for those opinions. We also want to create a tolerant and open environment 
+where such opinions can be expressed without resorting to bullying or discrimination of others.
+
+## Additional Resources for Students 
+
 UA Academic policies and procedures are available at http://catalog.arizona.edu/policies
 
-Student Assistance and Advocacy information is available at http://deanofstudents.arizona.edu/student-assistance/students/student-assistance
+Student Assistance and Advocacy information is available at 
+http://deanofstudents.arizona.edu/student-assistance/students/student-assistance
 
 Confidentiality of Student Records
 http://www.registrar.arizona.edu/personal-information/family-educational-rights-and-privacy-act-1974-ferpa?topic=ferpa
 
 
-Subject to Change Statement
-Information contained in the course syllabus, other than the grade and absence policy, may be subject to change with advance notice, as deemed appropriate by the instructor.
+## Subject to Change Statement
+
+Information contained in the course syllabus, other than the grade and absence policy, may 
+be subject to change with advance notice, as deemed appropriate by the instructor.
 
 
-The University of Arizona sits on the original homelands of indigenous peoples who have stewarded this land since time immemorial. Aligning with the university’s core value of a diverse and inclusive community, it is an institutional responsibility to recognize and acknowledge the people, culture, and history that make up the Wildcat community. At the institutional level, it is important to be proactive in broadening awareness throughout campus to ensure our students feel represented and valued.
+The University of Arizona sits on the original homelands of indigenous peoples who have stewarded 
+this land since time immemorial. Aligning with the university’s core value of a diverse and 
+inclusive community, it is an institutional responsibility to recognize and acknowledge the
+people, culture, and history that make up the Wildcat community. At the institutional level, 
+it is important to be proactive in broadening awareness throughout campus to ensure our students 
+feel represented and valued.
 
