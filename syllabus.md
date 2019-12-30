@@ -99,10 +99,10 @@ becomes problematic.
 ## Makeup Policy for Students Who Register Late
 
 Students who register late, must do each of the missed homework assignments, in order, as quickly
-as possible.  No collaboration with other students in the course will be permitted until the
-student is working on the same assignment as the other students.  Upon late registration,
-the student will have at most four days per missed assignment.  Coordinate with the instructor
-if you register late by attending the first possible office hour and/or setting up a meeting
+as possible.  No discussion with other students in the course about the assignments will be 
+permitted until the student is working on the same assignment as the other students.  Upon late 
+registration, the student will have at most four days per missed assignment.  Coordinate with the 
+instructor if you register late by attending the first possible office hour and/or setting up a meeting
 time with the instructor.
 
 ## Course Communications
@@ -167,7 +167,27 @@ and http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal, resp
 
 ## Scheduled Topics/Activities
 
-FIXME
+| Week                    | Topics                                 | Homework Due                       |
+| ----------------------- | -------------------------------------- | ---------------------------------- |
+| 1a: Jan 15 (short week) | motivating PL papers and intro         |                                    |
+| 1b: Jan 22 (short week) | introduction to semantics              | Friday Jan 24, HW1, Impcore        |
+| 2: Jan 27 and 29        | semantics, syntactic proofs, metatheory| Friday Jan 30, HW2, adding locals and some proofs |
+| 3: Feb 3 and 5          | functional programming and scheme      | Friday Feb 6, HW3, uScheme         |
+| 4: Feb 10 and 12        | motivating papers; let and lambda v1   | Friday Feb 14, propose two possible PL papers to explain at end of semester |
+| 5: Feb 17 and 19        | Prof. Sethi on lambda calculus?; let and lambda part 2 | Consider starting HW10 this week, but nothing is due. |
+| 6: Feb 24 and 26        | higher-order functions and continuations | Friday Feb 28, HW4, hof          |
+| 7: March 2 and 4        | scheme semantics and ML intro          | Friday March 5, HW5, continuations |
+| Spring Break: March 9-13|                                        |                                    |
+| 8: March 16 and 18      | Review; Midterm                        |                                    |
+| 9: March 23 and 25      | programming with constructed data and types | Friday March 27, HW6, ML prog, uScheme |
+| 10: March 30 and April 1| types and type checking                | Friday April 3, HW7, type checking |
+| 11: April 6 and 8       | type inference                         | Friday April 9, HW8, type inference|
+| 12: April 13 and 15     | object orientation                     | Friday April 17, HW9, usmalltalk   |
+| 13: April 20 and 22     | lambda calculus                        | Friday April 24, HW10, lambda calc |
+| 14: April 27 and 29     | app of concepts in PL papers from start; project talks |                    |   	
+| 15: May 4 and 6         | project talks; Review                  |                                    |      
+| Final: Tuesday May 12th 3:30-5:30 |                              |                                    |
+
 
 ## Department of Computer Science Code of Conduct
 
@@ -194,6 +214,7 @@ period unless they are specifically taking notes.  Taking notes means students a
 down ideas in some text format.  Any web searches will need to be done outside of class.
 
 ## Pronoun Preference
+
 All people have the right to be addressed and referred to in accordance with their personal 
 identity.  In this class, we will have the chance to indicate the name that we prefer to be 
 called and, if we choose, to identify pronouns with which we would like to be addressed. I 
@@ -202,8 +223,9 @@ doing so as well.
 
 ## My preferred pronouns are she/her/hers.
 
-In a graduate course, students are free to call me “Michelle” instead of “Dr. Strout”.  
-Please respect that all students will pick whichever of these they are most comfortable with.
+In a graduate course, students are free to call me “Michelle” instead of "Dr. Strout" or 
+"Prof. Strout".  Please respect that all students will pick whichever of these they are 
+most comfortable with.
 
 ## Threatening Behavior Policy
 
