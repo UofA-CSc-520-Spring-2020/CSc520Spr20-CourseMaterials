@@ -249,7 +249,7 @@ and http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal, resp
 | 2: Jan 27 and 29        | semantics, syntactic proofs, metatheory| Friday Jan 30, HW2, adding locals and some proofs |
 | 3: Feb 3 and 5          | functional programming and scheme      | Friday Feb 6, HW3, uScheme         |
 | 4: Feb 10 and 12        | motivating papers; let and lambda v1   | Friday Feb 14, propose two possible PL papers to explain at end of semester |
-| 5: Feb 17 and 19        | Prof. Sethi on lambda calculus?; let and lambda part 2 | Consider starting HW10 this week, but nothing is due. |
+| 5: Feb 17 and 19        | Prof. Sethi on lambda calculus; let and lambda part 2 | Consider starting HW10 this week, but nothing is due. |
 | 6: Feb 24 and 26        | higher-order functions and continuations | Friday Feb 28, HW4, hof          |
 | 7: March 2 and 4        | scheme semantics and ML intro          | Friday March 5, HW5, continuations |
 | Spring Break: March 9-13|                                        |                                    |
