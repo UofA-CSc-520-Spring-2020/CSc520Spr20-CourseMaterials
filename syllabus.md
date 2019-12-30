@@ -58,9 +58,10 @@ The course will consist of instructor and student-led discussions of research pa
 
 ## Course Objectives
 
-FIXME
-
-Students will learn how to synthesize a number of papers that attempt to solve similar research problems, make comparisons between such papers, and identify remaining limitations that could lead to future research.  Additional research skills students will learn include effectively communicating research verbally and in writing and executing their own, related, semester-long research projects.  For this offering of 620, students will learn what aspects affect the design and implementation of embedded domain specific languages (EDSL) in a number of contexts.  
+CSc 520 will be building two sets of skills:
+* programming skills that exploit the best of the best programming-language features
+* mathematical reasoning about code, which helps you communicate, specify what programs 
+  do, evaluate claims about languages like security claims.
 
 
 ## Expected Learning Outcomes
@@ -124,26 +125,82 @@ UofA bookstore.
 
 | Assignment                  | Due Date       | Description                                 |
 | --------------------------- | -------------- | ------------------------------------------- |
-| Piazza participation        | **each week**  | at least two posts a week (details below)   |
-| HW1 impcore                 | **Fri Jan 24** | reading; programming in impcore PL          |
-| HW2 adding locals           | Fri Jan 30     | reading; modifying impcore interpreter      |
+| [Piazza participation](#piazza) | **each week**  | at least two posts a week (details below)   |
+| [HW1 impcore](HomeworkWriteups/hw1-impcore-writeup.md) | **Fri Jan 24** | reading; programming in impcore PL          |
+| HW2 opsem                   | Fri Jan 30     | reading; modifying impcore interpreter      |
 | HW3 uScheme                 | Fri Feb 6      | reading; programming in uScheme             |
-| Project: proposal           | Fri Feb 14     | propose two possible PL papers to present   |
+| [Project: proposal](#project) | Fri Feb 14   | propose two possible PL papers to present   |
 | HW4 hof                     | Fri Feb 28     | reading; higher-order functions             |
 | HW5 continulations          | Fri March 5    | reading; continuations                      |
-| Midterm, in class           | Thurs March 18 | cumulative test on concepts covered to date |
+| [Midterm, in class](#exam)  | Thurs March 18 | cumulative test on concepts covered to date |
 | HW6 ML programming          | Fri March 27   | reading; programming in ML                  |
 | HW7 typesys                 | Fri April 3    | reading; type checking                      |
 | HW8 ml-inf                  | Fri April 9    | reading; type inference                     |
 | HW9 usmall                  | Fri April 17   | reading; programming in usmalltalk          |
 | HW10 lambda                 | Fri April 24   | reading; lambda calculus                    |
-| Project: in-class talk      | Thurs April 29 | present course concepts relevant to a paper |
-| Final, in class             | Tues May 12, 3:30-5:30pm | cumulative test for semester      |
+| [Project: in-class talk](#project)| Thurs April 29 | present course concepts relevant to a paper |
+| [Final, in class](#exam)    | Tues May 12, 3:30-5:30pm | cumulative test for semester      |
 
 
+### Piazza Participation
+<a name="piazza"/>
 
+Discussion on piazza is required.  Each week, I expect to see at least two 
+posts a week per student with at least one each from the following categories:
+
+* An answer to an exercise in the book or an exercise you make up or find 
+  that is NOT also a homework problem.  Feel free to check with me before
+  starting to work on such a post, because repeats of the same question
+  from different students will not count.  First come, first serve.
+
+* Ask a substantive question (not one that is already answered in the syllabus),
+  attempt to answer someone else's substantive question, provide constructive
+  feedback to someone else's exercise answer (unique feedback, no repetition
+  of feedback that others post), or any other substantive post.
+
+You may post anonymous to the class.  Piazza is setup so I will be able to
+see who posted even if they class cannot.
+
+There will be 30 points for this in D2L (two points per week).  You will
+start the semester with 0 points and then at the end of each week I will 
+grade posts.  This is going to make your grade look scary at the beginning
+of the semester, but your grade will improve as more assignments and exams
+are posted into D2L and you have earned more participation points.
+
+If you do not see the number of points you expected to receive, then feel
+free to send me a private piazza post asking about it or come to office hours.
+
+### Homeworks
+
+* Expect to spend 1-2 hours per day for a whole week for each assignment.
+
+* Early in the course, homework is structured as a large collection of small 
+  problems. When the going is most difficult, this structure makes your progress 
+  visible, even when progress is incremental.
+
+* Every homework begins with some comprehension questions about the reading. 
+  These questions guide you toward reading those parts of the book that are 
+  most valuable for completing the homework. The comprehension questions
+  focus your attention on the most relevant parts of the very long book.
+  Comprehension questions are short, and if you understand
+  the reading, you should be able to answer all the questions in
+  just a few minutes. To achieve that understanding, however,
+  substantial reading may be required.
+
+* FIXME
+
+### Project
+<a name="project"/>
+
+FIXME
+
+### Midterm and Final
+<a name="exam"/>
+
+FIXME
 
 ## Grading Scale and Policies
+
 Individual assignment and exam grades and your current course grade will be posted on D2L.  
 Feedback and individual assignment and exam grades will be provided on Gradescope.
 
@@ -164,6 +221,24 @@ Assignments will be graded within one week of the due date.
 Requests for incomplete (I) or withdrawal (W) must be made in accordance with 
 University policies, which are available at http://catalog.arizona.edu/policy/grades-and-grading-system#incomplete 
 and http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal, respectively.
+
+## Tactics and Strategies for Being Successful in CSc 520
+
+* Work on the course one to two hours a day outside of class.  I paraphrase Garth Flint:
+  "[Talented students] are very resistant to [a systematic,
+   thoughtful, slow] approach. They do not want to plan;
+   they want to do trial and error at the keyboard. They
+   have not learned an important axiom of programming:
+   'three hours of trial-and-error coding will save fifteen
+   minutes of planning.' (I wish I knew who came up
+   with that. They deserve an award.)"
+
+* Read through the the WHOLE homework writeup, before starting the homework.
+
+* Start and/or join a study group.
+
+* Take notes and engage during class.  Try to figure out as much as possible in class.
+  Ask questions to help that happen.
 
 ## Scheduled Topics/Activities
 
