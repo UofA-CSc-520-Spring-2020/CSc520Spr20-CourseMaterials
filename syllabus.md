@@ -52,11 +52,86 @@ undergraduate algorithms or theory course.
 
 ## Course Format and Teaching Methods
 
-FIXME
+The course will have two active-learning class periods a week.  This means
+that we will be doing problems in class with other students.  The solutions
+discussed in class will not be in the provided class notes, but you are
+welcome to share class notes with the other students in the class.  This 
+is assuming that you attend each class period (see attendance below).
 
-The course will consist of instructor and student-led discussions of research papers.  Students will also do a semester-long research project.  The course will also include writing reviews for each of the papers read and presenting papers to the class. This course does not involve a textbook or any exams, but there will be reading quizzes.
+The collaboration will extend into interactions on piazza.  Piazza posts
+are 10% of the total grade in CSc 520.
+
+The course also has two exams: a midterm and a final.  Each of these is
+worth 20% of the course grade for a combined weight of 40%.
+
+Recommendations for a successful CSc 520 (and grad school) experience
+* Go to class. Using a pen, pencil, or stylus, take notes.  (See the
+  section below on [taking notes](#notes).
+
+* Read the homework IMMEDIATELY after you finish the previous homework.
+  Bring questions to class.
+
+* Don’t try to read the whole textbook all at once. To guide your reading,
+  use the comprehension questions and other recommendations on the homework. 
+
+* Look at the homework problems as soon as they come out.
+  Think about them a little bit every day.
+  
+* Talk about the homework problems with your friends and classmates.
+
+* Join and/or start a study group or group(s).
+
+* Take advantage of office hours.  Getting to know CS professors in
+  graduate courses and letting them learn about you is an excellent
+  way to learn about possible internship or job opportunities and/or
+  research opportunities.  Additionally, for Ph.D. students you can
+  ask us for that 5th semester reference letter if we know more about
+  what research you are doing and what your interests are.
+
+* Read the handouts that describe experiences of top students
+  in past classes and the instructor’s tips [FIXME: not posted yet].
+  
+* Build a "520-free zone" into your weekly schedule. Honor the zone 
+  even if you get behind, so that at least once a week you are sure 
+  to get a break from 520. (Because a homework is due every week, 
+  there are no structural breaks built into the course.)
+  
+* Again, finally, and most important, do not allow yourself to
+  become socially, emotionally, or intellectually isolated.
 
 ## Course Objectives
+
+This course introduces you —through extensive practice— to
+programming-language ideas and techniques that are found everywhere 
+in today’s programming languages. These ideas and techniques will 
+continue to be found among the programming languages of the future. 
+Foremost among these ideas are functions, types, and objects. CSc520 
+also introduces you to the mathematical foundations needed to talk 
+precisely about languages and about programs: abstract syntax, 
+formal semantics, type systems, and lambda calculus.
+
+To provide a sane and sensible context in which to learn,
+CSc 520 immerses you in case studies, conducted using tiny
+languages that are designed to help you learn. In any given case
+study, you may act as a practitioner (by writing code in a language), 
+as an implementor (by working on an interpreter for the
+language), as a designer (by inventing semantics for a related
+language), or as a scholar (by proving mathematical properties of
+the language).
+
+CSc 520 develops high-level, flexible programming skills that
+you can transfer. For example, you will find you can apply
+your skills to projects written in older languages such as Perl
+or Java, in currently popular languages such as Python, Ruby,
+Scala, and Swift, and in interesting languages that might be important
+in the future, such as Rust, Agda, Coq, and who knows what
+else. No matter what language you work in, when you finish
+CSc 520, you’ll be writing more powerful programs using less code.
+In a profession where complexity is the enemy, your 520 skills
+will equip you to tackle the most demanding jobs—and succeed.
+
+
+## Expected Learning Outcomes
 
 CSc 520 will be building two sets of skills:
 * programming skills that exploit the best of the best programming-language features
@@ -64,14 +139,37 @@ CSc 520 will be building two sets of skills:
   do, evaluate claims about languages like security claims.
 
 
-## Expected Learning Outcomes
+The programming skills contribute to your professional practice,
+and the math contributes to several outcomes:
+* Math helps you communicate clearly about languages, language design, and language features.
+* Math is an ideal way to specify what programs do: it’s
+  clearer and more precise than informal English, and it’s
+  cleaner and more streamlined than a reference implementation.
+* Experience with programming-language math will help you
+  evaluate future claims about languages (for example, claims
+  about security).
 
-FIXME
-
-Identify and summarize the research problem, context, proposed approach, evaluation, and limitations in research papers.
-Organize and plan the execution of a research project.
-Effectively communicate the problem being solved, context, proposed approach, evaluation, and limitations of their own research project.
-Provide constructive suggestions to others in the course about their research projects.
+Here are some of the detailed skills you will develop:
+* Read and write precise specifications of how languages work
+* Understand how it is possible to prove universal truths that
+  apply to any program written in a given language
+* Write and reason about recursive functions
+* Capture common patterns of recursion in higher-order functions
+* Recognize and exploit common higher-order list-processing functions
+* Program with first-class functions as data
+* Prove correctness of code-improving transformations
+* Express rich control structures using functions as continuations
+* Design and implement polymorphic functions, methods, and data structures
+* Understand the merits of polymorphism in programming
+* Use types to guide the construction of code
+* Understand in detail what are the merits of type checking
+  and how type checking works, including polymorphic type checking
+* Understand in detail what are the merits of type inference
+  and how type inference works, including polymorphic type inference
+* Describe computations using the lambda calculus
+* Hide information using abstract data types, modules, and interfaces
+* Hide information using objects and protocols
+* Reuse code using inheritance
 
 ## Absence and Class Participation Policy
 
@@ -168,9 +266,15 @@ of the semester, but your grade will improve as more assignments and exams
 are posted into D2L and you have earned more participation points.
 
 If you do not see the number of points you expected to receive, then feel
-free to send me a private piazza post asking about it or come to office hours.
+free to send me a private piazza post asking about it and/or come to office hours.
 
 ### Homeworks
+
+The homework has a significant theory component. You will prove theorems 
+using existing theory, and you will also develop new theory of your own, 
+which will describe how a language feature might work. Early assignments are 
+either “mostly programming” or “mostly theory;” later assignments mix programming 
+and theory; and some assignments ask you to apply theory to write code.
 
 * Expect to spend 1-2 hours per day for a whole week for each assignment.
 
@@ -187,17 +291,130 @@ free to send me a private piazza post asking about it or come to office hours.
   just a few minutes. To achieve that understanding, however,
   substantial reading may be required.
 
-* FIXME
+* All of the homeworks will be referring to the [coding style](coding-style.md)
+  and [coding rubric](coding-rubric.md) documents.  They spell out how your
+  homeworks will be graded.
+  
+* Any homework question can be posted publically to Piazza,
+  *unless* that homework question contains code, an inference
+  rule, or another part of the solution. Any question that
+  discloses your work must be posted privately to the instructor.
+  
+* If needed, you have 7 days to request a regrade in Gradescope.
+  
+* Working with other people.
+  * *Discussions with classmates.* Programming is a creative
+    process. To help you think creatively, understand what the
+    homework problems are asking, and discover paths to solutions, 
+    I encourage you to discuss the questions with friends
+    and colleagues. You will do much better in the course, and
+    at UofA, if you find people with whom you regularly discuss
+    problems.  Once you reach the coding stage, however, discussions 
+    are no longer appropriate. Each program, unless explicitly 
+    assigned as a pair problem, must be entirely your own work.
+     **In each assignment README.md, always acknowledge those with 
+     whom you discuss problems!**
+  
+ * *Use Piazza!*  Post solutions to example problems that are not in the 
+   homeworks, ask questions, and answer questions that others post.
+   **Only post homework code or proof questions in private to the instructor**.
+   
+ * In CSc, there are some pair programming opportunities.  These
+   are never an obligation.  You are not required to work in pairs.
+   If you do choose to work in a pair—which I recommend—
+   know that no single pair may work together on more than
+   three assignments. If you need help finding a partner, advertise on Piazza.
+  
+* Each homework writeup will indicate which files to submit.  When a pdf file is
+  needed, you can use latex (a useful skill to learn in grad school anyway) and/or
+  use [the Gradescope documentation on how to generate a pdf]
+  (https://www.gradescope.com/help#help-center-item-student-scanning).
+  
+* *Too MUCH collaboration.*
+  Interactions and discussions with classmates must take place in
+  natural language, at a high level. You must not discuss code, and
+  you must not exchange pseudocode, or other information that is
+  expressed at the level of code. If you start communicating in code
+  or at the level of code, you’re breaking the rules.
+
+  * While I encourage shared work at the whiteboard or in notebooks,
+    if your shared work is so detailed or low-level that
+    there is only one reasonable translation into code, you are
+    collaborating too closely.
+    
+  * Unless you are working with another student as part of a
+    programming pair, *it is not acceptable to permit that student
+    to see any part of your program, and it is not acceptable
+    to permit yourself to see any part of that other student’s
+    program*. In particular, you may not test or debug another
+    student’s code, nor may you have another student test or
+    debug your code. (If you can’t get code to work, consult
+    the instructor.) Using another's code in any form
+    or writing code for use by another violates the University’s
+    academic regulations.
+  
+  * Do not, under any circumstances, post a question to Piazza
+    that contains any part of your code. Such questions should
+    be posted privately to the instructor.
+    
+  Suspected violations will be reported to the Dean of Students.
+  Be careful! As described in the university’s academic-integrity
+  policy, the penalties for violation can be severe. 
+  The same standards apply to all homework assignments; work
+  you submit under your name must be entirely your own work.
+  **Always acknowledge those with whom you discuss problems!**
+  
+ * Code in a github repository is visible to other students. So,
+   you may not post your code to a github repository—unless you
+  are very careful to make the repository private. It is certainly
+  convenient to use github for backup and to share your work with
+  potential employers. But it must be private. It is against course
+  policy for you to put your homework in a public github repository
+  as it can be considered a violation of academic integrity because
+  it facilitates misbehavior by others.
 
 ### Project
 <a name="project"/>
+
+For the project, you and potentially a partner, will be identifying a
+couple of Programming Languages papers that you will be presenting aspects
+of to the class at the end of the semester.
 
 FIXME
 
 ### Midterm and Final
 <a name="exam"/>
 
-FIXME
+The questions on the exams will be similar to those covered in class, 
+done in the homeworks, and those posted on piazza.  It will be important 
+to practice similar problems, preferrably with a study group, while studying 
+for the midterm and the final.
+
+The midterm is a 75-minute in-class exam. It is a closed-book
+exam, but you may take with you one standard US letter page of
+notes written on both sides. I strongly encourage you to create
+such page and to write your notes by hand; preparing the notes is
+a very effective way to study.
+
+The final exam is administered during final-examination period as
+part of the usual UofA system of two-hour final exams. As with
+the midterm, you may prepare and use one standard US letter
+page of notes written on both sides.
+
+### Solutions
+
+I provide solutions to all homework and exam questions. Being
+able to examine master solutions helps you learn. But I provide
+solutions for your private use only. Please do not share them with
+other students, and please make sure they do not find their way
+into public places, archives, and so on.
+
+Copying solutions, whether from me or from another student, is a
+serious violation of academic integrity. Providing solutions to be
+copied is equally serious.  Possible consequences for either violation
+include taking a paid course on academic integrity, receiving negative 
+points for an assignment, receiving an F in the course, and suspension.
+
 
 ## Grading Scale and Policies
 
@@ -263,6 +480,32 @@ and http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal, resp
 | 15: May 4 and 6         | project talks; Review                  |                                    |      
 | Final: Tuesday May 12th 3:30-5:30 |                              |                                    |
 
+## Taking Notes
+<a name="notes"/>
+
+To maximize your own learning, I recommend that you take notes,
+sketches, and diagrams by hand. Paper is good, with a pen or
+pencil. If you have a large touch screen and can take notes with a
+stylus, that works, too. I recommend against using a keyboard
+with a standard laptop or word-processing software:
+
+* The neuroscience is quite clear that note-taking with pen
+  or pencil activates most of the brain. Note-taking using a
+  keyboard activates a much smaller region.
+
+* Word-processing software is not great for note-taking. Your
+  notes should be about highlights and connections: good
+  notes connect more recent material with material from earlier
+  in the lecture; good notes contain diagrams; good notes
+  contain arrows and boxes. Good notes are highly non-linear.
+  A word processor is designed to produced polished final
+  documents, not to take notes. Use the superior tool: pencil
+  and paper.
+
+You never need to copy the instructor’s notes or slides; they are
+available online. Use your own notes to make connections and
+to highlight points that you find difficult or that you want to
+remember.
 
 ## Department of Computer Science Code of Conduct
 
