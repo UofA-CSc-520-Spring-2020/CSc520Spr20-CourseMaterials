@@ -270,6 +270,14 @@ free to send me a private piazza post asking about it and/or come to office hour
 
 ### Homeworks
 
+In this class, you will learn most of the material as you complete
+the homework assignments. The importance of homework is
+reflected in the weight it is assigned. Most homework for this
+course involves short programming assignments. Many of them
+are based on the text by Ramsey. There are also some larger
+programming assignments. And there is some theory homework,
+involving more proving and less programming.
+
 The homework has a significant theory component. You will prove theorems 
 using existing theory, and you will also develop new theory of your own, 
 which will describe how a language feature might work. Early assignments are 
@@ -277,6 +285,12 @@ either “mostly programming” or “mostly theory;” later assignments mix pr
 and theory; and some assignments ask you to apply theory to write code.
 
 * Expect to spend 1-2 hours per day for a whole week for each assignment.
+
+* As in most classes, it helps to start the homework early. But
+  in this course, starting early seems to produce unusually good benefits.
+  Many students report that if they start early, even if they don’t
+  appear to make much progress, a solution will "come to them"
+  while they are doing something else.
 
 * Early in the course, homework is structured as a large collection of small 
   problems. When the going is most difficult, this structure makes your progress 
@@ -303,6 +317,7 @@ and theory; and some assignments ask you to apply theory to write code.
 * If needed, you have 7 days to request a regrade in Gradescope.
   
 * Working with other people.
+
   * *Discussions with classmates.* Programming is a creative
     process. To help you think creatively, understand what the
     homework problems are asking, and discover paths to solutions, 
@@ -315,15 +330,27 @@ and theory; and some assignments ask you to apply theory to write code.
      **In each assignment README.md, always acknowledge those with 
      whom you discuss problems!**
   
- * *Use Piazza!*  Post solutions to example problems that are not in the 
-   homeworks, ask questions, and answer questions that others post.
-   **Only post homework code or proof questions in private to the instructor**.
+  * *Use Piazza!*  Post solutions to example problems that are not in the 
+    homeworks, ask questions, and answer questions that others post.
+    **Only post homework code or proof questions in private to the instructor**.
    
- * In CSc, there are some pair programming opportunities.  These
-   are never an obligation.  You are not required to work in pairs.
-   If you do choose to work in a pair—which I recommend—
-   know that no single pair may work together on more than
-   three assignments. If you need help finding a partner, advertise on Piazza.
+  * In CSc, there are some pair programming opportunities.  These
+    are never an obligation.  You are not required to work in pairs.
+    If you do choose to work in a pair—which I recommend—
+    know the following:
+   * That no single pair may work together on more than three assignments.
+   * When work is being done on the program, both partners are present at 
+     the computer. One partner holds the keyboard; the other watches the 
+     screen. Both partners talk, and the keyboard should change hands occasionally.
+   * You submit a single program under both your names. That
+     work gets one grade, which you both receive.
+   * It is never acceptable to divide an assignment into parts and have 
+     some parts done by one partner and other parts done by the other. 
+     Submitting work done by someone else as your own will be considered 
+     an egregious violation of academic integrity. Submitting individual 
+     work as the product of pair programming is also a violation of academic 
+     integrity.
+   * If you need help finding a partner, advertise on Piazza.
   
 * Each homework writeup will indicate which files to submit.  When a pdf file is
   needed, you can use latex (a useful skill to learn in grad school anyway) and/or
@@ -356,6 +383,11 @@ and theory; and some assignments ask you to apply theory to write code.
   * Do not, under any circumstances, post a question to Piazza
     that contains any part of your code. Such questions should
     be posted privately to the instructor.
+    
+  * Do not, under any circumstances, submit code you have found on
+    the internet.
+  
+  * Feel free to use any code in the book and supplement.
     
   Suspected violations will be reported to the Dean of Students.
   Be careful! As described in the university’s academic-integrity
