@@ -43,7 +43,7 @@ do everything on your own command line.
 * (docker) download the docker image for this class and create a file
   * start docker desktop and use a terminal as it suggests
   * `docker pull mstrout/cs520spring2020` fetches the container from docker hub`
-  * `docker run -it —rm —name cs520name -h cs520host mstrout/cs520spring2020`
+  * `docker run -it --rm --name cs520name -h cs520host mstrout/cs520spring2020`
     runs the container image interactively and should bring up a prompt
   * `appuser@cs520host:/cs520$ nano test.txt` edit a `test.txt` file in the 
      container
@@ -51,29 +51,30 @@ do everything on your own command line.
     `docker cp cs520name:cs520/test.txt .`
 
 * within your running docker container or your own command line:
-    * clone your HW1 repository: `git clone https://github.com/UofA-CSc-520-Spring-2020/HW1-impcore-yourgithubid.git`
+  * clone your HW1 repository: `git clone https://github.com/UofA-CSc-520-Spring-2020/hw1-impcore-yourgithubid.git`
 
-    * Create the impcore interpreter executable.
-      * `cd HW1-impcore-yourgithubid/build-prove-compare/bare/impcore`
-      * `make`
-      * `cp impcore ../../../`
-      * `cd ../../../`
-      * `cp solution_template.imp solution.imp`
-      * `./impcore -q < solution.imp` should list a bunch of function names
-        and end with `The only test passed.`
-
-    * Edit README.md, solution.imp, and cqs.impcore.txt to complete HW1.
+  * Create the impcore interpreter executable.
+```
+      cd hw1-impcore-yourgithubid/build-prove-compare/bare/impcore`
+      make
+      cp impcore ../../../
+      cd ../../../
+      cp solution_template.imp solution.imp
+      ./impcore -q < solution.imp
+      // should list a bunch of function names and end with "The only test passed."
+```
+  * Edit README.md, solution.imp, and cqs.impcore.txt to complete HW1.
 
 * Other NOTES
-    * You can start the impcore REPL by typing `./impcore`.  Note that to send
-      an end-of-file in the REPL and quit the REPL, use Ctrl-D.
-    * git commit and push FREQUENTLY
-    * You will be submitting README.md, solution.imp, and cqs.impcore.txt
-      to Gradescope.
-    * The docker container has the editors nano and vim installed.
-    * `docker container prune` removes all stopped containers.
-    * If you have any questions about this process ask **everyone** on
-      Piazza.
+  * You can start the impcore REPL by typing `./impcore`.  Note that to send
+    an end-of-file in the REPL and quit the REPL, use Ctrl-D.
+  * git commit and push FREQUENTLY
+  * You will be submitting README.md, solution.imp, and cqs.impcore.txt
+    to Gradescope.
+  * The docker container has the editors nano and vim installed.
+  * `docker container prune` removes all stopped containers.
+  * If you have any questions about this process ask **everyone** on
+    Piazza.
 
 
 # Reading-Comprehension Questions (10%)
