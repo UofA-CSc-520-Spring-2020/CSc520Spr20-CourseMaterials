@@ -65,4 +65,24 @@ Here are some other possibilities to consider:
 
 ## Project Talk
 
+The talk slides will be submitted on gradescope on Wednesday April 28th
+by 11:59pm.
 
+Each talk will be 10 minutes.  When partners are giving a talk, each
+person will be talking for 5 minutes.  The time limit on the talks
+will be strictly observed just as they are at top conferences in 
+consideration of others giving talks.
+
+The talk can include at **MOST** 7 slides other than the title slide.
+
+The talk should include:
+* the research problem the presented paper is attempting to solve, (30 sec)
+* why people care about that research problem, (30 sec)
+* a succinct summary of the approach, (1 minute)
+* and how concepts in this course are used. (8 minutes)
+
+The talk will be graded on the timing and slide count expectations as well
+as the following:
+* preparedness of the speakers (practice ahead of time),
+* showing a clear understanding of the concepts, and
+* presentation of the concepts so others can understand.
