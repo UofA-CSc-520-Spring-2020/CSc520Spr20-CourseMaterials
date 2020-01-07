@@ -260,3 +260,64 @@ Compare
 
 int n = 99;
 Also, expressions at top level (definition of it)
+
+Impcore expressions
+
+No statements means expression-oriented:
+
+(if e1 e2 e3)
+(while e1 e2)
+(set x e)
+(begin e1 ... en)
+(f e1 ... en)
+Each one has a value and may have side effects!
+
+Functions are primitive (+ - * / = < > print)
+or defined with (define f ...).
+
+The only type of data is “machine integer” (deliberate oversimplification)
+
+Scoping rules for Impcore
+Scopes also called “name spaces”; we will call them “environments” because that’s the pointy-headed theory term—and if you want to read some of the exciting papers, pointy-headed theory has to be second nature.
+
+Names known in ``environments"
+
+Ways to talk about meanings of names:
+
+Scope rules
+Name spaces
+Environments (aka symbol tables)
+Impcore vars in 2 environments: globals, formals
+
+There are no local variables
+
+Just like awk; if you need temps, use extra formal parameters
+For homework, you’ll add local variables
+Functions live in their own environment (not shared with variables)
+
+Environmental abuse
+
+Abuse of separate name spaces:
+
+-> (val f 33)
+33
+-> (define f (x) (+ x x))
+f
+-> (f f)
+66
+Recursion: a review
+Ways a recursive function could decompose a natural number n.
+
+Peel back one (Peano numbers):
+
+n = 0
+n = m + 1,    m is also a natural number
+Split into two pieces:
+
+n = 0
+n = k + (n - k)    0 < k < n   (everything gets smaller)
+Sequence of decimal digits (see study problems on digits)
+
+n = d,               where 0 <= d < 10
+n = 10 * m + d,      where 0 <= d < 10 and m > 0
+To do your homework problems, which I recommend starting today, you’ll need to invent at least one more.
