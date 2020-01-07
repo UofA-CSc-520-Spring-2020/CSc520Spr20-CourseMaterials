@@ -412,7 +412,7 @@ For the project this semester, you will be explaining portions of a
 research paper that rely on theoretical concepts we learn in this 
 course such as operational semantics, proofs about program behavior,
 type checking, and/or lambda calculus.  You can and are encouraged to
-do this project with a partner.  See [project.md] for more details 
+do this project with a partner.  See [project.md](project.md) for more details 
 about the project.
 
 
