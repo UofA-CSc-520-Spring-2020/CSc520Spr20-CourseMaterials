@@ -408,11 +408,13 @@ and theory; and some assignments ask you to apply theory to write code.
 ### Project
 <a name="project"/>
 
-For the project, you and potentially a partner, will be identifying a
-couple of Programming Languages papers that you will be presenting aspects
-of to the class at the end of the semester.
+For the project this semester, you will be explaining portions of a
+research paper that rely on theoretical concepts we learn in this 
+course such as operational semantics, proofs about program behavior,
+type checking, and/or lambda calculus.  You can and are encouraged to
+do this project with a partner.  See [project.md] for more details 
+about the project.
 
-FIXME
 
 ### Midterm and Final
 <a name="exam"/>
