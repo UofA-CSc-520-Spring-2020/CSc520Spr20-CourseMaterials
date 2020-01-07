@@ -41,6 +41,10 @@ Here are some other resources that might point you to some interesting papers:
 SAT/SMT Solver Summer School 2011](http://people.csail.mit.edu/vganesh/summerschool/), has a whole list 
    of how SMT solvers are being used for all kinds of things including type 
    analysis and program synthesis.
+   
+ * [Models of Generics and Metaprogramming: Go, Rust, Swift, D and More](https://thume.ca/2019/07/14/a-tour-of-metaprogramming-models-for-generics/),
+   talks about how generics is implemented in many different languages.  Also touches on macros.  
+   Interesting and not too long.
  
 
 **NOTE**: You need to propose and present a peer-reviewed paper 
