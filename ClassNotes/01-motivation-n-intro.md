@@ -2,11 +2,24 @@
 
 * Posting participation in Piazza starts this week.
 
-* First HW due Wednesday, September 13.
+* First HW due next week, Friday January 24.
+
+
+# Introductions
+
+## Introduce yourself
+
+Write your name and then three lists of programming languages on 
+a index card: languages you have programmed in for more than one 
+semester, ones you have written at least one example in, and ones 
+you are just aware exist.
+
+## What am I called?
+Call me "Michelle", "Dr. Strout", "Professor Strout", or "Profesor".
 
 # Overview
 
-## Why so many languages?
+## Why so many programming languages?
 
 Question: What languages have you programmed in?
 
@@ -228,18 +241,24 @@ In a graduate course, you are responsible for your own learning
    key topics with classmates and the instructor.
 
  * Start this Thursday and Friday.
-Location information available in SIS.
-Designed to be interactive, so bring your thinking cap.
-Count towards class participation.
-Questions and answers on Piazza
-Don’t just ask questions; answer them too.
-Both activities count toward class participation.
-Be super careful that any question containing your code must be private. (This is an issue of academic integrity.)
-Other policies and procedures on the web
-You are responsible!
-Treasure Hunt for class participation points
-What am I called?
-Call me “Kathleen,” “Professor Fisher”, or “Profesor.”
+ 
+ * Example problems you could submit an answer for will be posted.  You can
+   also pick a problem NOT on the homework from the book to solve and post.
+ 
+ * Only post an answer to the same question if your answer is different.
+ 
+ * Piazza participation is 10% of your course grade.
+
+ * Don’t just ask questions; answer them too.
+
+ * Both activities count toward class participation.
+  
+ * Be super careful that any question containing your code for assignments
+   must be private. (This is an issue of academic integrity.)
+
+ * See the syllabus for possible extra credit.
+
+
 
 ImpCore: The first language in our common framework
 Exercise: all-fours?
