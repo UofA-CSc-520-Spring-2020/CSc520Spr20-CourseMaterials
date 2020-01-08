@@ -45,8 +45,8 @@ The right language for the job makes it easier to write programs that really wor
 
 ### Why not?
 
-Because you’d spend most of your time learning shallow details like program syntax, 
-tool chains, and library interfaces.
+Because you’d spend most of your time learning shallow details like 
+program syntax, tool chains, and library interfaces.
 
 ## What this course is:
 
@@ -54,8 +54,15 @@ Reusable Principles
 
 ### Why?
 
-Once you know the principles, you’ll be able to teach yourself new languages quickly 
-and improve your coding in many different languages.
+* Once you know the principles, you’ll be able to teach yourself new 
+  languages quickly and improve your coding in many different languages.
+
+* These principles are used as the basics in exciting PL research.
+  Here are some examples.
+  * program synthesis
+  * gradual typing
+  * proving security properties
+
 
 ## What are reusable principles?
 
@@ -259,17 +266,43 @@ In a graduate course, you are responsible for your own learning
  * See the syllabus for possible extra credit.
 
 
+# ImpCore: The first language in our common framework
 
-ImpCore: The first language in our common framework
-Exercise: all-fours?
-Write a function that takes a natural number n and returns true (1) iff all the digits in n are 4’s.
+## Exercise: all-fours?
 
-Code
+Write a function that takes a natural number n and returns true (1) 
+iff all the digits in n are 4’s.
 
-Impcore interpretor: > impcore
-Command (use homework/fours.imp); will load file into interpretor
-Syntax: parentheses with keyword or function name to start
-An Impcore program is a sequence of definitions (and expresions)
+ * Work with a neighbor to write pseudocode for this.
+
+ * Will draw a name and have someone present their solution.
+ 
+ * Will show a solution written in impcore.
+
+## Impcore interpretor
+
+ * Will be building and running on the command line.
+
+ * There is a docker container available.  See 
+   [Getting Started](HomeworkWriteups/hw1-impcore-writeup.md#start)
+   in the HW1 writeup.
+  
+ * Running the fours.imp program.
+   ```
+   ./impcore
+   use fours.imp
+   ```
+   or
+   ```
+   ./impcore -q fours.imp
+   ```
+
+## Impcore language
+
+ * Syntax: parentheses with keyword or function name to start
+
+ * An Impcore program is a sequence of definitions (and expresions)
+
 Impcore variable definition
 
 Example
