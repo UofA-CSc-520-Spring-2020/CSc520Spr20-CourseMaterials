@@ -381,7 +381,7 @@ Ways a recursive function could decompose a natural number n.
 ```
     n = 0
     n = k + (n - k)    0 < k < n   (everything gets smaller)
-
+```
 3. Sequence of decimal digits (see study problems on digits)
 ```
     n = d,               where 0 <= d < 10
