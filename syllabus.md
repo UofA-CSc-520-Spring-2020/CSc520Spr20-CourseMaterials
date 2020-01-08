@@ -251,8 +251,8 @@ posts a week per student with at least one each from the following categories:
 
 * An answer to an exercise in the book or an exercise you make up or find 
   that is NOT also a homework problem.  Feel free to check with me before
-  starting to work on such a post, because repeats of the same question
-  from different students will not count.  First come, first serve.
+  starting to work on such a post, because repeating the same answer for
+  the same question will not count.  First come, first serve.
 
 * Ask a substantive question (not one that is already answered in the syllabus),
   attempt to answer someone else's substantive question, provide constructive
@@ -260,7 +260,7 @@ posts a week per student with at least one each from the following categories:
   of feedback that others post), or any other substantive post.
 
 You may post anonymous to the class.  Piazza is setup so I will be able to
-see who posted even if they class cannot.
+see who posted even if the class cannot.
 
 There will be 30 points for this in D2L (two points per week).  You will
 start the semester with 0 points and then at the end of each week I will 
@@ -270,6 +270,12 @@ are posted into D2L and you have earned more participation points.
 
 If you do not see the number of points you expected to receive, then feel
 free to send me a private piazza post asking about it and/or come to office hours.
+
+Extra Credit: If you find a typo or other mistake in the syllabus, course notes, 
+or homework writeups, you can send a private piazza post to the instructor.
+If you are the first person to find a particular mistake, then you will earn
+1 piazza participation point.  Over the semester you can earn up to 5 piazza 
+participation points for finding mistakes in the posted material.
 
 ### Homeworks
 
