@@ -144,7 +144,7 @@ constraints:
 The offside rule comes into play when a definition, declaration, expression, or 
 statement (which I'll call a construct) has to be split across multiple lines of 
 code. Roughly speaking, it says that when you split a construct, later lines 
-have to be indented with respect to the beginning of the construct. The may 
+have to be indented with respect to the beginning of the construct. They may 
 never be "outdented" to the left. The rule is based on the start of the 
 construct, not the start of the line.
 
