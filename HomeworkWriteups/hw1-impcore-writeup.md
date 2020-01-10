@@ -327,7 +327,7 @@ about this on the [coding style page](../coding-style.md) and the
 [coding rubric page](../coding-rubric.md). When we get 
 your work, we will evaluate it in two ways:
 
-* About 50% of your grade for the assignment will be based on our judgement 
+* About 60% of your grade for the assignment will be based on our judgement 
   of the structure and organization of your code. To judge structure and 
   organization, we will use the following dimensions:
 
