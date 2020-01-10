@@ -50,7 +50,8 @@ do everything on your own command line.
   * In another terminal window, copy the `test.txt` file to your host machine.
     `docker cp cs520name:cs520/test.txt .`
 
-* within your running docker container or your own command line:
+* within your running docker container or your own command line (**NOTE: you need 
+  to replace yourgithubid below with your github id**):
   * clone your HW1 repository: `git clone https://github.com/UofA-CSc-520-Spring-2020/hw1-impcore-yourgithubid.git`
 
   * Create the impcore interpreter executable.
