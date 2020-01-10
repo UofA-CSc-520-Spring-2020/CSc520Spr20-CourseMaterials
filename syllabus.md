@@ -249,10 +249,11 @@ UofA bookstore.
 Discussion on piazza is required.  Each week, I expect to see at least two 
 posts a week per student with at least one each from the following categories:
 
-* An answer to an exercise in the book or an exercise you make up or find 
-  that is NOT also a homework problem.  Feel free to check with me before
-  starting to work on such a post, because repeating the same answer for
-  the same question will not count.  First come, first serve.
+* An answer to an exercise that was either posted on piazza by the instructor,
+  an exercise you make up, or an exercise from the book that is NOT also a 
+  homework problem.  Feel free to check with me before starting to work on 
+  such a post, because repeating the same answer for the same question will 
+  not count.  First come, first serve.
 
 * Ask a substantive question (not one that is already answered in the syllabus),
   attempt to answer someone else's substantive question, provide constructive
