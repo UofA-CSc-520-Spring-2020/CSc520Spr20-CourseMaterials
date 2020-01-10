@@ -162,7 +162,7 @@ but **no one other than the instructor may see your code**.
 If you are in the docker container and your code and unit tests are in file 
 `solution.imp`, you can load and run them by typing
 
-    impcore -q < solution.imp
+    ./impcore -q < solution.imp
 
 ## Unit testing
 
@@ -267,7 +267,7 @@ expect:
   * Your solutions must be valid Impcore; in particular, they must pass the 
     following test:
 
-        impcore -q < solution.imp > /dev/null
+        ./impcore -q < solution.imp > /dev/null
 
 with no error messages and no unit-test failures. If your file produces error 
 messages, we won't test your solution and you will earn No Credit for functional 
@@ -277,7 +277,8 @@ Your solutions must load and complete within 250 CPU milliseconds. If you write
 any long-running test, don't include them in `solution.imp`; instead, create a 
 file `extra-tests.imp`.
 
-On this assignment, as on several assignments to come, **you must use recursion**.  Code using while loops will receive No Credit.
+On this assignment, as on several assignments to come, **you must use recursion**.  
+Code using while loops will receive No Credit.
 
 You may use helper functions where appropriate, but **you must not use global 
 variables**.
@@ -314,7 +315,7 @@ You may also submit `extra-tests.imp`, which should contain only test code and
 unit tests (check-expect or check-error). You can run the tests using the Unix 
 command
 
-    cat solution.imp extra-tests.imp | impcore -q
+    cat solution.imp extra-tests.imp | ./impcore -q
 
 
 # How your work will be evaluated
