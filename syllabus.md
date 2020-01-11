@@ -220,7 +220,7 @@ time with the instructor.
 
 You absolutely, positively have to have the book *Programming Languages: Build, Prove, 
 and Compare* by Norman Ramsey and its associated supplement.  You can buy the book in the 
-UofA bookstore.
+UofA bookstore as two sets of classnotes.
 
 ## Assignments: Schedule/Due Dates
 
