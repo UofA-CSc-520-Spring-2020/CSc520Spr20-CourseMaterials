@@ -298,7 +298,8 @@ free to just come by and talk during office hours.
 Write a function that takes a natural number n and returns true (1) 
 iff all the digits in n are 4’s.
 
- * Work with a neighbor to write pseudocode for this.
+ * Work with a neighbor to write pseudocode for this.  Use **recursion**,
+   no iteration.
 
  * Will draw a name and have someone present their solution.
  
