@@ -402,7 +402,7 @@ Ways a recursive function could decompose a natural number n.
 ```
     n = 0
     n = m + 1,    m is also a natural number
-
+```
 2. Split into two pieces:
 ```
     n = 0
