@@ -310,7 +310,7 @@ iff all the digits in n are 4’s.
  * Will be building and running on the command line.
 
  * There is a docker container available.  See 
-   [Getting Started](HomeworkWriteups/hw1-impcore-writeup.md#start)
+   [Getting Started](https://github.com/UofA-CSc-520-Spring-2020/CSc520Spr20-CourseMaterials/blob/master/HomeworkWriteups/hw1-impcore-writeup.md#start)
    in the HW1 writeup.
   
  * Running the fours.imp program.
