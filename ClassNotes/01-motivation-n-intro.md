@@ -206,6 +206,8 @@ Lesson: **Don’t make decisions** based on the first couple of homeworks!
 **Everyone who takes this class has the ability to master the material; 
 Succeeding just requires digging in.**
 
+## Resources to Help
+
 We provide lots of resources to help:
 
  * Classes
@@ -228,16 +230,25 @@ Two two bad habits to avoid:
 
  * We don’t cover everything in class/lecture
 
- * Lecture is for just the hard parts
+ * Class/Lecture is for just the hard parts
+ 
+ * Class will be interactive with
+   * no electronics except to take notes (preferably with a stylus),
+   * will be working with neighbors so encourage some movement around the 
+     room once a week,
+   * will be calling people to share from a random draw from the notecards, and
+   * all questions about the course material and related CS topics are welcome.
+     
 
  * We’ll talk very little about the code (just the interesting bits)
 
 In a graduate course, you are responsible for your own learning
 
- * Course evaluations from previous years: a few students want everything 
-   gone over in lecture. That’s not how things work in real life, and that’s 
-   not how things work here. We point you in the right direction and identify 
-   traps and pitfalls, and we find good problems for you to work on.
+ * Course evaluations from previous years (from Tufts Comp 105):
+   a few students want everything gone over in lecture. That’s not how things 
+   work in real life, and that’s not how things work here. We point you in the 
+   right direction and identify traps and pitfalls, and we find good problems 
+   for you to work on.
 
  * If you’re expecting to see everything in lecture, you have a couple of choices: 
    change your expectations, or take a different course.
@@ -264,6 +275,20 @@ In a graduate course, you are responsible for your own learning
    must be private. (This is an issue of academic integrity.)
 
  * See the syllabus for possible extra credit.
+
+
+## Office Hours
+
+There is a poll in Piazza for office hours.  Please vote by the end of
+today sometime (11:59pm today).
+
+Office hours are a great opportunity for you and I to talk about concepts 
+from the class, thoughts you are having about your career, doing research 
+as a graduate student, job opportunities I have heard about lately, or 
+anything else that is on your mind.  For Ph.D. students who are looking 
+for a second professor to write a 5th semester portfolio, frequent visits 
+to office hours enables me to be a potential letter writer for you.  Feel 
+free to just come by and talk during office hours.
 
 
 # ImpCore: The first language in our common framework
