@@ -33,7 +33,7 @@ The right language for the job makes it easier to write programs that really wor
 * Your language can make you or break you.
 
 * Example
-  * Writing a compiler requires a language that facilitiates maniuplating tree data structures
+  * Writing a compiler requires a language that facilitiates manipulating tree data structures
   * Relevant features: algebraic data types, pattern matching, efficient recursion, higher-order functions
 
 ## What this course isn’t
