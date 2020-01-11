@@ -177,7 +177,7 @@ Homework will be frequent and challenging:
  * Some theory problems, more like a math problem set
  * The occasional larger project, like a type checker
  * Submit everything electronically via gradescope
- * **First homework is due a week from today;** designed to get you moving quickly.
+ * **First homework is due next week;** designed to get you moving quickly.
  * The course is relentlessly cumulative.
 
 Both individual and pair work:
