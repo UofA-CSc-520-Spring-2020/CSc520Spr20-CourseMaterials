@@ -69,7 +69,7 @@ worth 20% of the course grade for a combined weight of 40%.
 
 Recommendations for a successful CSc 520 (and grad school) experience
 * Go to class. Using a pen, pencil, or stylus, take notes.  (See the
-  section below on [taking notes](#notes).
+  section below on [taking notes](#notes)).
 
 * Read the homework IMMEDIATELY after you finish the previous homework.
   Bring questions to class.
