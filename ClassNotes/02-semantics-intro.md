@@ -214,8 +214,23 @@ Numeral: stands for a value
 Name: stands for what?
 
 Slide 9 FIXME: will need some pdflatex?
+## In Impcore, a name stands for a value
 
-Slide 10 FIXME: will need some pdflatex?
+**Environment** associates each **variable** with one **value**
+
+Written (FIXME, image)
+associates variable x_i with value n_k.
+
+Environment is a **finite map**, aka **partial function**
+
+`x \in dom \rho`
+ * (<img alt="latexified x \in dom \rho" src="x-in-dom-rho.pdf" width="100">)
+ * x is defined in environment \rho
+
+`\rho(x)`, the value of x in environment \rho
+
+`\rho \{ x \mapsto v \}` (FIXME, image), extends/modifies environment \rho to map x to v 
+
 
 ## Environment in C, abstractly
 
