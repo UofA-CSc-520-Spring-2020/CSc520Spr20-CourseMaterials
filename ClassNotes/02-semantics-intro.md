@@ -218,9 +218,9 @@ Slide 9 FIXME: will need some pdflatex?
 
 **Environment** associates each **variable** with one **value**
 
-Written \rho = \{ x_1 \mapsto n_1, ... x_k \mapsto n_k\}
-<img src="environment.jpeg">
-associates variable x_i with value n_k.
+Written `\rho = \{ x_1 \mapsto n_1, ... x_k \mapsto n_k\}`
+ * <img src="environment.jpeg">
+ * associates variable `x_i` with value `n_k`.
 
 Environment is a **finite map**, aka **partial function**
 
@@ -269,11 +269,11 @@ Your thoughts?
 
 ## Impcore uses three environments
 
-Global variables ξ
+Global variables ξ (or `\xi`)
 
-Functions ϕ
+Functions ϕ (or `\phi`)
 
-Formal parameters ρ
+Formal parameters ρ (or `\rho`)
 
 There are no local variables
  * Just like awk; if you need temps, use extra formal parameters
@@ -319,23 +319,23 @@ Idea: "mathematical interpreter", formal rules for interpretation
 
 ## Syntax and environments determine meaning
 
-Initial state of abstract machine: `\langle e, \xi, \phi, \rho \rangle`
-
-<img src="initial-state.jpeg">
+Initial state of abstract machine:
+ * `\langle e, \xi, \phi, \rho \rangle`
+ * <img src="initial-state.jpeg">
 
 State `\langle e, \xi, \phi, \rho \rangle` is
- * e, Expression being evaluated
- * \xi, Values of global variables
- * \phi, Definitions of functions
- * \rho, Values of formal parameters
+ * `e`, Expression being evaluated
+ * `\xi`, Values of global variables
+ * `\phi`, Definitions of functions
+ * `\rho`, Values of formal parameters
  
 Three environments determine what is in scope.
 
 ## Meaning written as "Evaluation judgement"
 
 We write
-`\langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle`
-<img src="eval-judgement.jpeg">
+ * `\langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle`
+ * <img src="eval-judgement.jpeg">
 
 (**Big-step** judgement form.)
 
@@ -348,8 +348,47 @@ Question: what do we know about globals?  functions?
 
 With that as background, we can now dive in to the semantics for Impcore!
 
-Slide 19 
+## Impcore atomic form: Literal
 
-Slide 20 
+"Literal" **generalizes*** "numeral"
 
-Slide 21
+`\inferrule[LITERAL]{ }{\langle \mbox{LITERAL}(v),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi,\phi,\rho \rangle}`
+
+<img src="literal-semantics.png">
+
+Numeral converted to `LITERAL(v)` in **parser**
+
+
+## Impcore atomic form: Variable name
+
+`\inferrule[FormalVar]{x \in \mbox{dom } \rho}{\langle \mbox{VAR}(x),\xi,\phi,\rho \rangle \Downarrow \langle \rho(x),\xi,\phi,\rho \rangle}`
+
+<img src="formalvar-semantics.png">
+
+
+`\inferrule[GlobalVar]{x \notin \mbox{dom } \rho \\  x \in \mbox{dom } \xi}{\langle \mbox{VAR}(x),\xi,\phi,\rho \rangle \Downarrow \langle \xi(x),\xi,\phi,\rho \rangle}`
+
+<img src="globalvar-semantics.png">
+
+Parameters hide global variables.
+
+## Impcore compound form: Assignment
+
+In `SET(x,e)`, `e` is any expression
+
+`\inferrule[FormalAssign]{x \in \mbox{dom } \rho \\
+\langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle}
+{\langle \mbox{SET}(x,e),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi,\phi,\rho\{x \mapsto v\} \rangle}`
+
+<img src="formalassign-semantics.png">
+
+
+`\inferrule[GlobalAssign]{x \notin \mbox{dom } \rho \\  x \in \mbox{dom } \xi \\
+\langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle}
+{\langle \mbox{SET}(x,e),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi\{x \mapsto v\},\phi,\rho \rangle}`
+
+
+<img src="globalassign-semantics.png">
+
+
+Impcore can assign only to **existing** variables
