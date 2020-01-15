@@ -218,18 +218,23 @@ Slide 9 FIXME: will need some pdflatex?
 
 **Environment** associates each **variable** with one **value**
 
-Written (FIXME, image)
+Written \rho = \{ x_1 \mapsto n_1, ... x_k \mapsto n_k\}
+<img src="environment.jpeg">
 associates variable x_i with value n_k.
 
 Environment is a **finite map**, aka **partial function**
 
 `x \in dom \rho`
- * <img alt="latexified x \in dom \rho" src="x-in-dom-rho.jpeg" width="100">
- * means x is defined in environment \rho
+ * <img src="x-in-dom-rho.jpeg">
+ * means `x` is defined in environment `\rho`
 
-`\rho(x)`, the value of x in environment \rho
+`\rho(x)`
+ * <img src="rho-x.jpeg">
+ * means the value of `x` in environment `\rho`
 
-`\rho \{ x \mapsto v \}` (FIXME, image), extends/modifies environment \rho to map x to v 
+`\rho \{ x \mapsto v \}`
+ * <img src="extend-rho.jpeg">
+ * means extends/modifies environment `\rho` to map `x` to `v` 
 
 
 ## Environment in C, abstractly
@@ -312,10 +317,34 @@ Evaluation on an **abstract machine**
 
 Idea: "mathematical interpreter", formal rules for interpretation
 
-Slide 17 FIXME
+## Syntax and environments determine meaning
 
+Initial state of abstract machine: `\langle e, \xi, \phi, \rho \rangle`
 
-Slide 18 
+<img src="initial-state.jpeg">
+
+State `\langle e, \xi, \phi, \rho \rangle` is
+ * e, Expression being evaluated
+ * \xi, Values of global variables
+ * \phi, Definitions of functions
+ * \rho, Values of formal parameters
+ 
+Three environments determine what is in scope.
+
+## Meaning written as "Evaluation judgement"
+
+We write
+`\langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle`
+<img src="eval-judgement.jpeg">
+
+(**Big-step** judgement form.)
+
+Notes:
+ * `\xi` and `\xi'` may differ
+ * `\rho` and `\rho'` may differ
+ * `\phi` must equal `\phi`
+
+Question: what do we know about globals?  functions?
 
 With that as background, we can now dive in to the semantics for Impcore!
 
