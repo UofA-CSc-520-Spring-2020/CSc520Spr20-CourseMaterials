@@ -101,7 +101,7 @@ The same division for programming languages:
 
 ## What can you get out of CSc 520?
 
- * Discover new ways think about programming (in many languages)
+ * Discover new ways to think about programming (in many languages)
 
    For example: master using recursive, higher-order functions
 
