@@ -224,8 +224,8 @@ associates variable x_i with value n_k.
 Environment is a **finite map**, aka **partial function**
 
 `x \in dom \rho`
- * (<img alt="latexified x \in dom \rho" src="x-in-dom-rho.pdf" width="100">)
- * x is defined in environment \rho
+ * <img alt="latexified x \in dom \rho" src="x-in-dom-rho.jpeg" width="100">
+ * means x is defined in environment \rho
 
 `\rho(x)`, the value of x in environment \rho
 
