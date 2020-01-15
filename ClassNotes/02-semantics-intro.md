@@ -358,6 +358,7 @@ With that as background, we can now dive in to the semantics for Impcore!
 
 Numeral converted to `LITERAL(v)` in **parser**
 
+NOTE: for the `\inferrule` latex definition using mathpartir package
 
 ## Impcore atomic form: Variable name
 
