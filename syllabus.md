@@ -45,7 +45,7 @@ undergraduate algorithms or theory course.
 | Instructor    | Prof. Michelle Strout, mstrout@cs.arizona.edu |
 | ------------- | --------------------------------------------- |
 | Office        | 707 Gould-Simpson                             |
-| Office Hours  | TBD                                           |
+| Office Hours  | Mondays 10:30-11:30am, Wednesdays 5-6pm       |
 | Web page      | http://www.cs.arizona.edu/~mstrout            |
 | Course web page (Piazza) | https://piazza.com/arizona/spring2020/csc520/home |
 | Course github | https://github.com/UofA-CSc-520-Spring-2020   |
