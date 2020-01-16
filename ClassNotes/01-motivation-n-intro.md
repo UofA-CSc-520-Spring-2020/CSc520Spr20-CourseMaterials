@@ -15,7 +15,7 @@ semester, ones you have written at least one example in, and ones
 you are just aware exist.
 
 ## What am I called?
-Call me "Michelle", "Dr. Strout", "Professor Strout", or "Profesor".
+Call me "Michelle", "Dr. Strout", "Professor Strout", or "Professor".
 
 # Overview
 
