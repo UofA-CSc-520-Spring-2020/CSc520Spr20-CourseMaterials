@@ -228,7 +228,7 @@ UofA bookstore as two sets of class notes.
 | --------------------------- | -------------- | ------------------------------------------- |
 | [Piazza participation](#piazza) | **each week**  | at least two posts a week (details below)   |
 | [HW1 impcore](HomeworkWriteups/hw1-impcore-writeup.md) | **Fri Jan 24** | reading; programming in impcore PL          |
-| HW2 opsem                   | Fri Jan 30     | reading; modifying impcore interpreter      |
+| HW2 opsem                   | Fri Jan 31     | reading; modifying impcore interpreter      |
 | HW3 uScheme                 | Fri Feb 7      | reading; programming in uScheme             |
 | [Project: proposal](#project) | Fri Feb 14   | propose two possible PL papers to present   |
 | HW4 hof                     | Fri Feb 28     | reading; higher-order functions             |
@@ -507,7 +507,7 @@ and http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal, resp
 | ----------------------- | -------------------------------------- | ---------------------------------- |
 | 1a: Jan 15 (short week) | motivating PL papers and intro         |                                    |
 | 1b: Jan 22 (short week) | introduction to semantics              | Friday Jan 24, HW1, Impcore        |
-| 2: Jan 27 and 29        | semantics, syntactic proofs, metatheory| Friday Jan 30, HW2, adding locals and some proofs |
+| 2: Jan 27 and 29        | semantics, syntactic proofs, metatheory| Friday Jan 31, HW2, adding locals and some proofs |
 | 3: Feb 3 and 5          | functional programming and scheme      | Friday Feb 7, HW3, uScheme         |
 | February 11, 2020       | Last Day to Admin Drop W/O a W         |                                    |
 | 4: Feb 10 and 12        | motivating papers; let and lambda v1   | Friday Feb 14, propose two possible PL papers to explain at end of semester |
