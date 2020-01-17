@@ -239,7 +239,7 @@ UofA bookstore as two sets of class notes.
 | HW8 ml-inf                  | Fri April 10    | reading; type inference                     |
 | HW9 usmall                  | Fri April 17   | reading; programming in usmalltalk          |
 | HW10 lambda                 | Fri April 24   | reading; lambda calculus                    |
-| [Project: in-class talk with slides](#project)| Wednesday April 28 | slides for presenting course concepts relevant to a paper |
+| [Project: in-class talk with slides](#project)| Tuesday April 28 | slides for presenting course concepts relevant to a paper |
 | [Final, in room 701](#exam)    | Tues May 12, 3:30-5:30pm | cumulative test for semester      |
 
 
