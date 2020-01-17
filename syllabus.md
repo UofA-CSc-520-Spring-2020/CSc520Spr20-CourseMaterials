@@ -229,14 +229,14 @@ UofA bookstore as two sets of class notes.
 | [Piazza participation](#piazza) | **each week**  | at least two posts a week (details below)   |
 | [HW1 impcore](HomeworkWriteups/hw1-impcore-writeup.md) | **Fri Jan 24** | reading; programming in impcore PL          |
 | HW2 opsem                   | Fri Jan 30     | reading; modifying impcore interpreter      |
-| HW3 uScheme                 | Fri Feb 6      | reading; programming in uScheme             |
+| HW3 uScheme                 | Fri Feb 7      | reading; programming in uScheme             |
 | [Project: proposal](#project) | Fri Feb 14   | propose two possible PL papers to present   |
 | HW4 hof                     | Fri Feb 28     | reading; higher-order functions             |
-| HW5 continulations          | Fri March 5    | reading; continuations                      |
-| [Midterm, in class](#exam)  | Thurs March 18 | cumulative test on concepts covered to date |
+| HW5 continulations          | Fri March 6    | reading; continuations                      |
+| [Midterm, in class](#exam)  | Wed March 18   | cumulative test on concepts covered to date |
 | HW6 ML programming          | Fri March 27   | reading; programming in ML                  |
 | HW7 typesys                 | Fri April 3    | reading; type checking                      |
-| HW8 ml-inf                  | Fri April 9    | reading; type inference                     |
+| HW8 ml-inf                  | Fri April 10    | reading; type inference                     |
 | HW9 usmall                  | Fri April 17   | reading; programming in usmalltalk          |
 | HW10 lambda                 | Fri April 24   | reading; lambda calculus                    |
 | [Project: in-class talk with slides](#project)| Wednesday April 28 | slides for presenting course concepts relevant to a paper |
@@ -508,18 +508,18 @@ and http://catalog.arizona.edu/policy/grades-and-grading-system#Withdrawal, resp
 | 1a: Jan 15 (short week) | motivating PL papers and intro         |                                    |
 | 1b: Jan 22 (short week) | introduction to semantics              | Friday Jan 24, HW1, Impcore        |
 | 2: Jan 27 and 29        | semantics, syntactic proofs, metatheory| Friday Jan 30, HW2, adding locals and some proofs |
-| 3: Feb 3 and 5          | functional programming and scheme      | Friday Feb 6, HW3, uScheme         |
+| 3: Feb 3 and 5          | functional programming and scheme      | Friday Feb 7, HW3, uScheme         |
 | February 11, 2020       | Last Day to Admin Drop W/O a W         |                                    |
 | 4: Feb 10 and 12        | motivating papers; let and lambda v1   | Friday Feb 14, propose two possible PL papers to explain at end of semester |
 | 5: Feb 17 and 19        | Prof. Sethi on lambda calculus; let and lambda part 2 | Consider starting HW10 this week, but nothing is due. |
 | 6: Feb 24 and 26        | higher-order functions and continuations | Friday Feb 28, HW4, hof          |
-| 7: March 2 and 4        | scheme semantics and ML intro          | Friday March 5, HW5, continuations |
+| 7: March 2 and 4        | scheme semantics and ML intro          | Friday March 6, HW5, continuations |
 | Spring Break: March 9-13|                                        |                                    |
 | 8: March 16 and 18      | Review; Midterm                        |                                    |
 | 9: March 23 and 25      | programming with constructed data and types | Friday March 27, HW6, ML prog, uScheme |
 | 10: March 30 and April 1| types and type checking                | Friday April 3, HW7, type checking |
 | March 31, 2020          | Last Day to Admin Withdrawal           |                                    |
-| 11: April 6 and 8       | type inference                         | Friday April 9, HW8, type inference|
+| 11: April 6 and 8       | type inference                         | Friday April 10, HW8, type inference|
 | 12: April 13 and 15     | object orientation                     | Friday April 17, HW9, usmalltalk   |
 | 13: April 20 and 22     | lambda calculus                        | Friday April 24, HW10, lambda calc |
 | 14: April 27 and 29     | app of concepts in PL papers from start; project talks |                    |   	
