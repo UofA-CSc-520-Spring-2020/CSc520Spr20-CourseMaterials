@@ -349,7 +349,7 @@ With that as background, we can now dive in to the semantics for Impcore!
 
 ## Impcore atomic form: Literal
 
-"Literal" **generalizes*** "numeral"
+"Literal" **generalizes** "numeral"
 
 `\inferrule[LITERAL]{ }{\langle \mbox{LITERAL}(v),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi,\phi,\rho \rangle}`
 
