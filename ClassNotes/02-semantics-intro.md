@@ -213,7 +213,6 @@ Numeral: stands for a value
 
 Name: stands for what?
 
-Slide 9 FIXME: will need some pdflatex?
 ## In Impcore, a name stands for a value
 
 **Environment** associates each **variable** with one **value**
