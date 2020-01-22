@@ -1,8 +1,6 @@
 # Getting Started
  * Note credits: Kathleen Fisher and Norman Ramsey,
    https://www.cs.tufts.edu/comp/105-2017f/notes.html
- 
- * [PDF slides for 1/22/2020](FIXME)
 
  * [Handout: 105 Impcore Semantics, Part 1](https://www.cs.tufts.edu/comp/105/handouts/ImpcoreSemantics1.pdf)
 
