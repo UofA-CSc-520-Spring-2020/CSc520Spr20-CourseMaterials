@@ -379,14 +379,14 @@ In `SET(x,e)`, `e` is any expression
 
 `\inferrule[FormalAssign]{x \in \mbox{dom } \rho \\
 \langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle}
-{\langle \mbox{SET}(x,e),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi,\phi,\rho\{x \mapsto v\} \rangle}`
+{\langle \mbox{SET}(x,e),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi',\phi,\rho'\{x \mapsto v\} \rangle}`
 
 <img src="formalassign-semantics.png">
 
 
 `\inferrule[GlobalAssign]{x \notin \mbox{dom } \rho \\  x \in \mbox{dom } \xi \\
 \langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle}
-{\langle \mbox{SET}(x,e),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi\{x \mapsto v\},\phi,\rho \rangle}`
+{\langle \mbox{SET}(x,e),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi'\{x \mapsto v\},\phi,\rho' \rangle}`
 
 
 <img src="globalassign-semantics.png">
