@@ -144,14 +144,20 @@ Choices for questions 6 and 7:
   (Work with a partner, 23 percent)
 <a name="local"/>
 
-Related reading: Section 1.5, particularly Section 1.5.2, which starts on page 44. These pages will walk you through how the impcore interpreter is implemented.
+Related reading: Section 1.5, particularly Section 1.5.2, which starts on 
+page 48. These pages will walk you through how the impcore interpreter is 
+implemented.
 
-This exercise will help you understand how operational semantics is implemented, and how language changes can be realized in C code. You will do Exercise 33 from page 87 of Ramsey’s book. We recommend that you solve this problem with a partner, but this solution must be kept separate from your other solutions. Your programming partner, if any, must not see your other work.
+This exercise will help you understand how operational semantics is implemented, 
+and how language changes can be realized in C code. You will do Exercise 33 from 
+page 92 of Ramsey’s book. We recommend that you solve this problem with a 
+partner, but this solution must be kept separate from your other solutions. Your 
+programming partner, if any, must not see your other work.
 
-For information on pair programming, consult the syllabus, the reading, and some timeless advice for pair programmers.
+FIXME: For information on pair programming, consult the syllabus, the reading, and some timeless advice for pair programmers.
 
 Get your copy of the code from the book by running
-
+FIXME
   git clone linux.cs.tufts.edu:/comp/105/build-prove-compare
 or if that doesn’t work, from a lab or linux machine, try
 
