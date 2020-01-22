@@ -4,7 +4,7 @@
  
  * [PDF slides for 1/22/2020](FIXME)
 
- * [Handout: 105 Impcore Semantics, Part 1](FIXME)
+ * [Handout: 105 Impcore Semantics, Part 1](https://www.cs.tufts.edu/comp/105/handouts/ImpcoreSemantics1.pdf)
 
  * Today: Abstract Syntax and Operational Semantics
 
@@ -44,9 +44,9 @@ Same reason as other forms of math:
 
  * Prove useful properties. For example:
    * private information doesn’t leak
-  * device driver can’t crash the OS kernel
-  * compiler optimizations preserve program meaning
-  * Most important for you: *things that look different are actually the same*
+   * device driver can’t crash the OS kernel
+   * compiler optimizations preserve program meaning
+   * Most important for you: *things that look different are actually the same*
 
 Plus, needed to build language implementation and tests
 

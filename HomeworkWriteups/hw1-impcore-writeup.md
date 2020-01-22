@@ -108,7 +108,7 @@ please answer “yes” or “no.”
   `(check-expect (set x 1) 1)`
 
 
-Next read Section 1.2, which starts on page 16, about abstract syntax.
+Next read Section 1.2, which starts on page 24, about abstract syntax.
 
 4. After reading about abstract syntax, look at this picture of an 
    abstract-syntax tree for a "calculator expression":
