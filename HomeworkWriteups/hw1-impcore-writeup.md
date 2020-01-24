@@ -56,7 +56,7 @@ do everything on your own command line.
 
   * Create the impcore interpreter executable.
 ```
-      cd hw1-impcore-yourgithubid/build-prove-compare/bare/impcore`
+      cd hw1-impcore-yourgithubid/build-prove-compare/bare/impcore
       make
       cp impcore ../../../
       cd ../../../
