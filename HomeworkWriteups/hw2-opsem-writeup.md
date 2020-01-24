@@ -221,44 +221,61 @@ Using Theoretical Impcore reduces the number of cases to a manageable number. It
 # Organizing the answers to Part C
 <a name="organize"/>
 
-For these exercises you will turn in two files: theory.pdf and awk-icon.imp. For file theory.pdf, you could consider using LaTeX, but unless you already have experience using LaTeX to typeset mathematics, it’s a bad idea. We recommend that you write your theory homework by hand, then scan or photograph it. Either way, make sure that your PDF can be opened on a Halligan computer.
+For these exercises you will turn in two files: theory.pdf and awk-icon.imp. 
+For file theory.pdf, you could consider using LaTeX, but unless you already 
+have experience using LaTeX to typeset mathematics, it’s a bad idea. We recommend 
+that you write your theory homework by hand, then scan or photograph it.
 
 To help us read your answers to Part C, we need for you to organize them carefully:
 
-The answer to each question must start on a new page.
+ * The answer to each question must start on a new page.
 
-The theory answers must appear in this order: Exercises 13, 14, 21. and finally 20.
+ * The theory answers must appear in this order: Exercises 13, 14, 21. and finally 20.
 
-Your answer to exercise 22 should be in file awk-icon.imp.
+ * Your answer to Exercise 22 should be in file awk-icon.imp.
 
 
 # How to organize and submit your work
 <a name="submit"/>
 
-Before submitting code, test what you can. We do not provide any tests; you write your own. All code can be fully tested except the code for exercise 22.
+Before submitting code, **test what you can**. We do not provide any tests; 
+you write your own. All code can be fully tested except the code for Exercise 22.
 
-To complete part A, which you do by yourself, download the questions, and edit the answers into the file cqs.opsem.txt. If your editor is not good with Greek letters, you can spell out their names: ξ is “xi,” ϕ is “phi,” and ρ is “rho.”
+ * To complete part A, which you do by yourself, download the questions, and edit 
+   the answers into the file cqs.opsem.txt. If your editor is not good with Greek 
+   letters, you can spell out their names: ξ is "xi," ϕ is "phi," and ρ is "rho."
 
-To submit part B, which you will have done with a partner, cd into bare/impcore-with-locals. The directory should contain your code and a README file that documents your solution.
+ * To submit part B, which you may have done with a partner, submit a README.locals
+   file that documents your solution and all of the C files in bar/impcore-with-locals/
+   that you modified and/or added.
 
-As soon as you have these files, run submit105-opsem-pair to submit a preliminary version of your work. Keep submitting until your work is complete; we grade only the last submission.
+ * As soon as you have these files, submit a preliminary version of your work to Gradescope.
+   Keep submitting until your work is complete; we grade only the last submission.  Each time
+   you submit you need to submit ALL of the files.
 
-To complete part C, which you do by yourself, create files awk-icom.imp and theory.pdf. Please also create a file called README, in which you tell us anything else you think is useful for us to know.
+ * To complete part C, which you do by yourself, create files awk-icom.imp and theory.pdf. 
+   Please also create a file called README.md, in which you tell us anything else you 
+   think is useful for us to know.
 
-We provide a template for your README at http://www.cs.tufts.edu/comp/105/homework/opsem-README-template
+   We provide a template for your README.md in your initial github repository.
 
-As soon as you have the files for parts A and C, which you will have done by yourself, cd into the appropriate directory and run submit105-opsem-solo to submit a preliminary version of your work. You’ll need files README, cqs.opsem.txt, awk-icon.imp, and theory.pdf, but preliminary versions are good enough. Keep submitting and resubmitting until your work is complete; we grade only the last submission.
+ * As soon as you have the files for parts A and C, which you will have done by yourself,
+   submit the files README.md, cqs.opsem.txt, awk-icon.omp, and theory.pdf to Gradescope.
+   You will have to submit all of the C files you have done and README.locals at the same time.
+   **Preliminary versions of files are FINE to submit.**  Keep submitting and resubmitting until
+   your work is complete; we grade only the last submission.
 
 # How your work will be evaluated
 <a name="eval"/>
 
 ## Adding local variables to Impcore
 
-Everything in the [general coding rubric](../coding-rubric.md) applies, but we will focus on three areas specific to this exercise:
+Everything in the [general coding rubric](../coding-rubric.md) applies, but we will focus 
+on three areas specific to this exercise:
 
-## Locals
+### Locals
 
-### Exemplary
+#### Exemplary
 
  * Change to interpreter appears motivated either by changing 
    the semantics as little as possible or by changing the code as little 
@@ -266,36 +283,244 @@ Everything in the [general coding rubric](../coding-rubric.md) applies, but we w
 
  * Local variables for Impcore pass simple tests.
 
-### Satisfactory
+#### Satisfactory
 
-Course staff believe they can see motivation for changes to interpreter, but more changes were made than necessary.
+ * Course staff believe they can see motivation for changes to interpreter, 
+   but more changes were made than necessary.
 
-• Local variables for Impcore pass some tests.
+ * Local variables for Impcore pass some tests.
 
-### Must improve
+#### Must improve
 
-Course staff cannot understand what ideas were used to change the interpreter.
+ * Course staff cannot understand what ideas were used to change the interpreter.
 
-• Local variables for Impcore pass few or no tests.
+ * Local variables for Impcore pass few or no tests.
 
-## Naming
+### Naming
 
-### Exemplary
+#### Exemplary
 
-Where the code implements math, the names of each variable in the code is either the same as what’s in the math (e.g., rho for ρ), or is an English equivalent for what the code stands for (e.g., parameters or parms for ρ).
+ * Where the code implements math, the names of each variable in the code 
+   is either the same as what’s in the math (e.g., rho for ρ), or is an 
+   English equivalent for what the code stands for (e.g., parameters or parms for ρ).
 
-### Satisfactory
+#### Satisfactory
 
-Where the code implements math, the names don’t help the course staff figure out how the code corresponds to the math.
+ * Where the code implements math, the names don't help the course staff 
+   figure out how the code corresponds to the math.
 
-### Must Improve
+#### Must Improve
 
-Where the code implements math, the course staff cannot figure out how the code corresponds to the math.
+ * Where the code implements math, the course staff cannot figure out how 
+   the code corresponds to the math.
 
-## Structure
+### Structure
+
+#### Exemplary
+
+ * The code is so clear that course staff can instantly tell whether it 
+   is correct or incorrect.
+
+ * There’s only as much code as is needed to do the job.
+
+ * The code contains no redundant case analysis.
+
+#### Satisfactory
+
+ * Course staff have to work to tell whether the code is correct or incorrect.
+
+ * There’s somewhat more code than is needed to do the job.
+
+ * The code contains a little redundant case analysis.
+
+#### Must Improve
+
+ * From reading the code, course staff cannot tell whether it is correct or incorrect.
+
+ * From reading the code, course staff cannot easily tell what it is doing.
+
+ * There's about twice as much code as is needed to do the job.
+
+ * A significant fraction of the case analyses in the code, maybe a third, are redundant.
+
+## Operational semantics
+
+Here is an extensive list of criteria for judging semantics, rules, 
+derivations, and metatheoretic proofs. As always, you are aiming for 
+the left-hand column, you might be willing to settle for the middle 
+column, and you want to avoid the right-hand column.
+
+### Changed rules of Impcore (Exercise 21)
+
+#### Exemplary
+
+ * Every inference rule has a single conclusion, which is a 
+   judgment form of the operational semantics.
+
+ * In every inference rule, every premise is either a judgment 
+   form of the operational semantics or a simple mathematical 
+   predicate such as equality or set membership.
+
+ * In every inference rule, if two states, two environments, 
+   or two of any other thing must be the same, then they are 
+   notated using a single metavariable that appears in multiple places. 
+   (Example: ρ or σ)
+
+ * In every inference rule, if two states, two environments, or two 
+   of any other thing may be different, then they are notated using 
+   different metavariables. (Example: ρ and ρ')
+
+ * New language designs use or change just enough rules to do the job.
+
+ * Inference rules use one judgment form per syntactic category.
+
+#### Satisfactory
+
+ * In every inference rule, two states, two environments, or two of 
+   any other thing must be the same, yet they are notated using different 
+   metavariables. However, the inference rule includes a premise that 
+   these metavariables are equal. (Example: ρ1 = ρ2)
+
+ * A new language design has a few too many new or changes a few too 
+   many existing rules.
+
+ * Or, a new language design is missing a few rules that are needed, 
+   or it doesn’t change a few existing rules that need to be changed.
+
+#### Must Improve
+
+ * Notation that is presented as an inference rule has more than one 
+   judgment form or other predicate below the line.
+
+ * Inference rules contain notation above the line that does not resemble 
+   a judgment form and is not a simple mathematical predicate.
+
+ * Inference rules contain notation, either above or below the line, 
+   that resembles a judgment form but is not actually a judgment form.
+
+ * In every inference rule, two states, two environments, or two of any 
+   other thing must be the same, yet they are notated using different 
+   metavariables, and nothing in the rule forces these metavariables to 
+   be equal. (Example: ρ and ρ' are both used, yet they must be identical.)
+
+ * In some inference rule, two states, two environments, or two other things 
+   may be different, but they are notated using a single metavariable. 
+   (Example: using ρ everywhere, but in some places, ρ' is needed.)
+
+ * In a new language design, the number of new or changed rules is a lot 
+   different from what is needed.
+
+ * Inference rules contain a mix of judgment forms even when describing the 
+   semantics of a single syntactic category.
 
 
+### Program to probe Impcore/Awk/Icon semantics (Exercise 22)
 
+#### Exemplary
 
+ * The program which is supposed to behave differently in Awk, 
+   Icon, and Impcore semantics behaves exactly as specified with each semantics.
+
+#### Satisfactory
+
+ * The program that is supposed to behave differently in Awk, Icon, 
+   and Impcore semantics behaves almost exactly as specified with each semantics.
+
+#### Must Improve
+
+ * The program which is supposed to behave differently in Awk, Icon, and 
+   Impcore semantics gets one or more semantics wrong.
+
+ * The program which is supposed to behave differently in Awk, Icon, and 
+   Impcore semantics looks like it is probably correct, but it does not 
+   meet the specification: either running the code does not print, or it 
+   prints two or more times.
+
+### Derivations (Exercises 13 and 14)
+
+#### Exemplary
+
+ * In every derivation, every utterance is either a judgment form 
+   of the operational semantics or a simple mathematical predicate 
+   such as equality or set membership.
+
+ * In every derivation, every judgement follows from instantiating 
+   a rule from the operational semantics. (Instantiating means 
+   substituting for meta variables.) The judgement appears below a 
+   horizontal line, and above that line is one derivation of each premise.
+
+ * In every derivation, equal environments are notated equally. In 
+   a derivation, ρ and ρ' must refer to different environments.
+
+ * Every derivation takes the form of a tree. The root of the tree, 
+   which is written at the bottom, is the judgment that is derived (proved).
+
+ * In every derivation, new bindings are added to an environment 
+   exactly as and when required by the semantics.
+
+#### Satisfactory
+
+ * In one or more derivations, there are a few horizontal lines 
+   that appear to be instances of inference rules, but the 
+   instantiations are not valid. (Example: rule requires two 
+   environments to be the same, but in the derivation they are different.)
+
+ * In a derivation, the semantics requires new bindings to be added 
+   to some environments, and the derivation contains environments 
+   extended with the right new bindings, but not in exactly the right places.
+
+#### Must Improve
+
+ * In one or more derivations, there are horizontal lines that 
+   the course staff is unable to relate to any inference rule.
+
+ * In one or more derivations, there are many horizontal lines 
+   that appear to be instances of inference rules, but the 
+   instantiations are not valid.
+
+ * A derivation is called for, but course staff cannot identify 
+   the tree structure of the judgments forming the derivation.
+
+ * In a derivation, the semantics requires new bindings to be 
+   added to some environments, and the derivation does not contain 
+   any environments extended with new bindings, but the new bindings 
+   in the derivation are not the bindings required by the semantics. 
+   (Example: the semantics calls for a binding of answer to 42, but 
+   instead answer is bound to 0.)
+
+ * In a derivation, the semantics requires new bindings to be added
+   to some environments, but the derivation does not contain any 
+   environments extended with new bindings.
+
+### Metatheory (Exercise 20)
+
+#### Exemplary
+
+ * Metatheoretic proofs operate by structural induction on derivations, 
+   and derivations are named.
+
+ * Metatheoretic proofs classify derivations by case analysis over the 
+   final rule in each derivation. The case analysis includes every possible 
+   derivation, and cases with similar proofs are grouped together.
+
+#### Satisfactory
+
+ * Metatheoretic proofs operate by structural induction on derivations, but 
+   derivations and subderivations are not named, so course staff may not be 
+   certain of what’s being claimed.
+
+* Metatheoretic proofs classify derivations by case analysis over the final 
+  rule in each derivation. The case analysis includes every possible derivation, 
+  but the grouping of the cases does not bring together cases with similar proofs.
+
+#### Must Improve
+
+ * Metatheoretic proofs don't use structural induction on derivations (serious fault).
+
+ * Metatheoretic proofs have incomplete case analyses of derivations.
+
+ * Metatheoretic proofs are missing many cases (serious fault).
+
+ * Course staff cannot figure out how metatheoretic proof is broken down by cases (serious fault).
 
 
