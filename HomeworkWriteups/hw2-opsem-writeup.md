@@ -182,41 +182,83 @@ Create a file called README in your impcore-with-locals directory. Describe your
 
 Related reading:
 
-For an example of a derivation tree, see page 59.
-For rules of operational semantics, see pages 81–82.
-For metatheory, see Section 1.6.2, which starts on page 59.
-These exercises are intended to help you become fluent with operational semantics. Do not share your solutions with any programming partners. We encourage you to discuss ideas, but nobody else may see your rules, your derivations, or your code. If you have difficulty, find a TA, who can help you work a couple of similar problems.
+ * For an example of a derivation tree, see page 63.
+ * For rules of operational semantics, see pages 85-86.
+ * For metatheory, see Section 1.6.2, which starts on page 63.
 
-Do Exercise 13 on page 82 of Ramsey’s book. The purpose of the exercise is to develop your understanding of derivations, so be sure to make your derivation complete and formal. You can write out a derivation like the ones in the book, as a single proof tree with a horizontal line over each node. If you prefer, you can write a sequence of judgments, number each judgment, and write a proof tree containing only the numbers of the judgments, which you will find easier to fit on the page.
+These exercises are intended to help you become fluent with operational 
+semantics. Do not share your solutions with any programming partners. 
+We encourage you to discuss ideas, but nobody else may see your rules, 
+your derivations, or your code. If you have difficulty, talk with the instructor
+on piazza or in office hours.
 
-Do Exercise 14 on page 82 of Ramsey’s book. Now that you know how to write a derivation, in this exercise you start reasoning about derivations.
+ * Do Exercise 13 on page 86 of Ramsey’s book. The purpose of the exercise is 
+   to develop your understanding of derivations, so be sure to make your 
+   derivation complete and formal. You can write out a derivation like the 
+   ones in the book, as a single proof tree with a horizontal line over each 
+   node. If you prefer, you can write a sequence of judgments, number each 
+   judgment, and write a proof tree containing only the numbers of the judgments, 
+   which you will find easier to fit on the page.
 
-Do Exercises 21 and 22 on page 83 of Ramsey’s book. This is an exercise in language design. The main purpose of the exercise is to give you a feel for the kinds of choices language designers can make. But you must also be able to think about the consequences of language-design choices before an implementation of the language has been built.
+ * Do Exercise 14 on page 86 of Ramsey’s book. Now that you know how to write 
+   a derivation, in this exercise you start reasoning about derivations.
 
-You do have an implementation that can verify the first two properties mentioned in the exercise: it’s the standard Impcore interpreter. But you don’t have an Awk-like interpreter or an Icon-like interpreter, so you have no implementation that you can use to verify the last two properties. Your choices are to think carefully about the semantics you have designed and the program you have written—or to build two more interpreters, so that you can actually test your code. Thinking carefully is the sane choice.
+ * Do Exercises 21 and 22 on page 87 of Ramsey’s book. This is an exercise in 
+   language design. The main purpose of the exercise is to give you a feel for 
+   the kinds of choices language designers can make. But you must also be able 
+   to think about the consequences of language-design choices before an 
+   implementation of the language has been built.
 
-Exercise 22 clarification: The “program” referred to in the exercise is just a sequence of definitions.
+   You do have an implementation that can verify the first two properties mentioned
+   in the exercise: it's the standard Impcore interpreter. But you don't have an 
+   Awk-like interpreter or an Icon-like interpreter, so you have no implementation 
+   that you can use to verify the last two properties. Your choices are to think 
+   carefully about the semantics you have designed and the program you have 
+   written—or to build two more interpreters, so that you can actually test your code. 
+   Thinking carefully is the sane choice.
 
-Here is an example of a program that is syntactically valid:
+   **Exercise 22 clarification:** The "program" referred to in the exercise is just 
+   a sequence of definitions.
 
+   Here is an example of a program that is syntactically valid:
+```
     (define always-three () 3)
     (always-three)
-When running this program in the standard Impcore intepreter, notice that the first line returns the function always-three, it does not return 3. The function needs to be called in order for 3 to be returned (which happens on the second line).
+```
+   When running this program in the standard Impcore intepreter, notice that the first 
+   line returns the function always-three, it does not return 3. The function needs 
+   to be called in order for 3 to be returned (which happens on the second line).
 
-Invoke functions if your program includes functions. A common mistake is to define a function in your program, and then forget to call it. If you forget to call your function, then when we run your program, the output will probably not be what you wanted it to be.
+   **Invoke functions** if your program includes functions. A common mistake is to
+   define a function in your program, and then forget to call it. If you forget to 
+   call your function, then when we run your program, the output will probably not 
+   be what you wanted it to be.
 
-Do Exercise 20 on page 83 of Ramsey’s book. In this exercise you prove that given a set of environments, the result of evaluating any expression e is completely determined. That is, in any given starting state, evaluation produces the same results every time. This proof requires you to raise your game again, reasoning about the set of all valid derivations. It’s metatheory. Metatheoretic proofs are probably unfamiliar, but you will have a crack at them in lecture and in recitation. When you have got your thinking to this level, you can see how language designers use operational semantics to show nontrivial properties of their languages—and how these properties can guide implementors.
+ * Do Exercise 20 on page 87 of Ramsey’s book. In this exercise you prove that given 
+   a set of environments, the result of evaluating any expression e is completely 
+   determined. That is, in any given starting state, evaluation produces the same 
+   results every time. This proof requires you to raise your game again, reasoning 
+   about the set of all valid derivations. It’s metatheory. Metatheoretic proofs 
+   are probably unfamiliar, but you will have a crack at them in lecture and in piazza
+   example problems. When you have got your thinking to this level, you can see how 
+   language designers use operational semantics to show nontrivial properties of 
+   their languages—and how these properties can guide implementors.
 
-The way to tackle this problem is to assume you have two valid derivations with the same e and the same environments on the left, but different v’s on the right—let’s call them v1 and v2. You then prove that if both derivations are valid, v1 = v2.
+   The way to tackle this problem is to assume you have two valid derivations with 
+   the same e and the same environments on the left, but different v's on the right
+   —let's call them v1 and v2. You then prove that if both derivations are valid, v1 = v2.
 
-In other words, show that no matter what e is, if  <e, ξ, ϕ, ρ> ⇓ <v1, ξ′, ϕ′, ρ′> and  <e, ξ, ϕ, ρ> ⇓ <v2, ξ′, ϕ′, ρ′>, then v1 = v2.
+   In other words, show that no matter what e is, if  <e, ξ, ϕ, ρ> ⇓ <v1, ξ′, ϕ′, ρ′> 
+   and  <e, ξ, ϕ, ρ> ⇓ <v2, ξ′, ϕ′, ρ′>, then v1 = v2.
 
-You will do this proof in Theoretical Impcore. Theoretical Impcore is a restricted subset of Impcore in which:
+   You will do this proof in **Theoretical Impcore**. Theoretical Impcore is a restricted 
+   subset of Impcore in which:
+   * There are no while or begin expressions.
+   * Every function application has exactly two arguments.
+   * The only primitive function is +.
 
-There are no while or begin expressions.
-Every function application has exactly two arguments.
-The only primitive function is +.
-Using Theoretical Impcore reduces the number of cases to a manageable number. It will relieve some of the tedium (which is very common in programming-language proofs).
+   Using Theoretical Impcore reduces the number of cases to a manageable number. It will 
+   relieve some of the tedium (which is very common in programming-language proofs).
 
 # Organizing the answers to Part C
 <a name="organize"/>
