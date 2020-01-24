@@ -80,9 +80,6 @@ the same coding rubric in a different format.
 
 * No code is commented out.
 
-* All unit tests (check-expect, check-assert, and check-error) are indented by 8   
-  spaces.
-
 * Code is tested using unit-test forms, not print calls. Submitted solutions do 
   not print.
 
