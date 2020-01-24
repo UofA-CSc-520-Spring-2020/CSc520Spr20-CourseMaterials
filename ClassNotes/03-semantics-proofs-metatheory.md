@@ -27,6 +27,7 @@ Both math and code on homework
 
 You’re good with code—lecture and recitation will focus on math
 
+<p><img src="03-semantics-proofs-metatheory/slide01.png alt="Slide 1" /> </p>
 Slide 1 
 
 Slide 2 
