@@ -2,11 +2,15 @@
 
 Handout: [Impcore expression rules](https://www.cs.tufts.edu/comp/105-2017f/handouts/impcore-exp-rules.pdf)
 
-Announcements
+## Announcements
  * HW1-impcore answers posted on piazza, will be graded ASAP
  * HW2-opsem homework now available
 
-Today
+Both math and code on homework
+
+You’re good with code—lecture and recitation will focus on math
+
+## Today
  * Finish up introduction to operational semantics from last Wednesday
    * Abstract machines
    * Evaluation judgement
@@ -17,83 +21,90 @@ Today
 
  * What we know about valid derivations: metatheory
 
-Last Time
+## Last Time
  * Operational semantics of function application
  * Compositionality (FIXME?)
  * Abstract Syntax Trees
  * Environments: Globals (ξ), Functions (ϕ), Locals (ρ)
 
-Both math and code on homework
-
-You’re good with code—lecture and recitation will focus on math
 
 <p><img src="03-semantics-proofs-metatheory/slide01.png" alt="Slide 1" /> </p>
-Slide 1 
+ 
 
-Slide 2 
+<p><img src="03-semantics-proofs-metatheory/slide02.png" alt="Slide 2" /> </p>
 
-Slide 3 
+<p><img src="03-semantics-proofs-metatheory/slide03.png" alt="Slide 3" /> </p>
+ 
 
-Slide 4 
+<p><img src="03-semantics-proofs-metatheory/slide04.png" alt="Slide 4" /> </p>
 
-Slide 5 
+<p><img src="03-semantics-proofs-metatheory/slide05.png" alt="Slide 5" /> </p>
 
-Slide 6 
+<p><img src="03-semantics-proofs-metatheory/slide06.png" alt="Slide 6" /> </p>
 
-Slide 7 
+<p><img src="03-semantics-proofs-metatheory/slide07.png" alt="Slide 7" /> </p>
 
-Slide 8 
+<p><img src="03-semantics-proofs-metatheory/slide08.png" alt="Slide 8" /> </p>
 
-Slide 9 
+<p><img src="03-semantics-proofs-metatheory/slide09.png" alt="Slide 9" /> </p>
 
-Slide 10 
+<p><img src="03-semantics-proofs-metatheory/slide10.png" alt="Slide 10" /> </p>
 
 Questions:
 
-In what order are the actual parameters evaluated?
-How can you tell?
-What happens if the formal parameter names are duplicated?
+ * In what order are the actual parameters evaluated?
+   How can you tell?
 
-How many formal parameters can the body of f access?
-What are their names?
-Can changes to formal parameters in the body of f be seen by the code calling f?
+ * What happens if the formal parameter names are duplicated?
 
-Can changes to globals in the body of f be seen by the code calling f?
+ * How many formal parameters can the body of f access?
+   What are their names?
 
-Slide 11 
+ * Can changes to formal parameters in the body of f be seen by 
+   the code calling f?
 
-Using Operational Semantics
-The big idea:
+ * Can changes to globals in the body of f be seen by the code calling f?
 
-Every terminating computation is described by a data structure—we’re going to turn computation into a data structure. Proofs about computations are hard (see: COMP 170), but proofs about data structures are lots easier (see: COMP 61).
+<p><img src="03-semantics-proofs-metatheory/slide11.png" alt="Slide 11" /> </p>
 
-Valid derivations, or “How do I know what this program should evaluate to?”
+## Using Operational Semantics
+
+### The big idea:
+
+Every terminating computation is described by a data structure—we're
+going to turn computation into a data structure. Proofs about computations 
+are hard, but proofs about data structures are lots easier.
+
+### Valid derivations, or "How do I know what this program should evaluate to?"
 
 Code example
-
+```
   (define and (p q)
     (if p q 0))
 
   (define digit? (n)
     (and (<= 0 n) (< n 10)))
-Suppose we evaluate (digit? 7)
+```
+Suppose we evaluate `(digit? 7)`
 
-Exercise:
+### Exercises:
 
-In the body of digit?, what expressions are evaluated in what order?
+ 1. In the body of digit?, what expressions are evaluated in what order?
 
-As a function application, the body matches template (f e1 e2). In this example,
+ 2. As a function application, the body matches template `(f e1 e2)`. 
+    In this example,
+   * What is f?
+   * What is e1?
+   * What is e2?
 
-What is f?
-What is e1?
-What is e2?
-Slide 12 
+<p><img src="03-semantics-proofs-metatheory/slide12.png" alt="Slide 12" /> </p>
 
-What is the result of (digit? 7)?
+What is the result of `(digit? 7)`?
 
-How do we know it’s right?
+How do we know it's right?
 
-From rules to proofs
+### From rules to proofs
+
 What can a proof tell us?
 
 Slide 13 
