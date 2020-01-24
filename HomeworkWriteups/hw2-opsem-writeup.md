@@ -64,26 +64,25 @@ on your local machine, then you can skip the (docker) steps from the HW1
 getting started and just do everything on your own command line.
 
 * create your github repository by accepting assignment invite,
-  FIXME
+  https://classroom.github.com/a/OtvHrFxj
 
 * within your running docker container or your own command line 
   (**NOTE: you need to replace yourgithubid below with your github id**):
-  * clone your HW2 repository: `git clone https://github.com/UofA-CSc-520-Spring-2020/hw2-opsem-yourgithubid.git`
+  * clone your HW2 repository: `git clone https://github.com/UofA-CSc-520-Spring-2020/HW2-opsem-yourgithubid.git`
 
-  * Edit README.md and cqs.opsem.txt, submit [FIXME C files for modifying 
-    the interpreter], and create awk-icon.imp and create theory.pdf to complete 
-    HW2.
+  * Edit README.md and cqs.opsem.txt, submit a README.locals and any modified
+    C files from `bare/impcore-with-locals`, and create awk-icon.imp and 
+    create theory.pdf to complete HW2.
 
 * Other NOTES
   * You can start the impcore REPL by typing `./impcore`.  Note that to send
     an end-of-file in the REPL and quit the REPL, use Ctrl-D.
   * git commit and push FREQUENTLY
-  * You will be submitting README.md, cqs.opsem.txt, [FIXME] awk-icon.imp,
-    and theory.pdf to Gradescope.  Each time you have to submit ALL of the
-    files.
+  * You will be submitting README.md, cqs.opsem.txt, awk-icon.imp,
+    theory.pdf, README.locals, and edited C files from `bare/impcore-with-locals` 
+    to Gradescope.  Each time you have to submit **ALL** of the files.
   * If you have any questions about this process ask **everyone** on
     Piazza.
-
 
 # Part A: Reading Comprehension (individual work, 10 percent)
 <a name="read"/>
@@ -130,7 +129,7 @@ on page 34.
  7. Function < is primitive. When evaluating (< n 10), what rule of the 
     operational semantics is used at the root of the derivation?
 
-Choices for questions 6 and 7:
+Choices for Questions 6 and 7:
 
   a. ApplyLessThanEqTrue
   b. ApplyLessThanEqFalse
@@ -154,27 +153,37 @@ page 92 of Ramsey’s book. We recommend that you solve this problem with a
 partner, but this solution must be kept separate from your other solutions. Your 
 programming partner, if any, must not see your other work.
 
-FIXME: For information on pair programming, consult the syllabus, the reading, and some timeless advice for pair programmers.
+For information on pair programming, see this course's 
+[pair programming](../pair-programming.md) guide and read advise about pair
+programming on the internet.
 
-Get your copy of the code from the book by running
-FIXME
-  git clone linux.cs.tufts.edu:/comp/105/build-prove-compare
-or if that doesn’t work, from a lab or linux machine, try
-
-  git clone /comp/105/build-prove-compare
-You can find the source code from Chapter 1 in subdirectory bare/impcore or commented/impcore. The bare version, which we recommend, contains just the C code from the book, with simple comments identifying page numbers. The commented version, which you may use if you like, includes part of the book text as commentary.
-We provide new versions of all.h, definition-code.c, parse.c, printfuns.c, and tableparsing.c that handle local variables. These versions are found in subdirectory bare/impcore-with-locals. There are not many changes; to see what is different, try running
-
+Your github repository will start out with the `build-prove-compare/` directory
+again.  You can find the source code from Chapter 1 in subdirectory `bare/impcore` 
+or `commented/impcore`. The bare version, which we recommend, contains just the C 
+code from the book, with simple comments identifying page numbers. The commented 
+version, which you may use if you like, includes part of the book text as commentary.
+We provide new versions of `all.h`, `definition-code.c`, `parse.c`, `printfuns.c`, and 
+`tableparsing.c` that handle local variables. These versions are found in subdirectory 
+`bare/impcore-with-local`s. There are not many changes; to see what is different, try running
+```
    diff -r bare/impcore bare/impcore-with-locals
-You may wish to try the -u or -y options with diff. In the directory bare/impcore-with-locals, you can build an interpreter by typing make. The interpreter you build will parse definitions containing local variables, but it will ignore them. To get local variables working, you’ll need to make changes:
+```
+You may wish to try the -u or -y options with `diff`. In the directory `bare/impcore-with-locals`,
+you can build an interpreter by typing `make`. The interpreter you build will parse 
+definitions containing local variables, but it will ignore them. To get local variables 
+working, you'll need to make changes:
 
-In eval.c, you will have to modify the evaluator to give the right semantics to local variables. Local variables that have the same name as a formal parameter should hide that formal parameter, as in C.
+In `eval.c`, you will have to modify the evaluator to give the right semantics to local 
+variables. Local variables that have the same name as a formal parameter should hide 
+that formal parameter, as in C.
 
 You also have the right to modify other files as you see fit.
 
-You may find the function mkVL in file list-code.c helpful.
+You may find the function `mkVL` in file `list-code.c` helpful.
 
-Create a file called README in your impcore-with-locals directory. Describe your solution in the README.
+Create a file called `README.locals` in your `impcore-with-locals` directory. Describe 
+your solution in the README.locals.
+
 
 # Part C: Operational semantics, derivations, and metatheory
   (Individual work, 67 percent)
@@ -303,9 +312,11 @@ you write your own. All code can be fully tested except the code for Exercise 22
 
  * As soon as you have the files for parts A and C, which you will have done by yourself,
    submit the files README.md, cqs.opsem.txt, awk-icon.omp, and theory.pdf to Gradescope.
-   You will have to submit all of the C files you have done and README.locals at the same time.
+   You will have to submit **ALL** of the C files you have edited and/or created and 
+   README.locals at the same time.
    **Preliminary versions of files are FINE to submit.**  Keep submitting and resubmitting until
-   your work is complete; we grade only the last submission.
+   your work is complete; we grade only the last submission.  When you submit, submit ALL
+   of the files.
 
 # How your work will be evaluated
 <a name="eval"/>
