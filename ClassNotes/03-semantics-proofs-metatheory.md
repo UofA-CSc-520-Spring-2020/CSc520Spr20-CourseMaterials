@@ -27,30 +27,37 @@ You’re good with code—lecture and recitation will focus on math
  * Abstract Syntax Trees
  * Environments: Globals (ξ), Functions (ϕ), Locals (ρ)
 
-
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide01.png" alt="Slide 1" /> </p>
  
-
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide02.png" alt="Slide 2" /> </p>
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide03.png" alt="Slide 3" /> </p>
  
-
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide04.png" alt="Slide 4" /> </p>
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide05.png" alt="Slide 5" /> </p>
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide06.png" alt="Slide 6" /> </p>
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide07.png" alt="Slide 7" /> </p>
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide08.png" alt="Slide 8" /> </p>
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide09.png" alt="Slide 9" /> </p>
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide10.png" alt="Slide 10" /> </p>
 
-Questions:
+### Questions:
 
  * In what order are the actual parameters evaluated?
    How can you tell?
@@ -65,6 +72,7 @@ Questions:
 
  * Can changes to globals in the body of f be seen by the code calling f?
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide11.png" alt="Slide 11" /> </p>
 
 ## Using Operational Semantics
@@ -97,6 +105,7 @@ Suppose we evaluate `(digit? 7)`
    * What is e1?
    * What is e2?
 
+<hr>
 <p><img src="03-semantics-proofs-metatheory/slide12.png" alt="Slide 12" /> </p>
 
 What is the result of `(digit? 7)`?
@@ -107,62 +116,87 @@ How do we know it's right?
 
 What can a proof tell us?
 
-Slide 13 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide13.png" alt="Slide 13" /> </p>
 
-Judgment is valid when ``derivable’’
+### Judgment is valid when "derivable"
 
-Special kind of proof: derivation
+Special kind of proof: **derivation**
 
-It’s a data structure (derivation tree)
-Made inductively, by composing rules
-Valid derivation matches rules (by substitution)
-Spacelike representation of timelike behavior (think flip-book animation)
-A form of “syntactic proof”
+ * It's a data structure (derivation tree)
 
-Recursive evaluator travels inductive proof
+ * Made inductively, by composing rules
 
-Root of derivation at the bottom (surprise!)
+ * Valid derivation matches rules (by substitution)
+
+ * Spacelike representation of timelike behavior (think 
+   flip-book animation)
+
+A form of "syntactic proof"
+
+### Recursive evaluator travels inductive proof
+
+Root of derivation at the **bottom** (surprise!)
 
 Build
 
-Start on the left, go up
-Cross the ⇓
-Finish on the right, go down
+ * Start on the left, go up
+ * Cross the ⇓
+ * Finish on the right, go down
+
 First let’s see a movie
 
-Example derivation (rules in handout)
-Slide 16 
+### Example derivation (rules in handout)
 
-Slide 17 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide16.png" alt="Slide 16" /> </p>
 
-Slide 18 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide17.png" alt="Slide 17" /> </p>
 
-Slide 19 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide18.png" alt="Slide 18" /> </p>
 
-Slide 20 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide19.png" alt="Slide 19" /> </p>
 
-Slide 21 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide20.png" alt="Slide 20" /> </p>
 
-Slide 22 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide21.png" alt="Slide 21" /> </p>
 
-Slide 23 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide22.png" alt="Slide 22" /> </p>
 
-Slide 24 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide23.png" alt="Slide 23" /> </p>
 
-Slide 25 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide24.png" alt="Slide 24" /> </p>
 
-Slide 26 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide25.png" alt="Slide 25" /> </p>
 
-Slide 27 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide26.png" alt="Slide 26" /> </p>
 
-Slide 28 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide27.png" alt="Slide 27" /> </p>
 
-Slide 29 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide28.png" alt="Slide 28" /> </p>
 
-Building derivations
-Slide 30 
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide29.png" alt="Slide 29" /> </p>
 
-Slide 31 
+### Building derivations
+
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide30.png" alt="Slide 30" /> </p>
+
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide31.png" alt="Slide 31" /> </p>
 
 At this point, we’ve now covered derivations and how a single derivation corresponds to evaluating a particular program.
 
