@@ -23,7 +23,7 @@ You’re good with code—lecture and recitation will focus on math
 
 ## Last Time
  * Operational semantics of function application
- * Compositionality (FIXME?)
+ * Compositionality
  * Abstract Syntax Trees
  * Environments: Globals (ξ), Functions (ϕ), Locals (ρ)
 
