@@ -3,7 +3,7 @@
 Handout: [Impcore expression rules](https://www.cs.tufts.edu/comp/105-2017f/handouts/impcore-exp-rules.pdf)
 
 ## Announcements
- * HW1-impcore answers posted on piazza, will be graded ASAP
+ * HW1-impcore answers posted on piazza
  * HW2-opsem homework now available
 
 Both math and code on homework
