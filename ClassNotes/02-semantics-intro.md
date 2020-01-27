@@ -216,21 +216,21 @@ Name: stands for what?
 **Environment** associates each **variable** with one **value**
 
 Written `\rho = \{ x_1 \mapsto n_1, ... x_k \mapsto n_k\}`
- * <img src="environment.jpeg">
+ * <img src="02-semantics-intro/environment.jpeg">
  * associates variable `x_i` with value `n_k`.
 
 Environment is a **finite map**, aka **partial function**
 
 `x \in dom \rho`
- * <img src="x-in-dom-rho.jpeg">
+ * <img src="02-semantics-intro/x-in-dom-rho.jpeg">
  * means `x` is defined in environment `\rho`
 
 `\rho(x)`
- * <img src="rho-x.jpeg">
+ * <img src="02-semantics-intro/rho-x.jpeg">
  * means the value of `x` in environment `\rho`
 
 `\rho \{ x \mapsto v \}`
- * <img src="extend-rho.jpeg">
+ * <img src="02-semantics-intro/extend-rho.jpeg">
  * means extends/modifies environment `\rho` to map `x` to `v` 
 
 
@@ -318,7 +318,7 @@ Idea: "mathematical interpreter", formal rules for interpretation
 
 Initial state of abstract machine:
  * `\langle e, \xi, \phi, \rho \rangle`
- * <img src="initial-state.jpeg">
+ * <img src="02-semantics-intro/initial-state.jpeg">
 
 State `\langle e, \xi, \phi, \rho \rangle` is
  * `e`, Expression being evaluated
@@ -332,7 +332,7 @@ Three environments determine what is in scope.
 
 We write
  * `\langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle`
- * <img src="eval-judgement.jpeg">
+ * <img src="02-semantics-intro/eval-judgement.jpeg">
 
 (**Big-step** judgement form.)
 
@@ -351,7 +351,7 @@ With that as background, we can now dive in to the semantics for Impcore!
 
 `\inferrule[LITERAL]{ }{\langle \mbox{LITERAL}(v),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi,\phi,\rho \rangle}`
 
-<img src="literal-semantics.png">
+<img src="02-semantics-intro/literal-semantics.png">
 
 Numeral converted to `LITERAL(v)` in **parser**
 
@@ -361,12 +361,12 @@ NOTE: for the `\inferrule` latex definition using mathpartir package
 
 `\inferrule[FormalVar]{x \in \mbox{dom } \rho}{\langle \mbox{VAR}(x),\xi,\phi,\rho \rangle \Downarrow \langle \rho(x),\xi,\phi,\rho \rangle}`
 
-<img src="formalvar-semantics.png">
+<img src="02-semantics-intro/formalvar-semantics.png">
 
 
 `\inferrule[GlobalVar]{x \notin \mbox{dom } \rho \\  x \in \mbox{dom } \xi}{\langle \mbox{VAR}(x),\xi,\phi,\rho \rangle \Downarrow \langle \xi(x),\xi,\phi,\rho \rangle}`
 
-<img src="globalvar-semantics.png">
+<img src="02-semantics-intro/globalvar-semantics.png">
 
 Parameters hide global variables.
 
@@ -378,7 +378,7 @@ In `SET(x,e)`, `e` is any expression
 \langle e, \xi, \phi, \rho \rangle \Downarrow \langle v, \xi', \phi, \rho' \rangle}
 {\langle \mbox{SET}(x,e),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi',\phi,\rho'\{x \mapsto v\} \rangle}`
 
-<img src="formalassign-semantics.png">
+<img src="02-semantics-intro/formalassign-semantics.png">
 
 
 `\inferrule[GlobalAssign]{x \notin \mbox{dom } \rho \\  x \in \mbox{dom } \xi \\
@@ -386,7 +386,7 @@ In `SET(x,e)`, `e` is any expression
 {\langle \mbox{SET}(x,e),\xi,\phi,\rho \rangle \Downarrow \langle v,\xi'\{x \mapsto v\},\phi,\rho' \rangle}`
 
 
-<img src="globalassign-semantics.png">
+<img src="02-semantics-intro/globalassign-semantics.png">
 
 
 Impcore can assign only to **existing** variables
