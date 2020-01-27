@@ -197,10 +197,10 @@ First let’s see a movie
 ### Building derivations
 
 <hr>
-<p><img src="03-semantics-proofs-metatheory/slide30.png" alt="Slide 29" /> </p>
+<p><img src="03-semantics-proofs-metatheory/slide30.png" alt="Slide 30" /> </p>
 
 <hr>
-<p><img src="03-semantics-proofs-metatheory/slide31.png" alt="Slide 30" /> </p>
+<p><img src="03-semantics-proofs-metatheory/slide31.png" alt="Slide 31" /> </p>
 <hr>
 
 
@@ -236,7 +236,7 @@ More example metatheorems:
  * Device driver can't harm kernel (Microsoft Singularity)
 
 <hr>
-<p><img src="03-semantics-proofs-metatheory/slide30.png" alt="Slide 32" /> </p>
+<p><img src="03-semantics-proofs-metatheory/slide32.png" alt="Slide 32" /> </p>
 <hr>
 
 ### Metatheorems are proved by induction
