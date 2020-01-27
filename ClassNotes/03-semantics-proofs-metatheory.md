@@ -56,6 +56,7 @@ You’re good with code—lecture and recitation will focus on math
 
 <hr>
 <p><img src="03-semantics-proofs-metatheory/slide10.png" alt="Slide 10" /> </p>
+<hr>
 
 ### Questions:
 
@@ -74,6 +75,7 @@ You’re good with code—lecture and recitation will focus on math
 
 <hr>
 <p><img src="03-semantics-proofs-metatheory/slide11.png" alt="Slide 11" /> </p>
+<hr>
 
 ## Using Operational Semantics
 
@@ -119,6 +121,7 @@ What can a proof tell us?
 
 <hr>
 <p><img src="03-semantics-proofs-metatheory/slide13.png" alt="Slide 13" /> </p>
+<hr>
 
 ### Judgment is valid when "derivable"
 
@@ -191,46 +194,52 @@ First let’s see a movie
 <hr>
 <p><img src="03-semantics-proofs-metatheory/slide27.png" alt="Slide 27" /> </p>
 
-<hr>
-<p><img src="03-semantics-proofs-metatheory/slide28.png" alt="Slide 28" /> </p>
-
-<hr>
-<p><img src="03-semantics-proofs-metatheory/slide29.png" alt="Slide 29" /> </p>
-
 ### Building derivations
 
 <hr>
-<p><img src="03-semantics-proofs-metatheory/slide30.png" alt="Slide 30" /> </p>
+<p><img src="03-semantics-proofs-metatheory/slide30.png" alt="Slide 29" /> </p>
 
 <hr>
-<p><img src="03-semantics-proofs-metatheory/slide31.png" alt="Slide 31" /> </p>
+<p><img src="03-semantics-proofs-metatheory/slide31.png" alt="Slide 30" /> </p>
+<hr>
 
-At this point, we’ve now covered derivations and how a single derivation corresponds to evaluating a particular program.
 
-Proofs about all derivations: Metatheory
-Derivations (aka syntactic proofs) enable meta-reasoning
+At this point, we’ve now covered derivations and how a single derivation corresponds 
+to evaluating a particular program.
+
+## Proofs about all derivations: Metatheory
+
+### Derivations (aka syntactic proofs) enable meta-reasoning
 
 Derivation D is a data structure
 
 Got a fact about all derivations?
 
-It’s a fact about all terminating evaluations
-They are in 1 to 1 correspondance.
+ * It's a fact about all terminating evaluations
+
+ * They are in 1 to 1 correspondance.
+
 Prove facts by structural induction over derivations
 
-(Or “induction on height of derivation tree”)
-Example: Evaluating an expression doesn’t change the set of global variables
+ * (Or “induction on height of derivation tree”)
 
-Metatheorems often help implementors
+Example: Evaluating an expression doesn't change the set of global variables
+
+### Metatheorems often help implementors
 
 More example metatheorems:
 
-OK to mutate environments if you use a stack
-Interactive browser doesn’t leak space (POPL 2012)
-Device driver can’t harm kernel (Microsoft Singularity)
-Slide 34 
+ * OK to mutate environments if you use a stack
 
-Metatheorems are proved by induction
+ * Interactive browser doesn't leak space (POPL 2012)
+ 
+ * Device driver can't harm kernel (Microsoft Singularity)
+
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide30.png" alt="Slide 32" /> </p>
+<hr>
+
+### Metatheorems are proved by induction
 
 Induction over structure (or height) of derivation trees $\mathcal D$
 
@@ -238,20 +247,21 @@ These are “math-class proofs” (not derivations)
 
 Proof
 
-Has one case for each rule
+ * Has one case for each rule
 
-Has multiple cases for some syntactic forms
+ * Has multiple cases for some syntactic forms
 
-Assumes the induction hypothesis for any proper sub-derivation (derivation of a premise)
+ * Assumes the induction hypothesis for any proper sub-derivation (derivation of a premise)
 
-Let’s try it!
+Let's try it!
 
 Cases to try:
 
-Literal
-GlobalVar
-SetGlobal
-IfTrue
-ApplyUser2
+ * Literal
+ * GlobalVar
+ * SetGlobal
+ * IfTrue
+ * ApplyUser2
+
 For your homework, “Theory Impcore” leaves out While and Begin rules.
 
