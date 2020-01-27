@@ -90,11 +90,11 @@ getting started and just do everything on your own command line.
 For questions 1–5, please read pages 27–36 (the book sections on environments
 and on operational semantics of expressions).
 
- 1. ξ (or $\xi$) is an environment that maps names to:
+ 1. ξ (or xi) is an environment that maps names to:
 
- 2. ϕ (or $\phi$) is an environment that maps names to:
+ 2. ϕ (or phi) is an environment that maps names to:
 
- 3. ρ (or $\rho$) is an environment that maps names to:
+ 3. ρ (or rho) is an environment that maps names to:
 
 Choices for questions 1–3:
 
