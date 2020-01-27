@@ -107,6 +107,7 @@ Suppose we evaluate `(digit? 7)`
 
 <hr>
 <p><img src="03-semantics-proofs-metatheory/slide12.png" alt="Slide 12" /> </p>
+<hr>
 
 What is the result of `(digit? 7)`?
 
@@ -147,6 +148,12 @@ Build
 First let’s see a movie
 
 ### Example derivation (rules in handout)
+
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide14.png" alt="Slide 14" /> </p>
+
+<hr>
+<p><img src="03-semantics-proofs-metatheory/slide15.png" alt="Slide 15" /> </p>
 
 <hr>
 <p><img src="03-semantics-proofs-metatheory/slide16.png" alt="Slide 16" /> </p>
