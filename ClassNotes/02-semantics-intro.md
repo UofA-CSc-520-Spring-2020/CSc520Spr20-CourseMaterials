@@ -266,11 +266,11 @@ Your thoughts?
 
 ## Impcore uses three environments
 
-Global variables ξ (or `\xi`)
+Global variables ξ (or `xi`)
 
-Functions ϕ (or `\phi`)
+Functions ϕ (or `phi`)
 
-Formal parameters ρ (or `\rho`)
+Formal parameters ρ (or `rho`)
 
 There are no local variables
  * Just like awk; if you need temps, use extra formal parameters
@@ -320,11 +320,11 @@ Initial state of abstract machine:
  * `\langle e, \xi, \phi, \rho \rangle`
  * <img src="02-semantics-intro/initial-state.jpeg">
 
-State `\langle e, \xi, \phi, \rho \rangle` is
+State `\langle e, xi, phi, rho \rangle` is
  * `e`, Expression being evaluated
- * `\xi`, Values of global variables
- * `\phi`, Definitions of functions
- * `\rho`, Values of formal parameters
+ * `xi`, Values of global variables
+ * `phi`, Definitions of functions
+ * `rho`, Values of formal parameters
  
 Three environments determine what is in scope.
 
@@ -337,9 +337,9 @@ We write
 (**Big-step** judgement form.)
 
 Notes:
- * `\xi` and `\xi'` may differ
- * `\rho` and `\rho'` may differ
- * `\phi` must equal `\phi`
+ * `xi` and `xi'` may differ
+ * `rho` and `rho'` may differ
+ * `phi` must equal `phi`
 
 Question: what do we know about globals?  functions?
 
