@@ -297,7 +297,7 @@ you write your own. All code can be fully tested except the code for Exercise 22
    letters, you can spell out their names: ξ is "xi," ϕ is "phi," and ρ is "rho."
 
  * To submit part B, which you may have done with a partner, submit a README.locals
-   file that documents your solution and all of the C files in bar/impcore-with-locals/
+   file that documents your solution and all of the C files in bare/impcore-with-locals/
    that you modified and/or added.
 
  * As soon as you have these files, submit a preliminary version of your work to Gradescope.
