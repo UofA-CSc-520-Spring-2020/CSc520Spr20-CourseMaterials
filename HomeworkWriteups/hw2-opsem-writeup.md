@@ -281,7 +281,7 @@ To help us read your answers to Part C, we need for you to organize them careful
 
  * The answer to each question must start on a new page.
 
- * The theory answers must appear in this order: Exercises 13, 14, 21. and finally 20.
+ * The theory answers must appear in this order: Exercises 13, 14, 21, and finally 20.
 
  * Your answer to Exercise 22 should be in file awk-icon.imp.
 
