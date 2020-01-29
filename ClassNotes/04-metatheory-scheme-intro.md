@@ -102,30 +102,41 @@ For your homework, “Theory Impcore” leaves out While and Begin rules.
 <hr>
 <p><img src="04-metatheory-scheme-intro/slide06.png" alt="Slide 06" /> </p>
 <hr>
-<hr>
-<p><img src="04-metatheory-scheme-intro/slide07.png" alt="Slide 07" /> </p>
-<hr>
 
 ## Practice writing operational semantics
 
 Impcore can be extended with new syntactic forms for short-circuit conditionals.
 
-  - To evaluate expression `(&&` $e_1$ $e_2$`)`, first evaluate\ $e_1$.
+ * To evaluate expression `(&& e_1 e_2)`, first evaluate `e_1`.
 
-      - If the result of evaluating $e_1$ is nonzero, evalute\ $e_2$, and the result of
-        evaluating $e_2$ is the result of evaluating the entire `&&`
-        expression.
+   * If the result of evaluating `e_1` is nonzero, evalute `e_2`, and the result of
+     evaluating `e_2` is the result of evaluating the entire `&&` expression.
 
-      - If the result of evaluating $e_1$ is zero, then $e_2$ is not evaluated, and the
-        result of evaluating the entire `&&`
-        expression is zero.
+   * If the result of evaluating `e_1` is zero, then `e_2` is not evaluated, and the
+     result of evaluating the entire `&&` expression is zero.
 
-  - The evaluation of short-circuit `(||` $e_1$ $e_2$`)` is similar:
-    $e_2$ is evaluated only if necessary.
+   * The evaluation of short-circuit `(|| e_1 e_2 )` is similar: `e_2` is evaluated 
+     only if necessary.
 
-Write as many rules as needed to specify the behavior of
-short-circuit\ `&&`.  If you want further practice, you can also write
-rules for short-circuit `||`.
+Write as many rules as needed to specify the behavior of short-circuit `&&`.
+If you want further practice, you can also write rules for short-circuit `||`.
 
-## Metatheory example
+## Metatheory exercises from book
+
+15. Use the operational semantics to show that there exist environments 
+ξ, φ, ρ, ξ′, and ρ′ and a value v1 such that
+
+⟨if(var(x),var(x),literal(0)),ξ,φ,ρ⟩ ⇓ ⟨v1,ξ′,φ,ρ′⟩
+
+if and only if there exist environments ξ, φ, ρ, ξ′′, and ρ′′ and a value v2 such that
+
+⟨var(x),ξ,φ,ρ⟩ ⇓ ⟨v2,ξ′′,φ,ρ′′⟩.
+
+Give necessary and sufficient conditions on the environments ξ, φ, and ρ such that
+both expressions evaluate successfully.
+
+16. Prove that the value of a while expression is always zero. That is, given any 
+ξ, φ, ρ, e1, and e2, prove that if there exist a ξ′, ρ′, and v such that there is a 
+derivation of ⟨while(e1, e2), ξ, φ, ρ⟩ ⇓ ⟨v, ξ′, φ, ρ′⟩, then v = 0.
+Use structural induction on the derivation.
 
