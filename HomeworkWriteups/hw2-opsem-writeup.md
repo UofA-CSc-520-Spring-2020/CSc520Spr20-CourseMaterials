@@ -311,7 +311,7 @@ you write your own. All code can be fully tested except the code for Exercise 22
    We provide a template for your README.md in your initial github repository.
 
  * As soon as you have the files for parts A and C, which you will have done by yourself,
-   submit the files README.md, cqs.opsem.txt, awk-icon.omp, and theory.pdf to Gradescope.
+   submit the files README.md, cqs.opsem.txt, awk-icon.imp, and theory.pdf to Gradescope.
    You will have to submit **ALL** of the C files you have edited and/or created and 
    README.locals at the same time.
    **Preliminary versions of files are FINE to submit.**  Keep submitting and resubmitting until
