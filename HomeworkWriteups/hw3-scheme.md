@@ -183,7 +183,8 @@ questions.
 # Programming and Proof Problems (90 percent)
 
 For the "programming and proof" part of this assignment, you will do Exercises 
-1, 2, 10, 30, and 35 in the book, plus the problems B through I below.
+1, 10, and 31 in the book, plus the problems A through D below,
+but in the order they are listed.
 
 ## Problem Details
 
@@ -197,19 +198,8 @@ Section 2.13, which starts on page 160.
    Ramsey.  Do this proof before tackling Exercise 2; the proof should give you 
    ideas about how to implement the code.
 
-   Related Reading: The definitions of LIST (A) and SEXP are on page 113.
+   Related Reading: The definitions of LIST (A) and SEXP are on page 118.
 
-2. Recursive functions on lists. Do all parts of Exercise 2 of Ramsey. Expect to 
-   write some recursive functions, but you may also read ahead and use the 
-   higher-order functions in Sections 2.7 through 2.9.
-
-   As part of the design of each function, try writing algebraic laws for each 
-   function, as shown in lecture and in the example laws in Section 2.4.5, which 
-   starts on page 114. You can see a very simple example of such design for 
-   binary trees on pages 120 through 122.
-
-   Each function you define should be accompanied by test cases using    
-   check-expect. In comments, explain the purpose of each test.
 
 10. Taking and dropping a prefix of a list. Do Exercise 10 on page 195 of 
     Ramsey.
@@ -217,101 +207,122 @@ Section 2.13, which starts on page 160.
     Each function you define should be accompanied by test cases using  
     check-expect. In comments, explain the purpose of each test.
 
-FIXME: 30 is no longer this one.  Not sure if I can find it.
-30. Let-binding. Do parts (a) and (b) of Exercise 30 on page 217 of Ramsey. You should be able to answer the questions in at most a few sentences.
 
-Related Reading: Information on let can be found in Section 2.5 (pages 111–112)
+31. Calculational proof. Do Exercise 31 on page 203 of Ramsey, proving that 
+    reversing a list does not change its length.
 
-35. Calculational proof. Do Exercise 35 on page 217 of Ramsey, proving that reversing a list does not change its length.
+    Hint: structural induction.
 
-Hint: structural induction.
+    Related Reading: Section 2.4.7, which starts on page 115
 
-Related Reading: Section 2.4.5, which starts on page 107
-
-B. Zip and unzip. Function zip converts a pair of lists to an association list; unzip converts an association list to a pair of lists. If zip is given lists of unequal length, its behavior is not specified.
-
+B. Zip and unzip. Function zip converts a pair of lists to an association list; 
+   unzip converts an association list to a pair of lists. If zip is given lists 
+   of unequal length, its behavior is not specified.
+```
   -> (zip '(1 2 3) '(a b c))
   ((1 a) (2 b) (3 c))
   -> (unzip '((I Magnin) (U Thant) (E Coli)))
   ((I U E) (Magnin Thant Coli))
-Provided lists xs and ys are the same length, zip and unzip satisfy these algebraic laws:
-
+```
+   Provided lists xs and ys are the same length, zip and unzip satisfy these 
+   algebraic laws:
+```
   (zip (car (unzip pairs)) (cadr (unzip pairs))) == pairs
   (unzip (zip xs ys))  ==  (list2 xs ys)
-Implement zip and unzip.
+```
+   Implement zip and unzip.
 
-Related Reading: Information on association lists can be found in Section 2.3.6, which starts on page 103.
+   Related Reading: Information on association lists can be found in Section 
+   2.3.8, which starts on page 110.
 
-Each function you define should be accompanied by test cases using check-expect. In comments, explain the purpose of each test.
+   Each function you define should be accompanied by test cases using 
+   check-expect. In comments, explain the purpose of each test.
 
-C. Arg max. This problem gives you a taste of higher-order functions, which we’ll be covering in more detail in the next homework assignment. Function arg-max expects two arguments: a function f that maps a value in set A to a number, and a nonempty list as of values in set A. It returns an element a in as for which (f a) is as large as possible.
-
+C. Arg max. This problem gives you a taste of higher-order functions, which 
+   we'll be covering in more detail in the next homework assignment. Function 
+   `arg-max` expects two arguments: a function `f` that maps a value in set `A` 
+   to a number, and a nonempty list as of values in set `A`. It returns an 
+   element `a` in `A` for which `(f a)` is as large as possible.
+```
   -> (define square (a) (* a a))
   -> (arg-max square '(5 4 3 2 1))
   5
   -> (define invert (a) (/ 1000 a))
   -> (arg-max invert '(5 4 3 2 1))
   1
-Implement arg-max. Hint: the specification says that the list argument to arg-max is not empty. Take advantage.
+```
+   Implement arg-max. Hint: the specification says that the list argument to 
+   arg-max is not empty. Take advantage.
 
-Each function you define should be accompanied by test cases using check-expect. In comments, explain the purpose of each test.
+   Each function you define should be accompanied by test cases using 
+   check-expect. In comments, explain the purpose of each test.
 
-D. Merging sorted lists. Implement function merge, which expects two lists of numbers sorted in increasing order and returns a single list sorted in increasing order containing exactly the same elements as the two argument lists together:
+D. Permutations. Lists xs and ys are permutations if and only if they have 
+   exactly the same elements—but possibly in different orders. Repeated elements 
+   must be accounted for. Write function permutation? which tells if two lists 
+   are permutations.
+```
+   -> (permutation? '(a b c) '(c b a))
+   #t
+   -> (permutation? '(a b b) '(a a b))     
+   #f
+   -> (permutation? '(a b c) '(c b a d))
+   #f
+```
+   Each function you define should be accompanied by test cases using 
+   check-expect. In comments, explain the purpose of each test.
 
-  -> (merge '(1 2 3) '(4 5 6))
-  (1 2 3 4 5 6)
-  -> (merge '(1 3 5) '(2 4 6))
-  (1 2 3 4 5 6)
-Each function you define should be accompanied by test cases using check-expect. In comments, explain the purpose of each test.
 
-G. Permutations. Lists xs and ys are permutations if and only if they have exactly the same elements—but possibly in different orders. Repeated elements must be accounted for. Write function permutation? which tells if two lists are permutations.
+A. From operational semantics to algebraic laws. This problem has two parts:
 
--> (permutation? '(a b c) '(c b a))
-#t
--> (permutation? '(a b b) '(a a b))     
-#f
--> (permutation? '(a b c) '(c b a d))
-#f
-Each function you define should be accompanied by test cases using check-expect. In comments, explain the purpose of each test.
+   1. The operational semantics for μScheme includes rules for `cons`, `car`, 
+      and `cdr`. Assuming that `x` and `xs` are variables and are defined in ρ 
+      (rho), use the operational semantics to prove that
+```
+    (cdr (cons x xs)) == xs
+```
 
-H. Splitting a list in two. Function split-list takes a list xs and splits it into two lists of nearly equal length. More precisely (split-list xs) returns a two-element list (cons ys (cons zs '()) such that these properties hold:
+   2. Use the operational semantics to prove or disprove the following 
+      conjecture: 
+   
+      if e1 and e2 are arbitrary expressions, in any context where the 
+      evaluation of e1 terminates and the evaluation of e2 terminates, the 
+      evaluation of `(cdr (cons e1 e2))` terminates, and 
+      `(cdr (cons e1 e2)) == e2`. 
+   
+      The conjecture says that two independent evaluations, starting from the 
+      same initial state, produce the same value as a result.
 
-(append ys zs) is a permutation of xs
-(length ys) and (length zs) differ by at most 1
-You have a lot of freedom to choose how you want to split the xs. Here are a couple of examples:
-
--> (split-list '())   
-(() ())
--> (split-list '(a b))
-((b) (a))   ;; ((a) (b)) would be equally good here
-Define split-list.
-
-Each function you define should be accompanied by test cases using check-expect. In comments, explain the purpose of each test. If you have a working version of permutation?, it is acceptable for your test cases to call it.
-
-I. From operational semantics to algebraic laws. This problem has two parts:
-
-The operational semantics for μScheme includes rules for cons, car, and cdr. Assuming that x and xs are variables and are defined in ρ (rho), use the operational semantics to prove that
-
-(cdr (cons x xs)) == xs
-Use the operational semantics to prove or disprove the following conjecture: if e1 and e2 are arbitrary expressions, in any context where the evaluation of e1 terminates and the evaluation of e2 terminates, the evaluation of (cdr (cons e1 e2)) terminates, and (cdr (cons e1 e2)) == e2. The conjecture says that two independent evaluations, starting from the same initial state, produce the same value as a result.
-
-Related Reading: The operational semantics for cons, car, and cdr can be found on pg 155. Or if you prefer, you can use an Impcore-style semantics extended with rules from this handout.
+      Related Reading: The operational semantics for `cons`, `car`, and `cdr` 
+      can be found on pg 159.
+      Or if you prefer, you can use an Impcore-style semantics 
+      extended with rules from this [handout](https://www.cs.tufts.edu/comp/105-2017f/handouts/list-opsem.pdf).
 
 # What and how to submit
 
 Please submit four files:
 
-A README file containing
-The names of the people with whom you collaborated
-A list identifying which problems that you solved
-The number of hours you worked on the assignment
-A text file cqs.scheme.txt containing your answers to the reading-comprehension questions (you can start with our file)
+ * A README.md file containing
+   * The names of the people with whom you collaborated (i.e. talked with
+     about the assignment, no pair programming for this one, don't share code)
 
-A PDF file theory.pdf containing the solutions to Exercises 1, 35, and I. If you already know LaTeX, by all means use it. Otherwise, write your solution by hand and scan it. Do check with someone else who can confirm that your work is legible—if we cannot read your work, we cannot grade it.
+   * A list identifying which problems that you solved
 
-A file solution.scm containing the solutions to all the other exercises, including your written answers in comments to the questions posed by Exercise 30.
+   * The number of hours you worked on the assignment
 
-As soon as you have the files listed above, run submit105-scheme to submit a preliminary version of your work. Keep submitting until your work is complete; we grade only the last submission.
+   * A text file cqs.scheme.txt containing your answers to the 
+     reading-comprehension questions (you can start with the provided file)
+
+   * A PDF file theory.pdf containing the solutions to Exercises 1, 31, and A. 
+     If you already know LaTeX, by all means use it. Otherwise, write your 
+     solution by hand and scan it. Do check with someone else who can confirm 
+     that your work is legible—if we cannot read your work, we cannot grade it.
+
+   * A file solution.scm containing the solutions to all the other exercises.
+
+As soon as you have the files listed above, submit preliminary versions of your 
+work to gradescope. Keep submitting until your work is complete; we grade only 
+the last submission.
 
 # How your work will be evaluated
 
