@@ -39,18 +39,23 @@ easier to solve if you read ahead from Section 2.7 through Section 2.9.
 You will define many functions and write a few proofs. The functions are small; 
 most are in the range of 4 to 8 lines, and none of my solutions is more than a 
 dozen lines. If you don't read ahead, a couple of your functions will be a bit 
-longer, which is OK. There are a lot of problems, but only one hard one: in 
-problem D, there is enough code that it can be tricky to get everything right. 
-(μScheme is so expressive that you can get yourself into trouble even in a 
-12-line function.)
+longer, which is OK.
+
 
 # Getting Started (FIXME)
 <a name="start"/>
 
-The executable μScheme interpreter is in /comp/105/bin/uscheme; if you are set up with use comp105, you should be able to run uscheme as a command. The interpreter accepts a -q (“quiet”) option, which turns off prompting. Your homework will be graded using uscheme. When using the interpreter interactively, you may find it helpful to use ledit, as in the command
+The create the executable μScheme interpreter, do the following in a clone
+of your assignment repository.
+```
+    cd build-prove-compare/bare/uscheme
+    make
+    cp uscheme ../../../
+    cd ../../../
+    ./uscheme -q < solution.scm   // to see if that worked
+```
 
-  ledit uscheme
-USEFUL: We provide a template for solution.scm. The “solution.scm” template contains a skeleton version of each function you must define, but the body of the function calls error. Each call to error should be replaced with a correct implementation.
+USEFUL: We provide a template for solution.scm. The "solution.scm" template contains a skeleton version of each function you must define, but the body of the function calls error. Each call to error should be replaced with a correct implementation.
 
 
 # Diagnostic tracing
@@ -91,10 +96,8 @@ Helper functions may be defined at top level only if they meet these criteria:
    general coding rubric, we can infer the contract by looking at the names of 
    the function and its formal parameters.
 
-Each helper function is specified by algebraic laws.
-
-Each helper function is tested by check-expect or check-assert, and possibly 
-check-error.
+ * Each helper function is tested by check-expect or check-assert, and possibly 
+   check-error.
 
 As an alternative to helper functions, you may read ahead and define local 
 functions using lambda along with `let`, `letrec`, or `let*`. If you do define 
@@ -102,9 +105,11 @@ local functions, avoid passing them redundant parameters—a local function
 already has access to the parameters and let-bound variables of its enclosing 
 function.
 
-Your solutions must be valid μScheme; in particular, they must pass the following test:
-
+Your solutions must be valid μScheme; in particular, they must pass the 
+following test:
+```
    ./uscheme -q < myfilename
+```
 without any error messages or unit-test failures. If your file produces error 
 messages, we won't test your solution and you will earn No Credit for functional 
 correctness. (You can still earn credit for structure and organization). If your 
@@ -165,13 +170,13 @@ questions.
 
 5. Imagine you are tasked with translating the following C function into 
    μScheme:
-   ```
+```
     bool parity(int m) {
         int half_m = m / 2;
         int other_half = m - half_m;
         return half_m == other_half;
     }      
-   ```
+```
    Review Section 2.5, and answer each of these questions with “yes” or “no.”
 
    a. Is it sensible to bind `half_m` and `other_half` in the same `let` 
@@ -179,6 +184,14 @@ questions.
 
    b. Is it sensible to bind `half_m` and `other_half` in the same `let*` 
    expression?
+   
+   c. Is the below translation sensible and faithful to the original C code?
+```
+   (define parity (m)
+   (letrec ([half_m     (/ m 2)]
+            [other_half (- m half_m)])
+     (= half_m other_half)))
+```
 
 # Programming and Proof Problems (90 percent)
 
@@ -195,8 +208,7 @@ predefined and primitive functions (the initial basis), which are listed in
 Section 2.13, which starts on page 160.
 
 1. A list of S-expressions is an S-expression. Do Exercise 1 on page 191 of 
-   Ramsey.  Do this proof before tackling Exercise 2; the proof should give you 
-   ideas about how to implement the code.
+   Ramsey.
 
    Related Reading: The definitions of LIST (A) and SEXP are on page 118.
 
@@ -439,26 +451,6 @@ None here.
 
  * Distinguishing an empty list from a non-empty list might take longer than 
    constant time.
-
-### Explaining `let`
-
-Here is what we expect from your explanation of the strange let in Exercise 30.
-
-#### Exemplary
-
- * Your explanation of the strange let code is accurate and appeals to the 
-   relevant semantic rules by name. The meanings of the rules are explained 
-   informally.
-
-#### Satisfactory
-
- * Your explanation of the strange let code is accurate and appeals to the 
-   relevant semantic rules by name, but it does not explain the rules.
-
-#### Must Improve
-
- * Your explanation of the strange let code does not identify which rules of the 
-   μScheme semantics must be used to explain the code.
 
 ### Your proofs
 
