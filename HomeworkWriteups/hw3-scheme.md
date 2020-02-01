@@ -6,8 +6,6 @@ CSc 520 Spring 2020 Assignment
 
 * [Getting Started](#start)
 
-* [Diagnostic tracing](#tracing)
-
 * [Dire Warnings](#warnings)
 
 * [Reading Comprehension (10 percent)](#read)
@@ -63,6 +61,7 @@ USEFUL: We provide a template for solution.scm. The "solution.scm" template cont
 
 
 # Dire Warnings
+<a name="warnings"/>
 
 Since we are studying functional programming, the μScheme programs you submit 
 must not use any imperative features. **Banish `set`, `while`, `println`, 
@@ -108,6 +107,7 @@ question. Misnamed functions earn No Credit.** You may wish to use the template
 provided above (`solution.scm`), which has the correct function names.
 
 # Reading Comprehension (10 percent)
+<a name="read"/>
 
 These problems will help guide you through the reading. We recommend that you 
 complete them before starting the other problems below. You can download the 
@@ -177,6 +177,7 @@ questions.
 ```
 
 # Programming and Proof Problems (90 percent)
+<a name="code"/>
 
 For the "programming and proof" part of this assignment, you will do Exercises 
 1, 10, and 31 in the book, plus the problems A through D below,
@@ -294,6 +295,7 @@ A. From operational semantics to algebraic laws. This problem has two parts:
       extended with rules from this [handout](https://www.cs.tufts.edu/comp/105-2017f/handouts/list-opsem.pdf).
 
 # What and how to submit
+<a name="submit"/>
 
 Please submit four files:
 
@@ -320,6 +322,7 @@ work to gradescope. Keep submitting until your work is complete; we grade only
 the last submission.
 
 # How your work will be evaluated
+<a name="eval"/>
 
 ## Programming in μScheme
 The criteria we will use to assess the structure and organization of your 
