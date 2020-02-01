@@ -177,7 +177,7 @@ questions.
 ```
 
 # Programming and Proof Problems (90 percent)
-<a name="code"/>
+<a name="prog"/>
 
 For the "programming and proof" part of this assignment, you will do Exercises 
 1, 10, and 31 in the book, plus the problems A through D below,
@@ -307,15 +307,15 @@ Please submit four files:
 
    * The number of hours you worked on the assignment
 
-   * A text file cqs.scheme.txt containing your answers to the 
+ * A text file cqs.scheme.txt containing your answers to the 
      reading-comprehension questions (you can start with the provided file)
 
-   * A PDF file theory.pdf containing the solutions to Exercises 1, 31, and A. 
-     If you already know LaTeX, by all means use it. Otherwise, write your 
-     solution by hand and scan it. Do check with someone else who can confirm 
-     that your work is legible—if we cannot read your work, we cannot grade it.
+ * A PDF file theory.pdf containing the solutions to Exercises 1, 31, and A. 
+   If you already know LaTeX, by all means use it. Otherwise, write your 
+   solution by hand and scan it. Do check with someone else who can confirm 
+   that your work is legible—if we cannot read your work, we cannot grade it.
 
-   * A file solution.scm containing the solutions to all the other exercises.
+ * A file solution.scm containing the solutions to all the other exercises.
 
 As soon as you have the files listed above, submit preliminary versions of your 
 work to gradescope. Keep submitting until your work is complete; we grade only 
@@ -423,7 +423,7 @@ code must load and pass its own unit tests.
 
 ### Costs of list tests must be appropriate
 
- * Be sure you can identify a nonempty list in constant time.
+Be sure you can identify a nonempty list in constant time.
 
 #### Exemplary
 
