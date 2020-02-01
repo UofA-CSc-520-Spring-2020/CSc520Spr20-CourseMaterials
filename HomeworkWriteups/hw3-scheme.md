@@ -42,8 +42,12 @@ dozen lines. If you don't read ahead, a couple of your functions will be a bit
 longer, which is OK.
 
 
-# Getting Started (FIXME)
+# Getting Started
 <a name="start"/>
+
+Accept the github assignment at https://classroom.github.com/a/44OLi48k
+and do a git clone of your repository.  Make sure to `get commit -a` and
+`git push` frequently!
 
 The create the executable μScheme interpreter, do the following in a clone
 of your assignment repository.
@@ -57,27 +61,6 @@ of your assignment repository.
 
 USEFUL: We provide a template for solution.scm. The "solution.scm" template contains a skeleton version of each function you must define, but the body of the function calls error. Each call to error should be replaced with a correct implementation.
 
-
-# Diagnostic tracing
-<a name="tracing"/>
-
-μScheme does not ship with a debugger. But in addition to the print and printu 
-functions, it does ship with a tracing facility. The tracing facility can show 
-you the argument and results to every function call, or you can dial it back to 
-show just a limited number.
-
-FIXME: not in my copy of the book and definitely not in students'
-The tracing facility is described in Exercise 73 on page 233 of Ramsey. Our 
-facility takes the approach sketched in part (b). Here are a couple of example 
-calls for you to try:
-```
-    -> (val &trace 5)
-    -> (append '(a b c) '(1 2 3))
-    -> (set &trace 500)
-    -> (append '(a b c) '(1 2 3))
-```
-Used carefully, `&trace` can save you a lot of time and effort. But do not leave 
-even an unexecuted reference to `&trace` in your submission.
 
 # Dire Warnings
 
