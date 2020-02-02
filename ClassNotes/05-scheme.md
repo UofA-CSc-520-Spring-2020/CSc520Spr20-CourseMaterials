@@ -464,3 +464,4 @@ This time `xs` is `'()`, so now we just return `ys`, which now contains the orig
 <img src="05-scheme/revapp7.png" alt="rev-graphically 7" />
 
 
+<img src="05-scheme/revapp8.png" alt="rev-graphically 8" />
