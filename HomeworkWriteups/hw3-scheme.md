@@ -137,10 +137,10 @@ questions.
     (equal? (reverse (reverse xs)) xs)
 ```
 
-  a. Only the first
-  b. Only the second
-  c. Both the first and the second
-  d. None
+  * a. Only the first
+  * b. Only the second
+  * c. Both the first and the second
+  * d. None
 
 3. Read Section 2.3.2, then please explain in your own words the difference 
    between simple-reverse and reverse.
@@ -162,13 +162,13 @@ questions.
 ```
    Review Section 2.5, and answer each of these questions with “yes” or “no.”
 
-   a. Is it sensible to bind `half_m` and `other_half` in the same `let` 
+   * a. Is it sensible to bind `half_m` and `other_half` in the same `let` 
    expression?
 
-   b. Is it sensible to bind `half_m` and `other_half` in the same `let*` 
+   * b. Is it sensible to bind `half_m` and `other_half` in the same `let*` 
    expression?
    
-   c. Is the below translation sensible and faithful to the original C code?
+   * c. Is the below translation sensible and faithful to the original C code?
 ```
    (define parity (m)
    (letrec ([half_m     (/ m 2)]
