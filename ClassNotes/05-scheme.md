@@ -1,12 +1,12 @@
-## Scheme
+## Scheme (February 3 and 5, 2020)
 
 ### Where are we going?
 
 Recursion and composition:
  * Recursive functions in depth
  * Two recursive data structures: the list and the S-expression
-  * More powerful ways of putting functions together (compositionality 
-    again, and it leads to reuse)
+ * More powerful ways of putting functions together (compositionality 
+   again, and it leads to reuse)
 
 #### Recursion comes from inductive structure of input
 
@@ -78,7 +78,7 @@ Picture of two cons cells, when cons cells are constructed as follows:
 ```
     (cons 3 (cons 2 ’()))
 ````
-<img src="04-metatheory-scheme-intro/two-cons-cells.png" alt="two cons cells" />
+<img src="05-scheme/two-cons-cells.png" alt="two cons cells" />
 </p>
 
 #### Scheme Values
@@ -141,6 +141,8 @@ The symbol `'` is pronounced "tick."
 It indicates that what follows is a literal.
 
 Picture of `(cons c (cons b (cons a '())))`
+<img src="05-scheme/ConsCBA.png" alt="(cons c (cons b (cons a '())))" />
+</p>
 
 Your turn!
 What is the representation of
@@ -163,7 +165,247 @@ Contrast this representation with the one for
 ```
 Both of these expressions are S-expressions, but only `cons('a '())` is a list.
 
+
 Picture of `'((a b) (c d))`
+<img src="05-scheme/ABCD.png" alt="((a b) (c d))" />
+</p>
 
 
 Picture of `cons('a 'b)`
+<img src="05-scheme/DottedPairs.png" alt="cons((quote a) (quote b))" />
+</p>
+
+
+# Next
+
+ * Lists
+
+ * Algebraic Laws for writing functions
+
+ * The cons cost model
+
+ * The method of accumulating parameters
+
+## Lists
+
+### Subset of S-Expressions.
+
+Can be defined via a recursion equation or by inference rules:
+
+<hr>
+<img src="05-scheme/lists-def.png" alt="list definition" />
+<hr>
+
+Constructors: '(),cons`
+
+Observers: null?, pair?, car, cdr (also known as first and rest, head and tail, and many other names)
+
+Why are lists useful?
+Sequences a frequently used abstraction
+
+Can easily approximate a set
+
+Can implement finite maps with association lists (aka dictionaries)
+
+You don’t have to manage memory
+
+These “cheap and cheerful” representations are less efficient than balanced search trees, but are very easy to implement and work with—see the book.
+
+The only thing new here is automatic memory management. Everything else you could do in C. (You can have automatic memory management in C as well.)
+
+Immutable data structures
+Key idea of functional programming. Instead of mutating, build a new one. Supports composition, backtracking, parallelism, shared state.
+
+Review: Algebraic laws of lists
+You fill in these right-hand sides:
+
+(null? '()) == 
+(null? (cons v vs)) == 
+(car (cons v vs)) == 
+(cdr (cons v vs)) == 
+
+(length '()) ==
+(length (cons v vs)) ==
+Combine creators/producers with observers to create laws.
+
+Can use laws to prove properties of code and to write better code.
+
+Recursive functions for recursive types
+Any list is therefore constructed with '() or with cons applied to an atom and a smaller list.
+
+How can you tell the difference between these types of lists?
+What, therefore, is the structure of a function that consumes a list?
+Example: length
+
+Algebraic Laws for length
+
+Code:
+
+;; you fill in this part
+Algebraic laws to design list functions
+Using informal math notation with .. for “followed by” and e for the empty sequence, we have these laws:
+
+xs .. e         = xs
+e .. ys         = ys
+(z .. zs) .. ys = z .. (zs .. ys)
+xs .. (y .. ys) = (xs .. y) .. ys
+The underlying operations are append, cons, and snoc. Which ..’s are which?
+
+But we have no snoc
+
+If we cross out the snoc law, we are left with three cases… but case analysis on the first argument is complete.
+
+So cross out the law xs .. e == xs.
+
+Example: Append
+Which rules look useful for writing append?
+You fill in these right-hand sides:
+
+(append '()         ys) == 
+
+(append (cons z zs) ys) == 
+Equations and function for append
+
+(append '()         ys) == ys
+
+(append (cons z zs) ys) == (cons z (append zs ys))
+
+
+(define append (xs ys)
+
+  (if (null? xs)
+
+      ys
+
+      (cons (car xs) (append (cdr xs) ys))))
+Why does it terminate?
+
+Cost model
+The major cost center is cons because it corresponds to allocation.
+
+How many cons cells are allocated?
+
+Let’s rigorously explore the cost of append.
+
+Induction Principle for List(Z)
+Suppose I can prove two things:
+
+IH (’())
+
+Whenever z in Z and also IH(zs), then IH (cons z zs)
+
+then I can conclude
+
+Forall zs in List(Z), IH(zs)
+
+Example: The cost of append
+Claim: Cost (append xs ys) = (length xs)
+
+Proof: By induction on the structure of xs.
+
+Base case: xs = ’()
+
+I am not allowed to make any assumptions.
+
+(append '() ys)
+= { because xs is null }
+ys
+Nothing has been allocated, so the cost is zero.
+
+(length xs) is also zero.
+
+Therefore, cost = (length xs).
+
+Inductive case: xs = (cons z zs)
+
+I am allowed to assume the inductive hypothesis for zs.
+
+Therefore, I may assume the number of cons cells allocated by (append zs ys) equals (length zs)
+
+Now, the code:
+
+(append (cons z zs) ys)
+  = { because first argument is not null }
+  = { because (car xs) = z }
+  = { because (cdr xs) = zs }
+(cons z (append zs ys))
+The number of cons cells allocated is 1 + the number of cells allocated by (append zs ys).
+
+cost of (append xs ys)
+ = { reading the code }
+1 + cost of (append zs ys)
+ = { induction hypothesis }
+1 + (length zs)
+ = { algebraic law for length }
+(length (cons z zs))
+ = { definition of xs }
+(length xs)
+Conclusion: Cost of append is linear in length of first argument.
+
+Example: list reversal
+Algebraic laws for list reversal:
+
+reverse '() = '()
+reverse (x .. xs) = reverse xs .. reverse '(x) = reverse xs .. '(x)
+And the code?
+
+Naive list reversal
+
+(define reverse (xs)
+   (if (null? xs)
+       '()
+       (append (reverse (cdr xs))
+               (list1 (car xs)))))
+The list1 function maps an atom x to the singleton list containing x.
+
+How many cons cells are allocated? Let’s let n = |xs|.
+
+Q: How many calls to reverse? A: n
+Q: How many calls to append? A: n
+Q: How long a list is passed to reverse? A: n-1, n-2, … , 0
+Q: How long a list is passed as first argument to append? A: n-1, n-2, … , 0
+Q: How many cons cells are allocated by call to list1? A: one per call to reverse.
+Conclusion: O(n2) cons cells allocated. (We could prove it by induction.)
+The method of accumulating parameters
+The function revapp takes two list arguments xs and ys.
+It reverses xs and appends the result to ys:
+
+(revapp xs ys) = (append (reverse xs) ys)
+Write algebraic laws for revapp involving different possible forms for xs.
+
+Who could write the code?
+
+Reversal by accumulating parameters
+
+(define revapp (xs ys)
+   (if (null? xs)
+       ys
+       (revapp (cdr xs) 
+               (cons (car xs) ys))))
+
+(define reverse (xs) (revapp xs '()))
+The cost of this version is linear in the length of the list being reversed.
+
+Parameter ys is the accumulating parameter.
+(A powerful, general technique.)
+
+Linear reverse, graphically
+We call reverse on the list '(1 2 3):
+
+
+Function reverse calls the helper function revapp with '() as the ys argument:
+
+
+The xs parameter isn’t '(), so we recursively call revapp with the cdr of xs and the result of consing the car of xs onto ys:
+
+
+The xs parameter still isn’t '(), so we again call revapp recursively:
+
+
+Still not '(), so we recurse again:
+
+
+This time xs is '(), so now we just return ys, which now contains the original list, reversed!
+
+
+
