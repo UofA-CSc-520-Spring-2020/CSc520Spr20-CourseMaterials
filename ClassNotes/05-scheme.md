@@ -144,7 +144,8 @@ Picture of `(cons c (cons b (cons a '())))`
 <img src="05-scheme/ConsCBA.png" alt="(cons c (cons b (cons a '())))" />
 </p>
 
-Your turn!
+### Your turn!
+
 What is the representation of
 ```
     '((a b) (c d))
@@ -196,45 +197,58 @@ Can be defined via a recursion equation or by inference rules:
 <img src="05-scheme/lists-def.png" alt="list definition" />
 <hr>
 
-Constructors: '(),cons`
+**Constructors:* `'(),cons`
 
-Observers: null?, pair?, car, cdr (also known as first and rest, head and tail, and many other names)
+***Observers:** `null?`, `pair?`, `car`, `cdr` (also known as first and rest, head and tail, and many other names)
 
-Why are lists useful?
-Sequences a frequently used abstraction
+### Why are lists useful?
 
-Can easily approximate a set
+ * Sequences a frequently used abstraction
 
-Can implement finite maps with association lists (aka dictionaries)
+ * Can easily approximate a set
 
-You don’t have to manage memory
+ * Can implement finite maps with association lists (aka dictionaries)
 
-These “cheap and cheerful” representations are less efficient than balanced search trees, but are very easy to implement and work with—see the book.
+ * You don't have to manage memory
 
-The only thing new here is automatic memory management. Everything else you could do in C. (You can have automatic memory management in C as well.)
+These "cheap and cheerful" representations are less efficient than balanced 
+search trees, but are very easy to implement and work with—see the book.
 
-Immutable data structures
-Key idea of functional programming. Instead of mutating, build a new one. Supports composition, backtracking, parallelism, shared state.
+The only thing new here is automatic memory management. Everything else you 
+could do in C. (You can have 
+[automatic memory management in C as well](https://www.hboehm.info/gc/).)
 
-Review: Algebraic laws of lists
+
+### Immutable data structures
+
+Key idea of functional programming. Instead of mutating, build a new one. 
+Supports composition, backtracking, parallelism, shared state.
+
+### Review: Algebraic laws of lists
+
 You fill in these right-hand sides:
+```
+    (null? '()) == 
+    (null? (cons v vs)) == 
+    (car (cons v vs)) == 
+    (cdr (cons v vs)) == 
 
-(null? '()) == 
-(null? (cons v vs)) == 
-(car (cons v vs)) == 
-(cdr (cons v vs)) == 
-
-(length '()) ==
-(length (cons v vs)) ==
+    (length '()) ==
+    (length (cons v vs)) ==
+```    
 Combine creators/producers with observers to create laws.
 
 Can use laws to prove properties of code and to write better code.
 
-Recursive functions for recursive types
-Any list is therefore constructed with '() or with cons applied to an atom and a smaller list.
+### Recursive functions for recursive types
 
-How can you tell the difference between these types of lists?
-What, therefore, is the structure of a function that consumes a list?
+Any list is therefore constructed with '() or with cons applied 
+to an atom and a smaller list.
+
+ * How can you tell the difference between these types of lists?
+
+ * What, therefore, is the structure of a function that consumes a list?
+
 Example: length
 
 Algebraic Laws for length
