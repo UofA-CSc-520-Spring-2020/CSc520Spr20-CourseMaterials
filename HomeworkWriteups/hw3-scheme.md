@@ -47,7 +47,7 @@ Accept the github assignment at https://classroom.github.com/a/44OLi48k
 and do a git clone of your repository.  Make sure to `get commit -a` and
 `git push` frequently!
 
-The create the executable μScheme interpreter, do the following in a clone
+To create the executable μScheme interpreter, do the following in a clone
 of your assignment repository.
 ```
     cd build-prove-compare/bare/uscheme
