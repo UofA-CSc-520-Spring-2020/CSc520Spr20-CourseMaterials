@@ -249,177 +249,218 @@ to an atom and a smaller list.
 
  * What, therefore, is the structure of a function that consumes a list?
 
-Example: length
+Example: `length`
 
-Algebraic Laws for length
+Algebraic Laws for `length`
 
 Code:
+```
+    ;; you fill in this part
 
-;; you fill in this part
-Algebraic laws to design list functions
-Using informal math notation with .. for “followed by” and e for the empty sequence, we have these laws:
+```
 
-xs .. e         = xs
-e .. ys         = ys
-(z .. zs) .. ys = z .. (zs .. ys)
-xs .. (y .. ys) = (xs .. y) .. ys
-The underlying operations are append, cons, and snoc. Which ..’s are which?
+### Algebraic laws to design list functions
 
-But we have no snoc
+Using informal math notation with .. for "followed by" and e for the 
+empty sequence, we have these laws:
 
-If we cross out the snoc law, we are left with three cases… but case analysis on the first argument is complete.
+```
+    xs .. e         = xs
+    e .. ys         = ys
+    (z .. zs) .. ys = z .. (zs .. ys)
+    xs .. (y .. ys) = (xs .. y) .. ys
+```
+The underlying operations are `append`, `cons`, and `snoc`. Which ..'s are which?
 
-So cross out the law xs .. e == xs.
+ * But we have no `snoc`
 
-Example: Append
-Which rules look useful for writing append?
+ * If we cross out the `snoc` law, we are left with three cases… but case analysis 
+   on the first argument is complete.
+
+   So cross out the law `xs .. e == xs`.
+
+### Example: Append
+
+ * Which rules look useful for writing append?
+
 You fill in these right-hand sides:
+```
+    (append '()         ys) == 
 
-(append '()         ys) == 
+    (append (cons z zs) ys) == 
+```
 
-(append (cons z zs) ys) == 
-Equations and function for append
+### Equations and function for append
+```
+    (append '()         ys) == ys
 
-(append '()         ys) == ys
-
-(append (cons z zs) ys) == (cons z (append zs ys))
+    (append (cons z zs) ys) == (cons z (append zs ys))
 
 
-(define append (xs ys)
+    (define append (xs ys)
 
-  (if (null? xs)
+      (if (null? xs)
 
-      ys
+          ys
 
-      (cons (car xs) (append (cdr xs) ys))))
+          (cons (car xs) (append (cdr xs) ys))))
+```
 Why does it terminate?
 
-Cost model
-The major cost center is cons because it corresponds to allocation.
+
+### Cost model
+
+The major cost center is `cons` because it corresponds to **allocation**.
 
 How many cons cells are allocated?
 
 Let’s rigorously explore the cost of append.
 
-Induction Principle for List(Z)
+### Induction Principle for List(Z)
+
 Suppose I can prove two things:
 
-IH (’())
+ 1. IH (’())
 
-Whenever z in Z and also IH(zs), then IH (cons z zs)
+ 2. Whenever z in Z and also IH(zs), then IH (cons z zs)
 
 then I can conclude
 
 Forall zs in List(Z), IH(zs)
 
-Example: The cost of append
-Claim: Cost (append xs ys) = (length xs)
+### Example: The cost of append
 
-Proof: By induction on the structure of xs.
+*Claim*: Cost (append xs ys) = (length xs)
+
+*Proof*: By induction on the structure of xs.
 
 Base case: xs = ’()
 
-I am not allowed to make any assumptions.
+ * I am not allowed to make any assumptions.
+```
+    (append '() ys)
+    = { because xs is null }
+    ys
+```
+   Nothing has been allocated, so the cost is zero.
 
-(append '() ys)
-= { because xs is null }
-ys
-Nothing has been allocated, so the cost is zero.
+   (length xs) is also zero.
 
-(length xs) is also zero.
-
-Therefore, cost = (length xs).
+   Therefore, cost = (length xs).
 
 Inductive case: xs = (cons z zs)
 
-I am allowed to assume the inductive hypothesis for zs.
+ * I am allowed to assume the inductive hypothesis for zs.
 
-Therefore, I may assume the number of cons cells allocated by (append zs ys) equals (length zs)
+   Therefore, I may assume the number of cons cells allocated 
+   by (append zs ys) equals (length zs)
 
-Now, the code:
-
-(append (cons z zs) ys)
-  = { because first argument is not null }
-  = { because (car xs) = z }
-  = { because (cdr xs) = zs }
-(cons z (append zs ys))
+   Now, the code:
+```
+    (append (cons z zs) ys)
+      = { because first argument is not null }
+      = { because (car xs) = z }
+      = { because (cdr xs) = zs }
+    (cons z (append zs ys))
+```
 The number of cons cells allocated is 1 + the number of cells allocated by (append zs ys).
-
-cost of (append xs ys)
- = { reading the code }
-1 + cost of (append zs ys)
- = { induction hypothesis }
-1 + (length zs)
- = { algebraic law for length }
-(length (cons z zs))
- = { definition of xs }
-(length xs)
+```
+    cost of (append xs ys)
+     = { reading the code }
+    1 + cost of (append zs ys)
+     = { induction hypothesis }
+    1 + (length zs)
+     = { algebraic law for length }
+    (length (cons z zs))
+     = { definition of xs }
+    (length xs)
+```
 Conclusion: Cost of append is linear in length of first argument.
 
-Example: list reversal
-Algebraic laws for list reversal:
+### Example: list reversal
 
-reverse '() = '()
-reverse (x .. xs) = reverse xs .. reverse '(x) = reverse xs .. '(x)
+Algebraic laws for list reversal:
+```
+    reverse '() = '()
+    reverse (x .. xs) = reverse xs .. reverse '(x) = reverse xs .. '(x)
+```
 And the code?
 
-Naive list reversal
-
-(define reverse (xs)
-   (if (null? xs)
-       '()
-       (append (reverse (cdr xs))
-               (list1 (car xs)))))
+### Naive list reversal
+```
+    (define reverse (xs)
+       (if (null? xs)
+           '()
+           (append (reverse (cdr xs))
+                   (list1 (car xs)))))
+```
 The list1 function maps an atom x to the singleton list containing x.
 
 How many cons cells are allocated? Let’s let n = |xs|.
 
-Q: How many calls to reverse? A: n
-Q: How many calls to append? A: n
-Q: How long a list is passed to reverse? A: n-1, n-2, … , 0
-Q: How long a list is passed as first argument to append? A: n-1, n-2, … , 0
-Q: How many cons cells are allocated by call to list1? A: one per call to reverse.
-Conclusion: O(n2) cons cells allocated. (We could prove it by induction.)
-The method of accumulating parameters
-The function revapp takes two list arguments xs and ys.
-It reverses xs and appends the result to ys:
+ * Q: How many calls to reverse? A: n
+ * Q: How many calls to append? A: n
+ * Q: How long a list is passed to reverse? A: n-1, n-2, … , 0
+ * Q: How long a list is passed as first argument to append? A: n-1, n-2, … , 0
+ * Q: How many cons cells are allocated by call to list1? A: one per call to reverse.
+ * Conclusion: O(n2) cons cells allocated. (We could prove it by induction.)
 
-(revapp xs ys) = (append (reverse xs) ys)
-Write algebraic laws for revapp involving different possible forms for xs.
+## The method of accumulating parameters
 
-Who could write the code?
+The function `revapp` takes two list arguments `xs` and `ys`.
+It reverses `xs` and appends the result to `ys`:
+```
+    (revapp xs ys) = (append (reverse xs) ys)
+```
+Write algebraic laws for `revapp` involving different possible forms for `xs`.
 
-Reversal by accumulating parameters
+**Who could write the code?**
 
-(define revapp (xs ys)
-   (if (null? xs)
-       ys
-       (revapp (cdr xs) 
-               (cons (car xs) ys))))
+### Reversal by accumulating parameters
+```
+    (define revapp (xs ys)
+       (if (null? xs)
+           ys
+           (revapp (cdr xs) 
+                   (cons (car xs) ys))))
 
-(define reverse (xs) (revapp xs '()))
+    (define reverse (xs) (revapp xs '()))
+```
 The cost of this version is linear in the length of the list being reversed.
 
-Parameter ys is the accumulating parameter.
+Parameter `ys` is the **accumulating parameter**.
 (A powerful, general technique.)
 
-Linear reverse, graphically
-We call reverse on the list '(1 2 3):
+### Linear reverse, graphically
+
+We call `reverse` on the list `'(1 2 3)`:
+
+<img src="05-scheme/revapp2.png" alt="rev-graphically 2" />
+
+Function reverse calls the helper function revapp with 
+`'()` as the `ys` argument:
+
+<img src="05-scheme/revapp3.png" alt="rev-graphically 3" />
 
 
-Function reverse calls the helper function revapp with '() as the ys argument:
+The `xs` parameter isn't `'()`, so we recursively call revapp 
+with the `cdr` of `xs` and the result of consing the `car` of `xs` onto `ys`:
+
+<img src="05-scheme/revapp4.png" alt="rev-graphically 4" />
 
 
-The xs parameter isn’t '(), so we recursively call revapp with the cdr of xs and the result of consing the car of xs onto ys:
+The `xs` parameter still isn't `'()`, so we again call revapp recursively:
+
+<img src="05-scheme/revapp5.png" alt="rev-graphically 5" />
+
+Still not `'()`, so we recurse again:
+
+<img src="05-scheme/revapp6.png" alt="rev-graphically 6" />
 
 
-The xs parameter still isn’t '(), so we again call revapp recursively:
+This time `xs` is `'()`, so now we just return `ys`, which now contains the original list, reversed!
 
 
-Still not '(), so we recurse again:
-
-
-This time xs is '(), so now we just return ys, which now contains the original list, reversed!
-
+<img src="05-scheme/revapp7.png" alt="rev-graphically 7" />
 
 
