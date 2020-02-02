@@ -47,7 +47,7 @@ Accept the github assignment at https://classroom.github.com/a/44OLi48k
 and do a git clone of your repository.  Make sure to `get commit -a` and
 `git push` frequently!
 
-The create the executable μScheme interpreter, do the following in a clone
+To create the executable μScheme interpreter, do the following in a clone
 of your assignment repository.
 ```
     cd build-prove-compare/bare/uscheme
@@ -137,10 +137,10 @@ questions.
     (equal? (reverse (reverse xs)) xs)
 ```
 
-  a. Only the first
-  b. Only the second
-  c. Both the first and the second
-  d. None
+  * a. Only the first
+  * b. Only the second
+  * c. Both the first and the second
+  * d. None
 
 3. Read Section 2.3.2, then please explain in your own words the difference 
    between simple-reverse and reverse.
@@ -162,13 +162,13 @@ questions.
 ```
    Review Section 2.5, and answer each of these questions with “yes” or “no.”
 
-   a. Is it sensible to bind `half_m` and `other_half` in the same `let` 
+   * a. Is it sensible to bind `half_m` and `other_half` in the same `let` 
    expression?
 
-   b. Is it sensible to bind `half_m` and `other_half` in the same `let*` 
+   * b. Is it sensible to bind `half_m` and `other_half` in the same `let*` 
    expression?
    
-   c. Is the below translation sensible and faithful to the original C code?
+   * c. Is the below translation sensible and faithful to the original C code?
 ```
    (define parity (m)
    (letrec ([half_m     (/ m 2)]
@@ -177,7 +177,7 @@ questions.
 ```
 
 # Programming and Proof Problems (90 percent)
-<a name="code"/>
+<a name="prog"/>
 
 For the "programming and proof" part of this assignment, you will do Exercises 
 1, 10, and 31 in the book, plus the problems A through D below,
@@ -307,15 +307,15 @@ Please submit four files:
 
    * The number of hours you worked on the assignment
 
-   * A text file cqs.scheme.txt containing your answers to the 
+ * A text file cqs.scheme.txt containing your answers to the 
      reading-comprehension questions (you can start with the provided file)
 
-   * A PDF file theory.pdf containing the solutions to Exercises 1, 31, and A. 
-     If you already know LaTeX, by all means use it. Otherwise, write your 
-     solution by hand and scan it. Do check with someone else who can confirm 
-     that your work is legible—if we cannot read your work, we cannot grade it.
+ * A PDF file theory.pdf containing the solutions to Exercises 1, 31, and A. 
+   If you already know LaTeX, by all means use it. Otherwise, write your 
+   solution by hand and scan it. Do check with someone else who can confirm 
+   that your work is legible—if we cannot read your work, we cannot grade it.
 
-   * A file solution.scm containing the solutions to all the other exercises.
+ * A file solution.scm containing the solutions to all the other exercises.
 
 As soon as you have the files listed above, submit preliminary versions of your 
 work to gradescope. Keep submitting until your work is complete; we grade only 
@@ -423,7 +423,7 @@ code must load and pass its own unit tests.
 
 ### Costs of list tests must be appropriate
 
- * Be sure you can identify a nonempty list in constant time.
+Be sure you can identify a nonempty list in constant time.
 
 #### Exemplary
 
