@@ -160,7 +160,7 @@ questions.
         return half_m == other_half;
     }      
 ```
-   Review Section 2.5, and answer each of these questions with “yes” or “no.”
+   Review Section 2.6, and answer each of these questions with “yes” or “no.”
 
    * a. Is it sensible to bind `half_m` and `other_half` in the same `let` 
    expression?
