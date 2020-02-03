@@ -154,7 +154,7 @@ which can be alternatively written
 ```
     cons( (cons a (cons b '()))
 
-          `(cons (cons c (cons d '())) '()))`
+          (cons (cons c (cons d '())) '()))
 ```
 What is the representation of
 ```
