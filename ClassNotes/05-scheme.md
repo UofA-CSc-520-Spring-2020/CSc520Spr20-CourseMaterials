@@ -354,12 +354,16 @@ Base case: xs = ’()
  * I am not allowed to make any assumptions.
 ```
     (append '() ys)
-    = { because xs is null }
+    = { substitute implementation of append }
+    (if (null? xs) ys (cons (car xs) (append (cdr xs) ys)))
+    = { because of algebraic law (null? '()) = #t }
+    (if #t ys (cons (car xs) (append (cdr xs) ys)))
+    = { because of algebraic law (if #t a b) = a }
     ys
 ```
    Nothing has been allocated, so the cost is zero.
 
-   (length xs) is also zero.
+   (length xs) is also zero.  We have an algebraic law for that.
 
    Therefore, cost = (length xs).
 
@@ -373,7 +377,7 @@ Inductive case: xs = (cons z zs)
    Now, the code:
 ```
     (append (cons z zs) ys)
-      = { because first argument is not null }
+      = { because first argument is not null, this is leaving out some steps, which ones? }
       = { because (car xs) = z }
       = { because (cdr xs) = zs }
     (cons z (append zs ys))
