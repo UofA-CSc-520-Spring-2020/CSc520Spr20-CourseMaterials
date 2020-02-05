@@ -422,7 +422,7 @@ How many cons cells are allocated? Let’s let n = |xs|.
  * Q: How long a list is passed to reverse? A: n-1, n-2, … , 0
  * Q: How long a list is passed as first argument to append? A: n-1, n-2, … , 0
  * Q: How many cons cells are allocated by call to list1? A: one per call to reverse.
- * Conclusion: O(n2) cons cells allocated. (We could prove it by induction.)
+ * Conclusion: O(n^2) cons cells allocated. (We could prove it by induction.)
 
 ## The method of accumulating parameters
 
