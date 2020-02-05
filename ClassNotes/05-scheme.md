@@ -259,36 +259,51 @@ Code:
 
 ```
 
-### Algebraic laws to design list functions
+### Algebraic laws to design list functions, or List-design shortcuts (Feb 5)
 
+Three forms of "followed by"
+
+ * **Given:** Element .. list of values = `(cons x xs)`
+
+ * **Define:** List of values .. list of values = `(append xs ys)`
+
+ * **Ignore:** List of values .. element = `(snoc xs y)`
+   Or `(append xs (list1 y))`
+
+Two lists (xs and ys)? Four cases!
 Using informal math notation with .. for "followed by" and e for the 
-empty sequence, we have these laws:
+empty sequence, y and z for an element, and xs, ys, and zs as lists,
+we have these cases:
 
+```
+    xs .. ys, where ys is empty sequence
+    xs .. ys, where xs is empty sequence
+    (z .. zs) .. ys, where xs=(z zs) and looking at the first element in xs
+    xs .. (v .. vs), where ys=(v vs) and looking at the first element in xs
+```
+
+Some algebraic laws for append:
 ```
     xs .. e         = xs
     e .. ys         = ys
     (z .. zs) .. ys = z .. (zs .. ys)
-    xs .. (y .. ys) = (xs .. y) .. ys
+    xs .. (z .. zs) = (xs .. z) .. ys  ;; this would require snoc, so remove
 ```
-The underlying operations are `append`, `cons`, and `snoc`. Which ..'s are which?
 
- * But we have no `snoc`
-
- * If we cross out the `snoc` law, we are left with three cases… but case analysis 
-   on the first argument is complete.
-
-   So cross out the law `xs .. e == xs`.
 
 ### Example: Append
 
  * Which rules look useful for writing append?
 
-You fill in these right-hand sides:
+   You fill in these right-hand sides:
 ```
     (append '()         ys) == 
 
     (append (cons z zs) ys) == 
 ```
+
+ * Which one of the algebraic rules are missing?  Why?
+
 
 ### Equations and function for append
 ```
