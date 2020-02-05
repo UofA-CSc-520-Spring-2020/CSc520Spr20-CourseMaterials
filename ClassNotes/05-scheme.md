@@ -278,16 +278,16 @@ we have these cases:
 ```
     xs .. ys, where ys is empty sequence
     xs .. ys, where xs is empty sequence
-    (z .. zs) .. ys, where xs=(z zs) and looking at the first element in xs
-    xs .. (v .. vs), where ys=(v vs) and looking at the first element in xs
+    (z .. zs) .. ys, where xs=(z .. zs) and looking at the first element in xs
+    xs .. (v .. vs), where ys=(v .. vs) and looking at the first element in ys
 ```
 
 Some algebraic laws for append:
 ```
     xs .. e         = xs
     e .. ys         = ys
-    (z .. zs) .. ys = z .. (zs .. ys)
-    xs .. (z .. zs) = (xs .. z) .. ys  ;; this would require snoc, so remove
+    (z .. zs) .. ys = z .. (zs .. ys)  ;; subsumes the first case
+    xs .. (v .. vs) = (xs .. v) .. vs  ;; this would require snoc, so remove
 ```
 
 
