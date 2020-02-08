@@ -30,7 +30,7 @@ Implementation: List of key-value pairs
 
 Picture with spine of cons cells.
 
-<img src="05-scheme/AssociationList.png" alt="spine of cons cells" />
+<img src="06-let-and-lambda/AssociationList.png" alt="spine of cons cells" />
 </p>
 
 Functions `car`, `cdar`, `caar`, `cadar` can help navigate.
@@ -169,7 +169,7 @@ of an enclosing function.
 *Step 2*: Write a function that finds a zero between lo and hi bounds.
 
 Picture of zero-finding function. 
-<img src="05-scheme/ZeroFinder-all.png" alt="spine of cons cells" />
+<img src="06-let-and-lambda/ZeroFinder-all.png" alt="spine of cons cells" />
 </p>
 
 Algorithm uses binary search over integer interval between lo and hi. 
@@ -277,7 +277,7 @@ Where are n and k stored???
 
 
 <hr>
-<img src="05-scheme/slide12.png" alt="slide 12" />
+<img src="06-let-and-lambda/slide12.png" alt="slide 12" />
 <hr>
  
 
@@ -291,7 +291,7 @@ An example:
 
 Slide 14 
 <hr>
-<img src="05-scheme/slide14.png" alt="slide 14" />
+<img src="06-let-and-lambda/slide14.png" alt="slide 14" />
 <hr>
 
 ### Higher-order functions!
@@ -352,7 +352,7 @@ Curried functions take their arguments "one-at-a-time."
 ```
 
 <hr>
-<img src="05-scheme/slide18.png" alt="slide 18" />
+<img src="06-let-and-lambda/slide18.png" alt="slide 18" />
 <hr>
 
 Your turn!!
