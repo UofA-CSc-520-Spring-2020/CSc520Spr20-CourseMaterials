@@ -38,12 +38,12 @@ Another example:
 Can you find a direction in which something gets smaller?
 
 Code:
-
+```
 (define exp (x m) 
   (if (= m 0) 
       1
       (* x (exp x (- m 1)))))
-
+```
 ### For a new language, five powerful questions
 
 As a lens for understanding, you can ask these questions about any language:
