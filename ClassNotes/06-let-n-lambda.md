@@ -61,18 +61,18 @@ In association lists, these operations correspond to
 ### A-list example
 ```
     -> (find 'Building 
-             '((Course 105) (Building Robinson) 
-               (Instructor Fisher)))
-    Robinson
-    -> (val ksf (bind 'Office 'Halligan-242
-                (bind 'Courses '(105)
-                (bind 'Email 'comp105-staff '()))))
-    ((Email comp105-staff) 
-     (Courses (105)) 
-     (Office Halligan-242))
-    -> (find 'Office ksf) 
-    Halligan-242
-    -> (find 'Favorite-food ksf)
+             '((Course 520) (Building Gould-Simpson) 
+               (Instructor Strout)))
+    Gould-Simpson
+    -> (val mms (bind 'Office 'GS-707
+                (bind 'Courses '(520)
+                (bind 'Email 'mstrout '()))))
+    ((Email mstrout) 
+     (Courses (520)) 
+     (Office GS-707))
+    -> (find 'Office mms) 
+    GS-707
+    -> (find 'Favorite-food mms)
     ()
 ```
 Notes:
