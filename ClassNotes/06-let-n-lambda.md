@@ -245,7 +245,7 @@ Your turn!!
 (c-p-e 8) == ?            (d-p-o 8) == ?
 (c-p-e 7) == ?            (d-p-o 7) == ?
 ```
-FIXME: for slides, f, f, f, t, f, t
+
 
 
 ### Escaping functions
@@ -366,7 +366,7 @@ Your turn!!
 -> (filter  ((curry >) 3) '(1 2 3 4 5))
 ???                        ; tricky
 ```
-FIXME put Answers in slides notes
+
 
 ### Bonus content: vulnerable variables?
 
