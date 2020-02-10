@@ -16,7 +16,7 @@ February 10 and 12, 2020
 
 ## Today and Wednesday
 
- * Project example
+ * Project example [project.md](../project.md)
  * Association lists [Not covered in class]
  * Let construct
  * Anonymous functions
