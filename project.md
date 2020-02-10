@@ -19,8 +19,9 @@ your partner's name if relevant, and a paragraph describing the
 aspects of the paper you plan to present to the class (e.g. a figure,
 a table, a proof, an example, ...).
 
-When looking for papers, PLDI (https://dl.acm.org/conference/pldi) and 
-POPL (https://dl.acm.org/conference/popl) papers often use the concepts
+When looking for papers, PLDI (https://dl.acm.org/conference/pldi), 
+POPL (https://dl.acm.org/conference/popl), and
+ICFP (https://www.icfpconference.org/) papers often use the concepts
 we will be covering in this course.
 
 ### Web Articles That Might Suggest Papers
