@@ -132,6 +132,7 @@ Things that should bother you about Impcore:
  * Can't create a function without giving it a name:
    * High cognitive overhead
    * A sign of second-class citizenship
+
 All these problems have one solution: Lambda! (λ)
 
 ### Anonymous, first-class functions
@@ -143,11 +144,12 @@ From Church’s lambda-calculus:
 "The function that maps x to x plus x"
 
 At top level, like `define`. (Or more accurately, `define` is a 
-synonym for lambda that also gives the lambda a name.)
+synonym for a lambda that also gives the lambda a name.)
 
 In general, `\x.E` or `(lambda (x) E)`
  * `x` is bound in `E`
  * other variables are free in `E`
+ 
 The ability to "capture" free variables is what makes it interesting.
 
 **Functions become just like any other value.**
