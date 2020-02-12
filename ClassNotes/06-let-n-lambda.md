@@ -208,7 +208,7 @@ General purpose zero-finder that works for any function f:
 ### The zero-finder
 ```
 (define findzero-between (f lo hi)
-   ; binary search
+   ;; binary search
    (if (>= (+ lo 1) hi)
        hi
        (let ((mid (/ (+ lo hi) 2)))
