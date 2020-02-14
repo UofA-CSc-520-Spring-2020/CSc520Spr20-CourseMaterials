@@ -16,7 +16,7 @@ February 10 and 12, 2020
 
 ## Today and Wednesday
 
- * Project example
+ * Project example [project.md](../project.md)
  * Association lists [Not covered in class]
  * Let construct
  * Anonymous functions
@@ -61,18 +61,18 @@ In association lists, these operations correspond to
 ### A-list example
 ```
     -> (find 'Building 
-             '((Course 105) (Building Robinson) 
-               (Instructor Fisher)))
-    Robinson
-    -> (val ksf (bind 'Office 'Halligan-242
-                (bind 'Courses '(105)
-                (bind 'Email 'comp105-staff '()))))
-    ((Email comp105-staff) 
-     (Courses (105)) 
-     (Office Halligan-242))
-    -> (find 'Office ksf) 
-    Halligan-242
-    -> (find 'Favorite-food ksf)
+             '((Course 520) (Building Gould-Simpson) 
+               (Instructor Strout)))
+    Gould-Simpson
+    -> (val mms (bind 'Office 'GS-707
+                (bind 'Courses '(520)
+                (bind 'Email 'mstrout '()))))
+    ((Email mstrout) 
+     (Courses (520)) 
+     (Office GS-707))
+    -> (find 'Office mms) 
+    GS-707
+    -> (find 'Favorite-food mms)
     ()
 ```
 Notes:
@@ -132,6 +132,7 @@ Things that should bother you about Impcore:
  * Can't create a function without giving it a name:
    * High cognitive overhead
    * A sign of second-class citizenship
+
 All these problems have one solution: Lambda! (λ)
 
 ### Anonymous, first-class functions
@@ -143,11 +144,12 @@ From Church’s lambda-calculus:
 "The function that maps x to x plus x"
 
 At top level, like `define`. (Or more accurately, `define` is a 
-synonym for lambda that also gives the lambda a name.)
+synonym for a lambda that also gives the lambda a name.)
 
 In general, `\x.E` or `(lambda (x) E)`
  * `x` is bound in `E`
  * other variables are free in `E`
+ 
 The ability to "capture" free variables is what makes it interesting.
 
 **Functions become just like any other value.**
@@ -206,7 +208,7 @@ General purpose zero-finder that works for any function f:
 ### The zero-finder
 ```
 (define findzero-between (f lo hi)
-   ; binary search
+   ;; binary search
    (if (>= (+ lo 1) hi)
        hi
        (let ((mid (/ (+ lo hi) 2)))
@@ -245,7 +247,7 @@ Your turn!!
 (c-p-e 8) == ?            (d-p-o 8) == ?
 (c-p-e 7) == ?            (d-p-o 7) == ?
 ```
-FIXME: for slides, f, f, f, t, f, t
+
 
 
 ### Escaping functions
@@ -366,7 +368,7 @@ Your turn!!
 -> (filter  ((curry >) 3) '(1 2 3 4 5))
 ???                        ; tricky
 ```
-FIXME put Answers in slides notes
+
 
 ### Bonus content: vulnerable variables?
 

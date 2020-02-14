@@ -19,8 +19,9 @@ your partner's name if relevant, and a paragraph describing the
 aspects of the paper you plan to present to the class (e.g. a figure,
 a table, a proof, an example, ...).
 
-When looking for papers, PLDI (https://dl.acm.org/conference/pldi) and 
-POPL (https://dl.acm.org/conference/popl) papers often use the concepts
+When looking for papers, PLDI (https://dl.acm.org/conference/pldi), 
+POPL (https://dl.acm.org/conference/popl), and
+ICFP (https://www.icfpconference.org/) papers often use the concepts
 we will be covering in this course.
 
 ### Web Articles That Might Suggest Papers
@@ -77,7 +78,14 @@ person will be talking for 5 minutes.  The time limit on the talks
 will be strictly observed just as they are at top conferences in 
 consideration of others giving talks.
 
-The talk can include at **MOST** 7 slides other than the title slide.
+It is much more difficult to talk for only 5 or 10 minutes than to talk
+for 50 minutes.  It requires deep thought, preparation, and practice.
+I usually advice and require a small number of slides to help people meet
+their goal.  However, [The Talk Talk](https://www.youtube.com/watch?v=5N__E-z_wR0) 
+is fantastic and recommends using a lot of slides to make the presentation
+easier.  Thus there will be no limit on slides, but I will be cutting off each
+person at 5 minutes.  If you are not done at the 5 minute point, points will be
+taken off your presentation.
 
 The talk should include:
 * the research problem the presented paper is attempting to solve, (30 sec)
@@ -85,8 +93,9 @@ The talk should include:
 * a succinct summary of the approach, (1 minute)
 * and how concepts in this course are used. (8 minutes)
 
-The talk will be graded on the timing and slide count expectations as well
-as the following:
+The talk will be graded on whether it covers the research problem,
+why paper care, a summary of the approach, and concepts used in this
+course and the timing expectations as well as the following:
 * preparedness of the speakers (practice ahead of time),
 * showing a clear understanding of the concepts, and
 * presentation of the concepts so others can understand.
