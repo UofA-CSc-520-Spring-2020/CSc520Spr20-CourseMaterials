@@ -837,151 +837,56 @@ Although it is seldom ideal, it can be OK to use higher-level code to document y
 
 #### Must Improve
 
- * Function’s names include verbs that are too generic, like "calculate", "process", "get", "find", or "check"
+ * Function’s names include verbs that are too generic, like "calculate", 
+   "process", "get", "find", or "check"
 
-• Auxiliary functions are given names that don’t state their contracts, but that instead indicate a vague relationship with another function. Often such names are formed by combining the name of the other function with a suffix such as aux, helper, 1, or even _.
+ * Auxiliary functions are given names that don't state their contracts, but 
+   that instead indicate a vague relationship with another function. Often such 
+   names are formed by combining the name of the other function with a suffix 
+   such as `aux`, `helper`, `1`, or even `_`.
 
-• Course staff cannot identify the connection between a function’s name and what it returns or what it does.
+ * Course staff cannot identify the connection between a function's name and 
+   what it returns or what it does.
 
-### Functional correctness
-
-In addition to the usual testing, we’ll evaluate the correctness of your translation in problem A. We’ll also want appropriate list operations to take constant time.
-
-#### Exemplary
-
- * The translation in problem A is correct.
-
- * Your code passes every one of our stringent tests.
-
- * Testing shows that your code is of high quality in all respects.
- 
- * Performance: Empty lists are distinguished from non-empty lists in 
-   constant time.
-
-#### Satisfactory
-
- * The translation in problem A is almost correct, but an easily identifiable 
-   part is missing.
-
- * Testing reveals that your code demonstrates quality and significant learning, 
-   but some significant parts of the specification may have been overlooked or 
-   implemented incorrectly.
-
-#### Must Improve
-
- * The translation in problem A is obviously incorrect,
-
- * Or course staff cannot understand the translation in problem A.
-
- * Testing suggests evidence of effort, but the performance of your code under 
-   test falls short of what we believe is needed to foster success.
-
- * Testing reveals your work to be substantially incomplete, or shows serious 
-   deficiencies in meeting the problem specifications (serious fault).
-
- * Code cannot be tested because of loading errors, or no solutions were 
-   submitted (No Credit).
-
- * Performance: Distinguishing an empty list from a non-empty list might take 
-   longer than constant time.
-
-
-### Proofs and inference rules
-For your calculational proof, use induction correctly and exploit the laws that 
-are proved in the book.
+### Contracts and Documentation
 
 
 #### Exemplary
 
- * Proofs that involve predefined functions appeal to their definitions or to 
-   laws that are proved in the book.
+ * The contract of each function is clear from the function’s name, the names of its parameters, and perhaps a one-line comment describing the result.
 
- * Proofs that involve inductively defined structures, including lists and 
-   S-expressions, use structural induction exactly where needed.
+• Or, when names alone are not enough, each function’s contract is documented with a type (in a comment)
 
-#### Satisfactory
+• Or, when names and a type are not enough, each function’s contract is documented by writing the function’s operation in a high-level language with high-level data structures.
 
- * Proofs involve predefined functions but do not appeal to their definitions or 
-   to laws that are proved in the book.
+• Or, when a function cannot be explained at a high level, each function is documented with a meticulous contract that explains what λ-calculus term the function returns, in terms of the parameters, which are mentioned by name.
 
- * Proofs that involve inductively defined structures, including lists and 
-   S-expressions, use structural induction, even if it may not always be needed.
+• All recursive functions use structural recursion and therefore don’t need documentation.
 
-#### Must Improve
-
- * A proof that involves an inductively defined structure, like a list or an 
-   S-expression, does **not** use structural induction, but structural induction 
-   is needed.
-
-### Costs of list tests must be appropriate
-
-Be sure you can identify a nonempty list in constant time.
-
-#### Exemplary
-
- * Empty lists are distinguished from non-empty lists in constant time.
+• Or, every function that does not use structural recursion is documented with a short argument that explains why it terminates.
 
 #### Satisfactory
 
-None here.
+ * A function’s contract omits some parameters.
+
+• A function’s documentation mentions every parameter, but does not specify a contract.
+
+• A recursive function is accompanied by an argument about termination, but course staff have trouble following the argument.
 
 #### Must Improve
 
- * Distinguishing an empty list from a non-empty list might take longer than 
-   constant time.
+ * A function is not named after the thing it returns, and the function’s documentation does not say what it returns.
 
-### Your proofs
+• A function’s documentation includes a narrative description of what happens in the body of the function, instead of a contract that mentions only the parameters and result.
 
-The proofs for this homework are different from the derivations and 
-metatheoretic proofs from the operational-semantics homework, and different 
-criteria apply.
+• A function’s documentation neither specifies a contract nor mentions every parameter.
 
-#### Exemplary
+• A function is documented at a low level (λ-calculus terms) when higher-level documentation (pairs, lists, Booleans, natural numbers) is possible.
 
- * Course staff find proofs short, clear, and convincing.
+• There are multiple functions that are not part of the specification of the problem, and from looking just at the names of the functions and the names of their parameters, it’s hard for us to figure out what the functions do.
 
- * Proofs have exactly as much case analysis as is needed (which could mean no  
-   case analysis)
+• A recursive function is accompanied by an argument about termination, but course staff believe the argument is wrong.
 
- * Proofs by induction explicitly say what data is inducted over and clearly 
-   identify the induction hypothesis.
+• A recursive function does not use structural recursion, and course staff cannot find an explanation of why it terminates.
 
- * Each calculational proof is laid out as shown in the textbook, with each term 
-   on one line, and every equals sign between two terms has a comment that 
-   explains why the two terms are equal.
 
-#### Satisfactory
-
-Course staff find a proof clear and convincing, but a bit long.
-
- * Or, course staff have to work a bit too hard to understand a proof.
-
- * A proof has a case analysis which is complete but could be eliminated.
-
- * A proof by induction doesn’t say explicitly what data is inducted over, but 
-   course staff can figure it out.
-
- * A proof by induction is not explicit about what the induction hypothesis is, 
-   but course staff can figure it out.
-
- * Each calculational proof is laid out as shown in the textbook, with each term 
-   on one line, and most of the the equals signs between terms have comments 
-   that explain why the two terms are equal.
-
-#### Must Improve
-
-Course staff don't understand a proof or aren't convinced by it.
-
- * A proof has an incomplete case analysis: not all cases are covered.
-
- * In a proof by induction, course staff cannot figure out what data is 
-   inducted over.
-
- * In a proof by induction, course staff cannot figure out what the induction 
-   hypothesis is.
-
- * A calculational proof is laid out correctly, but few of the equalities are 
-   explained.
-
- * A calculational proof is called for, but course staff cannot recognize its 
-   structure as being the same structure shown in the book.
