@@ -313,7 +313,9 @@ in the way of algebraic laws.
 
     Laws: These functions must not be recursive, should not begin with case 
     analysis, and do not return functions. Therefore, no algebraic laws are 
-    needed.
+    needed.  (Case analysis may be happening, but on this problem, it will be
+    happening inside functions like map and foldr, not in any code that you 
+    write.)
 
 19. Functions as values. Do Exercise 19 on page 199 of Build, Prove, and 
    Compare. You cannot represent these sets using lists. If any part of your 
@@ -457,6 +459,91 @@ F. The third lesson in [Program Design: Higher-Order
 
    Laws: Use your law or laws from the comprehension questions.
 
+## Calculational reasoning about functions
+
+M. Reasoning about higher-order functions. Using the calculational techniques 
+   from Section 2.4.7, prove that
+```
+    (o ((curry map) f) ((curry map) g)) == ((curry map) (o f g))
+```
+   To prove two functions equal, prove that when applied to equal arguments, 
+   they return equal results.
+
+   Related reading: Section 2.4.7. The definitions of composition and currying 
+   in Section 2.7.2. Example uses of map in Section 2.8.1. The definition of map 
+   in Section 2.8.3.
+
+   Laws: In this problem you don't write new laws; you reuse existing ones. You 
+   may use any law in the [Basic Laws 
+   handout](https://www.cs.tufts.edu/comp/105-2019s/handouts/initial-laws.html), 
+   which includes laws for `o`, `curry`, and `map`. (If it simplifies your 
+   proof, you may also introduce new laws, provided that you prove each new law 
+   is valid.)
+
+## Ordered lists
+
+O. Ordered lists. Like natural numbers, the forms of a list can be viewed in 
+different ways. In almost all functions, we examine just two ways a list can be 
+formed: `'()` and `cons`. But in some functions, we need a more refined view. 
+Here is a problem that requires us to divide a list of values into three forms.
+
+Define a function `ordered-by?` that takes one argument—a comparison function 
+that represents a transitive relation—and returns a predicate that tells if a 
+list of values is totally ordered by that relation. Assuming the comparison 
+function is called `precedes?`, here is an inductive definition of a list that 
+is ordered by `precedes?`:
+
+ * The empty list of values is ordered by `precedes?`.
+
+ * A singleton list containing one value is ordered by `precedes?`.
+
+ * A list of values in the form `(cons x (cons y zs))` is ordered by `precedes?` 
+   if the following properties hold:
+
+   * `x` is related to `y`, which is to say `(precedes? x y)`.
+
+   * List `(cons y zs)` is ordered by `precedes?`.
+
+Here are some examples. Note the parentheses surrounding the calls to 
+`ordered-by?`.
+```
+    -> ((ordered-by? <) '(1 2 3))
+    #t
+    -> ((ordered-by? <=) '(1 2 3))
+    #t
+    -> ((ordered-by? <) '(3 2 1)) 
+    #f
+    -> ((ordered-by? >=) '(3 2 1))
+    #t
+    -> ((ordered-by? >=) '(3 3 3))
+    #t
+    -> ((ordered-by? =) '(3 3 3)) 
+    #t
+```
+Hints:
+
+ * The entire 9-step software-design process applies, and it starts with the 
+   three forms of data in the definition of "list ordered by" above.
+
+  * For the code itself, you will need `letrec`.
+
+  * We recommend that your submission include the following unit tests, 
+    which help ensure that your function has the correct name and takes the 
+    expected number of parameters.
+```
+    (check-assert (procedure? ordered-by?))
+    (check-assert (procedure? (ordered-by? <)))
+    (check-error (ordered-by? < '(1 2 3)))
+```
+
+Related reading: Section 2.9. Especially the polymorphic sort in Section 
+2.9.2—the `lt?` parameter to that function is an example of a transitive 
+relation. Section 2.7.2. Example uses of map in Section 2.8.1. The definition of 
+`map` in Section 2.8.3.
+
+Laws: Write algebraic laws for `ordered-by?`, including at least one law for 
+each of the three forms of data used in the definition of "list ordered by" 
+above.
 
 
 
@@ -473,119 +560,178 @@ Please submit four files:
 
    * The number of hours you worked on the assignment
 
- * A text file cqs.scheme.txt containing your answers to the 
-     reading-comprehension questions (you can start with the provided file)
+ * A text file `cqs.hofs.txt` containing your answers to the 
+   reading-comprehension questions (you can start with the provided file)
 
- * A PDF file theory.pdf containing the solutions to Exercises 1, 31, and A. 
+ * A PDF file `semantics.pdf` containing the solutions to Exercises M. 
    If you already know LaTeX, by all means use it. Otherwise, write your 
    solution by hand and scan it. Do check with someone else who can confirm 
    that your work is legible—if we cannot read your work, we cannot grade it.
 
- * A file solution.scm containing the solutions to all the other exercises.
-
+ * A file `solution.scm` containing the solutions to all the other exercises.
+   You must precede each solution by a comment that looks something like this:
+```
+    ;;
+    ;; Problem A
+    ;;
+```
 As soon as you have the files listed above, submit preliminary versions of your 
 work to gradescope. Keep submitting until your work is complete; we grade only 
 the last submission.
 
+## Avoid common mistakes
+<a name="mistakes"/>
+
+
+Listed below are some common mistakes, which we encourage you to avoid.
+
+<hr>
+Passing unnecessary parameters. In this assignment, a very common mistake is to 
+pass unnecessary parameters to a nested helper function. Here’s a silly example:
+```
+    (define sum-upto (n)
+      (letrec ([sigma (lambda (m n) ;;; UGLY CODE
+                         (if (> m n) 0 (+ m (sigma (+ m 1) n))))])
+         (sigma 1 n)))
+```
+The problem here is that the `n` parameter to `sigma` never changes, and it is 
+already available in the environment. To eliminate this kind of problem, don't 
+pass the parameter:
+```
+    (define sum-upto (n)
+      (letrec ([sum-from (lambda (m) ;;; BETTER CODE
+                         (if (> m n) 0 (+ m (sum-from (+ m 1)))))])
+         (sum-from 1)))
+```
+I've changed the name of the internal function, but the only other things that 
+are different is that I have removed the formal parameter from the `lambda` and 
+I have removed the second actual parameter from the call sites. I can still use 
+`n` in the body of `sum-fro`m; it's visible from the definition.
+
+An especially good place to avoid this mistake is in your definition of 
+`ordered-by?` in problem **O**.
+
+<hr>
+
+Another common mistake is to fail to redefine predefined functions like `map` 
+and `filter` in Exercise 15. Yes, we really want you to provide new definitions 
+that replace the existing functions, just as the exercise says.
+
+
+
 # How your work will be evaluated
 <a name="eval"/>
 
-## Programming in μScheme
-The criteria we will use to assess the structure and organization of your 
-μScheme code, which are described in detail below, are mostly the same as the 
-criteria in the general coding rubric, which we used to assess your Impcore 
-code. But some additional criteria appear below.
+## Structure and organization
 
-### Code must be well structured
+The criteria in the general coding rubric apply. As always, we emphasize 
+**contracts** and **naming**. In particular, unless the contract is obvious from 
+the name and from the names of the parameters, an inner function defined with 
+`lambda` and a `let` form needs a contract. (An anonymous lambda that is 
+returned from a function does not need a contract—the behavior 
+of that `lambda` is part of the contract of the function that returns it.)
 
-We're looking for functional programs that use Boolean and name bindings 
-idiomatically. Case analysis must be kept to a minimum.
-
+There are a few new criteria related to `let`, `lambda`, and the use of basis 
+functions. The short version is use the functions in the initial basis; except 
+when we specifically ask you to, don't redefine initial-basis functions.
 
 #### Exemplary
 
- * The assignment does not use set, while, print, or begin.
+ * Short problems are solved using simple anonymous `lambda` expressions, 
+   not named helper functions.
 
- * Wherever Booleans are called for, code uses Boolean values #t and #f.
+ * When possible, inner functions use the parameters and `let`-bound names 
+   of outer functions directly.
 
- * The code has as little case analysis as possible (i.e., the course staff can 
-   see no simple way to eliminate any case analysis)
-
- * When possible, inner functions use the parameters and let-bound names of 
-   outer functions directly.
+ * The initial basis of μScheme is used effectively.
 
 #### Satisfactory
 
- * The code contains case analysis that the course staff can see follows from 
-   the structure of the data, but that could be simplified away by applying 
-   equational reasoning.
+ * Most short problems are solved using anonymous lambdas, but there are 
+   some named helper functions.
 
- * An inner function is passed, as a parameter, the value of a parameter or 
-   let-bound variable of an outer function, which it could have accessed 
+ * An inner function is passed, as a parameter, the value of a parameter 
+   or `let`-bound variable of an outer function, which it could have accessed 
    directly.
 
+ * Functions in the initial basis, when used, are used correctly.
+
 #### Must Improve
 
- * Some code uses set, while, print, or begin (No Credit).
+ * Most short problems are solved using named helper functions; there 
+   aren't enough anonymous `lambda` expressions.
 
- * Code uses integers, like 0 or 1, where Booleans are called for.
+ * Functions in the initial basis are redefined in the submission.
 
- * The code contains superfluous case analysis that is not mandated by the 
-   structure of the data.
+### Functional correctness
 
-### Code must be well laid out, with attention to vertical space
-
-In addition to following the layout rules in the general coding rubric (80 
-columns, no offside violations), we expect you to use vertical space wisely.
+In addition to the usual testing, we’ll evaluate the correctness of your translation in problem A. We’ll also want appropriate list operations to take constant time.
 
 #### Exemplary
 
- * Code is laid out in a way that makes good use of scarce vertical space. 
-   Blank lines are used judiciously to break large blocks of code into groups, 
-   each of which can be understood as a unit.
+ * The translation in problem A is correct.
+
+ * Your code passes every one of our stringent tests.
+
+ * Testing shows that your code is of high quality in all respects.
+ 
+ * Performance: Empty lists are distinguished from non-empty lists in 
+   constant time.
 
 #### Satisfactory
 
- * Code has a few too many blank lines.
+ * The translation in problem A is almost correct, but an easily identifiable 
+   part is missing.
 
- * Code needs a few more blank lines to break big blocks into smaller chunks 
-   that course staff can more easily understand.
+ * Testing reveals that your code demonstrates quality and significant learning, 
+   but some significant parts of the specification may have been overlooked or 
+   implemented incorrectly.
 
 #### Must Improve
 
- * Code wastes scarce vertical space with too many blank lines, block or line 
-   comments, or syntactic markers carrying no information.
+ * The translation in problem A is obviously incorrect,
 
- * Code preserves vertical space too aggressively, using so few blank lines that 
-   a reader suffers from a “wall of text” effect.
+ * Or course staff cannot understand the translation in problem A.
 
- * Code preserves vertical space too aggressively by crowding multiple 
-   expressions onto a line using some kind of greedy algorithm, as opposed to a 
-   layout that communicates the syntactic structure of the code.
+ * Testing suggests evidence of effort, but the performance of your code under 
+   test falls short of what we believe is needed to foster success.
 
- * In some parts of code, every single line of code is separated form its 
-   neighbor by a blank line, throwing away half of the vertical space (serious 
-   fault).
+ * Testing reveals your work to be substantially incomplete, or shows serious 
+   deficiencies in meeting the problem specifications (serious fault).
 
-### Code must load without errors
+ * Code cannot be tested because of loading errors, or no solutions were 
+   submitted (No Credit).
 
-Ideally you want to pass all of our correctness tests, but at minimum, your own 
-code must load and pass its own unit tests.
+ * Performance: Distinguishing an empty list from a non-empty list might take 
+   longer than constant time.
+
+
+### Proofs and inference rules
+For your calculational proof, use induction correctly and exploit the laws that 
+are proved in the book.
+
 
 #### Exemplary
 
- * Your μScheme code loads without errors.
+ * Proofs that involve predefined functions appeal to their definitions or to 
+   laws that are proved in the book.
 
- * Your code passes all the tests we can devise.
-
- * Or, your code passes all tests but one.
+ * Proofs that involve inductively defined structures, including lists and 
+   S-expressions, use structural induction exactly where needed.
 
 #### Satisfactory
 
- * Your code fails a few of our stringent tests.
+ * Proofs involve predefined functions but do not appeal to their definitions or 
+   to laws that are proved in the book.
+
+ * Proofs that involve inductively defined structures, including lists and 
+   S-expressions, use structural induction, even if it may not always be needed.
 
 #### Must Improve
 
+ * A proof that involves an inductively defined structure, like a list or an 
+   S-expression, does **not** use structural induction, but structural induction 
+   is needed.
 
 ### Costs of list tests must be appropriate
 
