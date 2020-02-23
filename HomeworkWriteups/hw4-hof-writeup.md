@@ -317,7 +317,7 @@ in the way of algebraic laws.
     happening inside functions like map and foldr, not in any code that you 
     write.)
 
-19. Functions as values. Do Exercise 19 on page 199 of Build, Prove, and 
+19 Functions as values. Do Exercise 19 on page 199 of Build, Prove, and 
    Compare. You cannot represent these sets using lists. If any part of your 
    code to construct or to interrogate a set uses `cons, car, cdr, or null?`,
    you are doing the problem wrong.
@@ -459,6 +459,7 @@ F. The third lesson in [Program Design: Higher-Order
 
    Laws: Use your law or laws from the comprehension questions.
 
+
 ## Calculational reasoning about functions
 
 M. Reasoning about higher-order functions. Using the calculational techniques 
@@ -479,6 +480,7 @@ M. Reasoning about higher-order functions. Using the calculational techniques
    which includes laws for `o`, `curry`, and `map`. (If it simplifies your 
    proof, you may also introduce new laws, provided that you prove each new law 
    is valid.)
+
 
 ## Ordered lists
 
@@ -585,24 +587,29 @@ the last submission.
 
 Listed below are some common mistakes, which we encourage you to avoid.
 
-<hr>
+<hr/>
+
 Passing unnecessary parameters. In this assignment, a very common mistake is to 
 pass unnecessary parameters to a nested helper function. Here’s a silly example:
+
 ```
     (define sum-upto (n)
       (letrec ([sigma (lambda (m n) ;;; UGLY CODE
                          (if (> m n) 0 (+ m (sigma (+ m 1) n))))])
          (sigma 1 n)))
 ```
+
 The problem here is that the `n` parameter to `sigma` never changes, and it is 
 already available in the environment. To eliminate this kind of problem, don't 
 pass the parameter:
+
 ```
     (define sum-upto (n)
       (letrec ([sum-from (lambda (m) ;;; BETTER CODE
                          (if (> m n) 0 (+ m (sum-from (+ m 1)))))])
          (sum-from 1)))
 ```
+
 I've changed the name of the internal function, but the only other things that 
 are different is that I have removed the formal parameter from the `lambda` and 
 I have removed the second actual parameter from the call sites. I can still use 
@@ -611,7 +618,7 @@ I have removed the second actual parameter from the call sites. I can still use
 An especially good place to avoid this mistake is in your definition of 
 `ordered-by?` in problem **O**.
 
-<hr>
+<hr/>
 
 Another common mistake is to fail to redefine predefined functions like `map` 
 and `filter` in Exercise 15. Yes, we really want you to provide new definitions 
