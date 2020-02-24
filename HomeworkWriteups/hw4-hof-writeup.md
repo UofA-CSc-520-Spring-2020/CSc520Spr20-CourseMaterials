@@ -455,8 +455,8 @@ F. The third lesson in [Program Design: Higher-Order
    laws from the comprehension questions, define `flip`. Don't forget unit 
    tests.
 
-   Related reading: Seven Lessons in Program Design, lesson 3.
-
+   Related reading: [Seven Lessons in Program Design, lesson 3](https://www.cs.tufts.edu/comp/105-2019s/design/lessons.pdf). 
+   
    Laws: Use your law or laws from the comprehension questions.
 
 
