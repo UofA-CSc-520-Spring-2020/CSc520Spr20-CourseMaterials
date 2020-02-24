@@ -244,7 +244,7 @@ Example: `foldr plus zero '(a b)`
 <img src="07-hof/answer.png" alt="answer" />
 <hr>
 
-## Tail calls
+## Tail calls (2.16.2 in book)
 
 Intuition: In a function, a call is in *tail position* if it is the last 
 thing the function will do.
