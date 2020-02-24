@@ -105,7 +105,7 @@ Algebraic laws:
 
 
     (all? p? '())          == #t
-    (all? p? '(cons a as)) == p? x and all? p? xs
+    (all? p? (cons a as)) == p? x and all? p? xs
 ```
 
 Defining all?
@@ -135,10 +135,10 @@ Example: Given a list of numbers, return only the even ones.
 Algebraic laws:
 ```
     (filter p? '())          == ???
-    (filter p? '(cons m ms)) == ???
+    (filter p? (cons m ms)) == ???
 
     (filter p? '())          == '()
-    (filter p? '(cons m ms)) == if (p? m)
+    (filter p? (cons m ms)) == if (p? m)
                                    (cons m (filter p? ms)) 
                                    (filter p? ms)
 ```
