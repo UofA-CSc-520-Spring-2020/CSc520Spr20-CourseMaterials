@@ -54,8 +54,8 @@ Goal: Capture common **patterns of computation** or **algorithms**
  * `exists?` (Ex: Is there a number?)
  * `all?` (Ex: Is everything a number?)
  * `filter` (Ex: Take only the numbers)
- * map (Ex: Add 1 to every element)
- * foldr (General: can do all of the above.)
+ * `map` (Ex: Add 1 to every element)
+ * `foldr` (General: can do all of the above.)
 
 Fold also called `reduce`, `accum`, or a "catamorphism"
 
@@ -209,7 +209,7 @@ Defining map
 The universal list function: `fold`
 
 <hr>
-<img src="07-hof/fold-laws.png" alt="fold laws" />
+<img src="07-hof/foldr-laws.png" alt="foldr laws" />
 <hr>
 
 
