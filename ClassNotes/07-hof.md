@@ -18,7 +18,7 @@ February 24 and 26, 2020
  * High order function curry
  * Reasoning about Functions
  * Useful Higher-Order Functions
- * Tail Calls
+ * Tail Calls [not covered in class]
 
 ## Reasoning about code
 
@@ -244,7 +244,7 @@ Example: `foldr plus zero '(a b)`
 <img src="07-hof/answer.png" alt="answer" />
 <hr>
 
-## Tail calls (2.16.2 in book)
+## Tail calls (2.16.2 in book, not covered in class)
 
 Intuition: In a function, a call is in *tail position* if it is the last 
 thing the function will do.
