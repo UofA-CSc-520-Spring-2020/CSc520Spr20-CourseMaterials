@@ -255,7 +255,7 @@ The lambda interpreter is very liberal about names of variables. A name is any
 string of characters that contains neither whitespace, nor control characters, 
 nor any of the following characters: `\` `(` `)` `.` `=` `/`. Also, the string 
 `use` is reserved and is therefore not a name. But a name made up entirely of 
-digits is OK; the lambda calculus has no numbers, and names like 105 have no 
+digits is OK; the lambda calculus has no numbers, and names like 520 have no 
 special status.
 
 As examples, all the following definitions are legal:
@@ -297,34 +297,42 @@ github repository.
 # All questions and problems
 <a name="read"/>
 
-These problems will help guide you through the reading. We recommend that you complete them before starting the other problems below. You can download the questions.
+These problems will help guide you through the reading. We recommend that you 
+complete them before starting the other problems below. FIXME: need
+to have a text version of the questions in the starting github repository
 
-(NOT ON THE READING.) Throughout the term, your code’s functional correctness has been assessed by automated testing. The automated test scripts are intended not only to assign a grade but to identify the most important fault in the code. Please answer these two questions:
+1. Syntax of lambda terms. In this assignment, or in Rojas or Panangaden, read 
+   about the concrete syntax of lambda-terms.
 
-How did you benefit from the feedback you received about functional correctness?
+   Now define, in Standard ML, an algebraic data type term that represents the 
+   abstract syntax of terms. Your data type should have one value constructor 
+   for a variable, one for a lambda abstraction, and one for an application.
 
-What were the drawbacks, if any, of the feedback you received about functional correctness?
+   You are ready for Exercise 5, and you have a foundation for Exercises 6 and 
+   8.
 
-Syntax of lambda terms. In this assignment, or in Rojas or Panangaden, read about the concrete syntax of lambda-terms.
-Now define, in Standard ML, an algebraic data type term that represents the abstract syntax of terms. Your data type should have one value constructor for a variable, one for a lambda abstraction, and one for an application.
+2. Recognizing redexes. Read about redexes in Wikipedia. (You will then follow
+   up with Panangaden.)  FIXME: put in links
 
-You are ready for exercise 5, and you have a foundation for exercises 6 and 8.
+  * (a) Wikipedia mentions two kinds of redex. What are their names?
 
-Recognizing redexes. Read about redexes in Wikipedia. (You will then follow up with Panangaden.)
+  * (b) In Panangaden, Definition 1.7 defines a redex. Which of the two redexes  
+    mentioned in Wikipedia is being defined here?
 
-Wikipedia mentions two kinds of redex. What are their names?
+(FIXME: gonna do this?)  Your code will have to recognize redexes, and it starts with knowing the form of each kind. As of Spring 2019, both forms are shown in Wikipedia. But if Wikipedia changes, one form can be found in Panangaden; for the other, look in the last section of my guide to reduction strategies.
 
-In Panangaden, Definition 1.7 defines a redex. Which of the two redexes mentioned in Wikipedia is being defined here?
+  * (c) For each of the two kinds of redex, use the concrete syntax for our 
+    lambda interpreter (see above) to show what form every redex of that kind 
+    takes.
 
-Your code will have to recognize redexes, and it starts with knowing the form of each kind. As of Spring 2019, both forms are shown in Wikipedia. But if Wikipedia changes, one form can be found in Panangaden; for the other, look in the last section of my guide to reduction strategies.
+  * (d) For each of the two kinds of redex, use your algebraic data type from 
+    the preceding question to write a pattern that matches every redex of that 
+    kind.
 
-For each of the two kinds of redex, use the concrete syntax for our lambda interpreter (see above) to show what form every redex of that kind takes.
+   You are getting ready for Exercise 8 (reductions).
 
-For each of the two kinds of redex, use your algebraic data type from the preceding question to write a pattern that matches every redex of that kind.
-
-You are getting ready for exercise 8 (reductions).
-
-Practicing reduction. Read about reduction on Wikipedia. Then in Panangaden, be sure you have an idea about each of these concepts:
+3. Practicing reduction. Read about reduction on Wikipedia. Then in Panangaden, 
+   be sure you have an idea about each of these concepts: (FIXME: put in links)
 
 Capture-avoiding substitution (Definition 1.3)
 

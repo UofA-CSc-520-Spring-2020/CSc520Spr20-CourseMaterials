@@ -335,7 +335,7 @@ you will see why currying is useful.
 -> (positive? 3)
 #t
 -> (val <-c (lambda (x) (lambda (y) (< x y))))
--> (val positive? (<-c 0)) ; "partial application"
+-> (val positive? (<-c 0)) ;; "partial application"
 -> (positive? 0)
 #f
 ```
