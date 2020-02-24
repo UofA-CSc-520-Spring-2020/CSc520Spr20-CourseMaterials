@@ -215,9 +215,9 @@ The universal list function: `fold`
 
 `foldr` takes two arguments:
 
- * `zero`: What to do with the empty list.
-
  * `plus`: How to combine next element with running results.
+
+ * `zero`: What to do with the empty list.
 
 Example: `foldr plus zero '(a b)`
 ```
