@@ -1,6 +1,6 @@
 # High-Order Functions
 
-February 24 and 26, 2020
+February 24, 2020
 
 ## Announcements
 
