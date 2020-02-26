@@ -141,7 +141,7 @@ Question: How much stack space is used by the call?
 Answer: Constant
 
 ### Example Use: Instructor Lookup
-
+```
 -> (val 2020spring '((Strout 520) (Sethi 536) (Hartman 542)))
 -> (instructor-info 'Strout 2020spring)
 (Strout teaches 520)
@@ -149,6 +149,7 @@ Answer: Constant
 (Hartman teaches 520)
 -> (instructor-info 'Proebsting 2020spring)
 (Proebsting is-not-on-the-list)
+```
 
 ### Instructor Lookup: The Code
 
