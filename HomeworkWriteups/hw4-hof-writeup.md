@@ -733,7 +733,7 @@ criteria apply.
 
 #### Satisfactory
 
-Course staff find a proof clear and convincing, but a bit long.
+ * Course staff find a proof clear and convincing, but a bit long.
 
  * Or, course staff have to work a bit too hard to understand a proof.
 
@@ -751,7 +751,7 @@ Course staff find a proof clear and convincing, but a bit long.
 
 #### Must Improve
 
-Course staff don't understand a proof or aren't convinced by it.
+ * Course staff don't understand a proof or aren't convinced by it.
 
  * A proof has an incomplete case analysis: not all cases are covered.
 
