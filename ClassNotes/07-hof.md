@@ -18,7 +18,7 @@ February 24, 2020
  * High order function curry
  * Reasoning about Functions
  * Useful Higher-Order Functions
- * Tail Calls
+ * Tail Calls [not covered in class]
 
 ## Reasoning about code
 
@@ -105,7 +105,7 @@ Algebraic laws:
 
 
     (all? p? '())          == #t
-    (all? p? '(cons a as)) == p? x and all? p? xs
+    (all? p? (cons a as)) == p? x and all? p? xs
 ```
 
 Defining all?
@@ -135,10 +135,10 @@ Example: Given a list of numbers, return only the even ones.
 Algebraic laws:
 ```
     (filter p? '())          == ???
-    (filter p? '(cons m ms)) == ???
+    (filter p? (cons m ms)) == ???
 
     (filter p? '())          == '()
-    (filter p? '(cons m ms)) == if (p? m)
+    (filter p? (cons m ms)) == if (p? m)
                                    (cons m (filter p? ms)) 
                                    (filter p? ms)
 ```
@@ -215,9 +215,9 @@ The universal list function: `fold`
 
 `foldr` takes two arguments:
 
- * `zero`: What to do with the empty list.
-
  * `plus`: How to combine next element with running results.
+
+ * `zero`: What to do with the empty list.
 
 Example: `foldr plus zero '(a b)`
 ```
@@ -244,7 +244,7 @@ Example: `foldr plus zero '(a b)`
 <img src="07-hof/answer.png" alt="answer" />
 <hr>
 
-## Tail calls
+## Tail calls (2.16.2 in book, not covered in class)
 
 Intuition: In a function, a call is in *tail position* if it is the last 
 thing the function will do.

@@ -317,7 +317,7 @@ in the way of algebraic laws.
     happening inside functions like map and foldr, not in any code that you 
     write.)
 
-19 Functions as values. Do Exercise 19 on page 199 of Build, Prove, and 
+19 Functions as values. Do Exercise 19a, b, and c on page 199 of Build, Prove, and 
    Compare. You cannot represent these sets using lists. If any part of your 
    code to construct or to interrogate a set uses `cons, car, cdr, or null?`,
    you are doing the problem wrong.
@@ -342,54 +342,8 @@ in the way of algebraic laws.
 ```
    The properties are not quite algorithmic, but they should help anyway.
 
-   * In Part (d), when you code the third approach to polymorphism, write a 
-   function set-ops-from that places your set functions in a record. To define 
-   record functions, use the syntactic sugar described in the book in Section 
-   2.15.6. In particular, be sure your code includes this record definition:
-```
-    (record set-ops (empty member? add-element union inter diff))
-```
-   Code your solution to Part (d) as a function set-ops-from, which will accept 
-   one argument (an equality predicate) and will return a record created by 
-   calling `make-set-ops`. Your function might look like this:
-```
-    (define set-ops-from (eq?)
-      (let ([empty   ...]
-            [member? ...]
-            [add     ...]
-            [union   ...]
-            [inter   ...]
-            [diff    ...])
-        (make-set-ops empty member? add union inter diff)))
-```
-   Fill in each ... with your own implementations. Each implementation is like 
-   one you wrote in Part (c), except instead of using the predefined `equal?`, 
-   it uses the parameter `eq?`—that is what is meant by "the third approach to 
-   polymorphism."
-
-   No additional laws are needed for part (d).
-
-   To help you get part (d) right, we recommend that you use these unit tests:
-```
-    (check-assert (procedure? set-ops-from))
-    (check-assert (set-ops? (set-ops-from =)))
-```
-   And to write your own unit tests for the functions in part (d), you may use    
-   these definitions:
-```
-    (val atom-set-ops (set-ops-from =))
-    (val atom-emptyset      (set-ops-empty atom-set-ops))
-    (val atom-member?      (set-ops-member? atom-set-ops))
-    (val atom-add-element  (set-ops-add-element atom-set-ops)) 
-    (val atom-union        (set-ops-union atom-set-ops))
-    (val atom-inter        (set-ops-inter atom-set-ops))
-    (val atom-diff         (set-ops-diff atom-set-ops))
-```
-   Hint: See the "arrays as functions" exercise on piazza.
-
-Related reading: For functions as values, see the examples of lambda in the 
-first part of Section 2.7, and also the array exercise piazza. For function 
-composition and currying, see Section 2.7.2. For polymorphism, see Section 2.9.
+   * **We cannot do Part (d)** this semester due to the capabilities provided 
+     in the interpreter made available to students.**
 
 Laws: Complete the right-hand sides of the properties listed above. These 
 properties say what happens when `member?` is applied to any set created with 
@@ -455,8 +409,8 @@ F. The third lesson in [Program Design: Higher-Order
    laws from the comprehension questions, define `flip`. Don't forget unit 
    tests.
 
-   Related reading: Seven Lessons in Program Design, lesson 3.
-
+   Related reading: [Seven Lessons in Program Design, lesson 3](https://www.cs.tufts.edu/comp/105-2019s/design/lessons.pdf). 
+   
    Laws: Use your law or laws from the comprehension questions.
 
 
@@ -779,7 +733,7 @@ criteria apply.
 
 #### Satisfactory
 
-Course staff find a proof clear and convincing, but a bit long.
+ * Course staff find a proof clear and convincing, but a bit long.
 
  * Or, course staff have to work a bit too hard to understand a proof.
 
@@ -797,7 +751,7 @@ Course staff find a proof clear and convincing, but a bit long.
 
 #### Must Improve
 
-Course staff don't understand a proof or aren't convinced by it.
+ * Course staff don't understand a proof or aren't convinced by it.
 
  * A proof has an incomplete case analysis: not all cases are covered.
 
