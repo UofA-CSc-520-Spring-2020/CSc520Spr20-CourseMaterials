@@ -249,34 +249,42 @@ Pass `fail` as `resume` continuation
 
 These diagrams (and the corresponding code) **compose!**
 
-LEFTOFF
 
-Solving A and B
-Picture of A and B
+## Solving A and B
+<hr>
+<img src="08-continuations/AandB.png" alt="AandB" />
+<hr>
 
-Solver enters A
+1. Solver enters A
 
-If A is solved, newly allocated success continuation starts B
+2. If A is solved, newly allocated success continuation starts B
 
-If B succeeds, we’re done! Use success continuation from context.
+3. If B succeeds, we’re done! Use success continuation from context.
 
-If B fails, use resume continuation A passed to B as fail.
+4. If B fails, use resume continuation A passed to B as fail.
 
-If A fails, the whole thing fails. Use fail continuation from context.
+5. If A fails, the whole thing fails. Use fail continuation from context.
 
 
-Solving A or B
-Picture of A or B
+## Solving A or B
+<hr>
+<img src="08-continuations/AorB.png" alt="AorB" />
+<hr>
 
-Solver enters A
 
-If A is solved, we’re good! But what if context doesn’t like solution? It can resume A using the resume continuation passed out as fail.
+1. Solver enters A
 
-If A can’t be solved, don’t give up! Try a newly allocated failure continuation to start B.
+2. If A is solved, we're good! But what if context doesn't like solution? 
+   It can resume A using the resume continuation passed out as fail.
 
-If ever B is started, we’ve given up on A entirely. So B’s success and failure continuations are exactly the ones in the context.
+3. If A can't be solved, don't give up! Try a newly allocated failure 
+   continuation to start B.
 
-If B succeeds, but the context doesn’t like the answer, the context can resume B.
+4. If ever B is started, we've given up on A entirely. So B's success 
+   and failure continuations are exactly the ones in the context.
 
-If B fails, abject failure all around; call the original fail continuation.
+5. If B succeeds, but the context doesn't like the answer, the context 
+   can resume B.
+
+6. If B fails, abject failure all around; call the original fail continuation.
 
