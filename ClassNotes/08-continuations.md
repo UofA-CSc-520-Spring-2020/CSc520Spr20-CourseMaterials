@@ -207,7 +207,7 @@ Answer: Constant
 
 `start` carries a partial truth assignment to variables in `current`
 
-Box describes how to extend `current` to make a variable, say `x`, true.
+`solver` box in picture wants to make variable `x` true.
 
 **Case 1: current(x) = #t**
 
@@ -229,8 +229,9 @@ Pass fail as resume continuation
 
 `start` carries a partial truth assignment to variables `current`
 
-Box describes how to extend current to make a negated variable, say `not x`, 
-true.
+`solver` box in picture wants to make negated variable `not x` true,
+thus wants `x` to be false.
+
 
 **Case 1: current(x) = #f**
 
