@@ -142,7 +142,7 @@ Answer: Constant
 
 ### Example Use: Instructor Lookup
 
--> (val 2020spring '((Strout 520)(Sethi 536)(Hartman 542)))
+-> (val 2020spring '((Strout 520) (Sethi 536) (Hartman 542)))
 -> (instructor-info 'Strout 2020spring)
 (Strout teaches 520)
 -> (instructor-info 'Hartman 2020spring)
@@ -150,17 +150,29 @@ Answer: Constant
 -> (instructor-info 'Proebsting 2020spring)
 (Proebsting is-not-on-the-list)
 
-Slide 9 
+### Instructor Lookup: The Code
 
-Slide 10 
+```
+    ;; info has form: '(Strout 520)
+    ;; classes has form: '(info_1, ..., info_n)
+    (define instructor-info (instructor classes)
+        (let (
+                ; success continuation
+                (s (lambda (info)
+                    (list3 instructor 'teaches (cadr info))))
 
-Slide 11 
+                ; failure continuation
+                (f (lambda ()
+                    (list2 instructor 'is-not-on-the-list))))
+            
+                (witness-cps (o ((curry =) instructor) car)
+                    classes s f))
+```
 
-Slide 12 
+## Extended Continuation Example: A SAT Solver
 
-Extended Example: A SAT Solver
-Exercise: Find a satisfying assignment if one exists
-
+### Exercise: Find a satisfying assignment if one exists
+```
 (val f1 '(and x y z w p q (not x)))
 
 (val f2 '(not (or x y)))
@@ -169,8 +181,10 @@ Exercise: Find a satisfying assignment if one exists
 
 (val f4 '(and (or x y z) 
               (or (not x) (not y) (not z))))
-Satisfying assignments
+```
 
+### Satisfying assignments
+```
 (val f1 '(and x y z w p q (not x))) ; NONE
 
 (val f2 '(not (or x y))) 
@@ -181,52 +195,61 @@ Satisfying assignments
 (val f4 '(and (or x y z) 
               (or (not x) (not y) (not z))))
               ; { x |-> #f, y |-> #t, ... }
-Continuations for Search
-Slide 15 
+```
 
-Solving a Literal
-start carries a partial truth assignment to variables current
+<hr>
+<img src="08-continuations/for-search.png" alt="for-search" />
+<hr>
 
-Box describes how to extend current to make a variable, say x, true.
 
-Case 1: current(x) = #t
+### Solving a Literal, variable `x`
 
-Call success continuation with current
+`start` carries a partial truth assignment to variables in `current`
 
-Pass fail as resume continuation (argument to success)
+Box describes how to extend `current` to make a variable, say `x`, true.
 
-Case 2: current(x) = #f
+**Case 1: current(x) = #t**
 
-Call fail continuation
+Call `success` continuation with `current`
 
-Case 3: x not in current
+Pass `fail` as resume continuation (argument to `success`)
 
-Call success cotinuation with current{x -> #t}
+**Case 2: current(x) = #f**
 
-Pass fail as resume continuation
+Call `fail` continuation
 
-Solving a Negated Literal (Your turn)
-start carries a partial truth assignment to variables current
+**Case 3: x not in current**
 
-Box describes how to extend current to make a negated variable, say not x, true.
-
-Case 1: current(x) = #f
-
-Call success continuation with current
-
-Pass fail as resume continuation (argument to success)
-
-Case 2: current(x) = #t
-
-Call fail continuation
-
-Case 3: x not in current
-
-Call success cotinuation with current{x -> #f}
+Call `success` continuation with `current{x -> #t}`
 
 Pass fail as resume continuation
 
-These diagrams (and the corresponding code) compose!
+### Solving a Negated Literal (Your turn)
+
+`start` carries a partial truth assignment to variables `current`
+
+Box describes how to extend current to make a negated variable, say `not x`, 
+true.
+
+**Case 1: current(x) = #f**
+
+Call `success` continuation with `current`
+
+Pass `fail` as resume continuation (argument to `success`)
+
+**Case 2: current(x) = #t**
+
+Call `fail` continuation
+
+**Case 3: x not in current**
+
+Call `success` cotinuation with `current{x -> #f}`
+
+Pass `fail` as `resume` continuation
+
+These diagrams (and the corresponding code) **compose!**
+
+LEFTOFF
 
 Solving A and B
 Picture of A and B
