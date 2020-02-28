@@ -42,11 +42,11 @@ and do a git clone of your repository.  Make sure to `get commit -a` and
 To create the executable μScheme interpreter, do the following in a clone
 of your assignment repository.
 ```
-    cd build-prove-compare/bare/uscheme
+    cd uscheme-trace
     make
-    cp uscheme ../../../
-    cd ../../../
-    ./uscheme -q < solution.scm   // to see if that worked
+    cp uscheme-trace ...
+    cd ..
+    ./uscheme-trace -q < solution.scm   // to see if that worked
 ```
 
 
