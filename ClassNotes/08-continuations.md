@@ -141,7 +141,7 @@ Question: How much stack space is used by the call?
 Answer: Constant
 
 ### Example Use: Instructor Lookup
-
+```
 -> (val 2020spring '((Strout 520) (Sethi 536) (Hartman 542)))
 -> (instructor-info 'Strout 2020spring)
 (Strout teaches 520)
@@ -149,6 +149,7 @@ Answer: Constant
 (Hartman teaches 520)
 -> (instructor-info 'Proebsting 2020spring)
 (Proebsting is-not-on-the-list)
+```
 
 ### Instructor Lookup: The Code
 
@@ -206,7 +207,7 @@ Answer: Constant
 
 `start` carries a partial truth assignment to variables in `current`
 
-Box describes how to extend `current` to make a variable, say `x`, true.
+`solver` box in picture wants to make variable `x` true.
 
 **Case 1: current(x) = #t**
 
@@ -228,8 +229,9 @@ Pass fail as resume continuation
 
 `start` carries a partial truth assignment to variables `current`
 
-Box describes how to extend current to make a negated variable, say `not x`, 
-true.
+`solver` box in picture wants to make negated variable `not x` true,
+thus wants `x` to be false.
+
 
 **Case 1: current(x) = #f**
 
