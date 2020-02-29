@@ -44,9 +44,8 @@ of your assignment repository.
 ```
     cd uscheme-trace
     make
-    cp uscheme-trace ...
-    cd ..
-    ./uscheme-trace -q < solution.scm   // to see if that worked
+    cp uscheme-trace ../uscheme-tr
+    ./uscheme-tr -q < solution.scm   // to see if that worked
 ```
 
 
