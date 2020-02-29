@@ -108,7 +108,7 @@ complete the assignment. Keep your answers brief and simple.
 2. Read Section 2.12.3. What is the difference between `DefineOldGlobal` and 
    `DefineNewGlobal`?
 
-   You are ready to start Problem 44.
+   You are ready to start Problem 41.
 
 3. Set aside an hour to study the conjunctive-normal-form solver in Section 
    2.10.1. This will help you a lot in solving Exercise 21.
@@ -144,13 +144,13 @@ complete the assignment. Keep your answers brief and simple.
 
 ## Overview
 
-For this assignment, you will explore an alternative semantics for val (44), you 
+For this assignment, you will explore an alternative semantics for val (41), you 
 will build a recognizer (F) and a solver (21) for Boolean formulas, with test 
 cases (T).
 
 ### Language-design problem
 
-44. Operational semantics and language design. Do all parts of Exercise 44 in 
+41. Operational semantics and language design. Do all parts of Exercise 41 in 
     Chapter 2 of Ramsey. Be sure your answer to part (b) compiles and runs under 
     uscheme.
 
