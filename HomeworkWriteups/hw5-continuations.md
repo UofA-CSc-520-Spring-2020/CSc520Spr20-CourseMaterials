@@ -298,12 +298,12 @@ Please submit five files:
  * A text file `cqs.continuations.txt` containing your answers to the 
    reading-comprehension questions (you can start with the provided file)
 
- * A PDF file `semantics.pdf` containing the solutions to Exercises 44. 
+ * A PDF file `semantics.pdf` containing the solutions to Exercises 41. 
    If you already know LaTeX, by all means use it. Otherwise, write your 
    solution by hand and scan it. Do check with someone else who can confirm 
    that your work is legible—if we cannot read your work, we cannot grade it.
 
-   Note: Part of your solution to Exercise 44 includes μScheme code, which we 
+   Note: Part of your solution to Exercise 41 includes μScheme code, which we 
    ask you to compile to make sure that it works. We nevertheless want you to 
    include the code in your PDF along with your semantics and your 
    explanation—not in one of the other files.
