@@ -88,7 +88,7 @@ Questions about Assign:
 <img src="09-uscheme-semantics/lambda.png" alt="lambda" />
 <hr>
 
-###Function Application
+### Function Application
 
 Example
 
