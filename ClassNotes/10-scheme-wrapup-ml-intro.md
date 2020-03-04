@@ -178,16 +178,16 @@ And lots of new concrete syntax!
 The `length` function.
 
  * Algebraic laws:
-```
+   ```
 length []      = 0
 length (x::xs) = 1 + length xs
-```
+   ```
 
  * The code:
-```
+   ```
 fun length [] = 0
 |   length (x::xs) = 1 + length xs
-```
+   ```
 
  * Things to notice:
 
@@ -204,30 +204,33 @@ fun length [] = 0
 * Let’s try another! map, filter, exists, all, take, drop, takewhile, dropwhile
 
   * Length
-```
+    ```
     fun length [] = 0
       | length (x::xs) = 1 + length xs
 
     val res = length [1,2,3]
-```
+    ```
+
   * Map
-```
-fun map f [] = []
-  | map f (x::xs) = (f x) :: (map f xs)
+    ```
+    fun map f [] = []
+      | map f (x::xs) = (f x) :: (map f xs)
 
-val res1 = 
-  map length [[], [1], [1,2], [1,2,3]]
-```
+    val res1 = 
+      map length [[], [1], [1,2], [1,2,3]]
+   ```
+
   * Map, without redundant parentheses
-```
-fun map f []      = []
-  | map f (x::xs) =  f x  ::  map f xs
+    ```
+    fun map f []      = []
+      | map f (x::xs) =  f x  ::  map f xs
 
-val res1 =
-  map length [[], [1], [1,2], [1,2,3]]
-```
+    val res1 =
+      map length [[], [1], [1,2], [1,2,3]]
+    ```
+ 
   * Filter
-
+```
 fun filter pred [] = [] 
   | filter pred (x::xs) =   (* pred? not legal *)
       let val rest = filter pred xs 
@@ -240,8 +243,10 @@ val res2 =
   filter (fn x => (x mod 2) = 0) [1,2,3,4]
 
 (* Note fn x => e is syntax for lambda in SML *)
-Filter, without redundant parentheses
+```
 
+  * Filter, without redundant parentheses
+```
 fun filter pred []      = []
   | filter pred (x::xs) =  (* no 'pred?' *)
       let val rest = filter pred xs
@@ -253,38 +258,48 @@ fun filter pred []      = []
 
 val res2 =
   filter (fn x => (x mod 2) = 0) [1,2,3,4]
-Exists
+```
 
+  * Exists
+```
 fun exists pred [] = false
   | exists pred (x::xs) = 
       (pred x) orelse (exists pred xs)
 
 val res3 = 
   exists (fn x => (x mod 2) = 1) [1,2,3,4]
-Exists, without redundant parentheses
+```
 
+  * Exists, without redundant parentheses
+```
 fun exists pred []      = false
   | exists pred (x::xs) =
        pred x  orelse  exists pred xs
 
 val res3 =
   exists (fn x => (x mod 2) = 1) [1,2,3,4]
-All
+```
 
+  * All
+```
 fun all pred [] = true
   | all pred (x::xs) =
       (pred x) andalso (all pred xs)
 
 val res4 = all (fn x => (x >= 0)) [1,2,3,4]
-All, without redundant parentheses
+```
 
+  * All, without redundant parentheses
+```
 fun all pred []      = true
   | all pred (x::xs) =
       pred x andalso all pred xs
 
 val res4 = all (fn x => (x >= 0)) [1,2,3,4]
-Take
+```
 
+  * Take
+```
 exception ListTooShort
 fun take 0     l   = []
   | take n    []   = raise ListTooShort
@@ -296,8 +311,10 @@ val res6 = take 3 [1]
              (print "List too short!"; [])
 
 (* Note use of exceptions. *)
-Take, without redundant parentheses
+```
 
+  * Take, without redundant parentheses
+```
 exception TooShort
 fun take 0 _       = []  (* wildcard! *)
   | take n []      = raise TooShort
@@ -309,8 +326,10 @@ val res6 = take 3 [1]
              (print "List too short!"; [])
 
 (* Note use of exceptions. *)
-Drop
+```
 
+  * Drop
+```
 fun drop 0     l   = l
   | drop n    []   = raise ListTooShort
   | drop n (x::xs) = (drop (n-1) xs)
@@ -319,8 +338,10 @@ val res7 = drop 2 [1,2,3,4]
 val res8 = drop 3 [1] 
            handle ListTooShort => 
               (print "List too short!"; [])
-Takewhile
+```
 
+  * Takewhile
+```
 fun takewhile p [] = []
   | takewhile p (x::xs) = 
       if p x then (x::(takewhile p xs)) 
@@ -329,8 +350,10 @@ fun takewhile p [] = []
 fun even x = (x mod 2 = 0)
 val res8 = takewhile even [2,4,5,7]
 val res9 = takewhile even [3,4,6,8]
-Takewhile, without redundant parentheses
+```
 
+  * Takewhile, without redundant parentheses
+```
 fun takewhile p [] = []
   | takewhile p (x::xs) =
       if p x then  x ::  takewhile p xs
@@ -339,8 +362,10 @@ fun takewhile p [] = []
 fun even x = (x mod 2 = 0)
 val res8 = takewhile even [2,4,5,7]
 val res9 = takewhile even [3,4,6,8]
-Drop while
+```
 
+  * Drop while
+```
 fun dropwhile p [] = []
   | dropwhile p (zs as (x::xs)) = 
       if p x then (dropwhile p xs) else zs
@@ -348,8 +373,10 @@ val res10 = dropwhile even [2,4,5,7]
 val res11 = dropwhile even [3,4,6,8]
 
 (* fancy pattern form: zs as (x::xs) *
-Dropwhile, without redundant parentheses
+```
 
+  * Dropwhile, without redundant parentheses
+```
 fun dropwhile p []              = []
   | dropwhile p (zs as (x::xs)) =
       if p x then  dropwhile p xs  else zs
@@ -357,8 +384,10 @@ val res10 = dropwhile even [2,4,5,7]
 val res11 = dropwhile even [3,4,6,8]
 
 (* fancy pattern form: zs as (x::xs) *)
-Folds
+```
 
+  * Folds
+```
 fun foldr p zero [] = zero
   | foldr p zero (x::xs) = p (x, (foldr p zero xs))
  
@@ -370,9 +399,10 @@ val res12 = foldr (op +)  0 [1,2,3,4]
 val res13 = foldl (op * ) 1 [1,2,3,4] 
 
 (* Note 'op' to use an infix operator as a value. *)
+```
 
-Folds, without redundant parentheses
-
+  * Folds, without redundant parentheses
+```
 fun foldr p zero []      = zero
   | foldr p zero (x::xs) = p (x,  foldr p zero xs )
 
@@ -384,15 +414,17 @@ val res12 = foldr (op +)  0 [1,2,3,4]
 val res13 = foldl (op * ) 1 [1,2,3,4]
 
 (* Note 'op' to use infix operator as a value *)
-ML—The Five Questions
+```
 
-Syntax: definitions, expressions, patterns, types
+## ML—The Five Questions
 
-Values: num/string/bool, record/tuple, algebraic data
+Syntax: definitions, expressions, **patterns**, **types**
 
-Environments: names stand for values (and types)
+Values: num/string/bool, **record/tuple**, algebraic data
 
-Evaluation: uScheme + case and pattern matching
+Environments: names stand for **values** (and types)
+
+Evaluation: uScheme + `case` and **pattern matching**
 
 Initial Basis: medium size; emphasizes lists
 
