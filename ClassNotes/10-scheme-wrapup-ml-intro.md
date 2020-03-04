@@ -216,18 +216,18 @@ fun length [] = 0
     val res1 = 
       map length [[], [1], [1,2], [1,2,3]]
    ```
-
+  
   * Map, without redundant parentheses
-    ```
+   ```
     fun map f []      = []
       | map f (x::xs) =  f x  ::  map f xs
 
     val res1 =
       map length [[], [1], [1,2], [1,2,3]]
-    ```
+   ```
  
   * Filter
-```
+  ```
 fun filter pred [] = [] 
   | filter pred (x::xs) =   (* pred? not legal *)
       let val rest = filter pred xs 
@@ -240,10 +240,10 @@ val res2 =
   filter (fn x => (x mod 2) = 0) [1,2,3,4]
 
 (* Note fn x => e is syntax for lambda in SML *)
-```
+  ```
 
   * Filter, without redundant parentheses
-```
+  ```
 fun filter pred []      = []
   | filter pred (x::xs) =  (* no 'pred?' *)
       let val rest = filter pred xs
@@ -255,7 +255,7 @@ fun filter pred []      = []
 
 val res2 =
   filter (fn x => (x mod 2) = 0) [1,2,3,4]
-```
+  ```
 
   * Exists
 ```
