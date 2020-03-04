@@ -166,7 +166,7 @@ F. *Recognizing formulas.* Exercise 21 in Chapter 2 describes a little language
    definition in the book exactly.
 
    Related reading: The definition of `equal?` in Section 2.3. The definition of 
-   LIST(A) in Section 2.6. The opening paragraph of Exercise 21.
+   LIST(A) in Section 2.4.8. The opening paragraph of Exercise 21.
 
 <hr>
 T. *Testing SAT solvers.* Create three test cases to test solutions to 
