@@ -177,22 +177,19 @@ And lots of new concrete syntax!
 
 The `length` function.
 
- * Algebraic laws:
-   ```
+* Algebraic laws:
+```
 length []      = 0
 length (x::xs) = 1 + length xs
-   ```
-
- * The code:
-   ```
+```
+* The code:
+```
 fun length [] = 0
 |   length (x::xs) = 1 + length xs
-   ```
-
- * Things to notice:
-
+```
+* Things to notice:
    * No parentheses! (Yay!)
-
+   
    * Function application by juxtaposition
 
    * Infix operators
