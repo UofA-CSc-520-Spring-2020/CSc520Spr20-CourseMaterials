@@ -228,13 +228,13 @@ fun length [] = 0
  
   * Filter
     ```
-fun filter pred [] = [] 
-  | filter pred (x::xs) =   (* pred? not legal *)
-      let val rest = filter pred xs 
-      in if pred x then
-           (x::rest) 
-         else rest
-      end
+    fun filter pred [] = [] 
+      | filter pred (x::xs) =   (* pred? not legal *)
+          let val rest = filter pred xs 
+          in if pred x then
+               (x::rest) 
+             else rest
+          end
 
 val res2 = 
   filter (fn x => (x mod 2) = 0) [1,2,3,4]
