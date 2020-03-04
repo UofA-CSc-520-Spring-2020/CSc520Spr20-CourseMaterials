@@ -210,7 +210,6 @@ fun length [] = 0
 
     val res = length [1,2,3]
 ```
-
   * Map
 ```
 fun map f [] = []
@@ -219,7 +218,6 @@ fun map f [] = []
 val res1 = 
   map length [[], [1], [1,2], [1,2,3]]
 ```
-
   * Map, without redundant parentheses
 ```
 fun map f []      = []
@@ -228,7 +226,7 @@ fun map f []      = []
 val res1 =
   map length [[], [1], [1,2], [1,2,3]]
 ```
-Filter
+  * Filter
 
 fun filter pred [] = [] 
   | filter pred (x::xs) =   (* pred? not legal *)
