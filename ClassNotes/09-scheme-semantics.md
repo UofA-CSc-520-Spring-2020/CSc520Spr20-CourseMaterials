@@ -104,7 +104,10 @@ Example
 
 **Question**: Which `even` is referenced when `f` is called?
 
-**Answer**: With static scoping, it's the predicate. With dynamic scoping it's the one bound to 3.
+**Answer**: INCORRECT(With static scoping, it's the predicate. With dynamic scoping it's the one bound to 3.)
+Based on the semantics for uscheme, `even` is 3 when f is called,
+because when the closure is created it stores the location the variable points to
+and in `(val even 3)` it is the location that is updated.
 
 <hr>
 <img src="09-uscheme-semantics/apply-closures.png" alt="apply-closures" />
