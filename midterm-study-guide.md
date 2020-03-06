@@ -22,6 +22,7 @@ providing feedback to other students on their example questions
 and answers.
 
 <hr>
+
 ## Programming Constructs
 
 * recursion vs. iteration (functional vs. imperative programming constructs)
@@ -44,6 +45,7 @@ and answers.
 * let, let*, letrec
 
 <hr>
+
 ## Precisely understanding what programs will do
 
 * operational semantics
@@ -63,6 +65,7 @@ and answers.
   * using other algebraic laws (equational reasoning)
 
 <hr>
+
 ## Example Question Formats
 
 Note that these are not FULL questions.  The "below" being
@@ -80,4 +83,14 @@ Feedback will be provided.
   like LIST(A)), implement a function that takes that data structure
   as its only input and (does something).
 
-* Given the below 
+* Given the below program (the program will be using any combination
+  of the programming constructs covered so far in 520), explain the
+  output of the program and/or provide possible inputs and/or provide
+  possible test cases.
+
+* What if we changed something in the operational semantics for 
+  one of the programming constructions (a specific one would be named)?
+  How would that change the meaning of that construct?
+
+* Write and/or debug the derivation tree for the following expression.
+
