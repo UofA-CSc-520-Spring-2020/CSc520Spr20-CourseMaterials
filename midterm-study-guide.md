@@ -4,7 +4,8 @@ The midterm will be in class on March 18th.
 
 You can bring an 8.5x11 piece of paper with any notes you want 
 on BOTH sides of the paper.  I WILL be providing
-you any operational semantics rules you may need to use.
+you any operational semantics rules and algebraic laws 
+you may need to use.
 
 To study for this midterm, practice solving problems.
 Make sure you understand how to solve all the problems from 
@@ -31,7 +32,10 @@ and answers.
   * organization (drawing the cons diagrams)
   * using definition of data like LIST(A) to guide recursive implementation
 
-* lambdas expressions as values
+* lambdas
+  * lambda expressions as values (what is the result of programs with lambdas?)
+  * free variables in lambda expressions (uScheme and lambda calculus)
+  * substitution in lambda calculus (see substitution examples from slides)
 
 * higher-order functions that encapsulate recursive patterns
   * be able to use any of the hofs from exercises:
@@ -41,16 +45,21 @@ and answers.
   * how can we implement any of the other hofs with foldr?
 
 * continuations
+  * the witness example, what would the outputs be?
+  * the SAT example, what would the outputs be?
 
-* let, let*, letrec
+* let, let*, letrec and the differences between the 3
 
-<hr>
+* write the AST for an expression
 
 ## Precisely understanding what programs will do
 
 * operational semantics
 
 * judgement derivations
+
+* given a cost model how can the complexity for a recursive
+  function be proved?
 
 
 ## Using and Proving Algebraic Laws
@@ -93,4 +102,37 @@ Feedback will be provided.
   How would that change the meaning of that construct?
 
 * Write and/or debug the derivation tree for the following expression.
+
+* Implement the functions below using functions in the μScheme initial basis. 
+  Solutions directly using recursion will receive zero credit. If you don't 
+  remember exactly the order of arguments, or how these functions are curried, 
+  just assume something reasonable and document your assumptions.
+
+* The semantics of (vars, let, closures, etc.).  Consider the following uScheme program: 
+  ...
+  (a) Using the standard uScheme semantics, what is the value of ...?
+  (b) Imagine we replace the standard SOMETHING rule with the following rule:
+      Now what is the value of ...?
+      Explain why the new rule does or does not affect the resulting value.
+
+* What variables are free in the below lambda expression?  (either uScheme or lambda calculus)
+
+* Apply the following substitutions for the lambda calculus expressions.
+
+* In each of the scenarios below, give the name of a uScheme function you can use.
+  Write no other code and no English.  Just the name of the function.
+
+* For each of the below segments of code, indicate the result of each being evaluated 
+  using Impcore and uScheme.  If the result is different, what specific part of the 
+  semantics is causing the difference?
+
+* Using equational reasoning and the provided algebraic laws, prove the following
+  algebraic law is true or untrue.
+
+* Using the provided (uScheme or Impcore) operational semantics and structural induction,
+  prove the following algebraic law is true or untrue.
+
+* Use the accumulating parameters approach to write a solution to the following problem.
+  What is the cost of the solution in terms of (cons calls, function calls, ...)?
+  Prove the cost of the function.
 
