@@ -177,7 +177,7 @@ T. *Testing SAT solvers.* Create three test cases to test solutions to
 
   * Value `s1` should be an association list that represents a satisfying 
     assignment for formula `f1`. If no satisfying assignment exists, value 
-    `s1` should be the symbol 'no-solution.
+    `s1` should be the symbol 'fail.
 
   * Values `f2`, `s2`, `f3`, and `s3` are similar: two more formulas and 
     their respective solutions.
@@ -191,7 +191,7 @@ T. *Testing SAT solvers.* Create three test cases to test solutions to
    As a second test case, I might write
 ```
     (val f2 '(and x (not x)))
-    (val s2 'no-solution)
+    (val s2 'fail)
 ```
    Put your test cases into the template in the provided file 
    `solver-tests.scm`.
