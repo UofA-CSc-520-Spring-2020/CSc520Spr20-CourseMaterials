@@ -1,4 +1,4 @@
-# HW6 Core ML
+# HW7 Type systems
 
 CSc 520 Spring 2020 Assignment
 
@@ -18,11 +18,9 @@ FIXME: fix the outline
 * [Avoid common mistakes](#mistakes)
 
 
-**Due Friday, March 27, 2020 at 11:59PM**
+**Due Friday, April 3, 2020 at 11:59PM**
 
-This assignment is all individual work. 
-There is **no pair programming**.
-
+This assignment is all pair programming work.
 
 # Overview
 <a name="overview"/>
