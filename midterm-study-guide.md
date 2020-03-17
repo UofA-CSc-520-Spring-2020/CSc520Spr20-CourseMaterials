@@ -4,8 +4,8 @@ The midterm will be in class on March 18th.
 
 You can bring an 8.5x11 piece of paper with any notes you want 
 on BOTH sides of the paper.  I WILL be providing
-you any operational semantics rules and algebraic laws 
-you may need to use.
+you any operational semantics rules, algebraic laws, and lambda calculus
+substituation rules you may need to use.
 
 To study for this midterm, practice solving problems.
 Make sure you understand how to solve all the problems from 
