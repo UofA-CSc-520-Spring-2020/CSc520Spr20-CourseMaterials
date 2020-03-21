@@ -7,11 +7,11 @@ FIXME: fix the outline
 
 * [Getting Started](#start)
 
-* [Dire Warnings](#warnings)
+* [What we expect from your submission](#expect)
 
-* [Reading Comprehension (10 percent)](#read)
+* [Reading Comprehension (50 percent)](#read)
 
-* [Programming and Language Design (90 percent)](#prog)
+* [Programming in ML Warmup (50 percent)](#prog)
 
 * [What and how to submit](#submit)
 
@@ -27,29 +27,59 @@ There is **no pair programming**.
 # Overview
 <a name="overview"/>
 
-The purpose of this assignment is to help you get acclimated to programming in Standard ML, which you will use in the next few weeks to implement type systems and lambda calculus. The assignment has three parts:
+The purpose of this assignment is to help you get acclimated to programming in Standard ML, which you will use in the next few weeks to implement type systems and lambda calculus. The assignment has two parts:
 
-To begin, you will answer some questions about reading.
-On your own, you will write many small exercises.
+ * To begin, you will answer some questions about reading.
+
+ * Then you will write many small exercises.
 
 # Getting Started
 <a name="start"/>
 
 ## Setup
 
-Accept the github assignment at FIXME
+Accept the github assignment at https://classroom.github.com/a/oJjhAIv7
 and do a git clone of your repository.  Make sure to `git commit -a` and
-`git push` frequently!
+`git push` frequently!  The initial github repository will include the following
+files:
+ * cqs.ml.txt
+ * Unit.sig
+ * Unit.sml
+ * warmup.sml
 
-FIXME: rewrite for using Moscow ML
-To create the executable μScheme interpreter, do the following in a clone
-of your assignment repository.
-    ```
-    cd uscheme-trace
-    make
-    cp uscheme-trace ../uscheme-tr
-    ./uscheme-tr -q < solution.scm   // to see if that worked
-    ```
+To download an ML interpreter, install Moscow ML from [https://mosml.org/].
+Then you should have mosml on the command-line.  The Mac package works fine.
+There are piazza points available for anyone who explains if there are any 
+issues with installing the Windows or Linux versions.
+
+You will need to use the Unit testing module provided by Dr. Ramsey.
+To do so, compile it.
+```
+$ mosmlc -c Unit.sig
+$ mosmlc -c Unit.sml
+```
+
+To run your code in warmup.sml, you can create an executable as follows
+```
+$ mosmlc -o a.out -I . warmup.sml
+$ ./a.out
+The only internal Unit test passed.
+```
+
+or use the interpreter.
+```
+$ mosml
+Moscow ML version 2.10
+Enter 'quit();' to quit.
+- load "Unit";
+> val it = () : unit
+- use "warmup.sml";
+[opening file "warmup.sml"]
+The only internal Unit test passed.
+> val 'a mynull = fn : 'a list -> bool
+[closing file "warmup.sml"]
+> val it = () : unit
+```
 
 ## The initial basis
 
@@ -75,17 +105,20 @@ few key parts:
   `foldl`
 
 * Ramsey's `Unit` module, which is not part of the Basis Library but is 
-  described in our guide [Learning Standard  ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing).
+  described in Dr. Ramsey's guide [Learning Standard  ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing).
   
 The most convenient guide to the basis is the Moscow ML help system; type
- ```
+```
   - help "";
- ```
-at the mosml interactive prompt. The help file is badged incorrectly, but as far as I know, it is up to date.
+```
+at the mosml interactive prompt.
 
 
-## Unit testing  FIXME: from 2019
-Regrettably, standard ML does not have check-expect and friends built in. Unit tests can be simulated by using higher-order functions, but it’s a pain in the ass. Here are some examples of tests written with our Unit module:
+
+## Unit testing
+Regrettably, standard ML does not have check-expect and friends built in. Unit 
+tests can be simulated by using higher-order functions, but it's a pain.
+Here are some examples of tests written with our Unit module:
 ```
 val () =
     Unit.checkExpectWith Int.toString "2 means the third"
@@ -99,16 +132,22 @@ val () =      (* this test fails *)
 
 val () = Unit.reportWhenFailures ()
 ```
-If you include these tests in your warmup.sml file,1 you can run them on the Unix shell command line, using mosmlc (with a “c”):
+If you include these tests (and only these tests) in your warmup.sml file,
+you can run them on the Unix shell command line, using mosmlc (with a "c"):
 ```
-$ mosmlc -o a.out -I /comp/105/lib warmup.sml && ./a.out
+$ mosmlc -o a.out -I . warmup.sml
+$ ./a.out
 In test '2 is false', expected value false but got true
 One of two internal Unit tests passed.
 $ 
 ```
-You’ll use Unit.checkExpectWith to write your own unit tests. You’ll also use Unit.checkAssert and Unit.checkExnWith. The details are in Learning Standard ML.
+You’ll use `Unit.checkExpectWith` to write your own unit tests. You'll also use 
+`Unit.checkAssert` and `Unit.checkExnWith`. The details are in
+[Learning Standard ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing).
 
-Each call to Unit.checkExpectWith needs to receive a string-conversion function. These functions are written using the string-conversion builders in the Unit module. Here are some examples of code you can use:
+Each call to `Unit.checkExpectWith` needs to receive a string-conversion 
+function. These functions are written using the string-conversion builders in 
+the `Unit` module. Here are some examples of code you can use:
 ```
 val checkExpectInt     = Unit.checkExpectWith Unit.intString
 val checkExpectIntList = Unit.checkExpectWith (Unit.listString Unit.intString)
@@ -118,21 +157,131 @@ val checkExpectISList =
                         (Unit.pairString Unit.intString Unit.stringString))
 val checkExpectIntListList = 
   Unit.checkExpectWith (Unit.listString (Unit.listString Unit.intString))
-R
 ```
 
 ## Things you need to review before starting
 
-We provide a guide to (Learning Standard ML)[https://www.cs.tufts.edu/comp/105-2019s/readings/ml.pdf].  Learning Standard ML will guide you to other reading.
+Dr. Ramsey provides a guide to
+(Learning Standard ML)[https://www.cs.tufts.edu/comp/105-2019s/readings/ml.pdf].  
+*Learning Standard ML* will guide you to other reading.
 
-Skim these materials before starting, so you know what is there. Learning Standard ML will guide you to other reading.
+The fourth [Lessons in Program Design](https://www.cs.tufts.edu/comp/105-2019s/design/lessons.pdf)
+explains how to apply our nine-step design process with types and pattern 
+matching. This lesson includes the key code excerpts needed to design and 
+program with standard type constructors `list`, `option bool`, `int`, `string`, 
+and `order`, as well as the tree constructor that will be on next week's 
+homework. Immediately following the lesson, you will find a one-page 
+summary of ML syntax.
+
+# What we expect from your submission
+<a name="expect"/>
+
+We expect you will submit code that compiles, has the types given in the 
+assignment, is acceptably styled, is tested, avoids redundant case analysis, and 
+avoids forbidden functions and constructs. Code that does not compile, that has 
+the wrong types, or that uses forbidden functions or constructs will earn **No 
+Credit**. Code that is untested or has redundant case analysis may earn 
+disappointing grades for structure and organization.
+
+## We expect the right types
+As always, your code is assessed in part through automated testing. To be 
+testable, each function must not only have the correct *name*; it must also 
+have the correct type. Your type definitions must also match the 
+type definitions given in the assignment.
+
+## We expect wise, well-formatted unit tests
+
+By this time, we expect that you understand the value of unit tests. Grading 
+will focus on your code; except where specifically requested below 
+FIXME?(natural-number arithmetic, free-variable analysis), your unit tests won't 
+be graded. But we still expect the following:
+
+* You will use unit tests wisely. If a function is simple, do take a minute to 
+  validate it with a unit test. If a function is not so simple, develop unit 
+  tests in the same way you have done for the past three assignments: one unit 
+  test per case in the code.
+
+* If you need debugging help during office hours, we expect that your code will 
+  be accompanied by failing unit tests. (If you cannot get your code to 
+  typecheck, we will help you do this without unit tests. But if you need help 
+  getting code to produce right answers, we will demand to see your unit tests.)
 
 
-FIXME: should I copy in What we expect from your submission?
+## We expect case analysis only when necessary
 
+Case analysis is the enemy. All the more so when it is not necessary. Redundant 
+case analysis is a problem in all levels of programming, but as you are learning 
+ML, it is especially easy to fall into. Redundant case analysis typically 
+manifests in one of two ways:
 
+1. Two cases are present in a fun, or case, but one is completely subsumed by 
+   the other. The most common example is one case to handle the empty list and 
+   another case that handles all lists. The empty-list case is often redundant.
 
-# Reading Comprehension (10 percent)
+   Example:
+   ```
+   fun append ([], ys) = ys
+     | append (xs, ys) = foldr op :: ys xs
+   ```
+In this code, the first case is subsumed by the second. It can be eliminated without changing the meaning of the code, and eliminating it typically improves performance.
+
+A case analysis is performed where no case analysis is needed.
+
+fun sum []        = 0
+  | sum (n :: ns) = foldl op + n ns
+These two cases should be replaced by a single case:
+
+fun sum ns = foldl op + 0 ns
+We expect you to examine your code carefully and to remove all redundant case analyses.
+
+We don’t expect written algebraic laws
+We expect you to continue using a systematic design process, but because ML code is so close to algebraic laws, we don’t expect you to write algebraic laws separately. If you come to office hours, however, we do expect you to be able to talk about algebraic laws and to write them on the board.
+
+We expect an acceptable style
+Nobody can learn good style in a week. But you can learn to imitate somebody else’s style, and we expect you to be judicious about what style you imitate. You have access to books by Ullman, Ramsey, and Harper, and to a technical report by Tofte. These sources are not equally good:
+
+Ullman provides the most gentle introduction to ML, and he provides the most information about ML. His book is especially good for programmers whose primary experience is in C-like languages. But, to put it politely, Ullman’s code is not idiomatic. Much of what you see from Ullman should not be imitated.
+
+Ramsey’s code, starting in Chapter 5, is a better guide to what ML should look like. Harper’s code is also very good, and Tofte’s code is reasonable.
+
+On this assignment, we expect you to devote a little effort to good style. Focus on getting your code working first. Then submit it. Then pick up our “Style Guide for Standard ML Programmers”, which contains many examples of good and bad style. Edit your code lightly to conform to the style guide, and submit it again.
+
+In the long run, we expect you to master and follow the guidelines in the style guide.
+
+We expect you to remove redundant parentheses
+As a novice, you’ll be uncertain about where to put parentheses—and you may wind up putting them everywhere. We are fine with parentheses used to disambiguate infix operators, but other redundant parentheses are not OK. To help you find and remove redundant parentheses, we provide a tool called sml-lint. We expect you to run
+
+sml-lint warmup.sml
+sml-lint mlscheme.sml
+and to remove the parentheses that are named there. (The sml-lint program is also run as part of the submission process.)
+
+We expect you to avoid forbidden functions and constructs
+While not everybody can learn good style quickly, everybody can learn to avoid the worst faults. In ML, you must avoid these functions and idioms:
+
+Unlike μScheme, Standard ML provides a length function in the initial basis. It is banned. The entire assignment must be solved without using length.
+
+Solutions that use length will earn No Credit.
+
+Use function definition by pattern matching. Do not use the functions null, mynull, hd, and tl; use patterns instead.
+
+Solutions that use hd or tl will earn No Credit.
+
+Except for functions given below, do not define auxiliary functions at top level. Use local or let. You will find it useful to use local to define functions for use in unit tests.
+
+Solutions that define auxiliary functions at top level will earn No Credit.
+
+Do not use open; if needed, use short abbreviations for common structures. For example, if you want frequent access to the ListPair structure, you can write
+
+structure LP = ListPair
+and from there on you can refer to, e.g., LP.map.
+
+Solutions that use open may earn No Credit for your entire assignment.
+
+Unless the problem explicitly says it is OK, do not use any imperative features.
+
+Unless explicitly exempted, solutions that use imperative features will earn No Credit.
+
+# Reading Comprehension (50 percent)
 <a name="read"/>
 
 FIXME: format, from 2017
