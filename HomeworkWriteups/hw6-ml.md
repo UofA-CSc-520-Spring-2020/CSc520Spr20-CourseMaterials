@@ -27,7 +27,8 @@ There is **no pair programming**.
 # Overview
 <a name="overview"/>
 
-The purpose of this assignment is to help you get acclimated to programming in Standard ML, which you will use in the next few weeks to implement type systems and lambda calculus. The assignment has two parts:
+The purpose of this assignment is to help you get acclimated to programming in Standard ML, which you will use in the next 
+few weeks to implement parts of type systems. The assignment has two parts:
 
  * To begin, you will answer some questions about reading.
 
@@ -405,9 +406,9 @@ complete the assignment. Keep your answers brief and simple.
 
    Now, using the interpreter to be sure your answer is well typed, translate 
    the following *failing* unit test into ML:
-```
-(check-expect (foldl + 0 '(1 2 3)) 7)
-```
+   ```
+   (check-expect (foldl + 0 '(1 2 3)) 7)
+   ```
    Your translation:
 
    →
@@ -441,13 +442,13 @@ complete the assignment. Keep your answers brief and simple.
      →
 
    * c. Free variables of
-```
+  ```
 (lambda (s1 s2)
   (if (or (atom? s1) (atom? s2))
     (= s1 s2)
     (and (equal? (car s1) (car s2))
          (equal? (cdr s1) (cdr s2)))))
-```
+  ```
      →
 
 
@@ -478,12 +479,14 @@ about Expressions (Sections I, II, and III), Data (I, II, and II), Inexhaustive
 pattern matches, Types (I), Definitions (III, IV), and Expressions (VIII).
 
 <hr>
+
 **A.** Define a function `mynull : 'a list -> bool`, which when applied to a 
 list tells whether the list is empty. Avoid using `if`, and make sure the 
 function takes constant time. Do not use any functions from the Standard Basis. 
 Make sure your function has the same type as the `null` in the Standard Basis.
 
 <hr>
+
 **B.** Define a function `firstVowel : char list -> bool` that takes a list of 
 lower-case letters and returns `true` if the first character is a vowel (aeiou) 
 and `false` if the first character is not a vowel or if the list is empty. Use 
@@ -497,6 +500,7 @@ will need to understand lists and pattern matching on lists (see Data III). You
 may also wish to read the section on Curried Functions.
 
 <hr>
+
 **C.** Functions `foldl` and `foldr` are predefined with type
 ```
 ('a * 'b -> 'b) -> 'b -> 'a list -> 'b
@@ -525,6 +529,7 @@ They are like the μScheme versions except the ML versions are Curried.
 Do not use recursion in either part of this problem.
 
 <hr>
+
 **D.** Define a function `zip: 'a list * 'b list -> ('a * 'b) list` that takes a 
 pair of lists (of equal length) and returns the equivalent list of pairs. If the 
 lengths don't match, raise the exception `Mismatch`, which you must define. Do 
@@ -535,6 +540,7 @@ clausal definition or write code containing at most one case expression. Do not
 use `if`.
 
 <hr>
+
 **E.** Define a function
 ```
 val pairfoldrEq : ('a * 'b * 'c -> 'c) -> 'c -> 'a list * 'b list -> 'c
@@ -548,6 +554,7 @@ Define a function `ziptoo : 'a list * 'b list -> ('a * 'b) list` that does
 exactly the same things as `zip` but uses `pairfoldrEq` for its implementation.
 
 <hr>
+
 **F.** Define a function
 ```
 val concat : 'a list list -> 'a list
@@ -575,7 +582,7 @@ Related Reading for problem N: In [Learning Standard  ML](https://www.cs.tufts.e
 read the section on datatypes—Data IV. Make sure you understand how to pattern 
 match on constructed values.
 
-**N.** Search trees.
+**N.** Search trees. (**NOT part of HW6.  Preview for HW7**)
 
 ML can easily represent binary trees containing arbitrary values in the nodes:
 ```
@@ -636,7 +643,7 @@ val setFold : ('a * 'b -> 'b) -> 'b -> 'a set -> 'b
 The function `setFold` should visit every element of the set exactly once, in an 
 unspecified order.
 
-# Avoid other common mistakes
+# Avoid other common mistakes (**back to HW6**)
 <a name="mistakes"/>
 
 It's a common mistake to use any of the functions `length`, `hd`, and `tl`. 
