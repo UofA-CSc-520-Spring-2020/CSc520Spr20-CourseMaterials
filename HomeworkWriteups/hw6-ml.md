@@ -9,9 +9,9 @@ FIXME: fix the outline
 
 * [What we expect from your submission](#expect)
 
-* [Reading Comprehension (50 percent)](#read)
+* [Reading Comprehension (30 percent)](#read)
 
-* [Programming in ML Warmup (50 percent)](#prog)
+* [Programming in ML Warmup (70 percent)](#prog)
 
 * [What and how to submit](#submit)
 
@@ -116,6 +116,9 @@ at the mosml interactive prompt.
 
 
 ## Unit testing
+<a name="unit"/>
+
+
 Regrettably, standard ML does not have check-expect and friends built in. Unit 
 tests can be simulated by using higher-order functions, but it's a pain.
 Here are some examples of tests written with our Unit module:
@@ -219,136 +222,236 @@ manifests in one of two ways:
    another case that handles all lists. The empty-list case is often redundant.
 
    Example:
-   ```
-   fun append ([], ys) = ys
-     | append (xs, ys) = foldr op :: ys xs
-   ```
-In this code, the first case is subsumed by the second. It can be eliminated without changing the meaning of the code, and eliminating it typically improves performance.
+    ```
+    fun append ([], ys) = ys
+      | append (xs, ys) = foldr op :: ys xs
+    ```
+   In this code, the first case is subsumed by the second. It can be eliminated 
+   without changing the meaning of the code, and eliminating it typically 
+   improves performance.
 
-A case analysis is performed where no case analysis is needed.
-
+2. A case analysis is performed where no case analysis is needed.
+```
 fun sum []        = 0
   | sum (n :: ns) = foldl op + n ns
+```
 These two cases should be replaced by a single case:
-
+```
 fun sum ns = foldl op + 0 ns
-We expect you to examine your code carefully and to remove all redundant case analyses.
+```
+We expect you to examine your code carefully and to remove all redundant case 
+analyses.
 
-We don’t expect written algebraic laws
-We expect you to continue using a systematic design process, but because ML code is so close to algebraic laws, we don’t expect you to write algebraic laws separately. If you come to office hours, however, we do expect you to be able to talk about algebraic laws and to write them on the board.
+## We don't expect written algebraic laws
 
-We expect an acceptable style
-Nobody can learn good style in a week. But you can learn to imitate somebody else’s style, and we expect you to be judicious about what style you imitate. You have access to books by Ullman, Ramsey, and Harper, and to a technical report by Tofte. These sources are not equally good:
+We expect you to continue using a systematic design process, but because 
+ML code is so close to algebraic laws, we don't expect you to write 
+algebraic laws separately. If you come to office hours, however, we do 
+expect you to be able to talk about algebraic laws and to write them 
+down.
 
-Ullman provides the most gentle introduction to ML, and he provides the most information about ML. His book is especially good for programmers whose primary experience is in C-like languages. But, to put it politely, Ullman’s code is not idiomatic. Much of what you see from Ullman should not be imitated.
+## We expect an acceptable style
 
-Ramsey’s code, starting in Chapter 5, is a better guide to what ML should look like. Harper’s code is also very good, and Tofte’s code is reasonable.
+Nobody can learn good style in a week. But you can learn to imitate somebody 
+else's style, and we expect you to be judicious about what style you imitate. You have access to books Ramsey and Harper, and to a technical report by Tofte. 
+These sources are not equally good:
 
-On this assignment, we expect you to devote a little effort to good style. Focus on getting your code working first. Then submit it. Then pick up our “Style Guide for Standard ML Programmers”, which contains many examples of good and bad style. Edit your code lightly to conform to the style guide, and submit it again.
+  Ramsey’s code, starting in Chapter 5, is a better guide to what ML should look 
+  like. Harper’s code is also very good, and Tofte’s code is reasonable.
 
-In the long run, we expect you to master and follow the guidelines in the style guide.
+On this assignment, we expect you to devote a little effort to good style. Focus 
+on getting your code working first. Then submit it. Then pick up our [Style 
+Guide for Standard ML Programmers](https://www.cs.tufts.edu/comp/105-2019s/handouts/mlstyle.pdf), 
+which contains many examples of good and bad style. Edit your code lightly to 
+conform to the style guide, and submit it again.
 
-We expect you to remove redundant parentheses
-As a novice, you’ll be uncertain about where to put parentheses—and you may wind up putting them everywhere. We are fine with parentheses used to disambiguate infix operators, but other redundant parentheses are not OK. To help you find and remove redundant parentheses, we provide a tool called sml-lint. We expect you to run
+In the long run, we expect you to master and follow the guidelines in the 
+[style guide](https://www.cs.tufts.edu/comp/105-2019s/handouts/mlstyle.pdf).
 
-sml-lint warmup.sml
-sml-lint mlscheme.sml
-and to remove the parentheses that are named there. (The sml-lint program is also run as part of the submission process.)
+## We expect you to remove redundant parentheses
+As a novice, you’ll be uncertain about where to put parentheses—and you may wind up putting them everywhere. We are fine with parentheses used to disambiguate infix operators, but other redundant parentheses are not OK.
 
-We expect you to avoid forbidden functions and constructs
-While not everybody can learn good style quickly, everybody can learn to avoid the worst faults. In ML, you must avoid these functions and idioms:
+## We expect you to avoid forbidden functions and constructs
 
-Unlike μScheme, Standard ML provides a length function in the initial basis. It is banned. The entire assignment must be solved without using length.
+While not everybody can learn good style quickly, everybody can learn to 
+avoid the worst faults. In ML, you must avoid these functions and idioms:
 
-Solutions that use length will earn No Credit.
+* Unlike μScheme, Standard ML provides a `length` function in the initial basis. 
+  It is banned. The entire assignment must be solved without using length.
 
-Use function definition by pattern matching. Do not use the functions null, mynull, hd, and tl; use patterns instead.
+  **Solutions that use `length` will earn No Credit.**
 
-Solutions that use hd or tl will earn No Credit.
+* Use function definition by pattern matching. Do not use the functions `null`, 
+  `mynull`, `hd`, and `tl`; use patterns instead.
 
-Except for functions given below, do not define auxiliary functions at top level. Use local or let. You will find it useful to use local to define functions for use in unit tests.
+  **Solutions that use `hd` or `tl` will earn No Credit.**
 
-Solutions that define auxiliary functions at top level will earn No Credit.
+* Except for functions given below, *do not define auxiliary functions at top 
+  level*. Use `local` or `let`. You will find it useful to use `local` to define 
+  functions for use in unit tests.
 
-Do not use open; if needed, use short abbreviations for common structures. For example, if you want frequent access to the ListPair structure, you can write
+  **Solutions that define auxiliary functions at top level will earn 
+    No Credit.**
 
+* Do not use `open`; if needed, use short abbreviations for common structures. 
+  For example, if you want frequent access to the `ListPair` structure, you can 
+  write
+```
 structure LP = ListPair
-and from there on you can refer to, e.g., LP.map.
+```
+  and from there on you can refer to, e.g., `LP.map`.
 
-Solutions that use open may earn No Credit for your entire assignment.
+  **Solutions that use open may earn No Credit for your entire assignment.**
 
-Unless the problem explicitly says it is OK, do not use any imperative features.
+* Unless the problem explicitly says it is OK, do not use any imperative 
+  features.
 
-Unless explicitly exempted, solutions that use imperative features will earn No Credit.
+  Unless explicitly exempted, **solutions that use imperative features will earn 
+  No Credit.**
 
-# Reading Comprehension (50 percent)
+
+# Reading Comprehension (30 percent)
 <a name="read"/>
-
-FIXME: format, from 2017
 
 These problems will help guide you through the reading. We recommend 
 that you complete them before starting the other problems below. 
-There is a cqs.ml.txt in the starter github repository.
+There is a `cqs.ml.txt` in the starter github repository.
 
 These questions are meant to guide you through the readings that will help you 
 complete the assignment. Keep your answers brief and simple.
 
-Read section 5.1 of Harper about tuple types and tuple patterns. Also look at the list examples in sections 9.1 and 9.2 of Harper.
+1. Read section 5.1 of [Harper](http://www.cs.cmu.edu/~rwh/isml/book.pdf) about 
+   tuple types and tuple patterns. Also look at the list examples in Sections 
+   9.1 and 9.2 of Harper.
 
-Now consider the pattern (x::y::zs, w). For each of the following expressions, tell whether the pattern matches the value denoted. If the pattern matches, say what values are bound to the four variables x, y, zs, and w. If it does not match, explain why not.
+   Now consider the pattern `(x::y::zs, w)`. For each of the following 
+   expressions, tell whether the pattern matches the value denoted. If the 
+   pattern matches, say what values are bound to the four variables `x`, `y`, 
+   `zs`, and `w`. If it does not match, explain why not.
 
-([1, 2, 3], ("COMP", 105))
-(("COMP", 105), [1, 2, 3])
-([("COMP", 105)], (1, 2, 3))
-(["COMP", "105"], true)
-([true, false], 2.718281828)
-Answers here:
+   * a. `([1, 2, 3], ("COMP", 105))`
+   * b. `(("COMP", 105), [1, 2, 3])`
+   * c. `([("COMP", 105)], (1, 2, 3))`
+   * d. `(["COMP", "105"], true)`
+   * e. `([true, false], 2.718281828)`
 
-You are now starting to be ready to use pattern matching.
-
-Look at the clausal function definition of outranks on page 83 of Harper. Using the clausal definition enables us to avoid nested case expressions such as we might find in Standard ML or μML, and it enables us to avoid nested if expressions such as we might find in μScheme. This particular example also collapses multiple cases by using the “wildcard pattern” _.
-
-A wildcard by itself can match anything, but a wildcard in a clausal definition can match only things that are not matched by preceding clauses. Answer these questions about the wildcards in outranks:
-
-In the second clause, what three suits can the _ match?
-
-→
-
-In the fifth clause, what suits can the _ match?
-
-→
-
-In the eighth and final clause, what suits can the _ match?
-
-→
-
-You are now ready to match patterns that combine tuples with algebraic data types.
-
-In Ramsey’s chapter 5, the eval code for applying a function appears in code chunk 365c. In evaluating APPLY (f, args), if expression f does not evaluate to either a primitive function or a closure, the code raises the RuntimeError exception.
-
-Show a piece of μScheme code that would, when evaluated, cause chunk 365c to raise the RuntimeError exception.
-
-→
-
-When exception RuntimeError is raised, what happens from the user’s point of view?
-
-You are now ready for problems G, L, and M.
-
-“Free” variables are those that are not bound to a value in the current scope. You can find a longer discussion and precise definition in section 5.11 of Ramsey’s book, which starts on page 375. Read the section and identify the free variables of the following expressions:
-
-Free variables of (lambda (x) (lambda (y) (equal? x y)))
-
-→
-
-Free variables of (lambda (y) (equal? x y))
-
-→
-
-You are now ready to improve the μScheme interpreter in problem 2.
+   Answers here:
+   * a.
+   * b.
+   * c. 
+   * d.
+   * e.
 
 
+   You are now starting to be ready to use pattern matching.
 
-# Programming Problems (90 percent)
+2. Look at the clausal function definition of outranks on page 83 of Harper. 
+   Using the clausal definition enables us to avoid nested case expressions such 
+   as we might find in Standard ML or μML, and it enables us to avoid nested if 
+   expressions such as we might find in μScheme. This particular example also 
+   collapses multiple cases by using the "wildcard pattern" `_`.
+
+   A wildcard by itself can match anything, but a wildcard in a clausal 
+   definition can match only things that are not matched by preceding clauses. 
+   Answer these questions about the wildcards in `outranks`:
+
+   * In the second clause, what three suits can the `_` match?
+
+     →
+
+   * In the fifth clause, what suits can the `_` match?
+
+     →
+
+   * In the eighth and final clause, what suits can the `_` match?
+
+     →
+
+     You are now ready to match patterns that combine tuples with algebraic 
+     data types.
+
+
+3. Read the descriptions of patterns and example values (steps 3 and 2) in 
+   the fourth[Lesson in Program Design](https://www.cs.tufts.edu/comp/105-2019s/design/lessons.pdf). Look at 
+   Table 4.1, including the *Types of parts* column. Using the ideas you find 
+   there, prepare to answer questions about this expression:
+    ```
+    case f (x, y, z) 
+      of []      => raise Empty
+       | w :: ws => if p w then SOME w else NONE
+    ```
+   You are told that the subexpression `f (x, y, z)` has type `'a list`. Using 
+   that information, give the type of each of these code fragments, which are 
+   built from parts of patterns:
+
+   * a. The type of the pattern `w :: ws`
+
+     →
+
+   * b. The type of the variable `ws`
+
+     →
+
+   * The type of the expression `SOME w`
+
+     →
+
+   You are ready to use pattern matching on common ML types.
+
+4. Read the section on unit testing in the [guide to learning ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.pdf).
+   Read about infix function names in step 3 of the "design steps" section of 
+   the handout [Program Design with ML Types and Pattern Matching](https://www.cs.tufts.edu/comp/105-2019s/handouts/mlproofs.pdf). 
+   And read the section on [unit testing](#unit) in this homework.
+
+   Now, using the interpreter to be sure your answer is well typed, translate 
+   the following *failing* unit test into ML:
+```
+(check-expect (foldl + 0 '(1 2 3)) 7)
+```
+   Your translation:
+
+   →
+
+   You are ready to write unit tests.
+
+5. In Chapter 5.3 of *Programming Languages: Build, Prove, and Compare* by 
+   Ramsey, the eval code for applying a function appears in code chunk 350a. In 
+   evaluating `APPLY (f, args)`, if expression `f` does not evaluate to either a 
+   primitive function or a closure, the code raises the RuntimeError exception.
+
+   Show a piece of μScheme code that would, when evaluated, would cause 
+   chunk 350d to raise the `RuntimeError` exception. **We are asking for 
+   μScheme code that the interpreter runs, not for ML code.**
+
+    →
+
+
+6. "Free" variables are those that are not bound to a value in the current 
+   scope. You can find a longer discussion and precise definition in section 
+   5.5 of Build, Prove, and Compare. Read the section and identify the free 
+   variables of the expressions below. Remember that a name occurring in 
+   function position can be a free variable.
+
+   * a. Free variables of `(lambda (x) (lambda (y) (equal? x y)))`
+
+     →
+
+   * b. Free variables of `(lambda (y) (equal? x y))`
+
+     →
+
+   * c. Free variables of
+```
+(lambda (s1 s2)
+  (if (or (atom? s1) (atom? s2))
+    (= s1 s2)
+    (and (equal? (car s1) (car s2))
+         (equal? (cdr s1) (cdr s2)))))
+```
+     →
+
+
+# Programming Problems (70 percent)
 <a name="prog"/>
 
 ## How to organize your code
