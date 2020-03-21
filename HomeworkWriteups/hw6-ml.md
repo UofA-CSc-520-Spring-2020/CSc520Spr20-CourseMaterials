@@ -454,128 +454,146 @@ complete the assignment. Keep your answers brief and simple.
 # Programming Problems (70 percent)
 <a name="prog"/>
 
-## How to organize your code
-
 All of your solutions will go into a single file: `warmup.sml`.
 
 At the start of each problem, please label it with a short comment, like
 ```
 (***** Problem A *****)
 ```
-To receive credit, your warmup.sml file must compile and execute in the Moscow ML system. For example, we must be able to compile your code without warnings or errors. The following three commands should test all of your code:
+To receive credit, your warmup.sml file must compile and execute in the Moscow 
+ML system. For example, we must be able to compile your code without warnings or 
+errors. The following command should test all of your code:
 ```
-% /usr/sup/bin/mosmlc -c warmup.sml
+% mosmlc -I . -c warmup.sml
 ```
-FIXME: fix the above command.
 
 Please remember to **put your name and the time you spent in the 
 `warmup.sml` file**.
 
 
-## The problems
+## Defining functions using clauses and patterns
 
-FIXME: format from 2017, check if I have access to 2019 answers
+Related Reading for Problems A and B: In [Learning Standard  ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing) read 
+about Expressions (Sections I, II, and III), Data (I, II, and II), Inexhaustive 
+pattern matches, Types (I), Definitions (III, IV), and Expressions (VIII).
 
-Working on your own, please solve the following problems:
+<hr>
+**A.** Define a function `mynull : 'a list -> bool`, which when applied to a 
+list tells whether the list is empty. Avoid using `if`, and make sure the 
+function takes constant time. Do not use any functions from the Standard Basis. 
+Make sure your function has the same type as the `null` in the Standard Basis.
 
-Defining functions using clauses and patterns
-Related Reading for problems A to D: In Learning Standard ML read about Expressions (sections I, II, and III), Data (I, II, and II), Inexhaustive pattern matches, Types (I), Definitions (III, IV), and Expressions (VIII).
+<hr>
+**B.** Define a function `firstVowel : char list -> bool` that takes a list of 
+lower-case letters and returns `true` if the first character is a vowel (aeiou) 
+and `false` if the first character is not a vowel or if the list is empty. Use 
+the wildcard symbol `_` whenever possible, and avoid using `if`.
 
-A. Write the function null, which when applied to a list tells whether the list is empty. Avoid if, and make sure the function takes constant time. Make sure your function has the same type as the null in the Standard Basis.
+## Lists
 
-–>
+Related Reading for problems C to F: In [Learning Standard  ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing), in 
+addition to the section noted above, read about Types (III), and Exceptions. You 
+will need to understand lists and pattern matching on lists (see Data III). You 
+may also wish to read the section on Curried Functions.
 
-C. Write a function firstVowel that takes a list of lower-case letters and returns true if the first character is a vowel (aeiou) and false if the first character is not a vowel or if the list is empty. Use the wildcard symbol _ whenever possible, and avoid if.
-Lists
-Related Reading for problems E to J: In Learning Standard ML, apart from
-the section noted above, read about Types (III), and Exceptions. For this section, you will need to understand lists and pattern matching on lists well (see Data III). You may also wish to read the section on Curried Functions.
-
-E. Functions foldl and foldr are predefined with type
-
+<hr>
+**C.** Functions `foldl` and `foldr` are predefined with type
+```
 ('a * 'b -> 'b) -> 'b -> 'a list -> 'b
+```
 They are like the μScheme versions except the ML versions are Curried.
 
-Implement rev (the function known in μScheme as reverse) using foldl or foldr.
+1. Define `reverse : 'a list -> 'a list` using `foldl` or `foldr`.
+   (In ML, the reverse function is in the initial basis as rev.)
 
-Implement minlist, which returns the smallest element of a non-empty list of integers. Use foldl or foldr.
+   When you are testing `reverse`, you may get a warning message about "value 
+   polymorphism." This message is explained in [Learning Standard  ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing) 
+   (Type pitfall II).
 
-If given an empty list of integers, your solution can fail (e.g., by raise Match).
+2. Implement `minlist : int list -> int`, which returns the smallest element of 
+   a *nonempty* list of integers. Use `foldl` or `foldr`.
+
+   If given an empty list of integers, your solution must fail (e.g., by `raise 
+   Match`).
+
+   Your solution should work regardless of the representation of integers: it 
+   should not matter how many bits are used to represent a value of type `int`. 
+
+   You may find a use for function `Int.min`, which is part of the initial basis 
+   of Standard ML.
 
 Do not use recursion in either part of this problem.
 
-F. Implement foldr using recursion. Do not create unnecessary cons cells. Do not use if.
+<hr>
+**D.** Define a function `zip: 'a list * 'b list -> ('a * 'b) list` that takes a 
+pair of lists (of equal length) and returns the equivalent list of pairs. If the 
+lengths don't match, raise the exception `Mismatch`, which you must define. Do 
+not use any functions from the Standard Basis Library.
 
-G. Write a function zip: 'a list * 'b list -> ('a * 'b) list that takes a pair of lists (of equal length) and returns the equivalent list of pairs. If the lengths don’t match, raise the exception Mismatch, which you will have to define.
+You are welcome to translate a solution from μScheme, but you must either use a 
+clausal definition or write code containing at most one case expression. Do not 
+use `if`.
 
-You are welcome to translate a solution from μScheme, but you must either use a clausal definition or write code containing at most one case expression. Do not use if.
-H. Define a function
+<hr>
+**E.** Define a function
+```
+val pairfoldrEq : ('a * 'b * 'c -> 'c) -> 'c -> 'a list * 'b list -> 'c
+```
+that applies a three-argument function to a pair of lists of equal length, using 
+the same order as `foldr`. Do not use any functions from the Standard Basis 
+Library. If `pairfoldrEq`s contract is violated (by calling it on lists of 
+unequal lengths), it must raise an exception.
 
-val pairfoldr : ('a * 'b * 'c -> 'c) -> 'c -> 'a list * 'b list -> 'c
-that applies a three-argument function to a pair of lists of equal length, using the same order as foldr.
+Define a function `ziptoo : 'a list * 'b list -> ('a * 'b) list` that does 
+exactly the same things as `zip` but uses `pairfoldrEq` for its implementation.
 
-Write a version of zip which uses pairfoldr for its implementation. Call this function zip2.
-I. Define a function
+<hr>
+**F.** Define a function
+```
+val concat : 'a list list -> 'a list
+```
+that takes a list of lists of `'a` and produces a single list of `'a` containing 
+all the elements in the correct order. For example,
+```
+- concat [[1], [2, 3, 4], [], [5, 6]];
+> val it = [1, 2, 3, 4, 5, 6] : int list
+```
+Do not use `i`f. You may use functions from the Standard Basis Library, except 
+for `List.concat`—code that uses `List.concat` will earn No Credit.
 
-val unzip : ('a * 'b) list -> 'a list * 'b list
-that turns a list of pairs into a pair of lists. Do not use if.
-
-This one is tricky; here’s a sample result:
-
-- unzip [(1, true), (3, false)];
-> val it = ([1, 3], [true, false]) : int list * bool list
-You are welcome to translate any of the solutions from μScheme, but you may not use if.
-
-Higher-order programming
-Related Reading for problem K: The reading for the Lists problems should guide you in this section as well.
-
-K. Function compound is something like a fold, but it operates on a restricted class of functions: the first argument to compound is a function of type 'a * 'a -> 'a, which means it takes two arguments of the same type and returns a result also of that type. Examples of such functions include functions like op + and op *, but not op :: (cons). Every function that can be used with compound can be used with foldr, but not vice versa.
-
-Function compound has this type:
-
-val compound : ('a * 'a -> 'a) -> int -> 'a -> 'a
-and compound f n x is
-
-x if n=0,
-f (x, x) if n = 1
-f (x, f(x, x)) if n = 2
-in general, f(x, f(x, f(x, ..., f(x, x)))), where f is applied exactly n times.
-Function compound f need not behave well when applied to a negative integer.
-
-Write algebraic laws for compound. Use as few base cases as possible.
-
-Implement compound.
-
-Use your compound function to define a Curried function for integer exponentiation
-
-val exp : int -> int -> int
-so that, for example, exp 3 2 evaluates to 9.
-
-If you want to test compound with any of the predefined infix operators, you will need to convert the infix name to “nonfix” in an expression like
-
-compound (op +) 10 1
-Don’t get confused by infix vs nonfix operators. Remember this:
-
-Fixity is a property of an identifier, not of a value.
-If <$> is an infix identifier, then x <$> y is syntactic sugar for <$> applied to a pair containing x and y, which can also be written as op <$> (x, y).
+To get full credit for this problem, your function should use no unnecessary 
+cons cells. Keep in mind the cost of appending two lists.
 
 
 ### Algebraic data types
-FIXME, format
 
-Related Reading for problem N: In Learning Standard ML, read the section on datatypes—Data IV. Make sure you understand how to pattern match on constructed values.
+** PREVIEW: This problem will be on HW7.  Here it is just listed as a 
+preview for the coding that will be on HW7.  You do NOT have to submit
+the solution to this problem for HW6.**
 
-N. Search trees.
+Related Reading for problem N: In [Learning Standard  ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing),
+read the section on datatypes—Data IV. Make sure you understand how to pattern 
+match on constructed values.
+
+**N.** Search trees.
+
 ML can easily represent binary trees containing arbitrary values in the nodes:
-
+```
 datatype 'a tree = NODE of 'a tree * 'a * 'a tree 
                  | LEAF
-To make a search tree, we need to compare values at nodes. The standard idiom for comparison is to define a function that returns a value of type order. As discussed in Ullman, page 325, order is predefined by
-
+```
+To make a search tree, we need to compare values at nodes. The standard idiom 
+for comparison is to define a function that returns a value of type order. 
+`order` is predefined by
+```
 datatype order = LESS | EQUAL | GREATER     (* do not include me in your code *)
-Because order is predefined, if you include it in your program, you will hide the predefined version (which is in the initial basis) and other things may break mysteriously. So don’t include it.
+```
+Because order is predefined, if you include it in your program, you will hide 
+the predefined version (which is in the initial basis) and other things may 
+break mysteriously. So don't include it.
 
 We can use the order type to define a higher-order insertion function by, e.g.,
-
+```
 fun insert cmp =
     let fun ins (x, LEAF) = NODE (LEAF, x, LEAF)
           | ins (x, NODE (left, y, right)) = 
@@ -585,47 +603,71 @@ fun insert cmp =
                  | EQUAL   => NODE (left, x, right))
     in  ins
     end
-This higher-order insertion function accepts a comparison function as argument, then returns an insertion function. (The parentheses around case aren’t actually necessary here, but I’ve included them because if you leave them out when they are needed, you will be very confused by the resulting error messages.)
+```
+This higher-order insertion function accepts a comparison function as argument, 
+then returns an insertion function. (The parentheses around `case` aren't 
+actually necessary here, but I've included them because if you leave them out 
+when they are needed, you will be very confused by the resulting error 
+messages.)
 
-We can use this idea to implement polymorphic sets in which we store the comparison function in the set itself. For example,
+We can use this idea to implement polymorphic sets in which we store the 
+comparison function in the set itself. For example,
+```
+ datatype 'a set = SET of ('a * 'a -> order) * 'a tree
+ fun nullset cmp = SET (cmp, LEAF)
+```
 
-datatype 'a set = SET of ('a * 'a -> order) * 'a tree
-fun nullset cmp = SET (cmp, LEAF)
-Write a function
-
+* Write a function
+```
 val addelt : 'a * 'a set -> 'a set
-that adds an element to a set.
+```
+  that adds an element to a set.
 
-Write a function
-
+* Write a function
+```
 val treeFoldr : ('a * 'b -> 'b) -> 'b -> 'a tree -> 'b
-that folds a function over every element of a tree, rightmost element first. Calling treeFoldr (op ::) [] t should return the elements of t in order. Write a similar function
-
+```
+that folds a function over every element of a tree, rightmost element first. 
+Calling `treeFoldr (op ::) [] t` should return the elements of `t` in order. 
+Write a similar function
+```
 val setFold : ('a * 'b -> 'b) -> 'b -> 'a set -> 'b
-The function setFold should visit every element of the set exactly once, in an unspecified order.
+```
+The function `setFold` should visit every element of the set exactly once, in an 
+unspecified order.
 
 # Avoid other common mistakes
 <a name="mistakes"/>
 
-FIXME: format and consider putting dire warnings back in.
-
-It’s a common mistake to use any of the functions length, hd, and tl. Instant No Credit.
-
-If you redefine a type that is already in the initial basis, code will fail in baffling ways. (If you find yourself baffled, exit the interpreter and restart it.) If you redefine a function at the top-level loop, this is fine, unless that function captures one of your own functions in its closure.
+It's a common mistake to use any of the functions `length`, `hd`, and `tl`. 
+Instant No Credit.
+<hr>
+If you redefine a type that is already in the initial basis, code will fail in 
+baffling ways. (If you find yourself baffled, exit the interpreter and restart 
+it.) If you redefine a function at the top-level loop, this is fine, unless that 
+function captures one of your own functions in its closure.
 
 Example:
-
+```
 fun f x = ... stuff that is broken ...
 fun g (y, z) = ... stuff that uses 'f' ...
 fun f x = ... new, correct version of 'f' ...
-You now have a situation where g is broken, and the resulting error is very hard to detect. Stay out of this situation; instead, load fresh definitions from a file using the use function.
-
-Never put a semicolon after a definition. I don’t care if Jeff Ullman does it, but don’t you do it—it’s wrong! You should have a semicolon only if you are deliberately using imperative features.
-
-It’s a common mistake to become very confused by not knowing where you need to use op. Ullman covers op in Section 5.4.4, page 165.
-
-It’s a common mistake to include redundant parentheses in your code. To avoid this mistake, use the checklist in the section Expressions VIII (Parentheses) in Learning Standard ML.
-
+```
+You now have a situation where **g is broken, and the resulting error is very 
+hard to detect**. Stay out of this situation; instead, **load fresh definitions 
+from a file** using the `use` function.
+<hr>
+Never put a semicolon after a definition. You should have a semicolon only if 
+you are deliberately using imperative features.
+<hr>
+It's a common mistake to include redundant parentheses in your code. To avoid 
+this mistake, use the checklist in the Section Expressions VIII (Parentheses) in 
+[Learning Standard  ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing).
+<hr>
+It's not a common mistake, but it can be devastating: when you're writing a type 
+variable, be sure to use an ASCII quote mark, as in 'a, not with a Unicode right 
+quote mark, as in ’a. Some text editors, web browsers, or Bluetooth keyboards 
+may use or display Unicode without being asked. Thanks, Apple!
 
 
 # What and how to submit
@@ -633,15 +675,13 @@ It’s a common mistake to include redundant parentheses in your code. To avoid 
 
 There is no README file for this assignment.
 
-
-
 Please submit two files:
 
  * A text file `cqs.ml.txt` containing your answers to the 
    reading-comprehension questions (you can start with the provided file)
 
 
- * A file `warmup.ml` containing the solutions to Exercises A-K and N.
+ * A file `warmup.ml` containing the solutions to Exercises A-F.
    You must precede each solution by a comment that looks something like this:
 ```
 (***** Problem A *****)
@@ -653,4 +693,6 @@ the last submission.
 
 # How your work will be evaluated
 
-The criteria are mostly the same as for the scheme and hofs assignments, but because the language is different, we’ll be looking for indentation and layout as described in the [Style Guide for Standard ML Programmers](https://www.cs.tufts.edu/comp/105-2019s/handouts/mlstyle.pdf).
+The criteria are mostly the same as for the scheme and hofs assignments, but 
+because the language is different, we’ll be looking for indentation and layout 
+as described in the [Style Guide for Standard ML Programmers](https://www.cs.tufts.edu/comp/105-2019s/handouts/mlstyle.pdf).
