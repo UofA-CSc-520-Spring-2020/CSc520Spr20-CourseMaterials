@@ -2,7 +2,6 @@
 
 CSc 520 Spring 2020 Assignment
 
-FIXME: fix the outline
 * [Overview](#overview)
 
 * [Getting Started](#start)
@@ -196,8 +195,7 @@ type definitions given in the assignment.
 ## We expect wise, well-formatted unit tests
 
 By this time, we expect that you understand the value of unit tests. Grading 
-will focus on your code; except where specifically requested below 
-FIXME?(natural-number arithmetic, free-variable analysis), your unit tests won't 
+will focus on your code; your unit tests won't 
 be graded. But we still expect the following:
 
 * You will use unit tests wisely. If a function is simple, do take a minute to 
@@ -688,7 +686,7 @@ Please submit two files:
    reading-comprehension questions (you can start with the provided file)
 
 
- * A file `warmup.ml` containing the solutions to Exercises A-F.
+ * A file `warmup.sml` containing the solutions to Exercises A-F.
    You must precede each solution by a comment that looks something like this:
 ```
 (***** Problem A *****)
