@@ -252,7 +252,8 @@ down.
 ## We expect an acceptable style
 
 Nobody can learn good style in a week. But you can learn to imitate somebody 
-else's style, and we expect you to be judicious about what style you imitate. You have access to books Ramsey and Harper, and to a technical report by Tofte. 
+else's style, and we expect you to be judicious about what style you imitate. You have access to books Ramsey 
+and [Harper](http://www.cs.cmu.edu/~rwh/isml/book.pdf), and to a [technical report by Tofte](https://www.cs.tufts.edu/comp/105-2017f/readings/tofte-tips.pdf). 
 These sources are not equally good:
 
   Ramsey’s code, starting in Chapter 5, is a better guide to what ML should look 
