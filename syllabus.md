@@ -1,4 +1,4 @@
-# Syllabus for CSc 520: Principles of Programming Languages
+# Syllabus for CSc 520: Principles of Programming Languages (REVISED March 23, 2020)
 
 Gould-Simpson 701, Mondays and Wednesdays 3:30-4:45pm
 	
@@ -16,7 +16,7 @@ They have compiled a set of experiences that students who successfully took
 the course have shared (https://www.cs.tufts.edu/comp/105-2019s/a-student-tips.pdf) 
 that I recommend you read through.
 
-## Changes in the course due to COVID-19
+## Changes in the course due to COVID-19 (REVISED March 23, 2020)
 
 Due to the COVID-19 situation, the university and the department has asked that all 
 courses go online.  For CSc 520, this notice is being posted on piazza and sent to 
