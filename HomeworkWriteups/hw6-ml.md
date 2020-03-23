@@ -268,8 +268,11 @@ conform to the style guide, and submit it again.
 In the long run, we expect you to master and follow the guidelines in the 
 [style guide](https://www.cs.tufts.edu/comp/105-2019s/handouts/mlstyle.pdf).
 
-## We expect you to remove redundant parentheses
-As a novice, you’ll be uncertain about where to put parentheses—and you may wind up putting them everywhere. We are fine with parentheses used to disambiguate infix operators, but other redundant parentheses are not OK.
+## We expect you to go easy on redundant parentheses
+As a novice, you’ll be uncertain about where to put parentheses—and you may wind up putting them everywhere. 
+We are fine with parentheses used to disambiguate infix operators and to make code clearer, but go easy on
+using too many parentheses.  As this is a matter of taste that will not be strictly enforced in 520,
+do not worry about losing any points over this one.
 
 ## We expect you to avoid forbidden functions and constructs
 
