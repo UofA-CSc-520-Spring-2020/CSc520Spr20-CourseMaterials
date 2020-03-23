@@ -564,7 +564,7 @@ all the elements in the correct order. For example,
 - concat [[1], [2, 3, 4], [], [5, 6]];
 > val it = [1, 2, 3, 4, 5, 6] : int list
 ```
-Do not use `i`f. You may use functions from the Standard Basis Library, except 
+Do not use `if`. You may use functions from the Standard Basis Library, except 
 for `List.concat`—code that uses `List.concat` will earn No Credit.
 
 To get full credit for this problem, your function should use no unnecessary 
