@@ -18,66 +18,92 @@ March 25, 2020
  * Intro to ML
 
 
-Foundation: Data
-Syntax is always the presenting complaint, but data is what’s always important
+## Foundation: Data
 
-Base types: int, real, bool, char, string
-Functions
-Constructed data:
+Syntax is always the presenting complaint, but data is what's always important
 
-Tuples: pairs, triples, etc
-(Records with named fields)
-Lists and other algebraic data types
-“Distinguish one cons cell (or one record) from another”
+* Base types: `int`, `real`, `bool`, `char`, `string`
 
-Algebraic Datatypes
-Enumerated types
+* Functions
+
+* Constructed data:
+   * Tuples: pairs, triples, etc
+   * (Records with named fields)
+   * Lists and other algebraic data types
+
+"Distinguish one cons cell (or one record) from another"
+
+
+## Algebraic Datatypes
+
+### Enumerated types
+
 Datatypes can define an enumerated type and associated values.
-
+```
 datatype suit = heart | diamond | spade | club
-Here suit is the name of a new type.
+```
+Here `suit` is the name of a new type.
 
-The data constructors heart, dimaond, spade, and club are the values of type suit.
+The data constructors `heart`, `dimaond`, `spade`, and `club` are the 
+values of type `suit`.
 
 Data constructors are separated by vertical bars.
 
-Pattern matching
-Datatypes are deconstructed using pattern matching.
+### Pattern matching
 
+Datatypes are **deconstructed** using pattern matching.
+```
 fun toString heart = "heart"
   | toString diamond = "diamond"
   | toString spade = "spade"
   | toString club = "club"
 
 val suitName = toString heart
-But wait, there’s more: Data constructors can take arguments!
+```
+
+### But wait, there's more: Data constructors can take arguments!
+```
 datatype IntTree = Leaf | Node of int * IntTree * IntTree
-IntTree is the name of a new type.
+```
 
-There are two data constructors: Leaf and Node.
+`IntTree` is the name of a new type.
 
-Nodes take a tuple of three arguments: a value at the node, and left and right subtrees.
+There are two data constructors: `Leaf` and `Node`.
 
-The keyword of separates the name of the data constructor and the type of its argument.
+`Node`s take a tuple of three arguments: a value at the node, and 
+left and right subtrees.
 
-When fully applied, data constructors have the type of the defining datatype (ie, IntTree).
+The keyword `of` separates the name of the data constructor and the 
+type of its argument.
 
-Building values with constructors
-We build values of type IntTree using the associated constructors: (Draw on board)
+When fully applied, data constructors have the type of the defining datatype 
+(ie, `IntTree`).
 
+### Building values with constructors
+
+We build values of type IntTree using the associated constructors: 
+(Draw on board)
+```
  val tempty = Leaf
  val t1 = Node (1, tempty, tempty)
  val t2 = Node (2, t1, t1)
  val t3 = Node (3, t2, t2)
-What is the in-order traversal of t3?
+```
 
+What is the *in-order* traversal of t3?
+```
  [1,2,1,3,1,2,1]
-What is the pre-order traversal of t3?
+```
 
+What is the *pre-order* traversal of t3?
+```
  [3,2,1,1,2,1,1]
-Deconstruct values with pattern matching
-(The @ symbol denotes append in ML)
+```
 
+### Deconstruct values with pattern matching
+
+(The `@` symbol denotes append in ML)
+```
 fun inOrder Leaf = []
   | inOrder (Node (v, left, right)) = 
        (inOrder left) @ [v] @ (inOrder right)
@@ -89,37 +115,46 @@ fun preOrder Leaf = []
        v :: (preOrder left) @ (preOrder right)
 
 val pl3 = preOrder t3
-IntTree is monomorphic because it has a single type.
+```
+`IntTree` is **monomorphic** because it has a single type.
 
-Note though that the inOrder and preOrder functions only cared about the structure of the tree, not the payload value at each node.
+Note though that the `inOrder` and `preOrder` functions only cared about 
+the *structure* of the tree, not the payload value at each node.
 
-But wait, there’s still more: Polymorphic datatypes!
-Polymorphic datatypes are written using type variables that can be instantiated with any type.
+### But wait, there's still more: Polymorphic datatypes!
 
+Polymorphic datatypes are written using type variables that can be 
+instantiated with any type.
+```
 datatype 'a tree = Child | Parent of 'a * 'a tree * 'a tree
-tree is a type constructor (written in post-fix notation), which means it produces a type when applied to a type argument.
+```
+`tree` is a **type constructor** (written in post-fix notation), which means 
+it produces a type when applied to a type argument.
 
 Examples:
 
-int tree is a tree of integers
+* `int tree` is a tree of integers
 
-bool tree is a tree of booleans
+* `bool tree` is a tree of booleans
 
-char tree is a tree of characters
+* `char tree` is a tree of characters
 
-int list tree is a tree of a list of integers.
+* `int list tree` is a tree of a list of integers.
 
-'a is a type variable: it can represent any type.
+`'a` is a **type variable**: it can represent any type.
 
-It is introduced on the left-hand of the = sign. References on the right-hand side are types.
+It is introduced on the left-hand of the `=` sign in the `datatype` declaration.
+References on the right-hand side are types.
 
-Child and Parent are data constructors.
+`Child` and `Parent` are data constructors.
 
-Child takes no arguments, and so has type 'a tree
+`Child` takes no arguments, and so has type `'a tree`
 
-When given a value of type 'a and two 'a trees, Parent produces a 'a tree
+When given a value of type `'a` and two `'a tree`s, `Parent` produces a
+`'a tree`.
 
-Constructors build tree values
+### Data Constructors build `tree` values
+```
 val empty = Child
 val tint1 = Parent (1, empty, empty)
 val tint2 = Parent (2, tint1, tint1)
@@ -128,7 +163,10 @@ val tint3 = Parent (3, tint2, tint2)
 val tstr1 = Parent ("a", empty, empty)
 val tstr2 = Parent ("b", tstr1, tstr1)
 val tstr3 = Parent ("c", tstr2, tstr2)
-Pattern matching deconstructs tree values
+```
+
+### Pattern matching deconstructs tree values
+```
 fun inOrder Child = []
   | inOrder (Parent (v, left, right)) = 
        (inOrder left) @ [v] @ (inOrder right)
@@ -136,70 +174,97 @@ fun inOrder Child = []
 fun preOrder Child = []
   | preOrder (Parent (v, left, right)) = 
        v :: (preOrder left) @ (preOrder right)
-Functions inOrder and preOrder are polymorphic: they work on any value of type 'a tree. 'a is a type variable and can be replaced with any type.
+```
+Functions `inOrder` and `preOrder` are **polymorphic**: they work on any value 
+of type `'a tree`. `'a` is a type variable and can be replaced with any type.
 
-Things to notice about datatypes
-Environments
+## Things to notice about datatypes
+
+### Environments
+
 Datatype declarations introduce names into:
 
-the type environment: suit, IntTree, tree
+1. the type environment: `suit`, `IntTree`, `tree`
 
-the value environment: heart, Leaf, Parent
+2. the value environment: `heart`, `Leaf`, `Parent`
 
-Inductive
+### Inductive
+
 Datatype declarations are inherently inductive:
 
-the type IntTree appears in its own definition
+* the type `IntTree` appears in its own definition
 
-the type tree appears in its own definition
+* the type `tree` appears in its own definition
 
-Datatype Exercise
-Slide 2 
+### Datatype Exercise
 
-Exercise answers
+<hr>
+<img src="11-ml-algebraic-datatypes/atomlist.png" alt="atomlist" />
+<hr>
 
+FIXME: confusing exercise
+
+### Exercise answers
+```
 datatype sx1 = ATOM1 of atom
              | LIST1 of sx1 list
 
 datatype sx2 = ATOM2 of atom
              | PAIR2 of sx2 * sx2
-Case expressions: How we use datatypes
+```
+
+### Case expressions: How we use datatypes
+
 Eliminate values of algebraic types
 
 New language construct case (an expression)
-
+```
 fun length xs =
   case xs
     of []      => 0
      | (x::xs) => 1 + length xs
-At top level, fun better than case
+```
+
+At top level, `fun` better than `case`
 
 When possible, write
-
+```
 fun length []      = 0
   | length (x::xs) = 1 + length xs
-case works for any datatype
+```
 
+
+`case` works for any datatype
+
+```
  fun toStr t = 
      case t 
        of Leaf => "Leaf"
         | Node(v,left,right) => "Node"
-But often pattern matching is better style:
+```
 
+But often pattern matching is better style:
+```
  fun toStr' Leaf = "Leaf"
    | toStr' (Node (v,left,right)) = "Node"
-Bonus: Talking type theory: Introduction and elimination constructs
+```
+
+### Bonus: Talking type theory: Introduction and elimination constructs
+
 Part of learning any new field: talk to people in their native vocabulary
 
-Introduce means “produce”, “create”, “make”, “define”
+* **Introduce** means "produce", "create", "make", "define"
 
-Eliminate means “consume”, “examine”, “observe”, “use”
+* **Eliminate** means "consume", "examine", "observe", "use"
 
-It’s like knowing what to say when somebody sneezes.
 
-Slide 7 
+<hr>
+<img src="11-ml-algebraic-datatypes/ml-terminology.png" alt="ml-terminology" />
+<hr>
 
-Tuple Pattern Matching
+## Tuple Pattern Matching
+
+```
 val (x,y) = (1,2)
 
 val (left, pivot, right) = split xs
@@ -209,23 +274,35 @@ val (n,xs) = (3, [1,2,3])
 val (x::xs) = [1,2,3]
 
 val (_::xs) = [1,2,3]
-Exceptions: Handling unusual circumstances
-Syntax:
-Declaration: exception EmptyQueue
-Introduction: raise e where e : exn
-Elimination: e1 handle pat => e2
-Informal Semantics:
-alternative to normal termination
-can happen to any expression
-tied to function call
-if evaluation of body raises exn, call raises exn
-Handler uses pattern matching
+```
 
+## Exceptions: Handling unusual circumstances
+
+### Syntax:
+
+* Declaration: `exception EmptyQueue`
+
+* Introduction: `raise e where e : exn`
+
+* Elimination: `e1 handle pat => e2`
+
+### Informal Semantics:
+
+* alternative to normal termination
+
+* can happen to any expression
+
+* tied to function call
+   * if evaluation of body raises exn, call raises exn
+
+* Handler uses pattern matching
+```
 e handle pat1 => e1 | pat2 => e2
+```
 
-Exception handling in action
+### Exception handling in action
 
-
+```
     loop (evaldef (reader (), rho, echo))
     handle EOF            => finish ()
       | Div               => continue "Division by zero"
@@ -235,6 +312,7 @@ Exception handling in action
                                        name)
       | SyntaxError msg   => continue ("error: " ^ msg)
       | NotFound n        => continue (n ^ "not found")
+```
 
 Bonus Content: ML traps and pitfalls
 Slide 9 

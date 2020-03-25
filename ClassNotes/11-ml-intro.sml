@@ -8,3 +8,7 @@ fun map f [] = []
 
 val res1 = map length [[], [1], [1,2], [1,2,3]]
 
+val res12 = foldr (op -) 0 [1,2,3,4]
+
+val res13 = foldl (op -) 0 [1,2,3,4]
+
