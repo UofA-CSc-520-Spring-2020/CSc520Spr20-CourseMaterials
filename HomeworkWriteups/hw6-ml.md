@@ -423,7 +423,7 @@ complete the assignment. Keep your answers brief and simple.
    primitive function or a closure, the code raises the RuntimeError exception.
 
    Show a piece of μScheme code that would, when evaluated, would cause 
-   chunk 350d to raise the `RuntimeError` exception. **We are asking for 
+   chunk 350a to raise the `RuntimeError` exception. **We are asking for 
    μScheme code that the interpreter runs, not for ML code.**
 
     →
