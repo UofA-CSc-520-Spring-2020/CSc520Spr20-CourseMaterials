@@ -199,7 +199,7 @@ Datatype declarations are inherently inductive:
 ### Datatype Exercise
 
 <hr>
-<img src="11-ml-algebraic-datatypes/atomlist.png" alt="atomlist" />
+<img src="12-ml-algebraic-datatypes/atomlist.png" alt="atomlist" />
 <hr>
 
 FIXME: confusing exercise
@@ -259,7 +259,7 @@ Part of learning any new field: talk to people in their native vocabulary
 
 
 <hr>
-<img src="11-ml-algebraic-datatypes/ml-terminology.png" alt="ml-terminology" />
+<img src="12-ml-algebraic-datatypes/ml-terminology.png" alt="ml-terminology" />
 <hr>
 
 ## Tuple Pattern Matching
@@ -338,7 +338,7 @@ fun take n (x::xs) = x :: take (n-1) xs
 ```
 
 <hr>
-<img src="11-ml-algebraic-datatypes/equality-types.png" alt="equality types" />
+<img src="12-ml-algebraic-datatypes/equality-types.png" alt="equality types" />
 <hr>
 
 
@@ -441,21 +441,21 @@ Tuples are "usual and customary."
 FIXME: When defining functions in a let clause?
 
 <hr>
-<img src="11-ml-algebraic-datatypes/equality-types.png" alt="equality types" />
+<img src="12-ml-algebraic-datatypes/equality-types.png" alt="equality types" />
 <hr>
 
 ### Types
 
 <hr>
-<img src="11-ml-algebraic-datatypes/type-syntax.png" alt="type-syntax" />
+<img src="12-ml-algebraic-datatypes/type-syntax.png" alt="type-syntax" />
 <hr>
 <hr>
-<img src="11-ml-algebraic-datatypes/concrete-type-syntax.png" alt="concrete-type-syntax" />
+<img src="12-ml-algebraic-datatypes/concrete-type-syntax.png" alt="concrete-type-syntax" />
 <hr>
 <hr>
-<img src="11-ml-algebraic-datatypes/polymorphic-types.png" alt="polymorphic-types" />
+<img src="12-ml-algebraic-datatypes/polymorphic-types.png" alt="polymorphic-types" />
 <hr>
 <hr>
-<img src="11-ml-algebraic-datatypes/old-friends.png" alt="old friends" />
+<img src="12-ml-algebraic-datatypes/old-friends.png" alt="old friends" />
 <hr>
 
