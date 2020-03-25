@@ -296,13 +296,14 @@ val (_::xs) = [1,2,3]
    * if evaluation of body raises exn, call raises exn
 
 * Handler uses pattern matching
+
 ```
 e handle pat1 => e1 | pat2 => e2
 ```
 
 ### Exception handling in action
 
-```
+
     loop (evaldef (reader (), rho, echo))
     handle EOF            => finish ()
       | Div               => continue "Division by zero"
@@ -312,39 +313,47 @@ e handle pat1 => e1 | pat2 => e2
                                        name)
       | SyntaxError msg   => continue ("error: " ^ msg)
       | NotFound n        => continue (n ^ "not found")
+
+
+## Bonus Content: ML traps and pitfalls
+
+
+### Order of clauses matters
+
 ```
-
-Bonus Content: ML traps and pitfalls
-Slide 9 
-
-Order of clauses matters
-
-
 fun take n (x::xs) = x :: take (n-1) xs
   | take 0 xs      = []
   | take n []      = []
 
 (* what goes wrong? *)
-Gotcha — overloading
+```
 
+### Gotcha — overloading
+
+```
 - fun plus x y = x + y;
 > val plus = fn : int -> int -> int
 - fun plus x y = x + y : real;
 > val plus = fn : real -> real -> real
-Slide 12 
+```
 
-Gotcha — parentheses
+<hr>
+<img src="11-ml-algebraic-datatypes/equality-types.png" alt="equality types" />
+<hr>
 
-Put parentheses around anything with |
 
-case, handle, fn
+### Gotcha — parentheses
+
+Put parentheses around anything with `|`
+
+`case`, `handle`, `fn`
 
 Function application has higher precedence than any infix operator
 
-Bonus content (seen in examples)
-Syntactic sugar for lists
-Syntactic sugar for lists
+### Bonus content (seen in examples)
 
+Syntactic sugar for lists
+```
 - 1 :: 2 :: 3 :: 4 :: nil; (* :: associates to the right *)
 > val it = [1, 2, 3, 4] : int list
 
@@ -353,42 +362,45 @@ Syntactic sugar for lists
 
 > concat it;
 val it = "theMLfollies" : string
-Bonus content: ML from 10,000 feet
-Slide 15 
+```
 
-Environments
-The value environment
+## Bonus content: ML from 10,000 feet
 
-Names bound to immutable values
+### Environments: The value environment
 
-Immutable ref and array values point to mutable locations
+Names **bound to immutable values**
 
-ML has no binding-changing assignment
+Immutable `ref` and `array` values point to mutable locations
 
-Definitions add new bindings (hide old ones):
+ML has **no binding-changing assignment**
 
+**Definitions** add new bindings (hide old ones):
+
+```
 val pattern = exp
 val rec pattern = exp
 fun ident patterns = exp
 datatype … = …
+```
 
-Nesting environments
+### Environments: Nesting environments
 
-At top level, definitions
+At top level, **definitions**
 
 Definitions contain expressions:
-
+```
 def ::= val pattern = exp
-
+```
 Expressions contain definitions:
-
+```
 exp ::= let defs in exp end
-
+```
 Sequence of defs has let-star semantics
 
-Patterns
-What is a pattern?
+### Patterns
 
+What is a pattern?
+```
 pattern ::= variable
           | wildcard
           | value-constructor [pattern]
@@ -396,19 +408,22 @@ pattern ::= variable
           | record-pattern
           | integer-literal
           | list-pattern
-Design bug: no lexical distinction between
+```
+Design bug: **no lexical distinction** between
 
-VALUE CONSTRUCTORS
-variables
+* VALUE CONSTRUCTORS
+* variables
+
 Workaround: programming convention
 
-Functions
+### Functions
+
 Function pecularities: 1 argument
 
 Each function takes 1 argument, returns 1 result
 
-For “multiple arguments,” use tuples!
-
+For "multiple arguments," use tuples!
+```
  fun factorial n =
    let fun f (i, prod) = 
          if i > n then prod else f (i+1, i*prod)
@@ -421,16 +436,26 @@ For “multiple arguments,” use tuples!
          if i > n then prod else f (i+1) (i*prod)
    in  f 1 1
    end
-Tuples are “usual and customary.”
+```
+Tuples are "usual and customary."
+FIXME: When defining functions in a let clause?
 
-Slide 20 
+<hr>
+<img src="11-ml-algebraic-datatypes/equality-types.png" alt="equality types" />
+<hr>
 
-Types
-Slide 21 
+### Types
 
-Slide 22 
-
-Slide 23 
-
-Slide 24
+<hr>
+<img src="11-ml-algebraic-datatypes/type-syntax.png" alt="type-syntax" />
+<hr>
+<hr>
+<img src="11-ml-algebraic-datatypes/concrete-type-syntax.png" alt="concrete-type-syntax" />
+<hr>
+<hr>
+<img src="11-ml-algebraic-datatypes/polymorphic-types.png" alt="polymorphic-types" />
+<hr>
+<hr>
+<img src="11-ml-algebraic-datatypes/old-friends.png" alt="old friends" />
+<hr>
 
