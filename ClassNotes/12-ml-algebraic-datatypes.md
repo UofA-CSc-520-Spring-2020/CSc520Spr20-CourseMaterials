@@ -202,7 +202,6 @@ Datatype declarations are inherently inductive:
 <img src="12-ml-algebraic-datatypes/atomlist.png" alt="atomlist" />
 <hr>
 
-FIXME: confusing exercise
 
 ### Exercise answers
 ```
