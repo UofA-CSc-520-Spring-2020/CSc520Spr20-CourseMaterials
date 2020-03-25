@@ -1,4 +1,4 @@
-# Syllabus for CSc 520: Principles of Programming Languages
+# Syllabus for CSc 520: Principles of Programming Languages (REVISED March 23, 2020)
 
 Gould-Simpson 701, Mondays and Wednesdays 3:30-4:45pm
 	
@@ -15,6 +15,87 @@ Kathleen Fisher (https://www.cs.tufts.edu/comp/105-2017f/index.html).
 They have compiled a set of experiences that students who successfully took
 the course have shared (https://www.cs.tufts.edu/comp/105-2019s/a-student-tips.pdf) 
 that I recommend you read through.
+
+## Changes in the course due to COVID-19 (REVISED March 23, 2020)
+
+Due to the COVID-19 situation, the university and the department has asked that all 
+courses go online.  For CSc 520, this notice is being posted on piazza and sent to 
+all of the students via the email address they have registered in uaccess (uaccess 
+is down for maintenance until March 15th, so email will come after that time).
+
+CSc 520 will be FULLY online as of March 12, 2020.  Because of this, there is no 
+need for you to be on campus now to continue this class.  This class will be fully 
+online through the rest of the Spring 2020 semester.
+
+* The schedule in this syllabus for CSc 520 still holds.  I do not plan to change 
+  the schedule.  Do contact me if the current COVID-19 situation is interfering with 
+  your participation in this course.
+
+* The midterm was taken online on March 18th.  Here is the information about taking
+  the midterm online.  The final will be given in the same manner.
+
+    * The MIDTERM will be given on Wednesday at 3:30pm with everyone logged into zoom 
+      and taking part A and part B of the midterm on Gradescope.
+
+    * In zoom, you can direct a question to a specific individual.  Direct your questions 
+      during the midterm to me and stay muted.  Send me a private zoom message when you are
+      done with the midterm and leaving zoom.
+
+    * On the midterm, you will be stating that you will not use texting or any other kind 
+      of messaging with anyone in the class or anyone not in the class to help you answer 
+      the questions.  You will also be stating that you are not doing any internet searches 
+      during the midterm.
+
+   * See @276 on piazza for information about the midterm review, which models the two part 
+     online midterm you will be taking on Wednesday.
+
+   * The midterm will be open book, but I still recommend you make a two page study sheet to 
+     help with studying and because it might be useful for the comprehensive final.
+
+   * You will also be able to use the Impcore and uscheme interpreters during the midterm.  
+     I recommend only using them to check your understanding of how the currently implemented semantics work.
+
+
+* Here is the plan for classes in 520 starting Monday March 23rd:
+
+   * The zoom link for the class is in D2L.  Classes will be recorded and be available in D2L sometime 
+     after the class (the system does this automatically, so we shall see).
+
+   * Everyone except the instructor should plan to keep their video muted.  The instructor will be mostly 
+     sharing screen with slides.
+
+   * Raise your hand in zoom if you cannot see the slides being shared or are having some other technical 
+     issue.  If a chat message in zoom is possible, please do that.  If all else fails send a private message 
+     in piazza.
+
+   * Everyone can ask questions in chat, either to the whole class or to me privately.  Questions I do not 
+     get to during class time, I will attempt to answer on piazza.  Feel free to also post on piazza if 
+     something slips through.
+
+   * We are going to attempt to have everyone control their own audio mute.  Please stay muted unless you have 
+     been called on.  I recommend that questions be asked via chat and that people talk in class when they are 
+     called on to answer a question.
+
+   * We will still be using index cards.  The talking with the person next to you part will need to be done either 
+     in private zoom chats or however else you want to communicate with other people in the class.  Let the 
+     instructor know know if for any reason you cannot participate in class by answering questions.  If you cannot, 
+     no worries, just let the instructor know.  You do NOT need to provide a reason.
+
+* Using zoom for office hours, the midterm, AND later for class
+   * NAME, please put in your name we are using in class so I know who you are
+   * MICROPHONE, keep it muted unless you have been called on to ask or answer questions
+   * CAMERA, during office hours go ahead and enable it if you would like, during class I don't have enough bandwidth
+   * SHARE SCREEN, do not use it unless you are explicitly asked to.
+   * CHAT, send messages to everyone or to one person in particular
+   * RAISE HAND, shows a flag in the “Participants” page and then I can call on you
+   * RECORD, Please do not use the record feature.  The class is being recorded in zoom and will later be
+     posted on D2L.
+ 
+
+This situation will be challenging for all of us, but I firmly believe that everyone in the class is up 
+to the challenge.  We can still learn a lot about programming languages this semester.
+
+Please let me know if you have any questions or concerns.
 
 ## Course Prerequisites
 
