@@ -444,13 +444,13 @@ complete the assignment. Keep your answers brief and simple.
      →
 
    * c. Free variables of
-  ```
+```
 (lambda (s1 s2)
   (if (or (atom? s1) (atom? s2))
     (= s1 s2)
     (and (equal? (car s1) (car s2))
          (equal? (cdr s1) (cdr s2)))))
-  ```
+```
      →
 
 
@@ -463,6 +463,7 @@ At the start of each problem, please label it with a short comment, like
 ```
 (***** Problem A *****)
 ```
+
 To receive credit, your warmup.sml file must compile and execute in the Moscow 
 ML system. For example, we must be able to compile your code without warnings or 
 errors. The following command should test all of your code:
@@ -504,9 +505,11 @@ may also wish to read the section on Curried Functions.
 <hr>
 
 **C.** Functions `foldl` and `foldr` are predefined with type
+
 ```
 ('a * 'b -> 'b) -> 'b -> 'a list -> 'b
 ```
+
 They are like the μScheme versions except the ML versions are Curried.
 
 1. Define `reverse : 'a list -> 'a list` using `foldl` or `foldr`.
@@ -544,6 +547,7 @@ use `if`.
 <hr>
 
 **E.** Define a function
+
 ```
 val pairfoldrEq : ('a * 'b * 'c -> 'c) -> 'c -> 'a list * 'b list -> 'c
 ```
@@ -558,15 +562,18 @@ exactly the same things as `zip` but uses `pairfoldrEq` for its implementation.
 <hr>
 
 **F.** Define a function
+
 ```
 val concat : 'a list list -> 'a list
 ```
 that takes a list of lists of `'a` and produces a single list of `'a` containing 
 all the elements in the correct order. For example,
+
 ```
 - concat [[1], [2, 3, 4], [], [5, 6]];
 > val it = [1, 2, 3, 4, 5, 6] : int list
 ```
+
 Do not use `if`. You may use functions from the Standard Basis Library, except 
 for `List.concat`—code that uses `List.concat` will earn No Credit.
 
@@ -602,6 +609,7 @@ the predefined version (which is in the initial basis) and other things may
 break mysteriously. So don't include it.
 
 We can use the order type to define a higher-order insertion function by, e.g.,
+
 ```
 fun insert cmp =
     let fun ins (x, LEAF) = NODE (LEAF, x, LEAF)
@@ -613,6 +621,7 @@ fun insert cmp =
     in  ins
     end
 ```
+
 This higher-order insertion function accepts a comparison function as argument, 
 then returns an insertion function. (The parentheses around `case` aren't 
 actually necessary here, but I've included them because if you leave them out 
@@ -621,18 +630,21 @@ messages.)
 
 We can use this idea to implement polymorphic sets in which we store the 
 comparison function in the set itself. For example,
+
 ```
  datatype 'a set = SET of ('a * 'a -> order) * 'a tree
  fun nullset cmp = SET (cmp, LEAF)
 ```
 
 * Write a function
+
 ```
 val addelt : 'a * 'a set -> 'a set
 ```
   that adds an element to a set.
 
 * Write a function
+
 ```
 val treeFoldr : ('a * 'b -> 'b) -> 'b -> 'a tree -> 'b
 ```
@@ -657,6 +669,7 @@ it.) If you redefine a function at the top-level loop, this is fine, unless that
 function captures one of your own functions in its closure.
 
 Example:
+
 ```
 fun f x = ... stuff that is broken ...
 fun g (y, z) = ... stuff that uses 'f' ...
@@ -692,6 +705,7 @@ Please submit two files:
 
  * A file `warmup.sml` containing the solutions to Exercises A-F.
    You must precede each solution by a comment that looks something like this:
+
 ```
 (***** Problem A *****)
 ```
