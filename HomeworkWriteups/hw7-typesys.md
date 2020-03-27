@@ -227,55 +227,94 @@ Problem TD described below.  Put your answer to Exercise 8 in a file called
    * Study the new abstract syntax for arrays in Section 6.3.2. Be sure you 
      understand that you are seeing new syntactic forms, not functions.
 
-   * Each new form in code chunk 415a comes with a typing rule, which can be found in Section 6.3.3, which starts on page 417. As long as you keep in mind the differences between lists and arrays, this section will help you imagine the sorts of rules you will need to write for lists.
+   * Each new form in code chunk 388 comes with a typing rule, which can be 
+     found in Section 6.3.3. As long as you keep in mind the differences between 
+     lists and arrays, this section will help you imagine the sorts of rules you 
+     will need to write for lists.
 
-For another example of new forms and corresponding rules, study the sum-introduction forms left and right in section 6.4 near page 420.
+   * For another example of new forms and corresponding rules, study the 
+     sum-introduction forms `left` and `right` in Section 6.4.
 
-Finally, for help classifying rules, see the sidebar on “Formation, introduction, and elimination” on page 418.
+   * Finally, for help classifying rules, see the sidebar on "Formation, 
+     introduction, and elimination" on page 387.
 
-Hint: This exercise is more difficult than it first appears. I encourage you to scrutinize the lecture notes for similar cases, and to remember that you have to be able to type check every expression at compile time. I recommend that you do Pair Exercise 2 first. It will give you more of a feel for monomorphic type systems.
+   Hint: This exercise is more difficult than it first appears. I encourage you 
+   to scrutinize the lecture notes for similar cases, and to remember that you 
+   have to be able to type check every expression at compile time. 
 
-Here are some things to watch out for:
+   Here are some things to watch out for:
 
-It’s easy to conflate syntax, types, and values. In this respect, doing theory is significantly harder than doing implementation, because there’s no friendly ML compiler to tell you that you have a type clash among exp, tyex, and value.
+   * It's easy to conflate syntax, types, and values. In this respect, doing 
+   theory is significantly harder than doing implementation, because there's no 
+   friendly ML compiler to tell you that you have a type clash among `exp`, 
+   `tyex`, and `value`.
 
-It’s especially easy to get confused about cons. You need to create a new syntax for cons. This syntax needs to be different from the PAIR constructor that is what cons evaluates to.
+   * It's especially easy to get confused about `cons`. You need to create a 
+     **new syntax** for `cons`. This syntax needs to be different from the 
+     `PAIR` constructor that is what `cons` evaluates to.
 
-Here’s a good mental test case: it should be possible to write a recursive reverse function, and if ns is a list of integers, then (car (reverse ns)) is an expression that should have type int. Even if list ns is empty.
+   * Here's a good mental test case: it should be possible to write a recursive 
+     `reverse` function, and if `ns` is a list of integers, then 
+     `(car (reverse ns))` is an expression that should have type `int`. Even if 
+     list `ns` is empty.
 
-The empty list presents a challenge. Typed Impcore is monomorphic, which implies that any given piece of syntax has at most one type. But you want to allow for empty lists of different types. The easy way out is to design your syntax so that you have many different expressions, of different types, that all evaluate to empty lists. The most common mistake is to design a syntax that requires nondeterminism to compute the type of any term involving the empty list. But the problem requires a deterministic type system, because deterministic type systems are much easier to implement.
+   * The empty list presents a challenge. Typed Impcore is monomorphic, which 
+     implies that any given piece of syntax has at most one type. But you want 
+     to allow for empty lists of *different* types. The easy way out is to 
+     design your syntax so that you have many different expressions, of 
+     different types, that all evaluate to empty lists. The most common mistake 
+     is to design a syntax that requires nondeterminism to compute the type of 
+     any term involving the empty list. But the problem requires a deterministic 
+     type system, because *deterministic* type systems are much easier to 
+     implement.
 
-You might consider whether similar difficulties arise with other kinds of data structures or whether lists are somehow unique.
+     You might consider whether similar difficulties arise with other kinds of 
+     data structures or whether lists are somehow unique.
 
-You might consider what happens in C when you try to do something clever with a pointer of type void *, and to think of how C can address this issue using expression syntax only (that is, without resorting to a definition form.)
+     You might consider what happens in C when you try to do something clever 
+     with a pointer of type `void *`, and to think of how C can address this 
+     issue using expression syntax only (that is, without resorting to a 
+     definition form.)
 
-You might want to see what happens to an ML program when you try to type-check operations on empty and nonempty lists. For this exercise to be helpful, you have to understand the phase distinction between a type error and a run-time error. For example, hd 3 results in a type error, but hd [] is well-typed—and results in a run-time error.
+   * You might want to see what happens to an ML program when you try to 
+     type-check operations on empty and nonempty lists. For this exercise to be 
+     helpful, you have to understand the phase distinction between a type error 
+     and a run-time error. For example, `hd 3` results in a type error, but 
+     `hd []` is well-typed—and results in a run-time error.
 
 <hr>
 
-TD. Polymorphic functions in Typed uScheme. To hold your solution, create a file typed-funs.scm. Implement, in Typed μScheme, fully typed versions of these two functions:
+**TD.** *Polymorphic functions in Typed uScheme*. To hold your solution, create 
+a file `typed-funs.scm`. Implement, in Typed μScheme, fully typed versions of 
+these two functions:
 
-Function drop from the Scheme homework, problem B, which drops a given number of elements from the front of a list
+* Function `drop` from the Scheme homework, Problem B, which drops a given 
+  number of elements from the front of a list
 
-Function takewhile, from exercise 10 on page 212, which takes frontal elements that satisfy a given predicate
+* Function `takewhile`, from Exercise 10 on page 195, which takes frontal 
+  elements that satisfy a given predicate
 
 The problem has four parts:
 
-Write, in a check-type, the polymorphic type you expect drop to have.
+* (a) Write, in a `check-type`, the polymorphic type you expect `drop` to have.
 
-Write a definition of drop.
+* (b) Write a definition of `drop`.
 
-Write, in a check-type, the polymorphic type you expect takewhile to have.
+* (c) Write, in a `check-type`, the polymorphic type you expect `takewhile` to 
+  have.
 
-Write a definition of takewhile.
+* (d) Write a definition of `takewhile`.
 
-If you are not able to write implementations of drop and takewhile with the proper types, you may get partial credit by commenting out the check-type forms in parts (a) and (c).
+If you are not able to write implementations of `drop` and `takewhile` with the 
+proper types, you may get partial credit by commenting out the `check-type` 
+forms in parts (a) and (c).
 
-Related reading: Read section 6.6.3 on quantified types. Look especially at the definitions of list2, list3, length, and revapp. If you are not yet confident, go to section M.5 in Appendix M and study the definitions of append, filter, and map. Appendix M is included in the abridged edition; it starts on page 1257, which you’ll find right after Chapter 12.
+Related reading: Read Section 6.6.3 on quantified types. Look especially at the definitions of `list2`, `list3`, `length`, and `revapp`.
+
 
 <hr>
 
-## Programming using algebraic data types
+## Programming using algebraic data types (programming in ML)
 
 Related Reading for Problem N: In [Learning Standard  ML](https://www.cs.tufts.edu/comp/105-2019s/readings/ml.html#unit-testing),
 read the section on datatypes—Data IV. Make sure you understand how to pattern 
