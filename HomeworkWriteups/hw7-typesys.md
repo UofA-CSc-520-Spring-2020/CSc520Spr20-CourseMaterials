@@ -50,15 +50,13 @@ and do a git clone of your repository.  Make sure to `git commit -a` and
 
  The initial github repository will include the following
 files:
- * cqs.typesys.txt
- * Unit.sig
- * Unit.sml
- * tree.sml
+ * `cqs.typesys.txt`
+ * `Unit.sig`
+ * `Unit.sml`
+ * `build_prove_compare/`
 
-To download an ML interpreter, install Moscow ML from [https://mosml.org/].
-Then you should have mosml on the command-line.  The Mac package works fine.
-There are piazza points available for anyone who explains if there are any 
-issues with installing the Windows or Linux versions.
+To download an ML interpreter, install Moscow ML from https://mosml.org/.
+Then you should have mosml on the command-line.
 
 You will need to use the Unit testing module provided by Dr. Ramsey.
 To do so, compile it.
@@ -85,8 +83,16 @@ Enter 'quit();' to quit.
 ...
 ```
 
-FIXME: put in instructions for using the typed Impcore and typed uScheme interpreters.
+Instructions for using the typed Impcore.
+```
+cd build_prove_compare/bare/timpcore
+make    // creates executable called timpcore
+```
 
+**NOTE**: There is a directory for tuscheme.  Unfortunately that
+interpreter does not appear to work.  Thus you will just need to 
+do your best trying to do the **TD** problem.  The grading will
+be significantly less strict due to the lack of an interpreter.
 
 # Dire warnings (10 percent)
 <a name="warnings"/>
@@ -104,8 +110,6 @@ design, trying to masquerade as functions.)
 These problems will help guide you through the reading. We recommend 
 that you complete them before starting the other problems below. 
 There is a `cqs.typesys.txt` in the starter github repository.
-
-FIXME: clean all of the below
 
 1. Read Section 6.3.3, which describes how Typed Impcore is extended with 
    arrays. Examine code chunk 388, which shows the cases that have to be added 
@@ -135,10 +139,10 @@ FIXME: clean all of the below
      (`list sym`)). What expression do you write to compute its length? Pick 
      exactly one of the options below.
 
-     * (1) (length syms)
-     * (2) ((o length sym) syms)
-     * (3) ((@ length sym) syms)
-     * (4) ((length sym) syms)
+     * (1) `(length syms)`
+     * (2) `((o length sym) syms)`
+     * (3) `((@ length sym) syms)`
+     * (4) `((length sym) syms)`
 
    * (b) You are given a function `positive?` of type `(int -> bool)`. Using the 
    predefined function `o`, which has type 
@@ -209,9 +213,9 @@ FIXME: clean all of the below
 
 ## Theory
 
-On your own, please work Exercise 8 on page 466 of Build, Prove, and Compare and 
+On your own, please do Exercise 8 on page 466 of Build, Prove, and Compare and 
 Problem TD described below.  Put your answer to Exercise 8 in a file called 
-`theory.pdf`.  Put your answer for Problem TD in `typed-funs.scm`.
+`lists.pdf`.  Put your answer for Problem TD in `typed-funs.scm`.
 
 8. Adding lists to Typed Impcore. Do Exercise 8 on page 434 of Build, Prove, and 
    Compare. The exercise requires you to design new syntax and to write type 
@@ -305,11 +309,9 @@ The problem has four parts:
 
 * (d) Write a definition of `takewhile`.
 
-If you are not able to write implementations of `drop` and `takewhile` with the 
-proper types, you may get partial credit by commenting out the `check-type` 
-forms in parts (a) and (c).
-
-Related reading: Read Section 6.6.3 on quantified types. Look especially at the definitions of `list2`, `list3`, `length`, and `revapp`.
+Related reading: Read Section 6.6.3 on quantified types. Look especially at the 
+definitions of `list2`, `list3`, `length`, and `revapp` starting around page 
+400.
 
 
 <hr>
@@ -384,7 +386,11 @@ unspecified order.
 
 ## How to organize your code
 
-All of your code for Problem N will go into a single file: `tree.sml`.
+All of your code for Problem **TD** will go into a single file: 
+`typed-funs.scm`.
+
+
+All of your code for Problem **N** will go into a single file: `tree.sml`.
 
 To receive credit, your `tree.sml` file must compile and execute in the Moscow 
 ML system. For example, we must be able to compile your code without warnings or 
@@ -394,25 +400,27 @@ errors. The following command should test all of your code:
 ```
 
 Please remember to **put your name and the time you spent in the 
-`tree.sml` file**.
+`README.md` file**.
 
 
 
 # What and how to submit
 <a name="submit"/>
 
-There is no README file for this assignment.
-
-
 
 Please submit three files:
+
+ * README.md file with who you talked with about the assignment and how many
+   hours you spent on the assignment.
 
  * A text file `cqs.typesys.txt` containing your answers to the 
    reading-comprehension questions (you can start with the provided file)
 
- * A file `theory.pdf` with the answer to Problem 8.
+ * A file `lists.pdf` with the answer to Problem 8.
 
- * A file `tree.ml` containing the solutions to Exercise N.
+ * A file `typed-funs.scm` containing the solutions to Exercise **TD**.
+
+ * A file `tree.ml` containing the solutions to Exercise **N**.
 
 As soon as you have the files listed above, submit preliminary versions of your 
 work to gradescope. Keep submitting until your work is complete; we grade only 
@@ -421,7 +429,10 @@ the last submission.
 # How your work will be evaluated
 <a name="eval"/>
 
+We will evaluate the structure and organization of your Typed μScheme code using 
+the same criteria as used in previous homework assignments. We will evaluate the 
+structure and organization of your ML code using similar criteria for naming and 
+documentation. For indentation and layout, we’ll look for conformance to the 
+[Style Guide for Standard ML Programmers](https://www.cs.tufts.edu/comp/105-2019s/handouts/mlstyle.pdf), 
+within the constraints imposed by the code from the book.
 
-The criteria are mostly the same as for the scheme and hofs assignments, but 
-because the language is different, we’ll be looking for indentation and layout 
-as described in the [Style Guide for Standard ML Programmers](https://www.cs.tufts.edu/comp/105-2019s/handouts/mlstyle.pdf).
