@@ -403,7 +403,7 @@ Review
 
 * I showed you how to implement the type checker.
 
-* Then on your homework,
+* Then on your homeworks,
 
    * You will design new syntax and typing rules for lists
 
