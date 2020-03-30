@@ -408,9 +408,9 @@ Please remember to **put your name and the time you spent in the
 <a name="submit"/>
 
 
-Please submit three files:
+Please submit five files:
 
- * README.md file with who you talked with about the assignment and how many
+ * `README.md` file with who you talked with about the assignment and how many
    hours you spent on the assignment.
 
  * A text file `cqs.typesys.txt` containing your answers to the 
