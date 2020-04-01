@@ -282,7 +282,7 @@ datatype def = ...
 <hr>
 
 <hr>
-<img src="14-type-constructors/array-types-cont.png" alt="array-types-cont" />
+<img src="14-type-constructors/array-type-cont.png" alt="array-type-cont" />
 <hr>
 
 ## Typing Rule Exercise
