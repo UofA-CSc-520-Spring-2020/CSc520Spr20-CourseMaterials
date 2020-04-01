@@ -46,11 +46,11 @@ Examples: pointer, struct, function, record
 
 ### Talking type theory
 
-**Formation**: make new types
+* **Formation**: make new types
 
-**Introduction**: make new values
+* **Introduction**: make new values
 
-**Elimination**: observe ("take apart") existing values
+* **Elimination**: observe ("take apart") existing values
 
 # Talking type theory: Introduction and elimination constructs
 
