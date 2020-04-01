@@ -201,7 +201,7 @@ There is a `cqs.typesys.txt` in the starter github repository.
    Program Design](https://www.cs.tufts.edu/comp/105-2019s/design/lessons.pdf). 
    In particular, read the explanation of how the If rule is rewritten to add 
    type-equality judgments τ ≡ τ3 and τ1 ≡ bool. Now look at the list of typing 
-   rules for expressions in Figure 6.9 on page 438 in "Programming Languages: 
+   rules for expressions in Figure 6.10 on page 439 in "Programming Languages: 
    Build, Prove, and Compare." Identify one other rule that needs to be 
    rewritten in the same fashion as `If`, for the same reason.
 
