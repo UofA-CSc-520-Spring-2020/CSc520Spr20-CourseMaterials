@@ -60,7 +60,6 @@ Part of learning any new field: talk to people in their native vocabulary
 
 * Eliminate means "consume", "examine", "observe", "use", "mutate"
 
-types-and-value-intro-n-elim-for-C
 
 <hr>
 <img src="14-type-constructors/types-and-value-intro-n-elim-for-C.png" alt="types-and-value-intro-n-elim-for-C" />
