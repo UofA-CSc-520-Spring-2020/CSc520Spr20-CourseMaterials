@@ -213,7 +213,7 @@ There is a `cqs.typesys.txt` in the starter github repository.
 
 ## Theory
 
-On your own, please do Exercise 8 on page 466 of Build, Prove, and Compare and 
+On your own, please do Exercise 8 on page 434 of Build, Prove, and Compare and 
 Problem TD described below.  Put your answer to Exercise 8 in a file called 
 `lists.pdf`.  Put your answer for Problem TD in `typed-funs.scm`.
 
