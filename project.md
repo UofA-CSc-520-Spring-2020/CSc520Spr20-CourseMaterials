@@ -93,6 +93,14 @@ presenting.  I will use your comments to grade YOU, not the people you are revie
 I will be passing your comments anonymously on to who you are reviewing for
 their edification.
 
+I am putting in writing that **this assignment will be graded easy**.  It has
+been a rough second half of the semester for everyone.  Please spend less than
+4 hours on this talk and do not worry if your group's combined recordings
+are less than 10 minutes total.  The goal is to think back over the semester
+about what concepts are applicable to one of the paper figures you proposed to
+explain earlier in the semester.
+
+
 **All of the below stays the same**.
 
 Each talk will be 10 minutes.  When partners are giving a talk, each
