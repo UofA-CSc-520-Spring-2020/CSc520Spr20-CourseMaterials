@@ -121,11 +121,11 @@ languages.
 
 # Monomorphic vs Polymorphic Types
 
-Monomorphic types have "one shape."
-FIXME: shape?
+Monomorphic types have no type parameters
+
 * Examples: `int, bool, int -> bool, int * int`
 
-Polymorphic types have "many shapes."
+Polymorphic types have type parameters
 
 * Examples: 'a list, 'a list -> 'a list, ('a * int)
 
