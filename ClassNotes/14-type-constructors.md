@@ -232,7 +232,7 @@ Two judgments:
 <hr>
 
 <hr>
-<img src="14-type-constructors/rule-for-if.png" alt="rule-for-if" />
+<img src="14-type-constructors/if-rule.png" alt="rule-for-if" />
 <hr>
 
 Notice: one rule for if!!
