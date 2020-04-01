@@ -292,7 +292,7 @@ Problem TD described below.  Put your answer to Exercise 8 in a file called
 a file `typed-funs.scm`. Implement, in Typed μScheme, fully typed versions of 
 these two functions:
 
-* Function `drop` from the Scheme homework, Problem B, which drops a given 
+* Function `drop`, which drops a given 
   number of elements from the front of a list
 
 * Function `takewhile`, from Exercise 10 on page 195, which takes frontal 
