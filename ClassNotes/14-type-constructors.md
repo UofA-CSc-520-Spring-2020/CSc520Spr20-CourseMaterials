@@ -77,6 +77,9 @@ types-and-value-intro-n-elim-for-C
 
 # Functions
 
+Here is an example of how to type "introducing" a value and 
+"eliminating" a value.
+
 Introduction:
 ```
 Gamma{x->tau1} |- e : tau2   
@@ -92,153 +95,215 @@ Gamma |- e1 : tau1
 Gamma |- e e1 : tau2
 ```
 
-Where we’ve been and where we’re going
+# Where we’ve been and where we’re going
+
 New watershed in the homework
 
-You’ve been developing and polishing programming skills: recursion, higher-order functions, using types to your advantage. But the problems have been mostly simple problems around simple data structures, mostly lists.
+* You've been developing and polishing programming skills: recursion, 
+  higher-order functions, using types to your advantage. But the problems have 
+  been mostly simple problems around simple data structures, mostly lists.
 
-We’re now going to shift and spend the next several weeks doing real programming-languages stuff, starting with type systems.
+* We're now going to shift and spend the next several weeks doing real 
+  programming-languages stuff, starting with type systems.
 
-You’ve already seen everything you need to know to implement a basic type checker, and you are almost fully equipped to add array operations and types to Typed Impcore.
+* You've already seen everything you need to know to implement a basic type 
+  checker, and you are almost fully equipped to add array operations and types 
+  to Typed Impcore.
 
-What’s next is much more sophisticated type systems, with an infinite number of types. We’ll focus on two questions about type systems:
+What's next is much more sophisticated type systems, with an infinite number of types. We'll focus on two questions about type systems:
 
-What is and is not a good type, that is, a classifier for terms?
+* What is and is not a good type, that is, a classifier for terms?
 
-How shall we represent types?
+* How shall we represent types?
 
-We’ll look at these questions in two contexts: monomorphic and polymorphic languages.
+We'll look at these questions in two contexts: monomorphic and polymorphic 
+languages.
 
-Monomorphic vs Polymorphic Types
-Monomorphic types have “one shape.”
 
-Examples: int, bool, int -> bool, int * int
-Polymorphic types have “many shapes.”
+# Monomorphic vs Polymorphic Types
 
-Examples: 'a list, 'a list -> 'a list, ('a * int)
-Design and implementation of monomorphic languages
+Monomorphic types have "one shape."
+FIXME: shape?
+* Examples: `int, bool, int -> bool, int * int`
+
+Polymorphic types have "many shapes."
+
+* Examples: 'a list, 'a list -> 'a list, ('a * int)
+
+
+# Design and implementation of monomorphic languages
+
 Mechanisms:
 
-Every new variety of type requires special syntax
+* Every new variety of type requires **special syntax** 
+  (examples: structs, pointers, arrays)
 
-Implementation is a straightforward application of what you already know.
+* Implementation is a straightforward application of what you already know.
 
-Language designer’s process when adding new kinds of types:
+Language designer's process when adding new kinds of types:
 
-What new types do I have (formation rules)?
+* What new types do I have (**formation rules**)?
 
-What new syntax do I have to create new values with that type (introduction rules)?
+* What new syntax do I have to *create new values with that type*
+  (**introduction rules**)?
 
-For introduce think “produce”, “create”, “make”, “define”
+  For introduce think "produce", "create", "make", "define"
 
-What new syntax do I have to observe terms of a type (elimination rules)?
+* What new syntax do I have to observe terms of a type (**elimination rules**)?
 
-For eliminate think “consume”, “examine”, “interrogate”, “look inside”, or “take apart”, “observe”, “use”, “mutate”
+  For eliminate think "consume", "examine", "interrogate", "look inside", or 
+  "take apart", "observe", "use", "mutate"
 
-Words “introduce” and “eliminate” are the native vocabulary of type-theoretic language design—it’s like knowing what to say when somebody sneezes.
+Words "introduce" and "eliminate" are the native vocabulary of type-theoretic 
+language design—it’s like knowing what to say when somebody sneezes.
 
 Question: If I add lists to a language, how many new types am I introducing?
 
-Managing the set of types: Type Formation
-Examples: Well-formed types
+# Managing the set of types: Type Formation
+
+## Examples: Well-formed types
 
 These are types:
 
-int
-bool
-int * bool
-int * int -> int
-Examples: Not yet types, or not types at all
+* `int`
+* `bool`
+* `int * bool`
+* `int * int -> int`
 
-These “types in waiting” don’t classify any terms
+## Examples: Not yet types, or not types at all
 
-list (but int list is a type)
-array (but char array is a type)
-ref (but (int -> int) ref is a type)
-These are utter nonsense
+These "types in waiting" don’t classify any terms
 
-int int
-bool * array
-Type formation rules
+* `list` (but `int list` is a type)
+* `array` (but `char array` is a type)
+* `ref` (but `(int -> int) ref` is a type)
+
+
+These are **utter nonsense**
+
+* `int int`
+* `bool * array`
+
+
+## Type formation rules
 
 We need a way to classify type expressions into:
 
-types that classify terms
+* **types** that classify terms
 
-type constructors that build types
+* **type constructors** that build types
 
-nonsense terms that don’t mean anything
+* **nonsense terms** that don't mean anything
 
-Type constructors
+## Type constructors
 
-Technical name for “types in waiting”
+Technical name for "types in waiting"
 
 Given zero or more arguments, produce a type:
 
-Nullary int, bool, char also called base types
-Unary list, array, ref
-Binary (infix) ->
+* Nullary `int, bool, char` also called **base types**
+
+* Unary `list, array, ref`
+
+* Binary (infix) `->`
+
 More complex type constructors:
 
-records/structs
-function in C, uScheme, Impcore
-Slide 5 
+* records/structs
+* function in C, uScheme, Impcore
 
-Type judgments for monomorphic system
+<hr>
+<img src="14-type-constructors/good-type.png" alt="what's a good type?" />
+<hr>
+
+
+## Type judgments for monomorphic system
 
 Two judgments:
 
-The old typing judgment Γ ⊢ e : τ
-Today’s judgment “τ is a type”
-Monomorphic type rules
-Slide 7 
+* The old typing judgment Γ ⊢ e : τ
 
-Slide 8 
+* Today's judgment "τ is a type"
+
+## Monomorphic type rules
+
+<hr>
+<img src="14-type-constructors/rules-for-var.png" alt="rules-for-var" />
+<hr>
+
+<hr>
+<img src="14-type-constructors/rule-for-if.png" alt="rule-for-if" />
+<hr>
 
 Notice: one rule for if!!
 
-Classic types for data structures
-Slide 9 
+## Classic types for data structures
+
+<hr>
+<img src="14-type-constructors/product-types.png" alt="product-types" />
+<hr>
 
 (At run time, identical to cons, car, cdr)
 
-Slide 10 
+<hr>
+<img src="14-type-constructors/arrow-types.png" alt="arrow-types" />
+<hr>
 
-Slide 11 
+<hr>
+<img src="14-type-constructors/arrow-types-elim.png" alt="arrow-types-elim" />
+<hr>
 
-Typical syntactic support for types
+## Typical syntactic support for types
 
-Explicit types on lambda and define:
+Explicit types on `lambda` and `define`:
 
-For lambda, argument types:
-
+* For `lambda`, argument types:
+```
 (lambda ([n : int] [m : int]) (+ (* n n) (* m m)))
-For define, argument and result types:
+```
 
+* For define, argument and result types:
+```
 (define int max ([x : int] [y : int]) 
                 (if (< x y) y x))
-Abstract syntax:
+```
 
+Abstract syntax:
+```
 datatype exp = ...
  | LAMBDA of (name * tyex) list * exp
     ...
 datatype def = ...
  | DEFINE of name * tyex * ((name * tyex) list * exp)
     ...
-Slide 13 
+```
+    
+<hr>
+<img src="14-type-constructors/array-types.png" alt="array-types" />
+<hr>
 
-Slide 14 
+<hr>
+<img src="14-type-constructors/array-types-cont.png" alt="array-types-cont" />
+<hr>
 
-Typing Rule Exercise
-Slide 15 
+## Typing Rule Exercise
 
-Slide 16 
+<hr>
+<img src="14-type-constructors/ref-types.png" alt="ref-types" />
+<hr>
 
-Coding the arrow-introduction rule
-Slide 17 
+<hr>
+<img src="14-type-constructors/ref-types-answer.png" alt="ref-types-answer" />
+<hr>
 
-Type-checking LAMBDA
+## Coding the arrow-introduction rule
 
+<hr>
+<img src="14-type-constructors/arrow-intro-rule.png" alt="arrow-intro-rule" />
+<hr>
+
+## Type-checking LAMBDA
+```
 datatype exp = LAMBDA of (name * tyex) list * exp 
    ...
 fun ty (Gamma, LAMBDA (formals, body)) = 
@@ -250,3 +315,4 @@ fun ty (Gamma, LAMBDA (formals, body)) =
         map (fn (x, ty) => ty) formals
   in  funtype (formaltypes, bodytype)
   end
+```
