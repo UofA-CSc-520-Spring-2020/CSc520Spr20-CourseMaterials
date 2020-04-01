@@ -70,8 +70,30 @@ Here are some other possibilities to consider:
 
 ## Project Talk
 
-The talk slides will be submitted on gradescope on Wednesday April 28th
-by 11:59pm.
+~~The talk slides will be submitted on gradescope on Wednesday April 28th
+by 11:59pm.~~
+Due to the move to online, links to your project talks will now be posted 
+on piazza for everyone by **Monday May 4th 11:59pm**.  You can record your
+talks with your phones or computers ([OBS](https://obsproject.com/)
+is a cool piece of software) and then upload the 10 minutes of video (5 minute
+separate videos if have a partner) to google drive, youtube, wherever from
+which you can provide a link that others in the class can see the video.
+Other than keeping things professional (no inappropriate content), using your
+own voice, and achieving the expectations laid out below, your video can be 
+any format: a video of you talking, an animation, a video of the slides with 
+your voice overlaid, ... .
+
+Before noon on Tuesday May 5th you will be assigned to provide anonymous 
+feedback to two other groups.  You will provide the feedback to the instructor in
+a private piazza post before **Wednesday May 6th 11:59pm**.  Your feedback
+on the talk will count toward your own presentation grade.  It will be
+a short (2 paragraphs max) description of what you understood from the 
+presentation and what additional questions you have about what they were
+presenting.  I will use your comments to grade YOU, not the people you are reviewing.
+I will be passing your comments anonymously on to who you are reviewing for
+their edification.
+
+**All of the below stays the same**.
 
 Each talk will be 10 minutes.  When partners are giving a talk, each
 person will be talking for 5 minutes.  The time limit on the talks
