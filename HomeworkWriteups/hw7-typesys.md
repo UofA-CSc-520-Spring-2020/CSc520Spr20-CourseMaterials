@@ -17,7 +17,7 @@ CSc 520 Spring 2020 Assignment
 * [Evaluation for Programming](#eval)
 
 
-**Due Friday, April 3, 2020 at 11:59PM**
+**Due Wednesday, April 8, 2020 at 11:59PM**
 
 This assignment is all individual work. 
 There is **no pair programming**.
@@ -94,7 +94,7 @@ interpreter does not appear to work.  Thus you will just need to
 do your best trying to do the **TD** problem.  The grading will
 be significantly less strict due to the lack of an interpreter.
 
-# Dire warnings (10 percent)
+# Dire warnings
 <a name="warnings"/>
 
 As in the ML homework, you must not use the functions `null`, `hd`, and `tl`. 
@@ -420,7 +420,7 @@ Please submit five files:
 
  * A file `typed-funs.scm` containing the solutions to Exercise **TD**.
 
- * A file `tree.ml` containing the solutions to Exercise **N**.
+ * A file `tree.sml` containing the solutions to Exercise **N**.
 
 As soon as you have the files listed above, submit preliminary versions of your 
 work to gradescope. Keep submitting until your work is complete; we grade only 
