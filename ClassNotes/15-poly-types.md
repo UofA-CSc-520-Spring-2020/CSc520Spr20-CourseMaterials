@@ -6,6 +6,7 @@ April 6, 2020
 
  * HW7 is due Wednesday
 
+ * HW8 was posted last Friday and is due Wednesday April 15th
 
 ## Last Time
 
