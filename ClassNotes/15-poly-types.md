@@ -18,108 +18,141 @@ April 6, 2020
 
 ## Today
 
-Polymorphic type systems (TypedUScheme)
-Generic type representations
-Kinds for classifying types
+* Polymorphic type systems (TypedUScheme)
 
-<hr>
-<img src="14-type-constructors/type-soundness.png" alt="type-soundness" />
-<hr>
+* Generic type representations
 
-Limitations of monomorphic type systems
-Monomorphic types are limiting
+* Kinds for classifying types
+
+
+# Limitations of monomorphic type systems
+
+## Monomorphic types are limiting
 
 Each new type constructor requires
 
-Special syntax
-New type rules
-New internal representation (type formation)
-New code in type checker (intro, elim)
-New or revised proof of soundness
-Slide 2 
+* Special syntax
 
-Notes:
+* New type rules
 
-Implementing arrays on homework
-Writing rules for lists on homework
-Monomorphism hurts programmers too
+* New internal representation (type formation)
+
+* New code in type checker (intro, elim)
+
+* New or revised proof of soundness
+
+<hr>
+<img src="15-poly-types/mono-burden.png" alt="mono-burden" />
+<hr>
+
+Notes: Writing rules for lists on homework
+
+## Monomorphism hurts programmers too
 
 Monomorphism leads to code duplication
 
 User-defined functions are monomorphic:
-
+```
 (define int lengthI ([xs : (list int)])
    (if (null? xs) 0 (+ 1 (lengthI (cdr xs)))))
 (define int lengthB ([xs : (list bool)])
    (if (null? xs) 0 (+ 1 (lengthB (cdr xs)))))
 (define int lengthS ([xs : (list sym)])
    (if (null? xs) 0 (+ 1 (lengthS (cdr xs)))))
-Quantified types
-Slide 4 
+```
 
-Type formation via kinds
-``’’???
+## Quantified types
+<hr>
+<img src="15-poly-types/quantified-types.png" alt="quantified-types" />
+<hr>
 
-Back up here—what types do we have?
 
-Type formation: Composing types
+<hr>
+<img src="15-poly-types/list-example.png" alt="list-example" />
+<hr>
+
+
+## Type formation: Composing types
+
+Punchline: Now we need a somewhat different approach to type creation, 
+using kinds
 
 Typed Impcore:
 
-Closed world (no new types)
+* **Closed world** (no new types)
 
-Simple formation rules
+* Simple formation rules
 
 Standard ML:
 
-Open world (programmers create new types)
+* **Open world** (programmers create new types)
 
-How are types formed (from other types)?
+* How are types formed (from other types)?
 
-Can’t add new syntactic forms and new type formation rules for every new type.
+Can't add **new syntactic forms** and **new type formation rules** for every new 
+type.
 
-Slide 7 
 
-Slide 8 
+<hr>
+<img src="15-poly-types/repr-type-constructors.png" alt="repr-type-constructors" />
+<hr>
 
-Slide 9 
+<hr>
+<img src="15-poly-types/repr-question.png" alt="repr-question" />
+<hr>
 
-Well-formed types
+<hr>
+<img src="15-poly-types/repr-question-answer.png" alt="repr-question-answer" />
+<hr>
+
+## Well-formed types
 
 We still need to classify type expressions into:
 
-types that classify terms (e.g., int)
+* **types** that classify terms (e.g., `int`)
 
-type constructors that build types (e.g., list)
+* **type constructors** that build types (e.g., `list`)
 
-nonsense that means nothing (e.g., int int)
+* **nonsense** that means nothing (e.g., `int int`)
 
-Idea: kinds classify types
+Idea: *kinds* classify types
 
 one-off type-formation rules
 
 Δ tracks type constructors, vars
 
-Polymorphic Type Checking
-Quantified types
-Slide 11 
+# Polymorphic Type Checking
 
-Representing quantified types
+## Quantified types
 
-Two new alternatives for tyex:
 
+<hr>
+<img src="15-poly-types/return-quantified-types.png" alt="return-quantified-types" />
+<hr>
+
+
+## Representing quantified types
+
+Two new alternatives for `tyex`:
+```
 datatype tyex
   = TYCON  of name
   | CONAPP of tyex * tyex list
   | FUNTY  of tyex list * tyex
   | TYVAR  of name
   | FORALL of name list * tyex
-Slide 13 
+```
 
-Programming with quantified types
+
+<hr>
+<img src="15-poly-types/formation-rules.png" alt="formation-rules" />
+<hr>
+
+
+## Programming with quantified types
 
 Substitute for quantified variables
-
+```
 -> length                                                                          
 <procedure> : (forall ('a) ((list 'a) -> int))                                     
 -> (@ length int)                                                                  
@@ -128,27 +161,33 @@ Substitute for quantified variables
 type error: function is polymorphic; instantiate before applying
 -> ((@ length int) '(1 2 3))
 3 : int
-Substitute what you like
+```
 
+## Substitute what you like
+```
 -> length
  : (forall ('a) ((list 'a) -> int))
 -> (@ length bool)
  : ((list bool) -> int)
 -> ((@ length bool) '(#t #f))
 2 : int
-More ``Instantiations’’
+```
 
+## More "Instantiations"
+
+```
 -> (val length-int (@ length int))                                                 
 length-int : ((list int) -> int)                                                   
 -> (val cons-bool (@ cons bool))
-cons-bool : ((bool (list bool)) ->
-                                (list bool))
+cons-bool : ((bool (list bool)) -> (list bool))
 -> (val cdr-sym (@ cdr sym))
 cdr-sym : ((list sym) -> (list sym))
 -> (val empty-int (@ '() int))
 () : (list int)
-Bonus instantiation:
+```
 
+## Bonus instantiation:
+```
 -> map
 <procedure> :
   (forall ('a 'b)
@@ -156,23 +195,27 @@ Bonus instantiation:
 -> (@ map int bool)
 <procedure> :
   ((int -> bool) (list int) -> (list bool))
-Create your own!
+```
+
+## Create your own!
 
 Abstract over unknown type using type-lambda
 
+```
   -> (val id (type-lambda ['a]
                 (lambda ([x : 'a]) x )))
   id : (forall ('a) ('a -> 'a))
-'a is type parameter (an unknown type)
+```
 
-This feature is parametric polymorphism
+'a is **type parameter** (an unknown type)
 
-Two forms of abstraction:
+This feature is **parametric polymorphism**
 
-Power comes at notational cost
+
+## Power comes at notational cost
 
 Function composition
-
+```
 -> (val o (type-lambda ['a 'b 'c]
     (lambda ([f : ('b -> 'c)]
              [g : ('a -> 'b)])
@@ -180,44 +223,191 @@ Function composition
 
 o : (forall ('a 'b 'c)
        (('b -> 'c) ('a -> 'b) -> ('a -> 'c)))
-Aka o :
+```
+Aka o : in uScheme?
 
-Type rules for polymorphism
-Slide 19 
+## Type rules for polymorphism
+<hr>
+<img src="15-poly-types/substitution.png" alt="substitution" />
+<hr>
 
-Slide 20 
+<hr>
+<img src="15-poly-types/type-lambda.png" alt="type-lambda" />
+<hr>
 
-A phase distinction embodied in code
+## What have we gained?
+
+No more introduction rules:
+ * Instead, use polymorphic functions
+
+No more elimination rules:
+ * Instead, use polymorphic functions
+
+But, **we still need formation rules**
+
+## You can't trust code
+
+User's types not blindly trusted:
+```
+-> (lambda ([a : array]) (Array.size a))
+type error: used type constructor `array' as a type
+-> (lambda ([x : (bool int)]) x)
+type error: tried to apply type bool as type constructor
+-> (@ car list)
+type error: instantiated at type constructor `list', which is not a type
+```
+
+How can we know which types are OK?
+
+<hr>
+<img src="15-poly-types/classify-types.png" alt="classify-types" />
+<hr>
+
+<hr>
+<img src="15-poly-types/type-formation.png" alt="type-formation" />
+<hr>
+
+<hr>
+<img src="15-poly-types/type-formation.png" alt="type-formation" />
+<hr>
+
+<hr>
+<img src="15-poly-types/kinding-judgement.png" alt="kinding-judgement" />
+<hr>
+
+<hr>
+<img src="15-poly-types/kinding-rules.png" alt="kinding-rules" />
+<hr>
+
+<hr>
+<img src="15-poly-types/kind-examples.png" alt="kind-examples" />
+<hr>
+
+# Opening a closed world: What can a programmer add?
+
+Typed Impcore:
+
+* **Closed world** (no new types)
+
+* Simple formation rules
+
+Typed μScheme:
+
+* **Semi-closed world** (new type variables)
+
+* How are types formed (from other types)?
+
+Standard ML:
+
+* **Open world** (programmers create new types)
+
+* How are types formed (from other types)?
 
 
--> (val x 3)
-3 : int
--> (val y (+ x x))
-6 : int
+# Bonus content: a definition manipulates three environments
 
-fun processDef (d, (delta, gamma, rho)) =
-  let val (gamma', tystring)  = elabdef (d, gamma, delta)
-      val (rho',   valstring) = evaldef (d, rho)
-      val _ = print (valstring ^ " : " ^ tystring)
-  in  (delta, gamma', rho')
-  end
-Slide 22 
+<hr>
+<img src="15-poly-types/bonus1.png" alt="bonus1" />
+<hr>
 
-Type formation through kinds
-Slide 23 
+<hr>
+<img src="15-poly-types/bonus2.png" alt="bonus2" />
+<hr>
 
-Slide 24 
+<hr>
+<img src="15-poly-types/bonus3.png" alt="bonus3" />
+<hr>
 
-Slide 25 
+# Type Inference introduction
 
-Slide 26 
+How does the compiler or interpreter know the types without annotations?
+```
+fun append (x::xs) ys = x :: append xs ys
+  | append []      ys = ys
+```
 
-Slide 27 
+Questions: where do explicit types appear in C?
 
-Bonus content: a definition manipulates three environments
-Slide 28 
+Where do they appear in Typed μScheme?
 
-Slide 29 
+Get rid of all that:
 
-Slide 30 
+* Guess a type for each formal parameter
+* Guess a return type
+* Guess a type for each instantiation of a polymorphic type
 
+## Key Ideas:
+Fresh type variables represent unknown types.
+
+Example: In (lambda (x) (+ x 3)), assign x fresh type variable α
+Constraints record knowledge about type variables.
+
+Example: α ≡ int
+
+## Why Study?
+Useful in its own right (as we'll see shortly)
+
+Canonical example of Static Analysis, which is key tool in cybersecurity
+
+## What type inference accomplishes
+
+```
+-> (define     double (x)       (+ x x))
+double                         ;; uScheme
+
+-> (define int double ([x : int]) (+ x x))
+double : (int -> int)          ;; Typed uSch.
+
+-> (define     double (x)       (+ x x))
+double : int -> int            ;; nML
+```
+The compiler tells you useful information and there is a lower annotation 
+burden.
+
+## What else type inference accomplishes
+
+```
+-> ((@ cons bool) #t ((@ cons bool) #f (@ '() bool)))
+(#t #f) : (list bool)    ;; typed uScheme
+
+-> (   cons       #t (   cons       #f    '()      ))
+(#t #f) : bool list      ;; nML
+```
+
+## How it works
+
+1. For each unknown type, introduce a **fresh type variable**
+
+2. Every typing rule adds **equality constraints**
+
+3. Instantiate every variable automatically
+
+4. Introduce polymorphism at `let/val` bindings
+
+
+## Plan of Study
+* today see a couple of examples for how to generate constraints
+* Wednesday, many more examples with you doing somewhat
+* Wednesday, you solving constraints by hand
+* Wednesday and Monday, ideas for how to write constraint solver for HW8
+
+
+## Example: if
+
+`(if y 1 0)`
+
+`y` has type `'a3`, `1` has type `int`, `0` has type `int`
+
+Requires what constraints? (`int` = `int`, `'a3` = `bool`)
+
+## Example: sometimes can't satisfy constraints
+
+`(if z z (- 0 z))`
+
+`z` has type `'a3`, `0` has type `int`, `-` has type `int * int -> int`
+
+Requires what constraints? (`'a3 = bool /\ int = int /\ 'a3 = int`)
+
+Is this possible?
+
+Why not?

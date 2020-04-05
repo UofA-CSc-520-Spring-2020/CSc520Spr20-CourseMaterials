@@ -58,7 +58,7 @@ How it works
 
 For each unknown type, introduce a fresh type variable
 
-Every typing rule adds equality constraints
+Every typing rule adds equality constraints (recall constraint solver from homework(?) ?)
 
 Instantiate every variable automatically
 
@@ -177,7 +177,7 @@ forall 'a . 'a list list -> 'a
 
 =================================
 Beginning of the next set of notes, but I want to get through as much
-as possible on Wed the 8th
+as possible on Wed the 8th, but ok if some of it spills into Monday's lecture.
 
 Last Time
 Type inference
