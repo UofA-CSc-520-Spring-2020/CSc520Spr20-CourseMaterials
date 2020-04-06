@@ -24,6 +24,8 @@ April 6, 2020
 
 * Kinds for classifying types
 
+* Why we want to do type inference
+
 
 # Limitations of monomorphic type systems
 
