@@ -268,7 +268,7 @@ How can we know which types are OK?
 <hr>
 
 <hr>
-<img src="15-poly-types/type-formation.png" alt="type-formation" />
+<img src="15-poly-types/kinds-specify-arities.png" alt="kinds-specify-arities" />
 <hr>
 
 <hr>
