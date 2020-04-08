@@ -26,10 +26,11 @@ Type Inference
 
 * Fresh type variables represent unknown types.
 
-* Example: In `(lambda (x) (+ x 3))`, assign `x` fresh type variable α
-  Constraints record knowledge about type variables.
+ * Example: In `(lambda (x) (+ x 3))`, assign `x` fresh type variable α
 
-* Example: α ≡ int
+* Constraints record knowledge about type variables.
+
+ * Example: α ≡ int
 
 
 # Let's do an example on the "board"
@@ -147,15 +148,6 @@ let val cc = (lambda (nss) (car (car nss)))
 
 forall 'a . 'a list list -> 'a
 ```
-
-# Formalizing Type Inference and Instantiation
-
-* Formalizing type inference
-
-* Moving from type schemes to types (Instantiation)
-
-* Moving from types to type schemes (Generalization)
-
 
 # Formalizing Type Inference
 
