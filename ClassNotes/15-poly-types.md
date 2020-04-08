@@ -342,6 +342,7 @@ Get rid of all that:
 Fresh type variables represent unknown types.
 
 Example: In (lambda (x) (+ x 3)), assign x fresh type variable α
+
 Constraints record knowledge about type variables.
 
 Example: α ≡ int
@@ -389,7 +390,7 @@ burden.
 
 ## Plan of Study
 * today see a couple of examples for how to generate constraints
-* Wednesday, many more examples with you doing somewhat
+* Wednesday, many more examples with you doing some
 * Wednesday, you solving constraints by hand
 * Wednesday and Monday, ideas for how to write constraint solver for HW8
 
