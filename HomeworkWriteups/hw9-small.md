@@ -90,7 +90,7 @@ There is a `cqs.small.txt` in the starter github repository.
    In each expression, please identify the receiver, the argument, and the 
    message:
 
-   In `(w div: w 2)`,
+   In `(w div: 2)`,
 
    * The receiver is …
 
@@ -154,40 +154,7 @@ There is a `cqs.small.txt` in the starter github repository.
 
   * Dispatch to method ?? on class ?? …
 
-5. *Dynamic dispatch, part II: number classes*. Study the protocol and 
-   implementation pieces of class Number, which start around page 737. Now study 
-   the implementation of class Fraction, which starts around page 758.
-
-   When message `-` (minus) is sent to the `Fraction (/ 1 2)` with argument 
-   `Fraction (/ 1 3)`, the computation dispatches message to instance methods of 
-   classes Fraction, Number, and SmallInteger, as well as a class method of 
-   class Fraction. We are interested in only some of those dispatches—ones that 
-   meet *both* of these criteria:
-
-   * The message is sent from a method defined on class `Fraction` or class 
-     Number.
-
-   * The message is received by an instance of class `Fraction` or class 
-     `Number`.
-
-   These criteria rule out class methods of class `Fraction`, messages sent to 
-   `SmallInteger`, and so on.
-
-   Starting with message `-` (minus) is sent to an instance of `Fraction`, 
-   please identify only the interesting dispatches:
-
-```
-Message   Sent from method     Sent to object      Method defined
-          defined on class     of class            on class
-
--          (anywhere)          Fraction            Number
-
-?         Number               ?                   ?
-
- ... complete the rest of this table ...
-``` 
- 
-6. *Dynamic dispatch, part III*: messages to `self` and `super`. Now study the 
+5. *Dynamic dispatch, part II*: messages to `self` and `super`. Now study the 
    class method `new` defined on class `List`, which appears on page 752. The 
    definition sends message `new` to `super`. (Keep in mind: because `new` is a 
    class method, both `super` and `self` stand for the class, not for any 
@@ -202,19 +169,19 @@ Message   Sent from method     Sent to object      Method defined
     `(new self)`, which of the following scenarios best describes how the 
     changed program behaves?
 
-   * 6.c.1 The `new` message will be dispatched to class `List`. The same method 
+   * 5.c.1 The `new` message will be dispatched to class `List`. The same method 
      will run again, and the computation will not terminate.
 
-   * 6.c.2 The `new` message will be dispatched to a different class, and the 
+   * 5.c.2 The `new` message will be dispatched to a different class, and the 
      reply to the `new` message will leave the sentinel pointing to the wrong 
      value.
 
-   * 6.c.3 Nothing will change; in this example, there's no difference between 
+   * 5.c.3 Nothing will change; in this example, there's no difference between 
      `(new super)` and `(new self)`.
 
    Your answer: The best description is scenario number ??
 
-7. *Design of the numeric classes*. Read about coercion in Section 10.5.7 on 
+6. *Design of the numeric classes*. Read about coercion in Section 10.5.7 on 
    page 755. Look at the last part of the instance protocol for Number on page 
    738. Explain the roles of the methods `asInteger`, `asFraction`, `asFloat`, 
    and `coerce:`. If you are unsure, look at the implementations of these 
@@ -229,7 +196,7 @@ Message   Sent from method     Sent to object      Method defined
    * The role of `coerce:` is …
 
 
-8. *Abstract classes in principle*. In Section 10.1-.1, ("Key words and 
+7. *Abstract classes in principle*. In Section 10.1-.1, ("Key words and 
    phrases"), you will find a short definition of "abstract class." What is the 
    purpose of an abstract class? Pick one of the responses below.
 
@@ -243,7 +210,7 @@ Message   Sent from method     Sent to object      Method defined
 
    Your answer: …
 
-9. *Abstract classes in practice*: magnitudes and numbers. A natural-number 
+8. *Abstract classes in practice*: magnitudes and numbers. A natural-number 
    class would inherit from abstract class `Magnitude`, and a big-integer class 
    would inherit from `Magnitude` and from `Number`, which is also an abstract 
    class.
@@ -257,7 +224,7 @@ Message   Sent from method     Sent to object      Method defined
    and a large-integer classes.
 
 
-10. *Double Dispatch*. Read section 10.5.9. And read the section "laws for 
+9. *Double Dispatch*. Read section 10.5.9. And read the section "laws for 
   multiple dispatch" in the 7th lesson on program design ("Program Design with 
   Objects").  [NOTE: The version of seven lessons has a swapped order of the 
   receiver and the message name.]
