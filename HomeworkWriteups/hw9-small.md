@@ -196,7 +196,7 @@ There is a `cqs.small.txt` in the starter github repository.
    * The role of `coerce:` is …
 
 
-7. *Abstract classes in principle*. In Section 10.1-.1, ("Key words and 
+7. *Abstract classes in principle*. In Section 10.10.1, ("Key words and 
    phrases"), you will find a short definition of "abstract class." What is the 
    purpose of an abstract class? Pick one of the responses below.
 
@@ -224,12 +224,13 @@ There is a `cqs.small.txt` in the starter github repository.
    and a large-integer classes.
 
 
-9. *Double Dispatch*. Read section 10.5.9. And read the section "laws for 
-  multiple dispatch" in the 7th lesson on program design ("Program Design with 
-  Objects").  [NOTE: The version of seven lessons has a swapped order of the 
+9. *Double Dispatch*. Read Section 10.5.9. And read the section "laws for 
+  multiple dispatch" in the [7th lesson on program design ("Program Design with 
+  Objects")](https://www.cs.tufts.edu/comp/105-2019s/design/lessons.pdf).  
+  [NOTE: The version of seven lessons has a swapped order of the 
   receiver and the message name.]
   
-  Rewrite the 10 "laws of dispatch" on page with the receiver first and the 
+  Rewrite the 10 "laws of dispatch" on page 38 with the receiver first and the 
   message second.
 
 
