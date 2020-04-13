@@ -127,20 +127,21 @@ Note the new judgement form above for type checking a declaration.
 <img src="17-type-instantiation-generalization/val-rule-full.png" alt="val-rule-full" />
 <hr>
 
-LEFTOFF doing slides
 
-On the condition θΓ = Γ: Γ is “input”: it can’t be changed.
-The condition ensures that θ doen’t conflict with Γ.
+On the condition θΓ = Γ: Γ is "input": it can’t be changed.
+The condition ensures that θ doesn't conflict with Γ.
 
-We can’t generalize over free type variables in Γ.
+We can't generalize over free type variables in Γ.
 
-Their presence indicates they can be used somewhere else, and hence they aren’t free to be instantiated with any type.
-
-Type Inference for Lets and Recursive Definitions
+Their presence indicates they can be used somewhere else, and hence they aren't 
+free to be instantiated with any type.
 
 <hr>
 <img src="17-type-instantiation-generalization/var-rule-example.png" alt="var-rule-example" />
 <hr>
+
+# Type Inference for Lets and Recursive Definitions
+
 
 ## Let Examples
 ```
@@ -193,7 +194,8 @@ Type Inference for Lets and Recursive Definitions
 
 Forall things
 
-Managing Quantified types
-val and val-rec	let, letrec, …	lambda
-FORALL contains all variables (because none are free in the context)	FORALL contains variables not free in the context	FORALL is empty
-Generalize over all variables (because none are free in the context)	Generalize over variables not free in the context	Never generalize
+# Managing Quantified types
+
+|        | val and val-rec | let, letrec, ... | lambda
+| forall | FORALL contains all variables (because none are free in the context) | FORALL contains variables not free in the context | FORALL is empty |
+| Generalize over all variables (because none are free in the context)	| Generalize over variables not free in the context	| Never generalize |
