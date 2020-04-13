@@ -350,7 +350,7 @@ Related reading:
 * Table 7.3 showing the correspondence between nano-ML's type sytem and code on 
   page 482.
 
-* The definition of `con` and the utility functions in Section 7.6.4.
+* The definition of `con` and the utility functions in Section 7.6.3.
 
 * The definition of function `solves` on page 487, which you can use to verify 
   solutions your solver claims to find.
