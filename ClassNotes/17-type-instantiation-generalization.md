@@ -196,7 +196,7 @@ Forall things
 
 # Managing Quantified types
 
-|   _     | val and val-rec | let, letrec, ... | lambda |
+|         | val and val-rec | let, letrec, ... | lambda |
 | ------- | --------------- | ---------------- | ------ |
 | forall | FORALL contains all variables (because none are free in the context) | FORALL contains variables not free in the context | FORALL is empty |
 | Generalization | Generalize over all variables (because none are free in the context)	| Generalize over variables not free in the context	| Never generalize |
