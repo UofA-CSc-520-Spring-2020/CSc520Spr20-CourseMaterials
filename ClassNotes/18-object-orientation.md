@@ -164,30 +164,35 @@ Key classes in lists:
                      cdr: (cdr filter: aBlock))}))
 ```
 
-FIXME: not sure I understand all of this
 
-List filtering via iteration
+### List filtering via iteration
+
 Use the imperative way
 
 Functional iteration: forms of data
 
 Iteration in Scheme: ask value about form
 
+```
 (define app (f xs)
   (if (null? xs)
       'do-nothing
       (begin
          (f (car xs))
          (app f (cdr xs)))))
--oriented iteration: dynamic
+```
 
-Instead of (app f xs), we have
+### Object-oriented iteration: dynamic
 
-(xs do: f-block)
-"For each element x in xs send
+Instead of `(app f xs)`, we have
 
-Example: iteration
+`(xs do: f-block)`
 
+"For each element `x` in `xs` send
+
+### Example: iteration
+
+```
 -> (val ms (ns filter: [block (n) ((n mod: 2) = 0)]))
 List( 2 4 )
 -> (ms do: [block (m) ('element print) (space print)
@@ -197,42 +202,59 @@ element is 2
 element is 4
 nil
 -> 
-Implementing iteration
+```
 
-What happens if we send “do f” to an empty
+### Implementing iteration
 
-What happens if we send “do f” to a cons cell?
+What happens if we send “do: f” to an empty
 
-Iteration by dynamic dispatch
+What happens if we send “do: f” to a cons cell?
 
-Sending do: to the empty list:
+### Iteration by dynamic dispatch
 
+Sending `do:` to the empty list:
+```
   (method do: (aBlock) nil)
       ; nil is a global object
-Sending do: to a cons cell:
+```
 
+Sending do: to a cons cell:
+```
   (method do: (aBlock)
       ; car and cdr are "instance variables"
       (aBlock value: car)
       (cdr do: aBlock))
-Look! No if! Decisions made by dynamic dispatch
+```
+Look! No `if`! Decisions made by dynamic dispatch
 
-List selection by iteration
+### List selection by iteration
+
 Example: method
 
-Like filter, but works with more “collections”:
-
+Like `filter`, but works with more “collections”:
+```
 -> (val ns (List withAll: '(1 2 3 4 5)))    
 List( 1 2 3 4 5 )
 -> (ns select: [block (n) (0 = (n mod: 2))])
 List( 2 4 )
 -> 
+```
 Also works with arrays and sets
 
 
-FIXME: don't understand select: message example, need to read the book
 
-...  Missing lots of slides
+<hr>
+<img src="18-object-orientation/select-dispatch.png" alt="select-dispatch" />
+<hr>
+
+<hr>
+<img src="18-object-orientation/collection-hierarchy.png" alt="collection-hierarchy" />
+<hr>
+
+<hr>
+<img src="18-object-orientation/select-implementation.png" alt="select-implementation" />
+<hr>
+
 
 ## Mechanisms review
 
