@@ -12,9 +12,7 @@ CSc 520 Spring 2020 Assignment
 
 * [All questions and problems](#read)
 
-* [What and how to submit: Individual work](#submit)
-
-* [What and how to submit: Pair work](#pair)
+* [What and how to submit](#submit)
 
 * [Avoid common mistakes](#mistakes)
 
@@ -405,6 +403,7 @@ Your function must terminate in time linear in the size of the Church numeral.
 Ultimately, you will write your function in lambda notation acceptable to the lambda interpreter, but you may find it useful to try to write your initial version in Typed μScheme (or ML or μML or μScheme) to make it easier to debug.
 
 Remember these basic terms for encoding Church numerals and Booleans:
+
 ```
 <0>  = \f.\x.x;
 succ = \n.\f.\x.f (n f x);
@@ -414,15 +413,31 @@ succ = \n.\f.\x.f (n f x);
 true  = \x.\y.x;
 false = \x.\y.y;
 ```
+
 You can load these definitions by typing use predefined.lam; in your interpreter.
 
-2. Church Numerals—division by two. Without using recursion or a fixed-point combinator, define a function div2 which divides a Church numeral by two (rounding down). That is, div2 applied to the numeral for 2n returns n, and div2 applied to the numeral for 2n + 1 also returns n.
+<hr>
 
-We don’t know if this one can be done in linear time, but it is sufficient if your function terminates in time quadratic in the size of the Church numeral.
+2. Church Numerals—division by two. **Without using recursion or a fixed-point 
+   combinator**, define a function div2 that divides a Church numeral by two 
+   (rounding down). That is, `div2` applied to the numeral for 2n returns n, and 
+   `div2` applied to the numeral for 2n + 1 also returns n.
 
-Hint: Think about function split-list from the Scheme homework, about the implementation of the predecessor function on natural numbers, and about the “window” example from recitation.
-3. Church Numerals—conversion to binary. Implement the function binary from the Impcore homework. The argument and result must be Church numerals. For example,
+   We don't know if this one can be done in linear time, but it is sufficient if 
+   your function terminates in time quadratic in the size of the Church numeral.
 
+   FIXME
+   Hint: Think about function `split-list` from the Scheme homework, about the 
+   implementation of the predecessor function on natural numbers, and about the 
+   "window" example from recitation.
+
+<hr>
+
+3. Church Numerals—conversion to binary. Implement the function binary from the 
+   Impcore homework. The argument and result must be Church numerals. For 
+   example,
+
+```
 -> binary <0>;
 \f.\x.x
 -> binary <1>;
@@ -431,17 +446,30 @@ Hint: Think about function split-list from the Scheme homework, about the implem
 \f.\x.f (f (f (f (f (f (f (f (f (f x))))))))) // f applied 10 times
 -> binary <3>;
 \f.\x.f (f (f (f (f (f (f (f (f (f (f x)))))))))) // f applied 11 times
-For this problem, you may use the Y combinator. If you do, remember to use noreduce when defining binary, e.g.,
+```
 
+   For this problem, you may use the Y combinator. If you do, remember to use 
+   noreduce when defining binary, e.g.,
+   
+```
   noreduce binary = ... ;
-This problem, although not so difficult, may be time-consuming. If you get bogged down, go forward to the list-selection problem (nth),
-which can benefit from similar skills in recursion, fixed points, and Church numerals. Then come back to this problem.
+```
 
-Your function must terminate in time quadratic in the size of the Church numeral.
+   This problem, although not so difficult, may be time-consuming. If you get 
+   bogged down, go forward to the list-selection problem (nth),
+   which can benefit from similar skills in recursion, fixed points, and Church 
+   numerals. Then come back to this problem.
 
+   Your function must terminate in time quadratic in the size of the Church 
+   numeral.
 
-4. Church Numerals—list selection. Write a function nth such that given a Church numeral n and a church-encoded list xs of length at least n+1, nth n xs returns the nth element of xs:
+<hr>
 
+4. Church Numerals—list selection. Write a function `nth` such that given a 
+   Church numeral `n` and a church-encoded list `xs` of length at least `n+1`, 
+   `nth n xs` returns the `n`th element of `xs`:
+   
+```
 -> <0>;
 \f.\x.x
 -> <2>;
@@ -450,11 +478,19 @@ Your function must terminate in time quadratic in the size of the Church numeral
 Alpha
 -> nth <2> (cons Alpha (cons Bravo (cons Charlie nil)));
 Charlie
-To get full credit for this problem, you must solve it without recursion. But if you want to define nth as a recursive function, use the Y combinator, and use noreduce to define nth.
+```
 
-Provided xs is long enough, function nth must terminate in time linear in the length of the list. Don’t even try to deal with the case where xs is too short.
+   To get full credit for this problem, **you must solve it without recursion**. 
+   But if you want to define `nth` as a recursive function, use the Y 
+   combinator, and use `noreduce` to define `nth`.
 
-Hint: One option is to go on the web or go to Rojas and learn how to tell if a Church numeral is zero and if not, and how to take its predecessor. There are other, better options.
+   Provided `xs` is long enough, function `nth` must terminate in time linear in 
+   the length of the list. Don't even try to deal with the case where `xs` is 
+   too short.
+
+   Hint: One option is to go on the web or go to Rojas and learn how to tell if 
+   a Church numeral is zero and if not, and how to take its predecessor. There 
+   are other, better options.
 
 
 
@@ -463,7 +499,7 @@ Hint: One option is to go on the web or go to Rojas and learn how to tell if a C
 
 Please submit three files:
 
- * A README.md file containing
+ * A `README.md` file containing
    * The names of the people with whom you collaborated (i.e. talked with
      about the assignment, no pair programming for this one, don't share code)
 
@@ -487,71 +523,66 @@ the last submission.
 Common mistakes with Church numerals
 Here are some common mistakes to avoid when programming with Church numerals:
 
-Don’t forget names and contracts for helper functions.
+* **Don't forget names and contracts for helper functions**.
 
-Don’t forget a semicolon after each definition.
+* Don't forget a semicolon after each definition.
 
-Don’t forget the question mark in the name of even?.
+* Don't forget the question mark in the name of `even?`.
 
-When using a fixed-point combinator to define a function, don’t forget to use noreduce in the definition form.
+* When using a fixed-point combinator to define a function, don't forget to use 
+  noreduce in the definition form.
 
-Don’t use the list representation or primitives from Wikipedia. We will test your code using the representation and primitives from Coding in Lambda Calculus, which you will also find in the file predefined.lam.
+* **Don't use the list representation or primitives from Wikipedia**. We will 
+  test your code using the representation and primitives from [Coding in Lambda 
+  Calculus](https://www.cs.tufts.edu/comp/105-2019s/handouts/lambda-coding.pdf), 
+  which you will also find in the file `predefined.lam`.
 
-Don’t include any use directives in church.lam.
+* Don't include any use directives in `church.lam`.
 
-Don’t copy predefined terms from predefined.lam. We will load the predefined terms before running your code.
+* Don't copy predefined terms from predefined.lam. We will load the predefined   
+  terms before running your code.
 
 To make sure your code is well formed, load it using
-
+```
 cat predefined.lam church.lam | linterp-nr
-If you want to build a test suite, put your tests in file test.lam and run
+```
 
+If you want to build a test suite, put your tests in file `test.lam` and run
+```
 cat predefined.lam church.lam test.lam | linterp-nr
-Common mistakes with the lambda interpreter
-Here are some common mistakes to avoid in implementing the interpreter:
-
-Don’t forget the Eta rule:
-
-   \x.M x --> M   provided x is not free in M
-Here is a reduction in two eta steps:
-
-  \x.\y.cons x y --> \x.cons x --> cons
-Your interpreters must eta-reduce when possible.
-
-Don’t forget to reduce under lambdas (the Xi rule).
-
-Don’t forget that in an application M1 M2, just because M1 is in normal form doesn’t mean the whole thing is in normal form. If M1 doesn’t step, you must try to reduce M2.
-
-If you are using the first-order implementation option, don’t clone and modify your code for reduction strategies; people who do this wind up with wrong answers. The code should not be that long; use a clausal definition with nested patterns, and write every case from scratch.
-
-Do make sure to use normal-order reduction, so that you don’t reduce a divergent term unnecessarily.
-
-Don’t try to be clever about a divergent term; just reduce it. (It’s a common mistake to try to detect the possibility of an infinite loop. Mr. Turing proved that you can’t detect an infinite loop, so please don’t try.)
-
-When implementing freshVar, don’t try to repurpose function freshTyvar from section 7.6. That function isn’t smart enough for your needs.
-
+```
 
 
 
 # How your work will be evaluated
 <a name="eval"/>
 
-Your ML code will be judged by the usual criteria, emphasizing
+Your lambda code will be judged on correctness, form, naming, and documentation, 
+but not so much on structure. In particular, because the lambda calculus is such 
+a low-level language, we will especially emphasize **names and contracts for 
+helper functions**.
 
-Correct implementation of the lambda calculus
-Good form
-Names and contracts for helper functions
-Structure that exploits standard basis functions, especially higher-order functions, and that avoids redundant case analysis
-Your lambda code will be judged on correctness, form, naming, and documentation, but not so much on structure. In particular, because the lambda calculus is such a low-level language, we will especially emphasize names and contracts for helper functions.
+* This is low-level programming, and if you don't get your code exactly right, 
+  the only way we can recognize and reward your learning is by reading the code. 
+  It's your job to make it clear to us that even if your code isn't perfect, you 
+  understand what you're doing.
 
-This is low-level programming, and if you don’t get your code exactly right, the only way we can recognize and reward your learning is by reading the code. It’s your job to make it clear to us that even if your code isn’t perfect, you understand what you’re doing.
-
-Try to write your contracts in terms of higher-level data structures and operations. For example, even though the following function does some fancy manipulation on terms, it doesn’t need much in the way of a contract:
-
+* Try to write your contracts in terms of higher-level data structures and 
+  operations. For example, even though the following function does some fancy 
+  manipulation on terms, it doesn’t need much in the way of a contract:
+```
    double = \n.\f.\x. n (\y.f (f y)) x;  // double a Church numeral
-Documenting lambda calculus is like documenting assembly code: it’s often sufficient to say what’s happening at a higher level of abstraction.
+```
+  Documenting lambda calculus is like documenting assembly code: it's often 
+  sufficient to say what's happening at a higher level of abstraction.
 
-Although it is seldom ideal, it can be OK to use higher-level code to document your lambda code. In particular, if you want to use Scheme or ML to explain what your lambda code is doing, this can work only because Scheme and ML operate at much higher levels of abstraction. Don’t fall into the trap of writing the same code twice—if you are going to use code in a contract, it must operate at a significantly higher level of abstraction than the code it is trying to document.
+* Although it is seldom ideal, it can be OK to use higher-level code to document 
+  your lambda code. In particular, if you want to use Scheme or ML to explain 
+  what your lambda code is doing, this can work only because Scheme and ML 
+  operate at much higher levels of abstraction. Don't fall into the trap of 
+  writing the same code twice—if you are going to use code in a contract, it 
+  must operate at a significantly higher level of abstraction than the code it 
+  is trying to document.
 
 
 ## Naming
@@ -589,40 +620,54 @@ Although it is seldom ideal, it can be OK to use higher-level code to document y
 
 #### Exemplary
 
- * The contract of each function is clear from the function’s name, the names of its parameters, and perhaps a one-line comment describing the result.
+ * The contract of each function is clear from the function's name, the names of its parameters, and perhaps a one-line comment describing the result.
 
-• Or, when names alone are not enough, each function’s contract is documented with a type (in a comment)
+ * Or, when names alone are not enough, each function's contract is documented 
+   with a type (in a comment)
 
-• Or, when names and a type are not enough, each function’s contract is documented by writing the function’s operation in a high-level language with high-level data structures.
+ * Or, when names and a type are not enough, each function's contract is 
+   documented by writing the function’s operation in a high-level language with 
+   high-level data structures.
 
-• Or, when a function cannot be explained at a high level, each function is documented with a meticulous contract that explains what λ-calculus term the function returns, in terms of the parameters, which are mentioned by name.
+ * Or, when a function cannot be explained at a high level, each function is 
+   documented with a meticulous contract that explains what λ-calculus term the 
+   function returns, in terms of the parameters, which are mentioned by name.
 
-• All recursive functions use structural recursion and therefore don’t need documentation.
-
-• Or, every function that does not use structural recursion is documented with a short argument that explains why it terminates.
+ * A recursive function is accompanied by an argument about termination.
 
 #### Satisfactory
 
- * A function’s contract omits some parameters.
+ * A function's contract omits some parameters.
 
-• A function’s documentation mentions every parameter, but does not specify a contract.
+ * A function's documentation mentions every parameter, but does not specify a 
+   contract.
 
-• A recursive function is accompanied by an argument about termination, but course staff have trouble following the argument.
+ * A recursive function is accompanied by an argument about termination, but 
+   course staff have trouble following the argument.
 
 #### Must Improve
 
- * A function is not named after the thing it returns, and the function’s documentation does not say what it returns.
+ * A function is not named after the thing it returns, and the function's 
+   documentation does not say what it returns.
 
-• A function’s documentation includes a narrative description of what happens in the body of the function, instead of a contract that mentions only the parameters and result.
+ * A function's documentation includes a narrative description of what happens 
+   in the body of the function, instead of a contract that mentions only the 
+   parameters and result.
 
-• A function’s documentation neither specifies a contract nor mentions every parameter.
+ * A function's documentation neither specifies a contract nor mentions every 
+   parameter.
 
-• A function is documented at a low level (λ-calculus terms) when higher-level documentation (pairs, lists, Booleans, natural numbers) is possible.
+ * A function is documented at a low level (λ-calculus terms) when higher-level 
+   documentation (pairs, lists, Booleans, natural numbers) is possible.
 
-• There are multiple functions that are not part of the specification of the problem, and from looking just at the names of the functions and the names of their parameters, it’s hard for us to figure out what the functions do.
+ * There are multiple functions that are not part of the specification of the 
+   problem, and from looking just at the names of the functions and the names of 
+   their parameters, it's hard for us to figure out what the functions do.
 
-• A recursive function is accompanied by an argument about termination, but course staff believe the argument is wrong.
+ * A recursive function is accompanied by an argument about termination, but 
+   course staff believe the argument is wrong.
 
-• A recursive function does not use structural recursion, and course staff cannot find an explanation of why it terminates.
+ * A recursive function does not use structural recursion, and course staff 
+   cannot find an explanation of why it terminates.
 
 
