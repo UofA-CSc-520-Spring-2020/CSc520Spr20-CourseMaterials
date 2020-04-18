@@ -123,9 +123,10 @@ Rojas' tutorial is your best source.
      lambda calculus. The primary benefit relative to Rojas is that Wikipedia 
      describes more kinds of arithmetic and other functions on Church numerals.
 
-You need to know that **the list encoding used on Wikipedia is not the list 
-encoding used in CSc 520**. To complete the homework problems successfully, you 
-must use the list encoding described in the guide to coding in lambda calculus.
+   You need to know that **the list encoding used on Wikipedia is not the list 
+   encoding used in CSc 520**. To complete the homework problems successfully, 
+   you must use the list encoding described in the guide to coding in lambda 
+   calculus.
 
 
 # Introduction to the lambda interpreter
@@ -298,8 +299,9 @@ There is a `cqs.lambda.txt` in the starter github repository.
    for a variable, one for a lambda abstraction, and one for an application.
 
 
-2. Recognizing redexes. Read about redexes in Wikipedia. (You will then follow
-   up with 
+2. Recognizing redexes. Read about redexes in Wikipedia (use 
+   https://sookocheff.com/post/fp/eta-conversion/ to help figure out one of the 
+   greek letter names). (You will then follow up with 
    [Panangaden](https://www.cs.tufts.edu/comp/105/readings/prakash.pdf).)
 
   * (a) Wikipedia mentions two kinds of redex. What are their names?
@@ -338,7 +340,7 @@ There is a `cqs.lambda.txt` in the starter github repository.
 
 
 4. Reduction: the general case. For each kind of redex, repeat the general form 
-   of the redex from Question 2(c) 3(c) above, then show what syntactic form the 
+   of the redex from Question 2(c) above, then show what syntactic form the 
    redex reduces to (in just a single reduction step).
 
 
@@ -380,29 +382,57 @@ requirement, as are the helper functions in `predefined.lam`.
 
 Complete all four problems below, and place your solutions in file `church.lam`.
 
-Not counting code copied from the lecture notes, my solutions to all four 
-problems total less than fifteen lines of code. And all four problems rely on 
+Not counting code copied from the lecture notes, my solutions to all the 
+problems total less than fifteen lines of code. And all problems rely on 
 the same related reading.
 
-Related reading for lambda-calculus programming problems 1 to 4:
+Related reading for lambda-calculus programming problems 1 to 3:
 
-My guide Coding in Lambda Calculus should explain everything you need to know to write functional programs in lambda calculus. If not, or if the explanations there are a little too terse, consult the additional readings below.
+* Ramsey guide for [Coding in Lambda 
+  Calculus](https://www.cs.tufts.edu/comp/105-2019s/handouts/lambda-coding.pdf) 
+  should explain everything you need to know to write functional programs in 
+  lambda calculus. If not, or if the explanations there are a little too terse, 
+  consult the additional readings below.
 
-Basic techniques can be found in Wikipedia on Church Encoding and in section 2 of Panangaden, which is titled “Computing with Lambda Calculus” (from page 8 to the middle of page 10). These basics are sufficient for you to tackle problems 1 and 2.
+* Basic techniques can be found in [Wikipedia on Church 
+  Encoding](https://en.wikipedia.org/wiki/Church_encoding) and in Section 2 of 
+  Panangaden, which is titled "Computing with Lambda Calculus" (from page 8 to 
+  the middle of page 10). These basics are sufficient for you to tackle problem 
+  1.
 
-Another alternative is Section 2 of Rojas’s tutorial, entitled “arithmetic.” Rojas doesn’t mention Church numerals by name, but that’s what he’s working with. You may find the examples useful and the presentation more accessible than what you see from Panangaden.
+* Another alternative is Section 2 of Rojas’s tutorial, entitled "arithmetic." 
+  Rojas doesn't mention Church numerals by name, but that's what he's working 
+  with. You may find the examples useful and the presentation more accessible 
+  than what you see from Panangaden.
 
-On problems 3 and 4 only, if you have the urge to write a recursive function, you may use a fixed-point combinator. My guide ends with a few pages on recursion. You may also wish to consult the first paragraph under “Fixed-Point Combinators” on page 10 of Panangaden. This explanation is by far the best and simplest explanation available—but it is very terse. For additional help, consult the examples on page 11.
+  * On Problems 2 and 3 only, if you have the urge to write a recursive 
+    function, you may use a fixed-point combinator. My guide ends with a few 
+    pages on recursion. You may also wish to consult the first paragraph under 
+    "Fixed-Point Combinators" on page 10 of Panangaden. This explanation is by 
+    far the best and simplest explanation available—but it is very terse. For 
+    additional help, consult the examples on page 11.
 
-I recommend against the Wikipedia “main article” on fixed-point combinators: the article is all math all the time, and it won’t give you any insight into how to use a fixed-point combinator.
+    I recommend against the Wikipedia “main article” on fixed-point combinators: 
+    the article is all math all the time, and it won't give you any insight into 
+    how to use a fixed-point combinator.
 
-1. Church Numerals—parity. Without using recursion or a fixed-point combinator, define a function even? which, when applied to a Church numeral, returns the Church encoding of true or false, depending on whether the numeral represents an even number or an odd number.
+<hr>
 
-Your function must terminate in time linear in the size of the Church numeral.
+1. Church Numerals—parity. Without using recursion or a fixed-point combinator, 
+   define a function even? which, when applied to a Church numeral, returns the 
+   Church encoding of true or false, depending on whether the numeral represents 
+   an even number or an odd number.
 
-Ultimately, you will write your function in lambda notation acceptable to the lambda interpreter, but you may find it useful to try to write your initial version in Typed μScheme (or ML or μML or μScheme) to make it easier to debug.
+   Your function must terminate in time linear in the size of the Church 
+   numeral.
 
-Remember these basic terms for encoding Church numerals and Booleans:
+   Ultimately, you will write your function in lambda notation acceptable to the 
+   lambda interpreter, but you may find it useful to try to write your initial 
+   version in Typed μScheme (or ML or μML or μScheme) to make it easier to 
+   debug.
+
+   Remember these basic terms for encoding Church numerals and Booleans:
+
 
 ```
 <0>  = \f.\x.x;
@@ -414,22 +444,25 @@ true  = \x.\y.x;
 false = \x.\y.y;
 ```
 
-You can load these definitions by typing use predefined.lam; in your interpreter.
+   You can load these definitions by typing use predefined.lam; in your 
+   interpreter.
 
 <hr>
 
-2. Church Numerals—division by two. **Without using recursion or a fixed-point 
-   combinator**, define a function div2 that divides a Church numeral by two 
-   (rounding down). That is, `div2` applied to the numeral for 2n returns n, and 
-   `div2` applied to the numeral for 2n + 1 also returns n.
+2. Church Numerals—division by two. Without using recursion or a fixed-point 
+   combinator, define a function `div2` that divides a Church numeral by two  
+   (rounding down). That is, `div2` applied to the numeral for `2n` returns `n`, 
+   and `div2` applied to the numeral for `2n + 1` also returns `n`.
 
    We don't know if this one can be done in linear time, but it is sufficient if 
    your function terminates in time quadratic in the size of the Church numeral.
 
-   FIXME
-   Hint: Think about function `split-list` from the Scheme homework, about the 
-   implementation of the predecessor function on natural numbers, and about the 
-   "window" example from recitation.
+   Hint: Think about function split-list from one of the Scheme homeworks done 
+   at Tufts (https://www.cs.tufts.edu/comp/105-2019s/homework/scheme.html), 
+   about the implementation of the predecessor function on natural numbers, and 
+   about the "window" example that will be posted on piazza.
+   
+   You will need this function for Problem 3.
 
 <hr>
 
