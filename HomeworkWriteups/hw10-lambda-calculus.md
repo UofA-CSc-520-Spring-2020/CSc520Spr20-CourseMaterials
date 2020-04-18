@@ -397,24 +397,24 @@ Related reading for lambda-calculus programming problems 1 to 3:
 * Basic techniques can be found in [Wikipedia on Church 
   Encoding](https://en.wikipedia.org/wiki/Church_encoding) and in Section 2 of 
   Panangaden, which is titled "Computing with Lambda Calculus" (from page 8 to 
-  the middle of page 10). These basics are sufficient for you to tackle problem 
-  1.
+  the middle of page 10). These basics are sufficient for you to tackle problems 
+  1 and 2.
 
 * Another alternative is Section 2 of Rojas’s tutorial, entitled "arithmetic." 
   Rojas doesn't mention Church numerals by name, but that's what he's working 
   with. You may find the examples useful and the presentation more accessible 
   than what you see from Panangaden.
 
-  * On Problems 2 and 3 only, if you have the urge to write a recursive 
-    function, you may use a fixed-point combinator. My guide ends with a few 
-    pages on recursion. You may also wish to consult the first paragraph under 
-    "Fixed-Point Combinators" on page 10 of Panangaden. This explanation is by 
-    far the best and simplest explanation available—but it is very terse. For 
-    additional help, consult the examples on page 11.
+* On Problems 3 and 4 only, if you have the urge to write a recursive 
+  function, you may use a fixed-point combinator. My guide ends with a few 
+  pages on recursion. You may also wish to consult the first paragraph under 
+  "Fixed-Point Combinators" on page 10 of Panangaden. This explanation is by 
+  far the best and simplest explanation available—but it is very terse. For 
+  additional help, consult the examples on page 11.
 
-    I recommend against the Wikipedia “main article” on fixed-point combinators: 
-    the article is all math all the time, and it won't give you any insight into 
-    how to use a fixed-point combinator.
+  I recommend against the Wikipedia "main article" on fixed-point combinators: 
+  the article is all math all the time, and it won't give you any insight into 
+  how to use a fixed-point combinator.
 
 <hr>
 
