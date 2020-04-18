@@ -228,7 +228,8 @@ There is a `cqs.small.txt` in the starter github repository.
   multiple dispatch" in the [7th lesson on program design ("Program Design with 
   Objects")](https://www.cs.tufts.edu/comp/105-2019s/design/lessons.pdf).  
   [NOTE: The version of seven lessons has a swapped order of the 
-  receiver and the message name.]
+  receiver and the message name.]  You can check with the newer version
+  at https://www.cs.tufts.edu/comp/105/design/lessons.pdf.
   
   Rewrite the 10 "laws of dispatch" on page 38 with the receiver first and the 
   message second.
