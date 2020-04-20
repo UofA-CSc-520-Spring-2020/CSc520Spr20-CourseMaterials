@@ -35,8 +35,7 @@ April 20, 2020
 * Receiver appears first: it's in charge
 * Respond to message by evaluating method
 * Method determined by an object's class
-
-Not shown: a method can use primitive operations.
+* A method can use primitive operations.
 
 
 # Six questions about Smalltalk
@@ -130,8 +129,8 @@ Name stands for a mutable cell containing an object:
  * At run time, Smalltalk uses behavioral subtyping, known to Rubyists as "duck 
    typing"
 
-
-[FIXME] some on difference between inheritance and subtyping?
+ * Note that subclassing and subtyping are not equivalent.  Think interfaces
+   in Java.
 
 
 ## 5. **Dynamic semantics**
@@ -176,47 +175,65 @@ Methods
 ## 6. The **initial basis** is enormous
 
 Why? To demonstrate the benefits of reuse, you need something big enough 
-to reuse.
+to reuse.  Also, EVERYTHING is an object including booleans and numbers.
+
+### Class case study: Booleans
+
+<hr>
+<img src="19-more-object-orientation/boolean-hierarchy.png" alt="boolean-hierarchy" />
+<hr>
+
+<hr>
+<img src="19-more-object-orientation/boolean-protocol.png" alt="boolean-protocol" />
+<hr>
+
+<hr>
+<img src="19-more-object-orientation/ifTrue-ifFalse-impl.png" alt="ifTrue-ifFalse-impl" />
+<hr>
 
 
-[FIXME: format below and decide how much to put in.  Want to get to the
-concept of double dispatch but may not need all of the other material.]
 
-Class case study: Magnitudes and numbers
-Key problems on homework
+### Class case study: Magnitudes and numbers
 
-Natural is a Magnitude
+* `Number` is a `Magnitude`
 
-“Large integer” is a Number
+* `Integer` is a `Number`
 
-Each class has one of two roles
+* `SmallInteger` is an `Integer`
+
+* Only `SmallInteger` is a concrete subclass.  The rest are all abstract.
+
+<hr>
+<img src="19-more-object-orientation/number-hierarchy.png" alt="number-hierarchy" />
+<hr>
+
+### Each class has one of two roles
 
 Abstract class
 
-Meant to be inherited from
+* Meant to be **inherited from**
 
-Some ( > 0) subclassResponsibility methods
+* Some ( > 0) `subclassResponsibility` methods
 
-Examples: Boolean, Shape, Collection
+* Examples: `Boolean`, `Shape`, `Collection`
 
-Regular (“concrete”) class
+Regular ("concrete") class
 
-Meant to be instantiated
+* Meant to be **instantiated**
 
-No subclassResponsibility methods
+* No `subclassResponsibility` methods
 
-Examples: True, Triangle, List
+* Examples: `True`, `Triangle`, `List`
 
-Slide 10 
 
-Slide 11 
+<hr>
+<img src="19-more-object-orientation/magnitude-protocol.png" alt="magnitude-protocol" />
+<hr>
 
-Slide 12 
 
-Compare reuse by inheritance with reuse via ML functors (generic modules). Harper’s Dictionary uses only lt, but Smalltalk wants both < and =.
+### Implementation of : Reuse
 
-Implementation of : Reuse
-
+```
 (class Magnitude            ; abstract class
     [subclass-of Object]
     (method =  (x) (self subclassResponsibility))
@@ -230,48 +247,19 @@ Implementation of : Reuse
     (method max: (aMag)
        ((self > aMag) ifTrue:ifFalse: {self} {aMag}))
 )
-Slide 14 
+```
 
-Slide 15 
+Note that methods in the abstract Magnitude class assume that `=` and `<`
+have been defined in a subclass.  Here is an example of how `<` is implemented
+in `SmallInteger` with uSmalltalk primitives.
 
-Slide 16 
+From part of supplement not provided in printed Ramsey class notes:
 
-Number methods
+<hr>
+<img src="19-more-object-orientation/smallInteger.png" alt="smallInteger" />
+<hr>
 
-(method -  (y) (self + (y negated)))
-(method abs () ((self isNegative) ifTrue:ifFalse:
-                   {(self negated)}
-                   {self}))
-(method /  (y) (self * (y reciprocal)))
 
-(method isNegative         ()
-   (self  < (self coerce: 0)))
-(method isNonnegative      ()
-   (self >= (self coerce: 0)))
-(method isStrictlyPositive ()
-   (self  > (self coerce: 0)))
-A concrete class: Initialization and invariants
-Example class : initialization
-
-(class Fraction
-    [subclass-of Number]
-    [ivars num den] 
-              ;; representation (concrete!)
-              ;; invariants by signReduce, divReduce
-    (class-method num:den: (a b) 
-        ((self new) initNum:den: a b))
-    (method initNum:den: (a b) ; private
-        (self setNum:den: a b)
-        (self signReduce)
-        (self divReduce))
-    (method setNum:den: (a b)
-        (set num a) (set den b) self) ; private
-    .. other methods of class Fraction ... )
-Slide 19 
-
-Slide 20 
-
-Slide 21 
 
 
 
