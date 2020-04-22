@@ -177,7 +177,6 @@ pair = \x.\y.\f.f x y
 fst  = \p.p (\x.\y.x)
 snd  = \p.p (\x.\y.y)
 ```
-FIXME: use some of Christian's slides to step through beta reductions?
 
 ## Coding Lists
 
