@@ -31,11 +31,46 @@ April 22, 2020
 
 * Operational Semantics
 
-<hr>
-<img src="20-lambda-calculus/.png" alt="FIXME" />
-<hr>
 
 # Lambda Calculus
+
+
+## What is a calculus?
+
+Demonstration of differential calculus: reduce
+```
+d/dx (x + y)^2
+```
+
+Rules:
+```
+d/dx k = 0
+d/dx x = 1
+d/dx y = 0 where y is different from x
+d/dx (u + v) = d/dx u + d/dx v
+d/dx (u * v) = u * d/dx v + v * d/dx u
+d/dx (e^n)   = n * e^(n-1) * d/dx e
+```
+
+So
+```
+d/dx (x + y)^22
+
+2 ⋅ (x + y) ⋅ d/dx (x + y)
+
+2 ⋅ (x + y) ⋅ (d/dxx + d/dxy)
+
+2 ⋅ (x + y) ⋅ (1 + d/dxy)
+
+2 ⋅ (x + y) ⋅ (1 + 0)
+
+2 ⋅ (x + y) ⋅ 1
+
+2 ⋅ (x + y)
+```
+What is a calculus? Manipulation of syntax.
+
+What corresponds to evaluation? "Reduction to normal form"
 
 ## Why study lambda calculus?
 
@@ -46,7 +81,14 @@ April 22, 2020
 
 * Test bench for new language features
 
-## The world’s simplest reasonable programming language
+## The world's simplest reasonable programming language
+
+Just application, abstraction, and variables.
+* Living without `let`, `while`
+* Living without `if`
+* Living without recursive `define`
+* Coding data structures
+* Coding natural numbers
 
 Only three syntactic forms:
 ```
@@ -58,6 +100,8 @@ Everything is **programming with functions**
 * Everything is Curried
 
 * Application associates to the left
+
+* **Arguments are not evaluated**
 
 First example:
 ```
@@ -94,11 +138,19 @@ Booleans take two continuations:
 ```
  true  = \t.\f.t
  false = \t.\f.f
+ 
+ // laws:
+ if true  then N else P = N
+ if false then N else P = P
 
- if M then N else P = ???   (* M N P *)  FIXME: what is answer for this?
-
- if = \b.\t.\e.b t e
+ ;if = \b.\t.\e.b t e
 ```
+
+Your turn: implement `not`
+
+* Laws for `not`: what are the forms of the input data?
+
+* Code for `not`
 
 ## Coding Pairs
 
@@ -117,14 +169,15 @@ Booleans take two continuations:
 * Code `pair`, `fst`, and `snd`
 
 ```
- pair x y f = f x y
- fst p = p (\x.\y.x)
- snd p = p (\x.\y.y)
+pair x y f = f x y
+fst p = p (\x.\y.x)
+snd p = p (\x.\y.y)
 
- pair = \x.\y.\f.f x y
- fst  = \p.p (\x.\y.x)
- snd  = \p.p (\x.\y.y)
+pair = \x.\y.\f.f x y
+fst  = \p.p (\x.\y.x)
+snd  = \p.p (\x.\y.y)
 ```
+FIXME: use some of Christian's slides to step through beta reductions?
 
 ## Coding Lists
 
@@ -187,7 +240,7 @@ times = \n.\m.n (plus m) zero;
 \f.\x.f (f (f (f (f (f (f (f (f (f (f (f x)))))))))))
 ```
 
-Taking stock:
+## Taking stock:
 
 * bools
 
@@ -201,9 +254,11 @@ Question: **What’s missing from this picture?**
 
 Answer: Recursive functions.
 
-Astonishing fact: we don’t need letrec or val-rec
+Astonishing fact: we don't need letrec or val-rec
 
 The Y-combinator = `\f.(\x.f (x x))(\x.f (x x))` can encode recursion.
+
+Will be covering the Y-combinator more on Monday.
 
 # Operational semantics of lambda calculus
 
@@ -213,7 +268,9 @@ New judgment form
 ```
 M --> N   ("M reduces to N in one step")
 ```
-No context!! No turnstile!!  FIXME
+No context!! No turnstile!!
+("turnstile" is the name for the |- symbol that separates the context
+from the conclusion)
 
 Just pushing terms around == calculus
 
