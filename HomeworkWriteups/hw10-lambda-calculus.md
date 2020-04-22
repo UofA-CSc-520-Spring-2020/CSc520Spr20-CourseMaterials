@@ -48,7 +48,7 @@ and do a git clone of your repository.  Make sure to `get commit -a` and
 
 The lambda interpreter is an executable wrapped in a docker container.
 ```
-docker pull mstrout/cs520spring2020
+sudo docker pull mstrout/cs520spring2020
 docker run -it --rm --name cs520name -h cs520host mstrout/cs520spring2020
 ./linterp-nr
 ```
