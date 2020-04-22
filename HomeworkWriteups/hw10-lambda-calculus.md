@@ -185,7 +185,7 @@ eta-redexes. (You will implement the two reduction strategies presented in class
 The `use` extended definition loads a file into the interpreter as if it had 
 been typed in directly. It takes the form
 ```
-    use "filename";
+    use filename;
 ```
 
 ### Comparing normal forms with check-equiv
