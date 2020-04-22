@@ -143,7 +143,7 @@ Booleans take two continuations:
  if true  then N else P = N
  if false then N else P = P
 
- ;if = \b.\t.\e.b t e
+ if = \b.\t.\e.b t e
 ```
 
 Your turn: implement `not`
