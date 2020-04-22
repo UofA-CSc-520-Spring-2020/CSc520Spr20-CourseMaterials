@@ -281,7 +281,7 @@ github repository.
 
 
 
-# All questions and problems (60%)
+# All questions and problems
 <a name="read"/>
 
 ## Reading Comprehension Questions
