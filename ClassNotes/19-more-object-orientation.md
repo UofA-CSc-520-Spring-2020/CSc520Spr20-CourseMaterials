@@ -231,7 +231,7 @@ Regular ("concrete") class
 <hr>
 
 
-### Implementation of : Reuse
+### Implementation of Reuse
 
 ```
 (class Magnitude            ; abstract class
