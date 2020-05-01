@@ -28,7 +28,8 @@ Make sure you understand how to solve all the problems from
 the homeworks and practice similar problems.
 
 The final exam is comprehensive.  Thus see the detailed outline of concepts
-in the [midterm-study-guide.md] as well as the below outline of the 
+in the [midterm-study-guide.md](midterm-study-guide.md) as well as the below 
+outline of the 
 concepts with an indication of the kind of problems you could practice 
 to determine if you understand the concept.
 
