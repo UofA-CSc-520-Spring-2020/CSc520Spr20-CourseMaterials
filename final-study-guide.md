@@ -4,7 +4,7 @@ The midterm will be on zoom and gradescope Tuesday
 May 12th from 3:30-5:30pm.  The zoom link will be sent out
 via piazza the day before the final.
 
-The final is online and therefore is open note.  You will be asked
+The final is online and therefore is open note and open book.  You will be asked
 to agree to the following on the final:
 * While taking this final exam, the only person I will communicate 
   with about the material on the final is the instructor via private chat in 
