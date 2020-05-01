@@ -1,4 +1,4 @@
-# Final Study Guide, March 6, 2020
+# Final Study Guide, posted April 30, 2020
 
 The midterm will be on zoom and gradescope Tuesday 
 May 12th from 3:30-5:30pm.  The zoom link will be sent out
