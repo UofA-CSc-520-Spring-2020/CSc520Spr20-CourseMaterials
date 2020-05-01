@@ -33,11 +33,11 @@ outline of the
 concepts with an indication of the kind of problems you could practice 
 to determine if you understand the concept.
 
-Below the concepts subsections is a **comprehensive** section with example
+Below the concepts subsections is a section that when combined with all of
+the questions from the homework assignments is a comprehensive list of example
 question formats.  In other words, expect THESE question formats for all of
 the material that might be on the final exam.  NOTE, there will be NO drawing
-questions due to the final exam being online and the logistical issues
-that entails.
+questions this time around due the logistical issues drawing entails.
 
 While studying for the final exam, feel free to post ANY example questions 
 and answers on piazza.  DO include explanations for your answers and DO 
