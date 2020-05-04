@@ -124,7 +124,7 @@ The talk should include:
 * and how concepts in this course are used. (8 minutes)
 
 The talk will be graded on whether it covers the research problem,
-why paper care, a summary of the approach, and concepts used in this
+why people care, a summary of the approach, and concepts used in this
 course and the timing expectations as well as the following:
 * preparedness of the speakers (practice ahead of time),
 * showing a clear understanding of the concepts, and
